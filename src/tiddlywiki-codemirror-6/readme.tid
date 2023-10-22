@@ -8,6 +8,7 @@ If you like the plugin, feel free to leave me a star on [ext[GitHub|https://gith
 
 !! TODO
 
-* 焦点问题
+* [x] 字体大小问题
+* refactor engine.js to es6 class
+* 焦点残留问题
 * 调色板问题
-* 字体大小问题
