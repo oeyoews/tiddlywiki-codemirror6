@@ -92,8 +92,22 @@ class CodeMirrorEngine {
     this.openSearchPanel = openSearchPanel;
     this.closeSearchPanel = closeSearchPanel;
 
-    this.solarizedLightTheme = EditorView.theme({}, { dark: false });
-    this.solarizedDarkTheme = EditorView.theme({}, { dark: true });
+    this.solarizedLightTheme = EditorView.theme(
+      {
+        '&.cm-focused': {
+          outline: 'none',
+        },
+      },
+      { dark: false },
+    );
+    this.solarizedDarkTheme = EditorView.theme(
+      {
+        '&.cm-focused': {
+          outline: 'none',
+        },
+      },
+      { dark: true },
+    );
 
     this.solarizedLightHighlightStyle =
       $tw.utils.codemirror.getSolarizedLightHighlightStyle(
