@@ -1,7 +1,15 @@
 // @ts-nocheck
-import { completeAnyWord } from '@codemirror/autocomplete';
-import { tags } from '@lezer/highlight';
-import { Vim, vim } from '@replit/codemirror-vim';
+// @language
+import {
+  HighlightStyle,
+  indentUnit,
+  defaultHighlightStyle,
+  syntaxHighlighting,
+  indentOnInput,
+  bracketMatching,
+  foldGutter,
+  foldKeymap,
+} from '@codemirror/language';
 import { html, htmlLanguage } from '@codemirror/lang-html';
 import { json, jsonLanguage } from '@codemirror/lang-json';
 import { css, cssLanguage } from '@codemirror/lang-css';
@@ -11,16 +19,7 @@ import {
   markdownKeymap,
 } from '@codemirror/lang-markdown';
 import { javascript, javascriptLanguage } from '@codemirror/lang-javascript';
-import { HighlightStyle, syntaxHighlighting } from '@codemirror/language';
-import {
-  indentUnit,
-  defaultHighlightStyle,
-  syntaxHighlighting,
-  indentOnInput,
-  bracketMatching,
-  foldGutter,
-  foldKeymap,
-} from '@codemirror/language';
+
 import { EditorState, EditorSelection, Prec } from '@codemirror/state';
 import {
   searchKeymap,
@@ -28,9 +27,9 @@ import {
   openSearchPanel,
   closeSearchPanel,
 } from '@codemirror/search';
-
 import {
   autocompletion,
+  completeAnyWord,
   completionKeymap,
   closeBrackets,
   closeBracketsKeymap,
@@ -59,13 +58,10 @@ import {
   placeholder,
   tooltips,
 } from '@codemirror/view';
-import {
-  indentWithTab,
-  history,
-  historyKeymap,
-  undo,
-  redo,
-} from '@codemirror/commands';
+import { tags } from '@lezer/highlight';
+import { Vim, vim } from '@replit/codemirror-vim';
+// import { oneDarkTheme, oneDarkHighlightStyle, } from '@codemirror/theme-one-dark';
+
 // import { tiddlywiki, tiddlywikiLanguage } from '@codemirror/lang-tiddlywiki';
 
 class CodeMirrorEngine {
@@ -92,8 +88,22 @@ class CodeMirrorEngine {
     this.openSearchPanel = openSearchPanel;
     this.closeSearchPanel = closeSearchPanel;
 
-    this.solarizedLightTheme = EditorView.theme({}, { dark: false });
-    this.solarizedDarkTheme = EditorView.theme({}, { dark: true });
+    this.solarizedLightTheme = EditorView.theme(
+      {
+        '&.cm-focused': {
+          outline: 'none',
+        },
+      },
+      { dark: false },
+    );
+    this.solarizedDarkTheme = EditorView.theme(
+      {
+        '&.cm-focused': {
+          outline: 'none',
+        },
+      },
+      { dark: true },
+    );
 
     this.solarizedLightHighlightStyle =
       $tw.utils.codemirror.getSolarizedLightHighlightStyle(
@@ -324,10 +334,12 @@ class CodeMirrorEngine {
       editorExtensions.push(keymap.of([indentWithTab]));
     }
 
+    // vim
     editorExtensions.push(vim());
     Vim.map('jk', '<Esc>', 'insert'); // in insert mode
     Vim.map('H', '0', 'normal');
     Vim.map('L', '$', 'normal');
+    // editorExtensions.push(oneDarkTheme);
 
     if (
       this.widget.wiki.getTiddlerText(

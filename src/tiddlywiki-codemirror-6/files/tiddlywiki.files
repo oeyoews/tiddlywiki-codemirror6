@@ -1,14 +1,6 @@
 {
 	"tiddlers": [
 		{
-			"file": "lib/one-dark.js",
-			"fields": {
-				"type": "application/javascript",
-				"title": "$:/plugins/BTC/tiddlywiki-codemirror-6/lib/one-dark.js",
-				"module-type": "library"
-			}
-		},
-		{
 			"file": "modules/startup/load-codemirror-modules.js",
 			"fields": {
 				"type": "application/javascript",
