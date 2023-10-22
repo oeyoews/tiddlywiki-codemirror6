@@ -5,15 +5,13 @@ module-type: codemirror-utils
 
 \*/
 
-(function() {
-
-exports.validateRegex = function(regex) {
-	try {
-		new RegExp(regex);
-		return true;
-	} catch(e) {
-		return false;
-	}
-};
-
+(function () {
+  exports.validateRegex = function (regex) {
+    try {
+      new RegExp(regex);
+      return true;
+    } catch (e) {
+      return false;
+    }
+  };
 })();
