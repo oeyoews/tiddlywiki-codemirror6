@@ -60,6 +60,7 @@ import {
 } from '@codemirror/view';
 import { tags } from '@lezer/highlight';
 import { Vim, vim } from '@replit/codemirror-vim';
+// import { oneDarkTheme, oneDarkHighlightStyle, } from '@codemirror/theme-one-dark';
 
 // import { tiddlywiki, tiddlywikiLanguage } from '@codemirror/lang-tiddlywiki';
 
@@ -333,10 +334,12 @@ class CodeMirrorEngine {
       editorExtensions.push(keymap.of([indentWithTab]));
     }
 
+    // vim
     editorExtensions.push(vim());
     Vim.map('jk', '<Esc>', 'insert'); // in insert mode
     Vim.map('H', '0', 'normal');
     Vim.map('L', '$', 'normal');
+    // editorExtensions.push(oneDarkTheme);
 
     if (
       this.widget.wiki.getTiddlerText(

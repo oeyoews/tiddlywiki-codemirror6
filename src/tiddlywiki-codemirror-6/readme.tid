@@ -17,4 +17,6 @@ If you like the plugin, feel free to leave me a star on [ext[GitHub|https://gith
 * lang-tiddlywiki
 * refactor engine.js to es6 class
 * 焦点残留问题
-* 调色板问题
+* theme: https://github.com/codemirror/theme-one-dark
+* tab to completion
+* min completion length
