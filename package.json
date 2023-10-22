@@ -32,12 +32,11 @@
     ]
   },
   "devDependencies": {
-    "@modern-js/eslint-config": "^2.37.1",
-    "@modern-js/tsconfig": "^2.37.1",
+    "@modern-js/eslint-config": "^2.37.2",
+    "@modern-js/tsconfig": "^2.37.2",
     "@types/node": "^20.8.7",
     "husky": "^8.0.3",
     "lint-staged": "^15.0.2",
-    "postcss": "^8.4.31",
     "rimraf": "^5.0.5",
     "ts-node": "^10.9.1",
     "tw5-typed": "^0.3.11",

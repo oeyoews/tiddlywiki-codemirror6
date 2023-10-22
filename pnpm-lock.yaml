@@ -65,11 +65,11 @@ dependencies:
 
 devDependencies:
   '@modern-js/eslint-config':
-    specifier: ^2.37.1
-    version: 2.37.1(typescript@5.2.2)
+    specifier: ^2.37.2
+    version: 2.37.2(typescript@5.2.2)
   '@modern-js/tsconfig':
-    specifier: ^2.37.1
-    version: 2.37.1
+    specifier: ^2.37.2
+    version: 2.37.2
   '@types/node':
     specifier: ^20.8.7
     version: 20.8.7
@@ -79,9 +79,6 @@ devDependencies:
   lint-staged:
     specifier: ^15.0.2
     version: 15.0.2
-  postcss:
-    specifier: ^8.4.31
-    version: 8.4.31
   rimraf:
     specifier: ^5.0.5
     version: 5.0.5
@@ -1770,8 +1767,8 @@ packages:
       '@lezer/highlight': 1.1.6
     dev: false
 
-  /@modern-js-app/eslint-config@2.37.1(typescript@5.2.2):
-    resolution: {integrity: sha512-VoZ4EtbOGrk5ocM0r300LSasZZUIsfpDGfyKMIB7XaL7Cqak/XKh9A2nhu9fbuxgePswk0+EYhPcwf8vrAoTTw==}
+  /@modern-js-app/eslint-config@2.37.2(typescript@5.2.2):
+    resolution: {integrity: sha512-UyTe4N+v01hc7hxLSkiP7082lb7+GYIpakR2vh5mgeupnPrqJp9SpHWHkWqu/joGKlJQBsY8oTn2sGZa+QV4ow==}
     peerDependencies:
       typescript: ^4 || ^5
     dependencies:
@@ -1799,10 +1796,10 @@ packages:
       - supports-color
     dev: true
 
-  /@modern-js/eslint-config@2.37.1(typescript@5.2.2):
-    resolution: {integrity: sha512-dcvMIFlQmZWUQqN/k6hMFFkQjjQNU9b+G72rUsXvOzen5gT16gb7UQoWie3QL9DKdlnKigH9TKcb/fmGy+ObaQ==}
+  /@modern-js/eslint-config@2.37.2(typescript@5.2.2):
+    resolution: {integrity: sha512-5NFQnQz+lupFqepRj5WJix08WwzNlgCbDLj657vHfA4AlwBce5l7k93cZwEw0EX5Zdgr0WEJbqSK2o7K+rzvZg==}
     dependencies:
-      '@modern-js-app/eslint-config': 2.37.1(typescript@5.2.2)
+      '@modern-js-app/eslint-config': 2.37.2(typescript@5.2.2)
     transitivePeerDependencies:
       - eslint-import-resolver-typescript
       - eslint-import-resolver-webpack
@@ -1810,8 +1807,8 @@ packages:
       - typescript
     dev: true
 
-  /@modern-js/tsconfig@2.37.1:
-    resolution: {integrity: sha512-O5Na0L/cmPLNc1wJ4mXox5ql5ByokhJfNQNsIOIz3If0Yceo+CUsZkdYvErWf4sKVXfH0iLGGkRUHNunUs4NAw==}
+  /@modern-js/tsconfig@2.37.2:
+    resolution: {integrity: sha512-LpPMViUIIAeIt7/DVL53bjvOTbmuPEgrvsJ5XCNu9xUrxBa3IAa7t9LWb0EBUz3J3K1h3eZ0LDRoOCWpx/q3Og==}
     dev: true
 
   /@nicolo-ribaudo/eslint-scope-5-internals@5.1.1-v1:
@@ -5130,6 +5127,7 @@ packages:
     resolution: {integrity: sha512-BGcqMMJuToF7i1rt+2PWSNVnWIkGCU78jBG3RxO/bZlnZPK2Cmi2QaffxGO/2RvWi9sL+FAiRiXMgsyxQ1DIDA==}
     engines: {node: ^10 || ^12 || ^13.7 || ^14 || >=15.0.1}
     hasBin: true
+    dev: false
 
   /natural-compare-lite@1.4.0:
     resolution: {integrity: sha512-Tj+HTDSJJKaZnfiuw+iaF9skdPpTo2GtEly5JHnWV/hfv2Qj/9RKsGISQtLh2ox3l5EAGw487hnBee0sIJ6v2g==}
@@ -5743,6 +5741,7 @@ packages:
       nanoid: 3.3.6
       picocolors: 1.0.0
       source-map-js: 1.0.2
+    dev: false
 
   /prelude-ls@1.2.1:
     resolution: {integrity: sha512-vkcDPrRZo1QZLbn5RLGPpg/WmIQ65qoWWhcGKf/b5eplkkarX0m9z8ppCat4mlOqUsWpyNuYgO3VRyrYHSzX5g==}
@@ -6284,6 +6283,7 @@ packages:
   /source-map-js@1.0.2:
     resolution: {integrity: sha512-R0XvVJ9WusLiqTCEiGCmICCMplcCkIwwR11mOSD9CR5u+IXYdiseeEuXCVAjS54zqwkLcPNnmU4OeJ6tUrWhDw==}
     engines: {node: '>=0.10.0'}
+    dev: false
 
   /source-map-support@0.5.21:
     resolution: {integrity: sha512-uBHU3L3czsIyYXKX88fdrGovxdSCoTGDRZ6SYXtSRxLZUzHg5P/66Ht6uoUlHu9EZod+inXhKo3qQgwXUT/y1w==}
