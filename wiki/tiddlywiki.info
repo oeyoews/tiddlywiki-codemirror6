@@ -1,0 +1,16 @@
+{
+    "description": "Basic client-server edition",
+    "plugins": [
+        "tiddlywiki/filesystem",
+        "tiddlywiki/tiddlyweb",
+        "tiddlywiki/pluginlibrary",
+        "tiddlywiki/highlight"
+    ],
+    "themes": [
+        "tiddlywiki/vanilla"
+    ],
+    "languages": [
+        "zh-Hans"
+    ],
+    "build": {}
+}

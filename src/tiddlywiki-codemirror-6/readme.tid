@@ -1,0 +1,13 @@
+title: $:/plugins/BTC/tiddlywiki-codemirror-6/readme
+
+!!! This plugin adds the [ext[CodeMirror 6|https://codemirror.net]] editor to [ext[TiddlyWiki|https://tiddlywiki.com]]
+
+See the ''usage'' section for keyboard shortcuts
+
+If you like the plugin, feel free to leave me a star on [ext[GitHub|https://github.com/BurningTreeC/tiddlywiki-codemirror-6]]
+
+!! TODO
+
+* 焦点问题
+* 调色板问题
+* 字体大小问题

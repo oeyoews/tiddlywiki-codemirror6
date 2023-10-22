@@ -1,0 +1,7 @@
+title: $:/plugins/BTC/tiddlywiki-codemirror-6/ui/EditorToolbar/translate
+tags: $:/tags/EditorTools
+condition: [{$:/config/codemirror-6/translate}match[yes]then<targetTiddler>!has[type]] [{$:/config/codemirror-6/translate}match[yes]then<targetTiddler>get[type]!prefix[image/]] [{$:/config/codemirror-6/translate}match[yes]then<targetTiddler>get[type]match[image/svg+xml]]
+
+<div>
+<$checkbox tiddler={{{ [[$:/state/codemirror-6/translate/]addsuffix<storyTiddler>] }}} field="text" checked="yes" unchecked="no"> //translate//</$checkbox>
+</div>

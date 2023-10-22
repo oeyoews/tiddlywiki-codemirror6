@@ -1,0 +1,13 @@
+title: $:/plugins/BTC/tiddlywiki-codemirror-6/ui/EditorToolbar/fullscreen
+tags: $:/tags/EditorToolbar
+icon: $:/core/images/full-screen-button
+caption: Fullscreen
+description: toggle the fullscreen view of the editor
+condition: [<targetTiddler>]
+shortcuts: ((editor-fullscreen))
+
+<$list filter="[[$:/state/codemirror-6/fullscreen/]addsuffix<targetTiddler>is[missing]] [[$:/state/codemirror-6/fullscreen/]addsuffix<targetTiddler>get[text]match[no]]" emptyMessage="""
+<$action-setfield $tiddler={{{ [[$:/state/codemirror-6/fullscreen/]addsuffix<storyTiddler>] }}} text="no"/>
+""">
+<$action-setfield $tiddler={{{ [[$:/state/codemirror-6/fullscreen/]addsuffix<storyTiddler>] }}} text="yes"/>
+</$list>

@@ -1,0 +1,6 @@
+title: $:/config/codemirror-6/fontsize
+caption: Font-size
+description: The fontsize of the text within the editor
+settings-template: $:/plugins/BTC/tiddlywiki-codemirror-6/ui/templates/settings/input
+
+15px

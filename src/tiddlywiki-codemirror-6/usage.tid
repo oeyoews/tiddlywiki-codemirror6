@@ -1,0 +1,53 @@
+title: $:/plugins/BTC/tiddlywiki-codemirror-6/usage
+
+!!! Keyboard shortcuts
+
+!!!! Note that any ~TiddlyWiki global keyboard shortcut or keyboard shortcut defined in a surrounding keyboard widget gets precedence
+
+"""
+
+''ArrowLeft'': cursorCharLeft (selectCharLeft with Shift)
+''ArrowRight'': cursorCharRight (selectCharRight with Shift)
+''Ctrl-ArrowLeft'' (Alt-ArrowLeft on macOS): cursorGroupLeft (selectGroupLeft with Shift)
+''Ctrl-ArrowRight'' (Alt-ArrowRight on macOS): cursorGroupRight (selectGroupRight with Shift)
+''Cmd-ArrowLeft'' (on macOS): cursorLineStart (selectLineStart with Shift)
+''Cmd-ArrowRight'' (on macOS): cursorLineEnd (selectLineEnd with Shift)
+''ArrowUp'': cursorLineUp (selectLineUp with Shift)
+''ArrowDown'': cursorLineDown (selectLineDown with Shift)
+''Cmd-ArrowUp'' (on macOS): cursorDocStart (selectDocStart with Shift)
+''Cmd-ArrowDown'' (on macOS): cursorDocEnd (selectDocEnd with Shift)
+''Ctrl-ArrowUp'' (on macOS): cursorPageUp (selectPageUp with Shift)
+''Ctrl-ArrowDown'' (on macOS): cursorPageDown (selectPageDown with Shift)
+''PageUp'': cursorPageUp (selectPageUp with Shift)
+''PageDown'': cursorPageDown (selectPageDown with Shift)
+''Home'': cursorLineBoundaryBackward (selectLineBoundaryBackward with Shift)
+''End'': cursorLineBoundaryForward (selectLineBoundaryForward with Shift)
+''Ctrl-Home'' (Cmd-Home on macOS): cursorDocStart (selectDocStart with Shift)
+''Ctrl-End'' (Cmd-Home on macOS): cursorDocEnd (selectDocEnd with Shift)
+''Enter'': insertNewlineAndIndent
+''Ctrl-a'' (Cmd-a on macOS): selectAll
+''Backspace'': deleteCharBackward
+''Delete'': deleteCharForward
+''Ctrl-Backspace'' (Alt-Backspace on macOS): deleteGroupBackward
+''Ctrl-Delete'' (Alt-Delete on macOS): deleteGroupForward
+''Cmd-Backspace'' (macOS): deleteToLineStart.
+''Cmd-Delete'' (macOS): deleteToLineEnd.
+''Alt-ArrowLeft'' (Ctrl-ArrowLeft on macOS): cursorSyntaxLeft (selectSyntaxLeft with Shift)
+''Alt-ArrowRight'' (Ctrl-ArrowRight on macOS): cursorSyntaxRight (selectSyntaxRight with Shift)
+''Alt-ArrowUp'': moveLineUp
+''Alt-ArrowDow''n: moveLineDown
+''Shift-Alt-ArrowUp'': copyLineUp
+''Shift-Alt-ArrowDown'': copyLineDown
+~~Escape~~: simplifySelection //this is disabled when a surrounding keyboard widget handles it as it does in the default $:/core/ui/EditTemplate //
+~~Ctrl-Enter~~ (Cmd-Enter on macOS): insertBlankLine //this is disabled when a surrounding keyboard widget handles it as it does in the default $:/core/ui/EditTemplate //
+''Alt-l'' (Ctrl-l on macOS): selectLine
+''Ctrl-i'' (Cmd-i on macOS): selectParentSyntax
+''Ctrl-['' (Cmd-[ on macOS): indentLess
+''Ctrl-]'' (Cmd-] on macOS): indentMore
+''Ctrl-Alt-\'' (Cmd-Alt-\ on macOS): indentSelection
+''Shift-Ctrl-k'' (Shift-Cmd-k on macOS): deleteLine
+''Shift-Ctrl-\'' (Shift-Cmd-\ on macOS): cursorMatchingBracket
+''Ctrl-/'' (Cmd-/ on macOS): toggleComment.
+''Shift-Alt-a'': toggleBlockComment.
+
+"""

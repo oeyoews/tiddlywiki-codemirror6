@@ -1,0 +1,6 @@
+title: $:/config/codemirror-6/bracketMatching
+caption: Bracket matching
+description: whether or not matching brackets should be highlighted
+settings-template: $:/plugins/BTC/tiddlywiki-codemirror-6/ui/templates/settings/input-switch
+
+yes

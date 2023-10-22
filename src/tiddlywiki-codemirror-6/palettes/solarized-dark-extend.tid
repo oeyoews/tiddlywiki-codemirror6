@@ -1,0 +1,19 @@
+title: $:/palettes/SolarizedDark/extend
+type: application/x-tiddler-dictionary
+
+cm-active-line: rgba(153, 238, 255, 0.2)
+cm-gutter-background: <<colour background>>
+cm-gutter-foreground: <<colour foreground>>
+cm-search-match: <<colour diff-insert-background>>
+cm-search-match-border: <<colour download-background>>
+cm-search-match-selected: <<colour download-background>>
+cm-selection-match: <<colour notification-background>>
+cm-matching-bracket-outline: <<colour notification-border>>
+cm-tooltip-background: <<colour background>>
+cm-tooltip-foreground: <<colour foreground>>
+cm-selection-background: <<colour tiddler-controls-foreground-selected>>
+cm-selection-foreground: white
+cm-tooltip-selected-background: <<colour primary>>
+cm-tooltip-selected-foreground: <<colour background>>
+cm-caret-colour: <<colour foreground>>
+cm-fold-placeholder-foreground: <<colour foreground>>

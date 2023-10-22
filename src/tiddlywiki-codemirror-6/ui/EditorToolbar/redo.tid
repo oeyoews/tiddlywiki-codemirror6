@@ -1,0 +1,11 @@
+title: $:/plugins/BTC/tiddlywiki-codemirror-6/ui/EditorToolbar/redo
+tags: $:/tags/EditorToolbar
+icon: $:/plugins/BTC/tiddlywiki-codemirror-6/icons/redo
+caption: Redo
+description: redo the last edit / text operation
+condition: [<targetTiddler>!has[type]] [<targetTiddler>get[type]!prefix[image/]] [<targetTiddler>get[type]match[image/svg+xml]]
+
+<$action-sendmessage
+	$message="tm-edit-text-operation"
+	$param="redo"
+/>

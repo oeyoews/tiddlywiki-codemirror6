@@ -1,0 +1,19 @@
+title: $:/palettes/Blue/extend
+type: application/x-tiddler-dictionary
+
+cm-active-line: rgba(240, 244, 240, 0.75)
+cm-gutter-background: <<colour muted-foreground>>
+cm-gutter-foreground: <<colour foreground>>
+cm-search-match: <<colour diff-insert-background>>
+cm-search-match-border: <<colour download-background>>
+cm-search-match-selected: <<colour download-background>>
+cm-selection-match: <<colour notification-background>>
+cm-matching-bracket-outline: <<colour notification-border>>
+cm-tooltip-background: <<colour background>>
+cm-tooltip-foreground: <<colour foreground>>
+cm-selection-background: <<colour primary>>
+cm-selection-foreground: <<colour tiddler-background>>
+cm-tooltip-selected-background: <<colour primary>>
+cm-tooltip-selected-foreground: <<colour background>>
+cm-caret-colour: <<colour foreground>>
+cm-fold-placeholder-foreground: <<colour foreground>>
