@@ -1,3 +1,4 @@
 title: $:/plugins/BTC/tiddlywiki-codemirror-6/engine.js
 type: application/javascript
 module-type: library
+hide-body: yes

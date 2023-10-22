@@ -9,22 +9,6 @@
 			}
 		},
 		{
-			"file": "lib/vim.min.js",
-			"fields": {
-				"type": "application/javascript",
-				"title": "$:/plugins/BTC/tiddlywiki-codemirror-6/lib/vim.min.js",
-				"module-type": "library"
-			}
-		},
-		{
-			"file": "lib/codemirror.js",
-			"fields": {
-				"type": "application/javascript",
-				"title": "$:/plugins/BTC/tiddlywiki-codemirror-6/lib/codemirror.js",
-				"module-type": "library"
-			}
-		},
-		{
 			"file": "modules/startup/load-codemirror-modules.js",
 			"fields": {
 				"type": "application/javascript",

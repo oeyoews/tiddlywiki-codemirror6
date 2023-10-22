@@ -1,12 +1,81 @@
-if ($tw.browser && !window.CM) {
-  require('$:/plugins/BTC/tiddlywiki-codemirror-6/lib/codemirror.js');
-}
+// @ts-nocheck
+// import { tiddlywiki, tiddlywikiLanguage } from '@codemirror/lang-tiddlywiki';
+import { completeAnyWord } from '@codemirror/autocomplete';
+import { tags } from '@lezer/highlight';
+import { Vim, vim } from '@replit/codemirror-vim';
+import { html, htmlLanguage } from '@codemirror/lang-html';
+import { json, jsonLanguage } from '@codemirror/lang-json';
+import { css, cssLanguage } from '@codemirror/lang-css';
+import {
+  markdown,
+  markdownLanguage,
+  markdownKeymap,
+} from '@codemirror/lang-markdown';
 
-function CodeMirrorEngine(options) {
-  const {
-    Vim,
-  } = require('$:/plugins/BTC/tiddlywiki-codemirror-6/lib/vim.min.js');
+import { javascript, javascriptLanguage } from '@codemirror/lang-javascript';
+import { HighlightStyle, syntaxHighlighting } from '@codemirror/language';
 
+import {
+  indentUnit,
+  defaultHighlightStyle,
+  syntaxHighlighting,
+  indentOnInput,
+  bracketMatching,
+  foldGutter,
+  foldKeymap,
+} from '@codemirror/language';
+
+import { EditorState, EditorSelection, Prec } from '@codemirror/state';
+
+import {
+  searchKeymap,
+  highlightSelectionMatches,
+  openSearchPanel,
+  closeSearchPanel,
+} from '@codemirror/search';
+
+import {
+  autocompletion,
+  completionKeymap,
+  closeBrackets,
+  closeBracketsKeymap,
+  completionStatus,
+  acceptCompletion,
+} from '@codemirror/autocomplete';
+
+import { lintKeymap } from '@codemirror/lint';
+
+import {
+  indentWithTab,
+  history,
+  historyKeymap,
+  undo,
+  redo,
+} from '@codemirror/commands';
+import {
+  EditorView,
+  dropCursor,
+  keymap,
+  highlightSpecialChars,
+  drawSelection,
+  highlightActiveLine,
+  rectangularSelection,
+  crosshairCursor,
+  lineNumbers,
+  highlightActiveLineGutter,
+  placeholder,
+  tooltips,
+} from '@codemirror/view';
+
+import {
+  indentWithTab,
+  history,
+  historyKeymap,
+  undo,
+  redo,
+} from '@codemirror/commands';
+
+function CodeMirrorEngine(options: any) {
   // Save our options
   var self = this;
   options = options || {};
@@ -23,60 +92,6 @@ function CodeMirrorEngine(options) {
   this.parentNode.insertBefore(this.domNode, this.nextSibling);
   this.widget.domNodes.push(this.domNode);
 
-  var {
-    EditorView,
-    dropCursor,
-    keymap,
-    highlightSpecialChars,
-    drawSelection,
-    highlightActiveLine,
-    rectangularSelection,
-    crosshairCursor,
-    lineNumbers,
-    highlightActiveLineGutter,
-    placeholder,
-    tooltips,
-  } = CM['@codemirror/view'];
-  var {
-    defaultKeymap,
-    standardKeymap,
-    indentWithTab,
-    history,
-    historyKeymap,
-    undo,
-    redo,
-  } = CM['@codemirror/commands'];
-  var {
-    language,
-    indentUnit,
-    defaultHighlightStyle,
-    syntaxHighlighting,
-    syntaxTree,
-    indentOnInput,
-    bracketMatching,
-    foldGutter,
-    foldKeymap,
-  } = CM['@codemirror/language'];
-  var { Extension, EditorState, Compartment, EditorSelection, Prec } =
-    CM['@codemirror/state'];
-  var {
-    searchKeymap,
-    highlightSelectionMatches,
-    openSearchPanel,
-    closeSearchPanel,
-  } = CM['@codemirror/search'];
-  var {
-    autocompletion,
-    completionKeymap,
-    closeBrackets,
-    closeBracketsKeymap,
-    completionStatus,
-    acceptCompletion,
-  } = CM['@codemirror/autocomplete'];
-  var { lintKeymap } = CM['@codemirror/lint'];
-
-  var { Tree, Parser } = CM['@lezer/common'];
-
   this.editorSelection = EditorSelection;
   this.completionStatus = completionStatus;
 
@@ -87,10 +102,6 @@ function CodeMirrorEngine(options) {
 
   this.solarizedLightTheme = EditorView.theme({}, { dark: false });
   this.solarizedDarkTheme = EditorView.theme({}, { dark: true });
-
-  var { styleTags, tags } = CM['@lezer/highlight'];
-  var { HighlightStyle, TagStyle, syntaxHighlighting } =
-    CM['@codemirror/language'];
 
   this.solarizedLightHighlightStyle =
     $tw.utils.codemirror.getSolarizedLightHighlightStyle(HighlightStyle, tags);
@@ -108,7 +119,6 @@ function CodeMirrorEngine(options) {
       ? this.solarizedLightHighlightStyle
       : this.solarizedDarkHighlightStyle;
 
-  var { CompletionContext, completeAnyWord } = CM['@codemirror/autocomplete'];
   var autoCloseBrackets =
     this.widget.wiki.getTiddlerText('$:/config/codemirror-6/closeBrackets') ===
     'yes';
@@ -270,7 +280,6 @@ function CodeMirrorEngine(options) {
     highlightSelectionMatches(),
     keymap.of([
       ...closeBracketsKeymap,
-      // ...defaultKeymap, // option vim mode or default mode
       ...searchKeymap,
       ...historyKeymap,
       ...foldKeymap,
@@ -317,23 +326,10 @@ function CodeMirrorEngine(options) {
     editorExtensions.push(keymap.of([indentWithTab]));
   }
 
-  // support vimmode
-  // use keymap configuration
   editorExtensions.push(vim());
-  // editorExtensions.push(oneDarkTheme, oneDark);
-  // let cm = getCM(view);
-  // // use cm to access the old cm5 api
-  // Vim.exitInsertMode(cm);
-  // Vim.handleKey(cm, "<Esc>");
   Vim.map('jk', '<Esc>', 'insert'); // in insert mode
   Vim.map('H', '0', 'normal');
   Vim.map('L', '$', 'normal');
-  Vim.defineEx('q', 'q', function () {
-    // exit this file
-  });
-  Vim.defineEx('w', 'w', function () {
-    // save this file
-  });
 
   if (
     this.widget.wiki.getTiddlerText(
@@ -384,21 +380,18 @@ function CodeMirrorEngine(options) {
   editorExtensions.push(indentUnit.of(cmIndentUnit));
 
   var mode = this.widget.editType;
-  if (mode === '') {
-    mode = 'text/vnd.tiddlywiki';
-  }
+  // if (mode === '') {
+  //   mode = 'text/vnd.tiddlywiki';
+  // }
   switch (mode) {
-    case 'text/vnd.tiddlywiki':
-      var { tiddlywiki, tiddlywikiLanguage } =
-        CM['@codemirror/lang-tiddlywiki'];
-      editorExtensions.push(tiddlywiki());
-      var actionCompletions = tiddlywikiLanguage.data.of({
-        autocomplete: this.actionCompletionSource,
-      });
-      editorExtensions.push(Prec.high(actionCompletions));
-      break;
+    // case 'text/vnd.tiddlywiki':
+    //   editorExtensions.push(tiddlywiki());
+    //   var actionCompletions = tiddlywikiLanguage.data.of({
+    //     autocomplete: this.actionCompletionSource,
+    //   });
+    //   editorExtensions.push(Prec.high(actionCompletions));
+    //   break;
     case 'text/html':
-      var { html, htmlLanguage } = CM['@codemirror/lang-html'];
       editorExtensions.push(html({ selfClosingTags: true }));
       var actionCompletions = htmlLanguage.data.of({
         autocomplete: this.actionCompletionSource,
@@ -406,8 +399,6 @@ function CodeMirrorEngine(options) {
       editorExtensions.push(Prec.high(actionCompletions));
       break;
     case 'application/javascript':
-      var { javascript, javascriptLanguage, scopeCompletionSource } =
-        CM['@codemirror/lang-javascript'];
       editorExtensions.push(javascript());
       var actionCompletions = javascriptLanguage.data.of({
         autocomplete: this.actionCompletionSource,
@@ -420,7 +411,6 @@ function CodeMirrorEngine(options) {
 					);*/
       break;
     case 'application/json':
-      var { json, jsonLanguage } = CM['@codemirror/lang-json'];
       editorExtensions.push(json());
       var actionCompletions = jsonLanguage.data.of({
         autocomplete: this.actionCompletionSource,
@@ -428,7 +418,6 @@ function CodeMirrorEngine(options) {
       editorExtensions.push(Prec.high(actionCompletions));
       break;
     case 'text/css':
-      var { css, cssLanguage } = CM['@codemirror/lang-css'];
       editorExtensions.push(css());
       var actionCompletions = cssLanguage.data.of({
         autocomplete: this.actionCompletionSource,
@@ -437,8 +426,6 @@ function CodeMirrorEngine(options) {
       break;
     case 'text/markdown':
     case 'text/x-markdown':
-      var { markdown, markdownLanguage, markdownKeymap } =
-        CM['@codemirror/lang-markdown'];
       editorExtensions.push(markdown({ base: markdownLanguage }));
       var actionCompletions = markdownLanguage.data.of({
         autocomplete: this.actionCompletionSource,
@@ -545,8 +532,6 @@ CodeMirrorEngine.prototype.handleKeydownEvent = function (event, view) {
   Set the text of the engine if it doesn't currently have focus
   */
 CodeMirrorEngine.prototype.setText = function (text, type) {
-  //var {Compartment} = CM["@codemirror/state"];
-  //var languageCompartment = new Compartment();
   if (!this.cm.hasFocus) {
     this.updateDomNodeText(text);
   }
