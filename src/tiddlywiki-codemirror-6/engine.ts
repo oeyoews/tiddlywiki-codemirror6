@@ -11,10 +11,8 @@ import {
   markdownLanguage,
   markdownKeymap,
 } from '@codemirror/lang-markdown';
-
 import { javascript, javascriptLanguage } from '@codemirror/lang-javascript';
 import { HighlightStyle, syntaxHighlighting } from '@codemirror/language';
-
 import {
   indentUnit,
   defaultHighlightStyle,
@@ -24,9 +22,7 @@ import {
   foldGutter,
   foldKeymap,
 } from '@codemirror/language';
-
 import { EditorState, EditorSelection, Prec } from '@codemirror/state';
-
 import {
   searchKeymap,
   highlightSelectionMatches,
@@ -42,9 +38,7 @@ import {
   completionStatus,
   acceptCompletion,
 } from '@codemirror/autocomplete';
-
 import { lintKeymap } from '@codemirror/lint';
-
 import {
   indentWithTab,
   history,
@@ -66,7 +60,6 @@ import {
   placeholder,
   tooltips,
 } from '@codemirror/view';
-
 import {
   indentWithTab,
   history,
@@ -76,7 +69,6 @@ import {
 } from '@codemirror/commands';
 
 function CodeMirrorEngine(options: any) {
-  // Save our options
   var self = this;
   options = options || {};
   this.widget = options.widget;
