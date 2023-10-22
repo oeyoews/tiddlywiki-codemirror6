@@ -1,2 +1,8 @@
 node_modules/
 dist/
+**/*.min.js
+pnpm-lock.yaml
+.tiddlywiki/
+.vscode/
+.github/
+wiki/

@@ -20,3 +20,5 @@ If you like the plugin, feel free to leave me a star on [ext[GitHub|https://gith
 * theme: https://github.com/codemirror/theme-one-dark
 * tab to completion
 * min completion length
+* snippets support compatiable vscode or vim snippets
+* Uncaught RangeError: A document must have at least one line
