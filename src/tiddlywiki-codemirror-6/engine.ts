@@ -372,9 +372,9 @@ function CodeMirrorEngine(options: any) {
   editorExtensions.push(indentUnit.of(cmIndentUnit));
 
   var mode = this.widget.editType;
-  // if (mode === '') {
-  //   mode = 'text/vnd.tiddlywiki';
-  // }
+  if (mode === '') {
+    mode = 'text/vnd.tiddlywiki';
+  }
   switch (mode) {
     // case 'text/vnd.tiddlywiki':
     //   editorExtensions.push(tiddlywiki());
