@@ -12,7 +12,8 @@ If you like the plugin, feel free to leave me a star on [ext[GitHub|https://gith
 * lsp: https://github.com/FurqanSoftware/codemirror-languageserver
 * [ ] autocompletion better
 * [ ] multi cursor
-* [ ] toggle line wrap
+* [ ] toggle line wrap config option
+* subplugin for different language
 * lang-tiddlywiki
 * refactor engine.js to es6 class
 * 焦点残留问题
