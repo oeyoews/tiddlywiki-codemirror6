@@ -1,4 +1,5 @@
 // @ts-nocheck
+
 // @language
 import {
   HighlightStyle,
@@ -10,23 +11,28 @@ import {
   foldGutter,
   foldKeymap
 } from '@codemirror/language';
+
 import { html, htmlLanguage } from '@codemirror/lang-html';
 import { json, jsonLanguage } from '@codemirror/lang-json';
 import { css, cssLanguage } from '@codemirror/lang-css';
+
 import {
   markdown,
   markdownLanguage,
   markdownKeymap
 } from '@codemirror/lang-markdown';
+
 import { javascript, javascriptLanguage } from '@codemirror/lang-javascript';
 
 import { EditorState, EditorSelection, Prec } from '@codemirror/state';
+
 import {
   searchKeymap,
   highlightSelectionMatches,
   openSearchPanel,
   closeSearchPanel
 } from '@codemirror/search';
+
 import {
   autocompletion,
   completeAnyWord,
@@ -36,6 +42,7 @@ import {
   completionStatus,
   acceptCompletion
 } from '@codemirror/autocomplete';
+
 import { lintKeymap } from '@codemirror/lint';
 import {
   indentWithTab,
@@ -44,6 +51,7 @@ import {
   undo,
   redo
 } from '@codemirror/commands';
+
 import {
   EditorView,
   dropCursor,
@@ -60,7 +68,11 @@ import {
 } from '@codemirror/view';
 import { tags } from '@lezer/highlight';
 import { Vim, vim } from '@replit/codemirror-vim';
-// import { oneDarkTheme, oneDarkHighlightStyle, } from '@codemirror/theme-one-dark';
+import {
+  oneDark,
+  oneDarkTheme,
+  oneDarkHighlightStyle
+} from '@codemirror/theme-one-dark';
 
 // import { tiddlywiki, tiddlywikiLanguage } from '@codemirror/lang-tiddlywiki';
 
@@ -188,8 +200,9 @@ class CodeMirrorEngine {
 
     var editorExtensions = [
       dropCursor(),
-      solarizedTheme,
-      Prec.high(syntaxHighlighting(solarizedHighlightStyle)),
+      // solarizedTheme,
+      // Prec.high(syntaxHighlighting(solarizedHighlightStyle)),
+      oneDark,
       Prec.high(
         EditorView.domEventHandlers({
           drop(event, view) {
@@ -266,7 +279,7 @@ class CodeMirrorEngine {
       tooltips({
         parent: self.domNode.ownerDocument.body
       }),
-      //basicSetup,
+      // basicSetup,
       highlightSpecialChars(),
       history(), //{newGroupDelay: 0, joinToEvent: function() { return false; }}),
       drawSelection(),
@@ -339,7 +352,6 @@ class CodeMirrorEngine {
     Vim.map('jk', '<Esc>', 'insert'); // in insert mode
     Vim.map('H', '0', 'normal');
     Vim.map('L', '$', 'normal');
-    // editorExtensions.push(oneDarkTheme);
 
     if (
       this.widget.wiki.getTiddlerText(
