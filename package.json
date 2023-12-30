@@ -3,7 +3,6 @@
   "license": "MIT",
   "version": "0.0.2",
   "scripts": {
-    "format": "prettier --write .",
     "dev": "tiddlywiki-plugin-dev dev",
     "build": "npm run clean && tiddlywiki-plugin-dev build",
     "publish": "npm run clean && tiddlywiki-plugin-dev publish",
@@ -11,32 +10,20 @@
     "clean": "rimraf dist",
     "prepare": "husky install",
     "update": "npm-check-updates -u",
+    "format": "prettier . --write",
     "new": "tiddlywiki-plugin-dev new",
     "build:library": "npm run clean && tiddlywiki-plugin-dev build --library --output dist/library",
     "publish:offline": "npm run clean && tiddlywiki-plugin-dev publish --offline"
   },
+  "prettier": "@oeyoews/prettier-config",
   "engines": {
     "node": ">=16"
-  },
-  "husky": {
-    "hooks": {
-      "pre-commit": "lint-staged"
-    }
-  },
-  "lint-staged": {
-    "*.{ts,tsx}": [
-      "node --max_old_space_size=8192 ./node_modules/eslint/bin/eslint.js --fix --color --cache --quiet"
-    ],
-    "*.{js,jsx,mjs,mjsx,cjs,cjsx}": [
-      "node --max_old_space_size=8192 ./node_modules/eslint/bin/eslint.js --fix --color --cache --quiet"
-    ]
   },
   "devDependencies": {
     "@modern-js/eslint-config": "^2.44.0",
     "@modern-js/tsconfig": "^2.44.0",
+    "@oeyoews/prettier-config": "^1.0.2",
     "@types/node": "^20.10.6",
-    "husky": "^8.0.3",
-    "lint-staged": "^15.2.0",
     "rimraf": "^5.0.5",
     "ts-node": "^10.9.2",
     "tw5-typed": "^0.4.3",

@@ -32,7 +32,7 @@ Widget base class
     }
     Object.getPrototypeOf(Object.getPrototypeOf(this)).refresh.call(
       this,
-      changedTiddlers,
+      changedTiddlers
     );
   };
 })();

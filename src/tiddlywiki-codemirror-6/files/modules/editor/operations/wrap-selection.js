@@ -20,7 +20,7 @@ Text editor operation to wrap the selection with the specified prefix and suffix
           if (
             op.text.substring(
               op.selStart - event.paramObject.prefix.length,
-              op.selStart + event.paramObject.suffix.length,
+              op.selStart + event.paramObject.suffix.length
             ) ===
             event.paramObject.prefix + event.paramObject.suffix
           ) {
@@ -44,11 +44,11 @@ Text editor operation to wrap the selection with the specified prefix and suffix
         } else if (
           op.text.substring(
             op.selStart,
-            op.selStart + event.paramObject.prefix.length,
+            op.selStart + event.paramObject.prefix.length
           ) === event.paramObject.prefix &&
           op.text.substring(
             op.selEnd - event.paramObject.suffix.length,
-            op.selEnd,
+            op.selEnd
           ) === event.paramObject.suffix
         ) {
           // Prefix and suffix are already present, so remove them
@@ -56,7 +56,7 @@ Text editor operation to wrap the selection with the specified prefix and suffix
           op.cutEnd = operation[i].selEnd;
           op.replacement = op.selection.substring(
             event.paramObject.prefix.length,
-            op.selection.length - event.paramObject.suffix.length,
+            op.selection.length - event.paramObject.suffix.length
           );
           op.newSelStart = operation[i].selStart;
           op.newSelEnd = operation[i].selStart + op.replacement.length;
@@ -76,7 +76,7 @@ Text editor operation to wrap the selection with the specified prefix and suffix
         if (
           operation.text.substring(
             operation.selStart - event.paramObject.prefix.length,
-            operation.selStart + event.paramObject.suffix.length,
+            operation.selStart + event.paramObject.suffix.length
           ) ===
           event.paramObject.prefix + event.paramObject.suffix
         ) {
@@ -100,11 +100,11 @@ Text editor operation to wrap the selection with the specified prefix and suffix
       } else if (
         operation.text.substring(
           operation.selStart,
-          operation.selStart + event.paramObject.prefix.length,
+          operation.selStart + event.paramObject.prefix.length
         ) === event.paramObject.prefix &&
         operation.text.substring(
           operation.selEnd - event.paramObject.suffix.length,
-          operation.selEnd,
+          operation.selEnd
         ) === event.paramObject.suffix
       ) {
         // Prefix and suffix are already present, so remove them
@@ -112,7 +112,7 @@ Text editor operation to wrap the selection with the specified prefix and suffix
         operation.cutEnd = operation.selEnd;
         operation.replacement = operation.selection.substring(
           event.paramObject.prefix.length,
-          operation.selection.length - event.paramObject.suffix.length,
+          operation.selection.length - event.paramObject.suffix.length
         );
         operation.newSelStart = operation.selStart;
         operation.newSelEnd = operation.selStart + operation.replacement.length;

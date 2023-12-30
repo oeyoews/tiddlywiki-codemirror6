@@ -5,7 +5,7 @@ module.exports = {
   ignorePatterns: tsEslintConfig.exclude,
   parserOptions: {
     project: './tsconfig.eslint.json',
-    tsconfigRootDir: __dirname,
+    tsconfigRootDir: __dirname
   },
-  extends: ['eslint-config-tidgi'],
+  extends: ['eslint-config-tidgi']
 };

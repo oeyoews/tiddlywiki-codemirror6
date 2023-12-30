@@ -31,10 +31,9 @@ Text editor operation to excise the selection to a new tiddler
             {
               title: excisionTitle,
               text: op.selection,
-              tags:
-                event.paramObject.tagnew === 'yes' ? [editTiddlerTitle] : [],
-            },
-          ),
+              tags: event.paramObject.tagnew === 'yes' ? [editTiddlerTitle] : []
+            }
+          )
         );
         op.replacement = excisionTitle;
         switch (event.paramObject.type || 'transclude') {
@@ -68,9 +67,9 @@ Text editor operation to excise the selection to a new tiddler
           {
             title: excisionTitle,
             text: operation.selection,
-            tags: event.paramObject.tagnew === 'yes' ? [editTiddlerTitle] : [],
-          },
-        ),
+            tags: event.paramObject.tagnew === 'yes' ? [editTiddlerTitle] : []
+          }
+        )
       );
       operation.replacement = excisionTitle;
       switch (event.paramObject.type || 'transclude') {

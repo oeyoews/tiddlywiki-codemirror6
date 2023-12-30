@@ -42,22 +42,22 @@ module-type: codemirror-utils
           tags.deleted,
           tags.character,
           tags.propertyName,
-          tags.macroName,
+          tags.macroName
         ],
-        color: slbase_cyan,
+        color: slbase_cyan
       },
       { tag: [tags.variableName], color: slbase_blue },
       { tag: [tags.function(tags.variableName)], color: slbase_blue },
       { tag: [tags.labelName], color: slbase_magenta },
       {
         tag: [tags.color, tags.constant(tags.name), tags.standard(tags.name)],
-        color: slbase_yellow,
+        color: slbase_yellow
       },
       { tag: [tags.definition(tags.name), tags.separator], color: slbase_cyan },
       { tag: [tags.brace], color: slbase_magenta },
       {
         tag: [tags.annotation],
-        color: slinvalid,
+        color: slinvalid
       },
       {
         tag: [
@@ -66,52 +66,52 @@ module-type: codemirror-utils
           tags.annotation,
           tags.modifier,
           tags.self,
-          tags.namespace,
+          tags.namespace
         ],
-        color: slbase_magenta,
+        color: slbase_magenta
       },
       {
         tag: [tags.typeName, tags.className],
-        color: slbase_orange,
+        color: slbase_orange
       },
       {
         tag: [tags.operator, tags.operatorKeyword],
-        color: slbase_violet,
+        color: slbase_violet
       },
       {
         tag: [tags.tagName],
-        color: slbase_blue,
+        color: slbase_blue
       },
       {
         tag: [tags.squareBracket],
-        color: slbase_red,
+        color: slbase_red
       },
       {
         tag: [tags.angleBracket],
-        color: slbase02,
+        color: slbase02
       },
       {
         tag: [tags.attributeName],
-        color: slbase1,
+        color: slbase1
       },
       {
         tag: [tags.regexp],
-        color: slinvalid,
+        color: slinvalid
       },
       {
         tag: [tags.quote],
-        color: slbase_green,
+        color: slbase_green
       },
       { tag: [tags.string], color: slbase_yellow },
       {
         tag: tags.link,
         color: slbase_cyan,
         textDecoration: 'underline',
-        textUnderlinePosition: 'under',
+        textUnderlinePosition: 'under'
       },
       {
         tag: [tags.url, tags.escape, tags.special(tags.string)],
-        color: slbase_yellow,
+        color: slbase_yellow
       },
       { tag: [tags.meta], color: slbase_red },
       { tag: [tags.comment], color: slbase02, fontStyle: 'italic' },
@@ -123,29 +123,29 @@ module-type: codemirror-utils
       {
         tag: [tags.heading2, tags.heading3, tags.heading4],
         fontWeight: 'bold',
-        color: slbase03,
+        color: slbase03
       },
       {
         tag: [tags.heading5, tags.heading6],
-        color: slbase03,
+        color: slbase03
       },
       {
         tag: [tags.atom, tags.bool, tags.special(tags.variableName)],
-        color: slbase_magenta,
+        color: slbase_magenta
       },
       {
         tag: [tags.processingInstruction, tags.inserted, tags.contentSeparator],
-        color: slbase_red,
+        color: slbase_red
       },
       {
         tag: [tags.contentSeparator],
-        color: slbase_yellow,
+        color: slbase_yellow
       },
       {
         tag: tags.invalid,
         color: slbase02,
-        borderBottom: `1px dotted ${slbase_red}`,
-      },
+        borderBottom: `1px dotted ${slbase_red}`
+      }
     ]);
 
     return highlightStyle;
@@ -188,22 +188,22 @@ module-type: codemirror-utils
           tags.deleted,
           tags.character,
           tags.propertyName,
-          tags.macroName,
+          tags.macroName
         ],
-        color: sdbase_cyan,
+        color: sdbase_cyan
       },
       { tag: [tags.variableName], color: sdbase05 },
       { tag: [tags.function(tags.variableName)], color: sdbase_blue },
       { tag: [tags.labelName], color: sdbase_magenta },
       {
         tag: [tags.color, tags.constant(tags.name), tags.standard(tags.name)],
-        color: sdbase_yellow,
+        color: sdbase_yellow
       },
       { tag: [tags.definition(tags.name), tags.separator], color: sdbase_cyan },
       { tag: [tags.brace], color: sdbase_magenta },
       {
         tag: [tags.annotation],
-        color: sdinvalid,
+        color: sdinvalid
       },
       {
         tag: [
@@ -212,52 +212,52 @@ module-type: codemirror-utils
           tags.annotation,
           tags.modifier,
           tags.self,
-          tags.namespace,
+          tags.namespace
         ],
-        color: sdbase_magenta,
+        color: sdbase_magenta
       },
       {
         tag: [tags.typeName, tags.className],
-        color: sdbase_orange,
+        color: sdbase_orange
       },
       {
         tag: [tags.operator, tags.operatorKeyword],
-        color: sdbase_violet,
+        color: sdbase_violet
       },
       {
         tag: [tags.tagName],
-        color: sdbase_blue,
+        color: sdbase_blue
       },
       {
         tag: [tags.squareBracket],
-        color: sdbase_red,
+        color: sdbase_red
       },
       {
         tag: [tags.angleBracket],
-        color: sdbase02,
+        color: sdbase02
       },
       {
         tag: [tags.attributeName],
-        color: sdbase05,
+        color: sdbase05
       },
       {
         tag: [tags.regexp],
-        color: sdinvalid,
+        color: sdinvalid
       },
       {
         tag: [tags.quote],
-        color: sdbase_green,
+        color: sdbase_green
       },
       { tag: [tags.string], color: sdbase_yellow },
       {
         tag: tags.link,
         color: sdbase_cyan,
         textDecoration: 'underline',
-        textUnderlinePosition: 'under',
+        textUnderlinePosition: 'under'
       },
       {
         tag: [tags.url, tags.escape, tags.special(tags.string)],
-        color: sdbase_yellow,
+        color: sdbase_yellow
       },
       { tag: [tags.meta], color: sdbase_red },
       { tag: [tags.comment], color: sdbase02, fontStyle: 'italic' },
@@ -269,29 +269,29 @@ module-type: codemirror-utils
       {
         tag: [tags.heading2, tags.heading3, tags.heading4],
         fontWeight: 'bold',
-        color: sdbase06,
+        color: sdbase06
       },
       {
         tag: [tags.heading5, tags.heading6],
-        color: sdbase06,
+        color: sdbase06
       },
       {
         tag: [tags.atom, tags.bool, tags.special(tags.variableName)],
-        color: sdbase_magenta,
+        color: sdbase_magenta
       },
       {
         tag: [tags.processingInstruction, tags.inserted, tags.contentSeparator],
-        color: sdbase_red,
+        color: sdbase_red
       },
       {
         tag: [tags.contentSeparator],
-        color: sdbase_yellow,
+        color: sdbase_yellow
       },
       {
         tag: tags.invalid,
         color: sdbase02,
-        borderBottom: `1px dotted ${sdbase_red}`,
-      },
+        borderBottom: `1px dotted ${sdbase_red}`
+      }
     ]);
 
     return highlightStyle;

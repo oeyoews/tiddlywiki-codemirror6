@@ -32,7 +32,7 @@ Text editor operation to save the current selection in a specified tiddler
           tiddler,
           field,
           null,
-          operation.text.substring(operation.selStart, operation.selEnd),
+          operation.text.substring(operation.selStart, operation.selEnd)
         );
       }
     }

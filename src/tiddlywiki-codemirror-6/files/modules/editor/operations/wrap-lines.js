@@ -20,7 +20,7 @@ Text editor operation to wrap the selected lines with a prefix and suffix
         if (
           $tw.utils.endsWith(
             op.text.substring(0, op.selStart),
-            prefix + '\n',
+            prefix + '\n'
           ) &&
           $tw.utils.startsWith(op.text.substring(op.selEnd), '\n' + suffix)
         ) {
@@ -58,11 +58,11 @@ Text editor operation to wrap the selected lines with a prefix and suffix
       if (
         $tw.utils.endsWith(
           operation.text.substring(0, operation.selStart),
-          prefix + '\n',
+          prefix + '\n'
         ) &&
         $tw.utils.startsWith(
           operation.text.substring(operation.selEnd),
-          '\n' + suffix,
+          '\n' + suffix
         )
       ) {
         // Selected text is already surrounded by prefix and suffix: Remove them
@@ -76,7 +76,7 @@ Text editor operation to wrap the selected lines with a prefix and suffix
         // Replace with selection
         operation.replacement = operation.text.substring(
           operation.selStart,
-          operation.selEnd,
+          operation.selEnd
         );
         // Select text that was in between prefix and suffix
         operation.newSelStart = operation.cutStart;
@@ -85,12 +85,12 @@ Text editor operation to wrap the selected lines with a prefix and suffix
         // Cut just past the preceding line break, or the start of the text
         operation.cutStart = $tw.utils.findPrecedingLineBreak(
           operation.text,
-          operation.selStart,
+          operation.selStart
         );
         // Cut to just past the following line break, or to the end of the text
         operation.cutEnd = $tw.utils.findFollowingLineBreak(
           operation.text,
-          operation.selEnd,
+          operation.selEnd
         );
         // Add the prefix and suffix
         operation.replacement =

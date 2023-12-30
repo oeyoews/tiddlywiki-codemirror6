@@ -18,6 +18,6 @@ Edit-codemirror widget
 
   exports['edit-codemirror-6'] = editTextWidgetFactory(
     CodeMirrorEngine,
-    CodeMirrorEngine,
+    CodeMirrorEngine
   );
 })();

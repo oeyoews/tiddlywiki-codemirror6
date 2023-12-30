@@ -57,12 +57,12 @@ Text editor operation to add a prefix to the selected lines
       // Cut just past the preceding line break, or the start of the text
       operation.cutStart = $tw.utils.findPrecedingLineBreak(
         operation.text,
-        operation.selStart,
+        operation.selStart
       );
       // Cut to just past the following line break, or to the end of the text
       operation.cutEnd = $tw.utils.findFollowingLineBreak(
         operation.text,
-        operation.selEnd,
+        operation.selEnd
       );
       // Compose the required prefix
       var prefix = $tw.utils.repeat(event.paramObject.character, targetCount);

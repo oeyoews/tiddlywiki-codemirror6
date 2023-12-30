@@ -79,7 +79,7 @@ Handle an edit text operation message from the toolbar
     // Call the base class refresh function
     Object.getPrototypeOf(Object.getPrototypeOf(this)).refresh.call(
       this,
-      changedTiddlers,
+      changedTiddlers
     );
   };
 })();

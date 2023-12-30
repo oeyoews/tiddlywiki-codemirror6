@@ -8,7 +8,7 @@ import {
   indentOnInput,
   bracketMatching,
   foldGutter,
-  foldKeymap,
+  foldKeymap
 } from '@codemirror/language';
 import { html, htmlLanguage } from '@codemirror/lang-html';
 import { json, jsonLanguage } from '@codemirror/lang-json';
@@ -16,7 +16,7 @@ import { css, cssLanguage } from '@codemirror/lang-css';
 import {
   markdown,
   markdownLanguage,
-  markdownKeymap,
+  markdownKeymap
 } from '@codemirror/lang-markdown';
 import { javascript, javascriptLanguage } from '@codemirror/lang-javascript';
 
@@ -25,7 +25,7 @@ import {
   searchKeymap,
   highlightSelectionMatches,
   openSearchPanel,
-  closeSearchPanel,
+  closeSearchPanel
 } from '@codemirror/search';
 import {
   autocompletion,
@@ -34,7 +34,7 @@ import {
   closeBrackets,
   closeBracketsKeymap,
   completionStatus,
-  acceptCompletion,
+  acceptCompletion
 } from '@codemirror/autocomplete';
 import { lintKeymap } from '@codemirror/lint';
 import {
@@ -42,7 +42,7 @@ import {
   history,
   historyKeymap,
   undo,
-  redo,
+  redo
 } from '@codemirror/commands';
 import {
   EditorView,
@@ -56,7 +56,7 @@ import {
   lineNumbers,
   highlightActiveLineGutter,
   placeholder,
-  tooltips,
+  tooltips
 } from '@codemirror/view';
 import { tags } from '@lezer/highlight';
 import { Vim, vim } from '@replit/codemirror-vim';
@@ -91,24 +91,24 @@ class CodeMirrorEngine {
     this.solarizedLightTheme = EditorView.theme(
       {
         '&.cm-focused': {
-          outline: 'none',
-        },
+          outline: 'none'
+        }
       },
-      { dark: false },
+      { dark: false }
     );
     this.solarizedDarkTheme = EditorView.theme(
       {
         '&.cm-focused': {
-          outline: 'none',
-        },
+          outline: 'none'
+        }
       },
-      { dark: true },
+      { dark: true }
     );
 
     this.solarizedLightHighlightStyle =
       $tw.utils.codemirror.getSolarizedLightHighlightStyle(
         HighlightStyle,
-        tags,
+        tags
       );
     this.solarizedDarkHighlightStyle =
       $tw.utils.codemirror.getSolarizedDarkHighlightStyle(HighlightStyle, tags);
@@ -126,12 +126,12 @@ class CodeMirrorEngine {
 
     var autoCloseBrackets =
       this.widget.wiki.getTiddlerText(
-        '$:/config/codemirror-6/closeBrackets',
+        '$:/config/codemirror-6/closeBrackets'
       ) === 'yes';
 
     this.actionCompletionSource = function (context) {
       var actionTiddlers = self.widget.wiki.filterTiddlers(
-        '[all[tiddlers+shadows]tag[$:/tags/CodeMirror/Action]!is[draft]]',
+        '[all[tiddlers+shadows]tag[$:/tags/CodeMirror/Action]!is[draft]]'
       );
       var actionStrings = [];
       var actions = [];
@@ -143,7 +143,7 @@ class CodeMirrorEngine {
       $tw.utils.each(actionStrings, function (actionString) {
         var actionStringEscaped = actionString.replace(
           /[.*+?^${}()|[\]\\]/g,
-          '\\$&',
+          '\\$&'
         );
         var regex = $tw.utils.codemirror.validateRegex(actionStringEscaped)
           ? new RegExp(actionStringEscaped)
@@ -158,14 +158,14 @@ class CodeMirrorEngine {
                 changes: {
                   from: stringContext.from,
                   to: stringContext.to,
-                  insert: '',
-                },
+                  insert: ''
+                }
               });
               self.widget.invokeActionString(
                 actions[index],
                 self,
                 undefined,
-                self.widget.variables,
+                self.widget.variables
               );
             }
           }
@@ -178,12 +178,12 @@ class CodeMirrorEngine {
       'yes';
     var autocompleteIcons =
       this.widget.wiki.getTiddlerText(
-        '$:/config/codemirror-6/autocompleteIcons',
+        '$:/config/codemirror-6/autocompleteIcons'
       ) === 'yes';
     var maxRenderedOptions = parseInt(
       this.widget.wiki.getTiddlerText(
-        '$:/config/codemirror-6/maxRenderedOptions',
-      ),
+        '$:/config/codemirror-6/maxRenderedOptions'
+      )
     );
 
     var editorExtensions = [
@@ -260,11 +260,11 @@ class CodeMirrorEngine {
           },
           blur(event, view) {
             return false;
-          },
-        }),
+          }
+        })
       ),
       tooltips({
-        parent: self.domNode.ownerDocument.body,
+        parent: self.domNode.ownerDocument.body
       }),
       //basicSetup,
       highlightSpecialChars(),
@@ -279,7 +279,7 @@ class CodeMirrorEngine {
         },
         selectOnOpen: selectOnOpen,
         icons: autocompleteIcons,
-        maxRenderedOptions: maxRenderedOptions,
+        maxRenderedOptions: maxRenderedOptions
       }), //{activateOnTyping: false, closeOnBlur: false}),
       rectangularSelection(),
       crosshairCursor(),
@@ -290,32 +290,32 @@ class CodeMirrorEngine {
         ...historyKeymap,
         ...foldKeymap,
         ...completionKeymap,
-        ...lintKeymap,
+        ...lintKeymap
       ]),
       Prec.high(keymap.of({ key: 'Tab', run: acceptCompletion })),
       EditorView.lineWrapping,
       EditorView.contentAttributes.of({
-        tabindex: self.widget.editTabIndex ? self.widget.editTabIndex : '',
+        tabindex: self.widget.editTabIndex ? self.widget.editTabIndex : ''
       }),
       EditorView.contentAttributes.of({
         spellcheck:
           self.widget.wiki.getTiddlerText(
-            '$:/config/codemirror-6/spellcheck',
-          ) === 'yes',
+            '$:/config/codemirror-6/spellcheck'
+          ) === 'yes'
       }),
       EditorView.contentAttributes.of({
         autocorrect:
           self.widget.wiki.getTiddlerText(
-            '$:/config/codemirror-6/autocorrect',
-          ) === 'yes',
+            '$:/config/codemirror-6/autocorrect'
+          ) === 'yes'
       }),
       EditorView.contentAttributes.of({
         translate:
           self.widget.wiki.getTiddlerText(
-            '$:/state/codemirror-6/translate/' + self.widget.editTitle,
+            '$:/state/codemirror-6/translate/' + self.widget.editTitle
           ) === 'yes'
             ? 'yes'
-            : 'no',
+            : 'no'
       }),
       EditorView.perLineTextDirection.of(true),
       EditorView.updateListener.of(function (v) {
@@ -323,12 +323,12 @@ class CodeMirrorEngine {
           var text = self.cm.state.doc.toString();
           self.widget.saveChanges(text);
         }
-      }),
+      })
     ];
 
     if (
       this.widget.wiki.getTiddlerText(
-        '$:/config/codemirror-6/indentWithTab',
+        '$:/config/codemirror-6/indentWithTab'
       ) === 'yes'
     ) {
       editorExtensions.push(keymap.of([indentWithTab]));
@@ -343,13 +343,13 @@ class CodeMirrorEngine {
 
     if (
       this.widget.wiki.getTiddlerText(
-        '$:/config/codemirror-6/completeAnyWord',
+        '$:/config/codemirror-6/completeAnyWord'
       ) === 'yes'
     ) {
       editorExtensions.push(
         EditorState.languageData.of(function () {
           return [{ autocomplete: completeAnyWord }];
-        }),
+        })
       );
     }
 
@@ -359,7 +359,7 @@ class CodeMirrorEngine {
 
     if (
       this.widget.wiki.getTiddlerText(
-        '$:/config/codemirror-6/bracketMatching',
+        '$:/config/codemirror-6/bracketMatching'
       ) === 'yes'
     ) {
       editorExtensions.push(bracketMatching());
@@ -375,7 +375,7 @@ class CodeMirrorEngine {
 
     if (
       this.widget.wiki.getTiddlerText(
-        '$:/config/codemirror-6/highlightActiveLine',
+        '$:/config/codemirror-6/highlightActiveLine'
       ) === 'yes'
     ) {
       editorExtensions.push(highlightActiveLine());
@@ -404,14 +404,14 @@ class CodeMirrorEngine {
       case 'text/html':
         editorExtensions.push(html({ selfClosingTags: true }));
         var actionCompletions = htmlLanguage.data.of({
-          autocomplete: this.actionCompletionSource,
+          autocomplete: this.actionCompletionSource
         });
         editorExtensions.push(Prec.high(actionCompletions));
         break;
       case 'application/javascript':
         editorExtensions.push(javascript());
         var actionCompletions = javascriptLanguage.data.of({
-          autocomplete: this.actionCompletionSource,
+          autocomplete: this.actionCompletionSource
         });
         editorExtensions.push(Prec.high(actionCompletions));
         /*editorExtensions.push(
@@ -423,14 +423,14 @@ class CodeMirrorEngine {
       case 'application/json':
         editorExtensions.push(json());
         var actionCompletions = jsonLanguage.data.of({
-          autocomplete: this.actionCompletionSource,
+          autocomplete: this.actionCompletionSource
         });
         editorExtensions.push(Prec.high(actionCompletions));
         break;
       case 'text/css':
         editorExtensions.push(css());
         var actionCompletions = cssLanguage.data.of({
-          autocomplete: this.actionCompletionSource,
+          autocomplete: this.actionCompletionSource
         });
         editorExtensions.push(Prec.high(actionCompletions));
         break;
@@ -438,7 +438,7 @@ class CodeMirrorEngine {
       case 'text/x-markdown':
         editorExtensions.push(markdown({ base: markdownLanguage }));
         var actionCompletions = markdownLanguage.data.of({
-          autocomplete: this.actionCompletionSource,
+          autocomplete: this.actionCompletionSource
         });
         editorExtensions.push(Prec.high(actionCompletions));
         editorExtensions.push(Prec.high(keymap.of(markdownKeymap)));
@@ -448,11 +448,11 @@ class CodeMirrorEngine {
     }
     var state = EditorState.create({
       doc: options.value,
-      extensions: editorExtensions,
+      extensions: editorExtensions
     });
     var editorOptions = {
       parent: this.domNode,
-      state: state,
+      state: state
     };
     this.cm = new EditorView(editorOptions);
   }
@@ -468,10 +468,10 @@ class CodeMirrorEngine {
     ) {
       var dropCursorPos = view.posAtCoords(
         { x: event.clientX, y: event.clientY },
-        true,
+        true
       );
       view.dispatch({
-        selection: { anchor: dropCursorPos, head: dropCursorPos },
+        selection: { anchor: dropCursorPos, head: dropCursorPos }
       });
       event.preventDefault();
       return true;
@@ -558,11 +558,11 @@ class CodeMirrorEngine {
         changes: {
           from: 0,
           to: self.cm.state.doc.length,
-          insert: text,
+          insert: text
         },
         selection: selections,
-        docChanged: true,
-      }),
+        docChanged: true
+      })
     );
   }
 
@@ -619,7 +619,7 @@ class CodeMirrorEngine {
             cutEnd: null,
             replacement: null,
             newSelStart: null,
-            newSelEnd: null,
+            newSelEnd: null
           };
           operation.selection = this.cm.state.sliceDoc(anchorPos, headPos);
           operations.push(operation);
@@ -634,7 +634,7 @@ class CodeMirrorEngine {
           cutEnd: null,
           replacement: null,
           newSelStart: null,
-          newSelEnd: null,
+          newSelEnd: null
         };
         break;
     }
@@ -670,18 +670,18 @@ class CodeMirrorEngine {
             {
               from: operations[index].cutStart,
               to: operations[index].cutEnd,
-              insert: operations[index].replacement,
-            },
+              insert: operations[index].replacement
+            }
           ];
           var selectionRange = self.editorSelection.range(
             operations[index].newSelStart,
-            operations[index].newSelEnd,
+            operations[index].newSelEnd
           );
           return {
             changes: editorChanges,
-            range: selectionRange,
+            range: selectionRange
           };
-        }),
+        })
       );
     } else if (
       operations.type !== 'focus-editor' &&
@@ -698,18 +698,18 @@ class CodeMirrorEngine {
             {
               from: operations.cutStart,
               to: operations.cutEnd,
-              insert: operations.replacement,
-            },
+              insert: operations.replacement
+            }
           ];
           var selectionRange = self.editorSelection.range(
             operations.newSelStart,
-            operations.newSelEnd,
+            operations.newSelEnd
           );
           return {
             changes: editorChanges,
-            range: selectionRange,
+            range: selectionRange
           };
-        }),
+        })
       );
     }
     this.cm.focus();
