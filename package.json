@@ -1,5 +1,5 @@
 {
-  "url": "https://tiddly-gittly.github.io/Modern.TiddlyDev/",
+  "url": "https://github.com/oeyoews/tiddlywiki-codemirror6",
   "license": "MIT",
   "version": "0.0.2",
   "scripts": {
@@ -39,7 +39,7 @@
     "lint-staged": "^15.2.0",
     "rimraf": "^5.0.5",
     "ts-node": "^10.9.2",
-    "tw5-typed": "^0.3.11",
+    "tw5-typed": "^0.4.3",
     "typescript": "^5.3.3"
   },
   "dependencies": {
