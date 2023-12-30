@@ -8,8 +8,6 @@
     "publish": "npm run clean && tiddlywiki-plugin-dev publish",
     "reset": "rimraf ./**/node_modules",
     "clean": "rimraf dist",
-    "prepare": "husky install",
-    "update": "npm-check-updates -u",
     "format": "prettier . --write",
     "new": "tiddlywiki-plugin-dev new",
     "build:library": "npm run clean && tiddlywiki-plugin-dev build --library --output dist/library",
@@ -46,7 +44,6 @@
     "@lezer/common": "^1.2.0",
     "@lezer/highlight": "^1.2.0",
     "@replit/codemirror-vim": "^6.1.0",
-    "npm-check-updates": "^16.14.12",
     "tiddlywiki": "^5.3.3",
     "tiddlywiki-plugin-dev": "^0.0.39"
   }
