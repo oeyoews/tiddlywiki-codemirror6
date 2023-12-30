@@ -8,7 +8,8 @@ import {
   indentOnInput,
   bracketMatching,
   foldGutter,
-  foldKeymap
+  foldKeymap,
+  language
 } from '@codemirror/language';
 
 import { html, htmlLanguage } from '@codemirror/lang-html';
@@ -23,7 +24,12 @@ import {
 
 import { javascript, javascriptLanguage } from '@codemirror/lang-javascript';
 
-import { EditorState, EditorSelection, Prec } from '@codemirror/state';
+import {
+  Compartment,
+  EditorState,
+  EditorSelection,
+  Prec
+} from '@codemirror/state';
 
 import {
   searchKeymap,
@@ -192,6 +198,7 @@ class CodeMirrorEngine {
       )
     );
 
+    // 检测文档大小
     const docSizePlugin = ViewPlugin.fromClass(
       class {
         constructor(view) {
@@ -211,9 +218,23 @@ class CodeMirrorEngine {
         }
       }
     );
+    const languageConf = new Compartment();
+
+    // 自动语言检测
+    const autoLanguage = EditorState.transactionExtender.of((tr) => {
+      if (!tr.docChanged) return null;
+      let docIsHTML = /^\s*</.test(tr.newDoc.sliceString(0, 100));
+      let stateIsHTML = tr.startState.facet(language) == htmlLanguage;
+      if (docIsHTML == stateIsHTML) return null;
+      return {
+        effects: languageConf.reconfigure(docIsHTML ? html() : javascript())
+      };
+    });
 
     var editorExtensions = [
       docSizePlugin,
+      // autoLanguage, // 不好用，语法高亮
+      // languageConf.of(javascript(), markdown({base: markdownLanguage})),
       dropCursor(),
       // solarizedTheme,
       oneDark,
