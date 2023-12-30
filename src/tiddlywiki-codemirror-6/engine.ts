@@ -63,7 +63,8 @@ import {
   lineNumbers,
   highlightActiveLineGutter,
   placeholder,
-  tooltips
+  tooltips,
+  ViewPlugin
 } from '@codemirror/view';
 import { tags } from '@lezer/highlight';
 import { Vim, vim } from '@replit/codemirror-vim';
@@ -191,7 +192,28 @@ class CodeMirrorEngine {
       )
     );
 
+    const docSizePlugin = ViewPlugin.fromClass(
+      class {
+        constructor(view) {
+          this.dom = view.dom.appendChild(document.createElement('div'));
+          this.dom.style.cssText =
+            'position: absolute; bottom: -20px; right: 0px; color: grey; font-size:0.8rem;';
+          this.dom.textContent = view.state.doc.length + ' chars';
+        }
+
+        update(update) {
+          if (update.docChanged)
+            this.dom.textContent = update.state.doc.length + ' chars';
+        }
+
+        destroy() {
+          this.dom.remove();
+        }
+      }
+    );
+
     var editorExtensions = [
+      docSizePlugin,
       dropCursor(),
       // solarizedTheme,
       oneDark,
