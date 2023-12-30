@@ -6,7 +6,6 @@
     "dev": "tiddlywiki-plugin-dev dev",
     "build": "npm run clean && tiddlywiki-plugin-dev build",
     "publish": "npm run clean && tiddlywiki-plugin-dev publish",
-    "reset": "rimraf ./**/node_modules",
     "clean": "rimraf dist",
     "format": "prettier . --write",
     "new": "tiddlywiki-plugin-dev new",
