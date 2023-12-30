@@ -8,6 +8,7 @@
     "publish": "npm run clean && tiddlywiki-plugin-dev publish",
     "clean": "rimraf dist",
     "format": "prettier . --write",
+    "update": "pnpm update",
     "new": "tiddlywiki-plugin-dev new",
     "build:library": "npm run clean && tiddlywiki-plugin-dev build --library --output dist/library",
     "publish:offline": "npm run clean && tiddlywiki-plugin-dev publish --offline"

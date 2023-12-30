@@ -69,7 +69,7 @@ devDependencies:
     version: 2.44.0
   '@oeyoews/prettier-config':
     specifier: ^1.0.2
-    version: 1.0.2(prettier@2.8.8)
+    version: 1.0.2(prettier@3.1.1)
   '@types/node':
     specifier: ^20.10.6
     version: 20.10.6
@@ -1858,12 +1858,12 @@ packages:
       '@nodelib/fs.scandir': 2.1.5
       fastq: 1.16.0
 
-  /@oeyoews/prettier-config@1.0.2(prettier@2.8.8):
+  /@oeyoews/prettier-config@1.0.2(prettier@3.1.1):
     resolution: {integrity: sha512-iMYNXU/eu3Bc1NJwXraVgPW6I1X8oWMKlVm5ry/KJrpJw8+B54emQG9t4TJGgLhd9kH8FMAteYou9cg7xmiOYw==}
     peerDependencies:
       prettier: ^2.6.0 || ^3.0.0
     dependencies:
-      prettier: 2.8.8
+      prettier: 3.1.1
     dev: true
 
   /@pkgjs/parseargs@0.11.0:
@@ -4825,6 +4825,12 @@ packages:
   /prettier@2.8.8:
     resolution: {integrity: sha512-tdN8qQGvNjw4CHbY+XXk0JgCXn9QiF21a55rBe5LJAU+kDyC4WQn4+awm2Xfk2lQMk5fKup9XgzTZtGkjBdP9Q==}
     engines: {node: '>=10.13.0'}
+    hasBin: true
+    dev: true
+
+  /prettier@3.1.1:
+    resolution: {integrity: sha512-22UbSzg8luF4UuZtzgiUOfcGM8s4tjBv6dJRT7j275NXsy2jb4aJa4NNveul5x4eqlF1wuhuR2RElK71RvmVaw==}
+    engines: {node: '>=14'}
     hasBin: true
     dev: true
 
