@@ -3,6 +3,7 @@
   "license": "MIT",
   "version": "0.0.2",
   "scripts": {
+    "format": "prettier --write .",
     "dev": "tiddlywiki-plugin-dev dev",
     "build": "npm run clean && tiddlywiki-plugin-dev build",
     "publish": "npm run clean && tiddlywiki-plugin-dev publish",

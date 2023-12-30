@@ -4,12 +4,9 @@
     "declaration": false,
     "jsx": "react-jsx",
     "baseUrl": "./",
-    "typeRoots" : ["node_modules/@types", "node_modules/tw5-typed"],
+    "typeRoots": ["node_modules/@types", "node_modules/tw5-typed"],
     "lib": ["DOM", "ESNext"]
   },
-  "include": [
-    "src",
-    "bk"
-  ],
+  "include": ["src"],
   "exclude": ["./**/*.js"]
 }

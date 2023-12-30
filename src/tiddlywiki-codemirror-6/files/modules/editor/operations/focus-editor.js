@@ -4,19 +4,17 @@ type: application/javascript
 module-type: texteditoroperation
 Simply focus the Text editor
 \*/
-(function(){
+(function () {
+  /*jslint node: true, browser: true */
+  /*global $tw: false */
+  'use strict';
 
-/*jslint node: true, browser: true */
-/*global $tw: false */
-"use strict";
-
-exports["focus-editor"] = function(event,operation) {
-	if(operation instanceof Array) {
-		operation.splice(0, operation.length);
-		operation.type = "focus-editor";
-	} else {
-		operation = null;
-	}
-};
-
+  exports['focus-editor'] = function (event, operation) {
+    if (operation instanceof Array) {
+      operation.splice(0, operation.length);
+      operation.type = 'focus-editor';
+    } else {
+      operation = null;
+    }
+  };
 })();
