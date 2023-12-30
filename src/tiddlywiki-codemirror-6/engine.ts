@@ -475,15 +475,17 @@ class CodeMirrorEngine {
       default:
         break;
     }
+
     var state = EditorState.create({
-      doc: options.value,
+      doc: options.value, // editor 文本输入
       extensions: editorExtensions
     });
-    var editorOptions = {
+
+    // entry
+    this.cm = new EditorView({
       parent: this.domNode,
-      state: state
-    };
-    this.cm = new EditorView(editorOptions);
+      state
+    });
   }
 
   handleDropEvent(event, view) {
