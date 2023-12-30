@@ -14,9 +14,10 @@ If you like the plugin, feel free to leave me a star on [ext[GitHub|https://gith
 * [ ] multi cursor
 * [ ] toggle line wrap config option
 * subplugin for different language
-* lang-tiddlywiki
-* refactor engine.js to es6 class
+* [ ] lang-tiddlywiki
+* [x] refactor engine.js to es6 class
 * 焦点残留问题
+* vim selection not visible
 * theme: https://github.com/codemirror/theme-one-dark
 * tab to completion
 * min completion length

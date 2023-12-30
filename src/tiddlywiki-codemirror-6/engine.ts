@@ -1,6 +1,5 @@
 // @ts-nocheck
 
-// @language
 import {
   HighlightStyle,
   indentUnit,
