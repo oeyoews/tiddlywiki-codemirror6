@@ -77,7 +77,8 @@ import {
 // import { tiddlywiki, tiddlywikiLanguage } from '@codemirror/lang-tiddlywiki';
 
 class CodeMirrorEngine {
-  constructor(options = {}) {
+  // @ts-ignore
+  constructor(options) {
     var self = this;
     this.widget = options.widget;
     this.value = options.value;
@@ -100,22 +101,15 @@ class CodeMirrorEngine {
     this.openSearchPanel = openSearchPanel;
     this.closeSearchPanel = closeSearchPanel;
 
-    this.solarizedLightTheme = EditorView.theme(
-      {
-        '&.cm-focused': {
-          outline: 'none'
-        }
-      },
-      { dark: false }
-    );
-    this.solarizedDarkTheme = EditorView.theme(
-      {
-        '&.cm-focused': {
-          outline: 'none'
-        }
-      },
-      { dark: true }
-    );
+    this.solarizedLightTheme = EditorView.theme({ dark: false });
+    this.solarizedDarkTheme = EditorView.theme({ dark: true });
+
+    // remove editor outline style
+    this.removeEditorOutline = EditorView.theme({
+      '&.cm-focused': {
+        outline: 'none'
+      }
+    });
 
     this.solarizedLightHighlightStyle =
       $tw.utils.codemirror.getSolarizedLightHighlightStyle(
@@ -201,8 +195,10 @@ class CodeMirrorEngine {
     var editorExtensions = [
       dropCursor(),
       // solarizedTheme,
-      // Prec.high(syntaxHighlighting(solarizedHighlightStyle)),
       oneDark,
+      // Prec.high(syntaxHighlighting(oneDarkHighlightStyle)),
+      this.removeEditorOutline,
+
       Prec.high(
         EditorView.domEventHandlers({
           drop(event, view) {
