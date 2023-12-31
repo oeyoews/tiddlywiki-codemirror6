@@ -40,6 +40,7 @@ import {
 
 import {
   autocompletion,
+  CompletionContext,
   completeAnyWord,
   completionKeymap,
   closeBrackets,
@@ -85,7 +86,7 @@ import {
 class CodeMirrorEngine {
   // @ts-ignore
   constructor(options) {
-    var self = this;
+    const self = this;
     this.widget = options.widget;
     this.value = options.value;
     this.parentNode = options.parentNode;
@@ -125,46 +126,48 @@ class CodeMirrorEngine {
     this.solarizedDarkHighlightStyle =
       $tw.utils.codemirror.getSolarizedDarkHighlightStyle(HighlightStyle, tags);
 
-    var solarizedTheme =
+    /*
+    const solarizedTheme =
       this.widget.wiki.getTiddler(this.widget.wiki.getTiddlerText('$:/palette'))
         .fields['color-scheme'] === 'light'
         ? this.solarizedLightTheme
         : this.solarizedDarkTheme;
-    var solarizedHighlightStyle =
+    const solarizedHighlightStyle =
       this.widget.wiki.getTiddler(this.widget.wiki.getTiddlerText('$:/palette'))
         .fields['color-scheme'] === 'light'
         ? this.solarizedLightHighlightStyle
         : this.solarizedDarkHighlightStyle;
+    */
 
-    var autoCloseBrackets =
+    const autoCloseBrackets =
       this.widget.wiki.getTiddlerText(
         '$:/config/codemirror-6/closeBrackets'
       ) === 'yes';
 
     this.actionCompletionSource = function (context) {
-      var actionTiddlers = self.widget.wiki.filterTiddlers(
+      const actionTiddlers = self.widget.wiki.filterTiddlers(
         '[all[tiddlers+shadows]tag[$:/tags/CodeMirror/Action]!is[draft]]'
       );
-      var actionStrings = [];
-      var actions = [];
+      const actionStrings = [];
+      const actions = [];
       $tw.utils.each(actionTiddlers, function (actionTiddler) {
-        var tiddler = self.widget.wiki.getTiddler(actionTiddler);
+        const tiddler = self.widget.wiki.getTiddler(actionTiddler);
         actionStrings.push(tiddler.fields.string);
         actions.push(tiddler.fields.text);
       });
       $tw.utils.each(actionStrings, function (actionString) {
-        var actionStringEscaped = actionString.replace(
+        const actionStringEscaped = actionString.replace(
           /[.*+?^${}()|[\]\\]/g,
           '\\$&'
         );
-        var regex = $tw.utils.codemirror.validateRegex(actionStringEscaped)
+        const regex = $tw.utils.codemirror.validateRegex(actionStringEscaped)
           ? new RegExp(actionStringEscaped)
           : null;
         if (regex) {
-          var stringContext = context.matchBefore(regex);
+          const stringContext = context.matchBefore(regex);
           if (stringContext) {
-            var string = stringContext.text;
-            var index = actionStrings.indexOf(string);
+            const string = stringContext.text;
+            const index = actionStrings.indexOf(string);
             if (index !== -1) {
               self.cm.dispatch({
                 changes: {
@@ -185,14 +188,14 @@ class CodeMirrorEngine {
       });
     };
 
-    var selectOnOpen =
+    const selectOnOpen =
       this.widget.wiki.getTiddlerText('$:/config/codemirror-6/selectOnOpen') ===
       'yes';
-    var autocompleteIcons =
+    const autocompleteIcons =
       this.widget.wiki.getTiddlerText(
         '$:/config/codemirror-6/autocompleteIcons'
       ) === 'yes';
-    var maxRenderedOptions = parseInt(
+    const maxRenderedOptions = parseInt(
       this.widget.wiki.getTiddlerText(
         '$:/config/codemirror-6/maxRenderedOptions'
       )
@@ -231,7 +234,7 @@ class CodeMirrorEngine {
       };
     });
 
-    var editorExtensions = [
+    const editorExtensions = [
       docSizePlugin,
       // autoLanguage, // 不好用，语法高亮
       // languageConf.of(javascript(), markdown({base: markdownLanguage})),
@@ -371,7 +374,7 @@ class CodeMirrorEngine {
       EditorView.perLineTextDirection.of(true),
       EditorView.updateListener.of(function (v) {
         if (v.docChanged) {
-          var text = self.cm.state.doc.toString();
+          const text = self.cm.state.doc.toString();
           self.widget.saveChanges(text);
         }
       })
@@ -437,31 +440,32 @@ class CodeMirrorEngine {
       editorExtensions.push(placeholder(self.widget.editPlaceholder));
     }
 
-    var cmIndentUnit = '	';
+    const cmIndentUnit = '	';
     editorExtensions.push(indentUnit.of(cmIndentUnit));
 
-    var mode = this.widget.editType;
+    let mode = this.widget.editType;
     if (mode === '') {
       mode = 'text/vnd.tiddlywiki';
     }
+    let actionCompletions = undefined;
     switch (mode) {
       // case 'text/vnd.tiddlywiki':
       //   editorExtensions.push(tiddlywiki());
-      //   var actionCompletions = tiddlywikiLanguage.data.of({
+      //   const actionCompletions = tiddlywikiLanguage.data.of({
       //     autocomplete: this.actionCompletionSource,
       //   });
       //   editorExtensions.push(Prec.high(actionCompletions));
       //   break;
       case 'text/html':
         editorExtensions.push(html({ selfClosingTags: true }));
-        var actionCompletions = htmlLanguage.data.of({
+        actionCompletions = htmlLanguage.data.of({
           autocomplete: this.actionCompletionSource
         });
         editorExtensions.push(Prec.high(actionCompletions));
         break;
       case 'application/javascript':
         editorExtensions.push(javascript());
-        var actionCompletions = javascriptLanguage.data.of({
+        actionCompletions = javascriptLanguage.data.of({
           autocomplete: this.actionCompletionSource
         });
         editorExtensions.push(Prec.high(actionCompletions));
@@ -473,14 +477,14 @@ class CodeMirrorEngine {
         break;
       case 'application/json':
         editorExtensions.push(json());
-        var actionCompletions = jsonLanguage.data.of({
+        actionCompletions = jsonLanguage.data.of({
           autocomplete: this.actionCompletionSource
         });
         editorExtensions.push(Prec.high(actionCompletions));
         break;
       case 'text/css':
         editorExtensions.push(css());
-        var actionCompletions = cssLanguage.data.of({
+        actionCompletions = cssLanguage.data.of({
           autocomplete: this.actionCompletionSource
         });
         editorExtensions.push(Prec.high(actionCompletions));
@@ -488,7 +492,7 @@ class CodeMirrorEngine {
       case 'text/markdown':
       case 'text/x-markdown':
         editorExtensions.push(markdown({ base: markdownLanguage }));
-        var actionCompletions = markdownLanguage.data.of({
+        actionCompletions = markdownLanguage.data.of({
           autocomplete: this.actionCompletionSource
         });
         editorExtensions.push(Prec.high(actionCompletions));
@@ -498,7 +502,7 @@ class CodeMirrorEngine {
         break;
     }
 
-    var state = EditorState.create({
+    const state = EditorState.create({
       doc: options.value, // editor 文本输入
       extensions: editorExtensions
     });
@@ -519,7 +523,7 @@ class CodeMirrorEngine {
       $tw.utils.dragEventContainsFiles(event) ||
       event.dataTransfer.files.length
     ) {
-      var dropCursorPos = view.posAtCoords(
+      const dropCursorPos = view.posAtCoords(
         { x: event.clientX, y: event.clientY },
         true
       );
@@ -552,8 +556,8 @@ class CodeMirrorEngine {
       event.stopPropagation();
       return false;
     }
-    var widget = this.widget;
-    var keyboardWidgets = [];
+    let widget = this.widget;
+    const keyboardWidgets = [];
     while (widget) {
       if (widget.parseTreeNode.type === 'keyboard') {
         keyboardWidgets.push(widget);
@@ -561,10 +565,10 @@ class CodeMirrorEngine {
       widget = widget.parentWidget;
     }
     if (keyboardWidgets.length > 0) {
-      var handled = undefined;
-      for (var i = 0; i < keyboardWidgets.length; i++) {
-        var keyboardWidget = keyboardWidgets[i];
-        var keyInfoArray = keyboardWidget.keyInfoArray;
+      let handled = undefined;
+      for (let i = 0; i < keyboardWidgets.length; i++) {
+        const keyboardWidget = keyboardWidgets[i];
+        const keyInfoArray = keyboardWidget.keyInfoArray;
         if ($tw.keyboardManager.checkKeyDescriptors(event, keyInfoArray)) {
           if (
             this.dragCancel &&
@@ -604,8 +608,8 @@ class CodeMirrorEngine {
   Update the DomNode with the new text
   */
   updateDomNodeText(text) {
-    var self = this;
-    var selections = this.cm.state.selection;
+    const self = this;
+    const selections = this.cm.state.selection;
     this.cm.dispatch(
       this.cm.state.update({
         changes: {
@@ -644,8 +648,8 @@ class CodeMirrorEngine {
   Create a blank structure representing a text operation
   */
   createTextOperation(type) {
-    var selections = this.cm.state.selection.ranges;
-    var operations;
+    const selections = this.cm.state.selection.ranges;
+    let operations;
     switch (type) {
       case 'excise':
       case 'focus-editor':
@@ -661,10 +665,10 @@ class CodeMirrorEngine {
       case 'wrap-lines':
       case 'wrap-selection':
         operations = [];
-        for (var i = 0; i < selections.length; i++) {
-          var anchorPos = selections[i].from,
+        for (let i = 0; i < selections.length; i++) {
+          const anchorPos = selections[i].from,
             headPos = selections[i].to;
-          var operation = {
+          const operation = {
             text: this.cm.state.doc.toString(),
             selStart: anchorPos,
             selEnd: headPos,
@@ -698,7 +702,7 @@ class CodeMirrorEngine {
   Execute a text operation
   */
   executeTextOperation(operations) {
-    var self = this;
+    const self = this;
     if (operations.type && operations.type === 'undo') {
       this.undo(this.cm);
     } else if (operations.type && operations.type === 'redo') {
@@ -710,23 +714,23 @@ class CodeMirrorEngine {
       operations &&
       operations.length
     ) {
-      var ranges = this.cm.state.selection.ranges;
+      const ranges = this.cm.state.selection.ranges;
       this.cm.dispatch(
         this.cm.state.changeByRange(function (range) {
-          var index;
-          for (var i = 0; i < ranges.length; i++) {
+          let index;
+          for (let i = 0; i < ranges.length; i++) {
             if (ranges[i] === range) {
               index = i;
             }
           }
-          var editorChanges = [
+          const editorChanges = [
             {
               from: operations[index].cutStart,
               to: operations[index].cutEnd,
               insert: operations[index].replacement
             }
           ];
-          var selectionRange = self.editorSelection.range(
+          const selectionRange = self.editorSelection.range(
             operations[index].newSelStart,
             operations[index].newSelEnd
           );
@@ -747,14 +751,14 @@ class CodeMirrorEngine {
     ) {
       this.cm.dispatch(
         this.cm.state.changeByRange(function (range) {
-          var editorChanges = [
+          const editorChanges = [
             {
               from: operations.cutStart,
               to: operations.cutEnd,
               insert: operations.replacement
             }
           ];
-          var selectionRange = self.editorSelection.range(
+          const selectionRange = self.editorSelection.range(
             operations.newSelStart,
             operations.newSelEnd
           );
