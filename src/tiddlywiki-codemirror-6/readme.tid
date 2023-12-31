@@ -11,6 +11,7 @@ If you like the plugin, feel free to leave me a star on [ext[GitHub|https://gith
 * [x] 补全自动匹配选项
 * [x] 字体大小问题
 * lsp: https://github.com/FurqanSoftware/codemirror-languageserver
+* [ ] destory
 * [ ] autocompletion better
 * [ ] multi cursor
 * [ ] toggle line wrap config option

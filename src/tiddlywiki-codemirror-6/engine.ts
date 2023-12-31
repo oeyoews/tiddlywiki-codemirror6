@@ -46,7 +46,6 @@ import {
   closeBrackets,
   closeBracketsKeymap,
   completionStatus,
-  snippetCompletion,
   acceptCompletion
 } from '@codemirror/autocomplete';
 
@@ -76,11 +75,7 @@ import {
 } from '@codemirror/view';
 import { tags } from '@lezer/highlight';
 import { Vim, vim } from '@replit/codemirror-vim';
-import {
-  oneDark
-  // oneDarkTheme,
-  // oneDarkHighlightStyle
-} from '@codemirror/theme-one-dark';
+import { oneDark } from '@codemirror/theme-one-dark';
 
 class CodeMirrorEngine {
   // @ts-ignore
@@ -125,65 +120,10 @@ class CodeMirrorEngine {
     this.solarizedDarkHighlightStyle =
       $tw.utils.codemirror.getSolarizedDarkHighlightStyle(HighlightStyle, tags);
 
-    /*
-    const solarizedTheme =
-      this.widget.wiki.getTiddler(this.widget.wiki.getTiddlerText('$:/palette'))
-        .fields['color-scheme'] === 'light'
-        ? this.solarizedLightTheme
-        : this.solarizedDarkTheme;
-    const solarizedHighlightStyle =
-      this.widget.wiki.getTiddler(this.widget.wiki.getTiddlerText('$:/palette'))
-        .fields['color-scheme'] === 'light'
-        ? this.solarizedLightHighlightStyle
-        : this.solarizedDarkHighlightStyle;
-    */
-
     const autoCloseBrackets =
       this.widget.wiki.getTiddlerText(
         '$:/config/codemirror-6/closeBrackets'
       ) === 'yes';
-
-    const actionCompletionSource = function (context) {
-      const actionTiddlers = self.widget.wiki.filterTiddlers('');
-      const actionStrings = [];
-      const actions = [];
-      $tw.utils.each(actionTiddlers, function (actionTiddler) {
-        const tiddler = self.widget.wiki.getTiddler(actionTiddler);
-        actionStrings.push(tiddler.fields.string);
-        actions.push(tiddler.fields.text);
-      });
-      $tw.utils.each(actionStrings, function (actionString) {
-        const actionStringEscaped = actionString.replace(
-          /[.*+?^${}()|[\]\\]/g,
-          '\\$&'
-        );
-        const regex = $tw.utils.codemirror.validateRegex(actionStringEscaped)
-          ? new RegExp(actionStringEscaped)
-          : null;
-        if (regex) {
-          const stringContext = context.matchBefore(regex);
-          if (stringContext) {
-            const string = stringContext.text;
-            const index = actionStrings.indexOf(string);
-            if (index !== -1) {
-              self.cm.dispatch({
-                changes: {
-                  from: stringContext.from,
-                  to: stringContext.to,
-                  insert: ''
-                }
-              });
-              self.widget.invokeActionString(
-                actions[index],
-                self,
-                undefined,
-                self.widget.variables
-              );
-            }
-          }
-        }
-      });
-    };
 
     // 自动选中
     const selectOnOpen =
@@ -451,20 +391,16 @@ class CodeMirrorEngine {
     }
     let actionCompletions = undefined;
 
-    const { widgetSnippets } = require('./utils/getAllWidget.js');
     switch (mode) {
       // case 'text/vnd.tiddlywiki':
       //   editorExtensions.push(tiddlywiki());
       //   const actionCompletions = tiddlywikiLanguage.data.of({
-      //     autocomplete: this.actionCompletionSource,
       //   });
       //   editorExtensions.push(Prec.high(actionCompletions));
       //   break;
       case 'text/html':
         editorExtensions.push(html({ selfClosingTags: true }));
-        actionCompletions = htmlLanguage.data.of({
-          autocomplete: actionCompletionSource
-        });
+        actionCompletions = htmlLanguage.data.of({});
         editorExtensions.push(Prec.high(actionCompletions));
         break;
 
@@ -480,16 +416,12 @@ class CodeMirrorEngine {
         break;
       case 'application/json':
         editorExtensions.push(json());
-        actionCompletions = jsonLanguage.data.of({
-          autocomplete: actionCompletionSource
-        });
+        actionCompletions = jsonLanguage.data.of({});
         editorExtensions.push(Prec.high(actionCompletions));
         break;
       case 'text/css':
         editorExtensions.push(css());
-        actionCompletions = cssLanguage.data.of({
-          autocomplete: actionCompletionSource
-        });
+        actionCompletions = cssLanguage.data.of({});
         editorExtensions.push(Prec.high(actionCompletions));
         break;
       case 'text/markdown':
@@ -497,7 +429,7 @@ class CodeMirrorEngine {
         editorExtensions.push(markdown({ base: markdownLanguage }));
         actionCompletions = markdownLanguage.data.of({
           // autocomplete: [...widgetSnippets]
-          autocomplete: this.widgetCompletions
+          // autocomplete: this.widgetCompletions
         });
         editorExtensions.push(Prec.high(actionCompletions));
         editorExtensions.push(Prec.high(keymap.of(markdownKeymap)));
