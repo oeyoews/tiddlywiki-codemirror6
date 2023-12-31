@@ -3,4 +3,4 @@ caption: Select autocompletion-match on open
 description: whether or not the first autocompletion match should be selected as soon as the autocompletion tooltip opens
 settings-template: $:/plugins/BTC/tiddlywiki-codemirror-6/ui/templates/settings/input-switch
 
-no
+yes

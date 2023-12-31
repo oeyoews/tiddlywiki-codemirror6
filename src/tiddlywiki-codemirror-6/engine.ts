@@ -46,6 +46,7 @@ import {
   closeBrackets,
   closeBracketsKeymap,
   completionStatus,
+  snippetCompletion,
   acceptCompletion
 } from '@codemirror/autocomplete';
 
@@ -80,8 +81,6 @@ import {
   // oneDarkTheme,
   // oneDarkHighlightStyle
 } from '@codemirror/theme-one-dark';
-
-// import { tiddlywiki, tiddlywikiLanguage } from '@codemirror/lang-tiddlywiki';
 
 class CodeMirrorEngine {
   // @ts-ignore
@@ -144,10 +143,8 @@ class CodeMirrorEngine {
         '$:/config/codemirror-6/closeBrackets'
       ) === 'yes';
 
-    this.actionCompletionSource = function (context) {
-      const actionTiddlers = self.widget.wiki.filterTiddlers(
-        '[all[tiddlers+shadows]tag[$:/tags/CodeMirror/Action]!is[draft]]'
-      );
+    const actionCompletionSource = function (context) {
+      const actionTiddlers = self.widget.wiki.filterTiddlers('');
       const actionStrings = [];
       const actions = [];
       $tw.utils.each(actionTiddlers, function (actionTiddler) {
@@ -188,6 +185,7 @@ class CodeMirrorEngine {
       });
     };
 
+    // 自动选中
     const selectOnOpen =
       this.widget.wiki.getTiddlerText('$:/config/codemirror-6/selectOnOpen') ===
       'yes';
@@ -327,13 +325,15 @@ class CodeMirrorEngine {
       EditorState.allowMultipleSelections.of(true),
       indentOnInput(),
       syntaxHighlighting(defaultHighlightStyle, { fallback: true }),
+      // 自动补全
       autocompletion({
         tooltipClass: function () {
           return 'cm-autocomplete-tooltip';
         },
-        selectOnOpen: selectOnOpen,
+        selectOnOpen,
+        // override: [this.widgetCompletions],
         icons: autocompleteIcons,
-        maxRenderedOptions: maxRenderedOptions
+        maxRenderedOptions
       }), //{activateOnTyping: false, closeOnBlur: false}),
       rectangularSelection(),
       crosshairCursor(),
@@ -444,10 +444,13 @@ class CodeMirrorEngine {
     editorExtensions.push(indentUnit.of(cmIndentUnit));
 
     let mode = this.widget.editType;
+
     if (mode === '') {
       mode = 'text/vnd.tiddlywiki';
     }
     let actionCompletions = undefined;
+
+    const { widgetSnippets } = require('./utils/getAllWidget.js');
     switch (mode) {
       // case 'text/vnd.tiddlywiki':
       //   editorExtensions.push(tiddlywiki());
@@ -459,15 +462,14 @@ class CodeMirrorEngine {
       case 'text/html':
         editorExtensions.push(html({ selfClosingTags: true }));
         actionCompletions = htmlLanguage.data.of({
-          autocomplete: this.actionCompletionSource
+          autocomplete: actionCompletionSource
         });
         editorExtensions.push(Prec.high(actionCompletions));
         break;
+
       case 'application/javascript':
         editorExtensions.push(javascript());
-        actionCompletions = javascriptLanguage.data.of({
-          autocomplete: this.actionCompletionSource
-        });
+        actionCompletions = javascriptLanguage.data.of({});
         editorExtensions.push(Prec.high(actionCompletions));
         /*editorExtensions.push(
 						javascriptLanguage.data.of({
@@ -478,14 +480,14 @@ class CodeMirrorEngine {
       case 'application/json':
         editorExtensions.push(json());
         actionCompletions = jsonLanguage.data.of({
-          autocomplete: this.actionCompletionSource
+          autocomplete: actionCompletionSource
         });
         editorExtensions.push(Prec.high(actionCompletions));
         break;
       case 'text/css':
         editorExtensions.push(css());
         actionCompletions = cssLanguage.data.of({
-          autocomplete: this.actionCompletionSource
+          autocomplete: actionCompletionSource
         });
         editorExtensions.push(Prec.high(actionCompletions));
         break;
@@ -493,7 +495,9 @@ class CodeMirrorEngine {
       case 'text/x-markdown':
         editorExtensions.push(markdown({ base: markdownLanguage }));
         actionCompletions = markdownLanguage.data.of({
-          autocomplete: this.actionCompletionSource
+          maxRenderedOptions: 20,
+          // autocomplete: [...widgetSnippets]
+          autocomplete: this.widgetCompletions
         });
         editorExtensions.push(Prec.high(actionCompletions));
         editorExtensions.push(Prec.high(keymap.of(markdownKeymap)));
@@ -506,6 +510,8 @@ class CodeMirrorEngine {
       doc: options.value, // editor 文本输入
       extensions: editorExtensions
     });
+    // TODO: not work
+    // EditorState.tabSize = 2;
 
     // entry
     this.cm = new EditorView({
@@ -771,6 +777,22 @@ class CodeMirrorEngine {
     }
     this.cm.focus();
     return this.cm.state.doc.toString();
+  }
+
+  widgetCompletions(context: CompletionContext) {
+    const { widgetSnippets } = require('./utils/getAllWidget.js');
+    // 最小补全 length
+    let word = context.matchBefore(/\w*/);
+    if (word.from == word.to && !context.explicit) return null;
+    return {
+      from: word.from,
+      options: [
+        // { label: 'match', type: 'keyword' },
+        // { label: 'hello', type: 'variable', info: '(World)' },
+        // { label: 'magic', type: 'text', apply: '⠁⭒*.✩.*⭒⠁', detail: 'macro' },
+        ...widgetSnippets
+      ]
+    };
   }
 }
 
