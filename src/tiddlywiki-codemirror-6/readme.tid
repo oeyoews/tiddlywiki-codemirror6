@@ -17,6 +17,7 @@ If you like the plugin, feel free to leave me a star on [ext[GitHub|https://gith
 * subplugin for different language
 * cm-gutter(s) 样式优先级不一致, 开发环境中正常, json plugin, 样式优先级不一致(或许是notebook-theme plus 导致的), color-expend styles.tid
 * [ ] highlight: lang-tiddlywiki
+* [ ] highlight widget
 * [x] refactor engine.js to es6 class
 - [ ] split to vim plugin: 由于使用到了 cm6的包作为依赖, 因此将其单独打包出去, 作为模块的形式加载不太可能
 * 焦点残留问题

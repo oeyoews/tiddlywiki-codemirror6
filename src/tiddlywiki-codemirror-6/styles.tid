@@ -80,8 +80,8 @@ body {
 }
 
 .cm-gutters {
-	<!-- background-color: <<colour-extend cm-gutter-background>> !important; -->
-	background-color: transparent !important
+	<!-- bug -->
+	background-color: <<colour-extend cm-gutter-background>> !important;
 	color: <<colour-extend cm-gutter-foreground>> !important;
 	border: none !important;
 }
