@@ -13,14 +13,15 @@ If you like the plugin, feel free to leave me a star on [ext[GitHub|https://gith
 * [ ] autocompletion better
 * [ ] multi cursor
 * [ ] toggle line wrap config option
+* [ ] support select cm6 or textarea
 * subplugin for different language
-* cm-gutter(s) 样式优先级不一致, 开发环境中正常, json plugin, 样式优先级不一致
-* [ ] lang-tiddlywiki
+* cm-gutter(s) 样式优先级不一致, 开发环境中正常, json plugin, 样式优先级不一致(或许是notebook-theme plus 导致的), color-expend styles.tid
+* [ ] highlight: lang-tiddlywiki
 * [x] refactor engine.js to es6 class
-- [ ] split to vim plugin
+- [ ] split to vim plugin: 由于使用到了 cm6的包作为依赖, 因此将其单独打包出去, 作为模块的形式加载不太可能
 * 焦点残留问题
 * vim selection not visible
-* theme: https://github.com/codemirror/theme-one-dark
+* [x] theme: https://github.com/codemirror/theme-one-dark
 * tab to completion
 * min completion length
 * snippets support compatiable vscode or vim snippets

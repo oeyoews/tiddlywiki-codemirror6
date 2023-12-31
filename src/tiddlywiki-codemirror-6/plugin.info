@@ -1,7 +1,7 @@
 {
 	"title": "$:/plugins/BTC/tiddlywiki-codemirror-6",
 	"name": "CodeMirror",
-	"description": "CodeMirror 6 editor",
-	"version": "0.1.25",
+	"description": "CodeMirror 6 editor with vim mode",
+	"version": "0.1.26",
 	"list": "readme usage license"
 }

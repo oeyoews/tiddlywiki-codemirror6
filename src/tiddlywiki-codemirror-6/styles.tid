@@ -80,7 +80,8 @@ body {
 }
 
 .cm-gutters {
-	background-color: <<colour-extend cm-gutter-background>> !important;
+	<!-- background-color: <<colour-extend cm-gutter-background>> !important; -->
+	background-color: transparent !important
 	color: <<colour-extend cm-gutter-foreground>> !important;
 	border: none !important;
 }
@@ -306,7 +307,7 @@ label.btcui-form-switch span:before {
 }
 
 div.btcui-form-label {
-	
+
 }
 
 /*** checkbox switches end ***/
@@ -349,13 +350,13 @@ input.btcui-form-input:focus {
 }
 
 .btc-list-group-box-shadow {
-	box-shadow:1px 1px 5px rgba(0, 0, 0, 0.3);	
+	box-shadow:1px 1px 5px rgba(0, 0, 0, 0.3);
 	border-bottom-left-radius: .25rem;
 	border-bottom-right-radius: .25rem;
 	border-top-left-radius: .25rem;
-	border-top-right-radius: .25rem;		
+	border-top-right-radius: .25rem;
 }
-	
+
 .btc-list-group-item {
 	position: relative;
 	display: block;
@@ -364,7 +365,7 @@ input.btcui-form-input:focus {
 	border: 1px solid rgba(0,0,0,.125);
 	width: 100%;
 	color: #495057;
-	text-align:	inherit;	
+	text-align:	inherit;
 	display: flex;
 	flex-direction: row;
 	justify-content: space-between!important;
