@@ -193,6 +193,7 @@ class CodeMirrorEngine {
       this.widget.wiki.getTiddlerText(
         '$:/config/codemirror-6/autocompleteIcons'
       ) === 'yes';
+    // 最大补全数
     const maxRenderedOptions = parseInt(
       this.widget.wiki.getTiddlerText(
         '$:/config/codemirror-6/maxRenderedOptions'
@@ -495,7 +496,6 @@ class CodeMirrorEngine {
       case 'text/x-markdown':
         editorExtensions.push(markdown({ base: markdownLanguage }));
         actionCompletions = markdownLanguage.data.of({
-          maxRenderedOptions: 20,
           // autocomplete: [...widgetSnippets]
           autocomplete: this.widgetCompletions
         });
