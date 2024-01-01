@@ -5,5 +5,5 @@ import { config } from './config';
 // https://codemirror.net/examples/config/
 export const tabSizePlugin = () => {
   const tabSize = new Compartment();
-  return tabSize.of(EditorState.tabSize.of(Number(config.tabSize)));
+  return tabSize.of(EditorState.tabSize.of(Number(config.tabSize())));
 };
