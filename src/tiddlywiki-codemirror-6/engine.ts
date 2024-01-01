@@ -41,7 +41,6 @@ import {
 
 import {
   autocompletion,
-  CompletionContext,
   completeAnyWord,
   completionKeymap,
   closeBrackets,
@@ -78,9 +77,10 @@ import {
 import { tags } from '@lezer/highlight';
 import { vim } from '@replit/codemirror-vim';
 import { oneDark } from '@codemirror/theme-one-dark';
-import { tabSizePlugin } from './utils/tab-size.js';
+import tabSizePlugin from './utils/tab-size.js';
 import docSizePlugin from './utils/docSizePlugin.js';
-import { config } from './utils/config.js';
+import config from './utils/config.js';
+import widgetCompletions from './modules/widgetCompletions.js';
 
 class CodeMirrorEngine {
   // @ts-ignore
@@ -247,7 +247,6 @@ class CodeMirrorEngine {
           return 'cm-autocomplete-tooltip';
         },
         selectOnOpen,
-        // override: [this.widgetCompletions],
         icons: autocompleteIcons,
         maxRenderedOptions
       }), //{activateOnTyping: false, closeOnBlur: false}),
@@ -352,7 +351,6 @@ class CodeMirrorEngine {
       // TODO:
       // case 'text/vnd.tiddlywiki':
       //   actionCompletions = tiddlywikiLanguage.data.of({
-
       //     autocomplete: this.widgetCompletions
       //   });
       //   editorExtensions.push(Prec.high(actionCompletions));
@@ -388,13 +386,18 @@ class CodeMirrorEngine {
         editorExtensions.push(markdown({ base: markdownLanguage }));
         actionCompletions = markdownLanguage.data.of({
           // autocomplete: [...widgetSnippets]
-          autocomplete: this.widgetCompletions
+          autocomplete: widgetCompletions
         });
+
+        // TODO: js highlight
+        // editorExtensions.push(javascript());
+        // actionCompletions = javascriptLanguage.data.of({});
+        // editorExtensions.push(Prec.high(actionCompletions));
+
         editorExtensions.push(Prec.high(actionCompletions));
         editorExtensions.push(Prec.high(keymap.of(markdownKeymap)));
         break;
       default:
-        break;
     }
 
     const state = EditorState.create({
@@ -666,28 +669,6 @@ class CodeMirrorEngine {
     }
     this.cm.focus();
     return this.cm.state.doc.toString();
-  }
-
-  widgetCompletions(context: CompletionContext) {
-    const { widgetSnippets } = require('./utils/getAllWidget.js');
-    // 最小补全 length
-    // let word = context.matchBefore(/\w*/);
-    const word = context.matchBefore(/<\$/);
-    if (!word) return null;
-    if (word.from == word.to && !context.explicit) return null;
-    // const words = context.matchBefore(/<\$/);
-    // console.log(words);
-
-    return {
-      from: word.from,
-      options: [
-        // { label: 'match', type: 'keyword' },
-        // { label: 'hello', type: 'variable', info: '(World)' },
-        // { label: 'magic', type: 'text', apply: '⠁⭒*.✩.*⭒⠁', detail: 'macro' },
-        ...widgetSnippets
-      ],
-      span: /^[\w$]*$/
-    };
   }
 
   getConfig(title) {

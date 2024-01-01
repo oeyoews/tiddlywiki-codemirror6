@@ -24,10 +24,12 @@ type IOptions = (typeof titles)[number];
 type IConfig = Record<IOptions, () => string>;
 
 // export const config: Map<IOptions, string | boolean> = new Map();
-export const config = {} as IConfig;
+const config = {} as IConfig;
 
 titles.forEach((title) => {
   // config.set(title, getConfig(title)!);
   // NOTE: 需要每次重新计算新值，
   config[title] = () => getConfig(title)!;
 });
+
+export default config;

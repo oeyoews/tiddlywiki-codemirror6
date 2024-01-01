@@ -1,5 +1,7 @@
 title: $:/plugins/BTC/tiddlywiki-codemirror-6/readme
 
+> 插件在 BTC 的基础上自定义而成.
+
 !!! This plugin adds the [ext[CodeMirror 6|https://codemirror.net]] editor to [ext[TiddlyWiki|https://tiddlywiki.com]]
 
 See the ''usage'' section for keyboard shortcuts
@@ -8,17 +10,14 @@ If you like the plugin, feel free to leave me a star on [ext[GitHub|https://gith
 
 !! TODO
 
-* [ ] 继承codemirror 5 的代码片段
+* [ ] 继承codemirror 5 的代码片段, / trigger.
 * [ ] 配置使用单一json(需要重新做配置UI, 可以模仿codemirror 5)
 * [x] $tw api
 * [x] 补全自动匹配选项
 * [x] 字体大小问题
+* [x] multi cursor
 * lsp: https://github.com/FurqanSoftware/codemirror-languageserver
-* [ ] destory
-* [ ] use single json instead of tid config
-* [ ] autocompletion better
-* [ ] multi cursor
-* [ ] toggle line wrap config option
+* [x] destory
 * [ ] support select cm6 or textarea
 * subplugin for different language
 * cm-gutter(s) 样式优先级不一致, 开发环境中正常, json plugin, 样式优先级不一致(或许是notebook-theme plus 导致的), color-expend styles.tid
