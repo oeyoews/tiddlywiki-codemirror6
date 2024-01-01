@@ -17,6 +17,7 @@ import { html, htmlLanguage } from '@codemirror/lang-html';
 import { json, jsonLanguage } from '@codemirror/lang-json';
 import { css, cssLanguage } from '@codemirror/lang-css';
 
+// markdown
 import {
   markdown,
   markdownLanguage,
@@ -146,6 +147,7 @@ class CodeMirrorEngine {
       };
     });
 
+    // https://codemirror.net/docs/extensions/
     const editorExtensions = [
       docSizePlugin,
       // autoLanguage, // 不好用，语法高亮

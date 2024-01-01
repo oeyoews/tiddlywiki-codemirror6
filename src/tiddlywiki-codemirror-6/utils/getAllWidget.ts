@@ -14,11 +14,12 @@ export default function getAllWidget() {
 
   // TODO: 需要匹配 <$ 开头的
   // https://github.com/codemirror/website/tree/master/site/examples/autocompletion
-  // 不要再外部加载
   const widgetSnippets = allwidgets.map((widget) =>
     snippetCompletion(`<\$${widget} \$\{0\}/>\$\{1\}`, {
       label: `<\$${widget}`,
       type: 'keyword'
+      // detail: 'widget',
+      // info: `<\$${widget} />` // TODO: 样式问题
     })
   );
 
