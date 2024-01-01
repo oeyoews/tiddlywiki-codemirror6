@@ -8,7 +8,9 @@ If you like the plugin, feel free to leave me a star on [ext[GitHub|https://gith
 
 !! TODO
 
-* [ ] $tw api
+* [ ] 继承codemirror 5 的代码片段
+* [ ] 配置使用单一json(需要重新做配置UI, 可以模仿codemirror 5)
+* [x] $tw api
 * [x] 补全自动匹配选项
 * [x] 字体大小问题
 * lsp: https://github.com/FurqanSoftware/codemirror-languageserver

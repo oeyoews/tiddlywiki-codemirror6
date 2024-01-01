@@ -349,6 +349,7 @@ class CodeMirrorEngine {
     let actionCompletions = undefined;
 
     switch (mode) {
+      // TODO:
       // case 'text/vnd.tiddlywiki':
       //   actionCompletions = tiddlywikiLanguage.data.of({
 
