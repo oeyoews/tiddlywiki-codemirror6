@@ -1,4 +1,5 @@
 // @ts-nocheck
+// https://github.com/BurningTreeC/tiddlywiki-codemirror-6/blob/main/plugins/tiddlywiki-codemirror-6/engine.js
 
 import {
   HighlightStyle,
@@ -8,8 +9,7 @@ import {
   indentOnInput,
   bracketMatching,
   foldGutter,
-  foldKeymap,
-  language
+  foldKeymap
 } from '@codemirror/language';
 
 import setVimKeymap from './utils/vimrc.js';
@@ -25,12 +25,7 @@ import {
 
 import { javascript, javascriptLanguage } from '@codemirror/lang-javascript';
 
-import {
-  Compartment,
-  EditorState,
-  EditorSelection,
-  Prec
-} from '@codemirror/state';
+import { EditorState, EditorSelection, Prec } from '@codemirror/state';
 
 import {
   searchKeymap,
@@ -239,10 +234,10 @@ class CodeMirrorEngine {
         tabindex: self.widget.editTabIndex ? self.widget.editTabIndex : ''
       }),
       EditorView.contentAttributes.of({
-        spellcheck: config.spellcheck() === 'yes'
+        spellcheck: config.spellcheck()
       }),
       EditorView.contentAttributes.of({
-        autocorrect: config.autocorrect() === 'yes'
+        autocorrect: config.autocorrect()
       }),
       EditorView.contentAttributes.of({
         translate:
@@ -261,12 +256,12 @@ class CodeMirrorEngine {
       })
     ];
 
-    if (config.indentWithTab() === 'yes') {
+    if (config.indentWithTab()) {
       editorExtensions.push(keymap.of([indentWithTab]));
     }
 
     // TODO: 写一个 editor toolbar 实时改变 mode
-    if (config['codemirror-vim-mode']() === 'yes') {
+    if (config['codemirror-vim-mode']()) {
       setVimKeymap();
       editorExtensions.push(vim());
     } else {
@@ -277,7 +272,7 @@ class CodeMirrorEngine {
       editorExtensions.push(keymap.of([...defaultKeymap]));
     }
 
-    if (config.completeAnyWord() === 'yes') {
+    if (config.completeAnyWord()) {
       editorExtensions.push(
         EditorState.languageData.of(function () {
           return [{ autocomplete: completeAnyWord }];
@@ -285,20 +280,20 @@ class CodeMirrorEngine {
       );
     }
 
-    if (config.closeBrackets() === 'yes') {
+    if (config.closeBrackets()) {
       editorExtensions.push(closeBrackets());
     }
 
-    if (config.bracketMatching() === 'yes') {
+    if (config.bracketMatching()) {
       editorExtensions.push(bracketMatching());
     }
 
-    if (config.lineNumbers() === 'yes') {
+    if (config.lineNumbers()) {
       editorExtensions.push(lineNumbers());
       editorExtensions.push(foldGutter());
     }
 
-    if (config.highlightActiveLine() === 'yes') {
+    if (config.highlightActiveLine()) {
       editorExtensions.push(highlightActiveLine());
       editorExtensions.push(highlightActiveLineGutter());
     }
@@ -498,9 +493,9 @@ class CodeMirrorEngine {
     return this.cm.state.doc.toString();
   };
 
-  /*
-  Fix the height of textarea to fit content
-  */
+  /**
+   * @description Fix the height of textarea to fit content, 其他的文本操作模块需要用到原型上的方法
+   */
   fixHeight() {
     this.cm.requestMeasure();
   }

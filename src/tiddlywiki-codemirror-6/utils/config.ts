@@ -1,6 +1,13 @@
 const baseTitle = '$:/config/codemirror-6/';
+
 function getConfig(title: string) {
-  return $tw.wiki.getTiddlerText(baseTitle + title);
+  const config = $tw.wiki.getTiddlerText(baseTitle + title);
+  if (config === 'yes') {
+    return true;
+  } else if (config === 'no') {
+    return false;
+  }
+  return config;
 }
 
 const titles = [
@@ -22,7 +29,7 @@ const titles = [
 ] as const;
 
 type IOptions = (typeof titles)[number];
-type IConfig = Record<IOptions, () => string>;
+type IConfig = Record<IOptions, () => any>;
 
 // export const config: Map<IOptions, string | boolean> = new Map();
 const config = {} as IConfig;
