@@ -3,4 +3,4 @@ caption: TabSize
 description: TabSize
 settings-template: $:/plugins/BTC/tiddlywiki-codemirror-6/ui/templates/settings/input
 
-20
+2
