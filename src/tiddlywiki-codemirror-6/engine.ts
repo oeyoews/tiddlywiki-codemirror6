@@ -80,6 +80,7 @@ import { vim } from '@replit/codemirror-vim';
 import { oneDark } from '@codemirror/theme-one-dark';
 import { tabSizePlugin } from './utils/tab-size.js';
 import docSizePlugin from './utils/docSizePlugin.js';
+import { config } from './utils/config.js';
 
 class CodeMirrorEngine {
   // @ts-ignore
@@ -126,18 +127,11 @@ class CodeMirrorEngine {
     this.solarizedDarkHighlightStyle =
       $tw.utils.codemirror.getSolarizedDarkHighlightStyle(HighlightStyle, tags);
 
-    const autoCloseBrackets =
-      this.getConfig('$:/config/codemirror-6/closeBrackets') === 'yes';
-
     // 自动选中补全
-    const selectOnOpen =
-      this.getConfig('$:/config/codemirror-6/selectOnOpen') === 'yes';
-    const autocompleteIcons =
-      this.getConfig('$:/config/codemirror-6/autocompleteIcons') === 'yes';
+    const selectOnOpen = config.selectOnOpen() === 'yes';
+    const autocompleteIcons = config.autocompleteIcons() === 'yes';
     // 最大补全数
-    const maxRenderedOptions = parseInt(
-      this.getConfig('$:/config/codemirror-6/maxRenderedOptions')
-    );
+    const maxRenderedOptions = parseInt(config.maxRenderedOptions());
 
     const languageConf = new Compartment();
 
@@ -276,14 +270,10 @@ class CodeMirrorEngine {
         tabindex: self.widget.editTabIndex ? self.widget.editTabIndex : ''
       }),
       EditorView.contentAttributes.of({
-        spellcheck:
-          self.widget.wiki.getTiddlerText(
-            '$:/config/codemirror-6/spellcheck'
-          ) === 'yes'
+        spellcheck: config.spellcheck() === 'yes'
       }),
       EditorView.contentAttributes.of({
-        autocorrect:
-          this.getConfig('$:/config/codemirror-6/autocorrect') === 'yes'
+        autocorrect: config.autocorrect() === 'yes'
       }),
       EditorView.contentAttributes.of({
         translate:
@@ -302,14 +292,12 @@ class CodeMirrorEngine {
       })
     ];
 
-    if (this.getConfig('$:/config/codemirror-6/indentWithTab') === 'yes') {
+    if (config.indentWithTab() === 'yes') {
       editorExtensions.push(keymap.of([indentWithTab]));
     }
 
     // TODO: 写一个 editor toolbar 实时改变 mode
-    if (
-      this.getConfig('$:/config/codemirror-6/codemirror-vim-mode') === 'yes'
-    ) {
+    if (config['codemirror-vim-mode']() === 'yes') {
       setVimKeymap();
       editorExtensions.push(vim());
     } else {
@@ -320,7 +308,7 @@ class CodeMirrorEngine {
       editorExtensions.push(keymap.of([...defaultKeymap]));
     }
 
-    if (this.getConfig('$:/config/codemirror-6/completeAnyWord') === 'yes') {
+    if (config.completeAnyWord() === 'yes') {
       editorExtensions.push(
         EditorState.languageData.of(function () {
           return [{ autocomplete: completeAnyWord }];
@@ -328,22 +316,20 @@ class CodeMirrorEngine {
       );
     }
 
-    if (autoCloseBrackets) {
+    if (config.closeBrackets() === 'yes') {
       editorExtensions.push(closeBrackets());
     }
 
-    if (this.getConfig('$:/config/codemirror-6/bracketMatching') === 'yes') {
+    if (config.bracketMatching() === 'yes') {
       editorExtensions.push(bracketMatching());
     }
 
-    if (this.getConfig('$:/config/codemirror-6/lineNumbers') === 'yes') {
+    if (config.lineNumbers() === 'yes') {
       editorExtensions.push(lineNumbers());
       editorExtensions.push(foldGutter());
     }
 
-    if (
-      this.getConfig('$:/config/codemirror-6/highlightActiveLine') === 'yes'
-    ) {
+    if (config.highlightActiveLine() === 'yes') {
       editorExtensions.push(highlightActiveLine());
       editorExtensions.push(highlightActiveLineGutter());
     }
@@ -400,7 +386,7 @@ class CodeMirrorEngine {
         editorExtensions.push(markdown({ base: markdownLanguage }));
         actionCompletions = markdownLanguage.data.of({
           // autocomplete: [...widgetSnippets]
-          // autocomplete: this.widgetCompletions
+          autocomplete: this.widgetCompletions
         });
         editorExtensions.push(Prec.high(actionCompletions));
         editorExtensions.push(Prec.high(keymap.of(markdownKeymap)));
@@ -683,8 +669,13 @@ class CodeMirrorEngine {
   widgetCompletions(context: CompletionContext) {
     const { widgetSnippets } = require('./utils/getAllWidget.js');
     // 最小补全 length
-    let word = context.matchBefore(/\w*/);
+    // let word = context.matchBefore(/\w*/);
+    const word = context.matchBefore(/<\$/);
+    if (!word) return null;
     if (word.from == word.to && !context.explicit) return null;
+    // const words = context.matchBefore(/<\$/);
+    // console.log(words);
+
     return {
       from: word.from,
       options: [

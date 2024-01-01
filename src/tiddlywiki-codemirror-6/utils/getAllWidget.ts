@@ -15,7 +15,7 @@ const allwidgets = Object.entries(modules)
 // https://github.com/codemirror/website/tree/master/site/examples/autocompletion
 // 不要再外部加载
 export const widgetSnippets = allwidgets.map((widget) =>
-  snippetCompletion(`<\$${widget} \$\{0\}/> \$\{1\}`, {
+  snippetCompletion(`<\$${widget} \$\{0\}/>\$\{1\}`, {
     label: `<\$${widget}`,
     type: 'keyword'
   })
