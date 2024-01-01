@@ -127,23 +127,16 @@ class CodeMirrorEngine {
       $tw.utils.codemirror.getSolarizedDarkHighlightStyle(HighlightStyle, tags);
 
     const autoCloseBrackets =
-      this.widget.wiki.getTiddlerText(
-        '$:/config/codemirror-6/closeBrackets'
-      ) === 'yes';
+      this.getConfig('$:/config/codemirror-6/closeBrackets') === 'yes';
 
     // 自动选中补全
     const selectOnOpen =
-      this.widget.wiki.getTiddlerText('$:/config/codemirror-6/selectOnOpen') ===
-      'yes';
+      this.getConfig('$:/config/codemirror-6/selectOnOpen') === 'yes';
     const autocompleteIcons =
-      this.widget.wiki.getTiddlerText(
-        '$:/config/codemirror-6/autocompleteIcons'
-      ) === 'yes';
+      this.getConfig('$:/config/codemirror-6/autocompleteIcons') === 'yes';
     // 最大补全数
     const maxRenderedOptions = parseInt(
-      this.widget.wiki.getTiddlerText(
-        '$:/config/codemirror-6/maxRenderedOptions'
-      )
+      this.getConfig('$:/config/codemirror-6/maxRenderedOptions')
     );
 
     const languageConf = new Compartment();
@@ -290,13 +283,11 @@ class CodeMirrorEngine {
       }),
       EditorView.contentAttributes.of({
         autocorrect:
-          self.widget.wiki.getTiddlerText(
-            '$:/config/codemirror-6/autocorrect'
-          ) === 'yes'
+          this.getConfig('$:/config/codemirror-6/autocorrect') === 'yes'
       }),
       EditorView.contentAttributes.of({
         translate:
-          self.widget.wiki.getTiddlerText(
+          this.getConfig(
             '$:/state/codemirror-6/translate/' + self.widget.editTitle
           ) === 'yes'
             ? 'yes'
@@ -311,19 +302,13 @@ class CodeMirrorEngine {
       })
     ];
 
-    if (
-      this.widget.wiki.getTiddlerText(
-        '$:/config/codemirror-6/indentWithTab'
-      ) === 'yes'
-    ) {
+    if (this.getConfig('$:/config/codemirror-6/indentWithTab') === 'yes') {
       editorExtensions.push(keymap.of([indentWithTab]));
     }
 
     // TODO: 写一个 editor toolbar 实时改变 mode
     if (
-      this.widget.wiki.getTiddlerText(
-        '$:/config/codemirror-6/codemirror-vim-mode'
-      ) === 'yes'
+      this.getConfig('$:/config/codemirror-6/codemirror-vim-mode') === 'yes'
     ) {
       setVimKeymap();
       editorExtensions.push(vim());
@@ -335,11 +320,7 @@ class CodeMirrorEngine {
       editorExtensions.push(keymap.of([...defaultKeymap]));
     }
 
-    if (
-      this.widget.wiki.getTiddlerText(
-        '$:/config/codemirror-6/completeAnyWord'
-      ) === 'yes'
-    ) {
+    if (this.getConfig('$:/config/codemirror-6/completeAnyWord') === 'yes') {
       editorExtensions.push(
         EditorState.languageData.of(function () {
           return [{ autocomplete: completeAnyWord }];
@@ -351,26 +332,17 @@ class CodeMirrorEngine {
       editorExtensions.push(closeBrackets());
     }
 
-    if (
-      this.widget.wiki.getTiddlerText(
-        '$:/config/codemirror-6/bracketMatching'
-      ) === 'yes'
-    ) {
+    if (this.getConfig('$:/config/codemirror-6/bracketMatching') === 'yes') {
       editorExtensions.push(bracketMatching());
     }
 
-    if (
-      this.widget.wiki.getTiddlerText('$:/config/codemirror-6/lineNumbers') ===
-      'yes'
-    ) {
+    if (this.getConfig('$:/config/codemirror-6/lineNumbers') === 'yes') {
       editorExtensions.push(lineNumbers());
       editorExtensions.push(foldGutter());
     }
 
     if (
-      this.widget.wiki.getTiddlerText(
-        '$:/config/codemirror-6/highlightActiveLine'
-      ) === 'yes'
+      this.getConfig('$:/config/codemirror-6/highlightActiveLine') === 'yes'
     ) {
       editorExtensions.push(highlightActiveLine());
       editorExtensions.push(highlightActiveLineGutter());
@@ -723,6 +695,10 @@ class CodeMirrorEngine {
       ],
       span: /^[\w$]*$/
     };
+  }
+
+  getConfig(title) {
+    return $tw.wiki.getTiddlerText(title);
   }
 }
 
