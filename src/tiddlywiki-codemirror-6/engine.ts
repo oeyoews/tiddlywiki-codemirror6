@@ -12,6 +12,7 @@ import {
   language
 } from '@codemirror/language';
 
+import setVimKeymap from './utils/vimrc.js';
 import { html, htmlLanguage } from '@codemirror/lang-html';
 import { json, jsonLanguage } from '@codemirror/lang-json';
 import { css, cssLanguage } from '@codemirror/lang-css';
@@ -51,6 +52,7 @@ import {
 
 import { lintKeymap } from '@codemirror/lint';
 import {
+  defaultKeymap,
   indentWithTab,
   history,
   historyKeymap,
@@ -70,12 +72,14 @@ import {
   lineNumbers,
   highlightActiveLineGutter,
   placeholder,
-  tooltips,
-  ViewPlugin
+  tooltips
 } from '@codemirror/view';
+
 import { tags } from '@lezer/highlight';
-import { Vim, vim } from '@replit/codemirror-vim';
+import { vim } from '@replit/codemirror-vim';
 import { oneDark } from '@codemirror/theme-one-dark';
+import { tabSizePlugin } from './utils/tab-size.js';
+import docSizePlugin from './utils/docSizePlugin.js';
 
 class CodeMirrorEngine {
   // @ts-ignore
@@ -90,7 +94,9 @@ class CodeMirrorEngine {
     if (this.widget.editClass) {
       this.domNode.className = this.widget.editClass;
     }
+
     this.domNode.style.display = 'inline-block';
+
     this.parentNode.insertBefore(this.domNode, this.nextSibling);
     this.widget.domNodes.push(this.domNode);
 
@@ -125,7 +131,7 @@ class CodeMirrorEngine {
         '$:/config/codemirror-6/closeBrackets'
       ) === 'yes';
 
-    // 自动选中
+    // 自动选中补全
     const selectOnOpen =
       this.widget.wiki.getTiddlerText('$:/config/codemirror-6/selectOnOpen') ===
       'yes';
@@ -140,26 +146,6 @@ class CodeMirrorEngine {
       )
     );
 
-    // 检测文档大小
-    const docSizePlugin = ViewPlugin.fromClass(
-      class {
-        constructor(view) {
-          this.dom = view.dom.appendChild(document.createElement('div'));
-          this.dom.style.cssText =
-            'position: absolute; bottom: -20px; right: 0px; color: grey; font-size:0.8rem;';
-          this.dom.textContent = view.state.doc.length + ' chars';
-        }
-
-        update(update) {
-          if (update.docChanged)
-            this.dom.textContent = update.state.doc.length + ' chars';
-        }
-
-        destroy() {
-          this.dom.remove();
-        }
-      }
-    );
     const languageConf = new Compartment();
 
     // 自动语言检测
@@ -180,6 +166,8 @@ class CodeMirrorEngine {
       dropCursor(),
       // solarizedTheme,
       oneDark,
+      // TODO: option
+      tabSizePlugin(),
       // Prec.high(syntaxHighlighting(oneDarkHighlightStyle)),
       this.removeEditorOutline,
 
@@ -287,7 +275,9 @@ class CodeMirrorEngine {
         ...completionKeymap,
         ...lintKeymap
       ]),
+      // tab for autocomplete accept
       Prec.high(keymap.of({ key: 'Tab', run: acceptCompletion })),
+      // enable line wrap
       EditorView.lineWrapping,
       EditorView.contentAttributes.of({
         tabindex: self.widget.editTabIndex ? self.widget.editTabIndex : ''
@@ -329,12 +319,21 @@ class CodeMirrorEngine {
       editorExtensions.push(keymap.of([indentWithTab]));
     }
 
-    // vim extension
-    Vim.map('jk', '<Esc>', 'insert'); // in insert mode
-    Vim.map('H', '0', 'normal');
-    Vim.map('L', '$', 'normal');
-
-    editorExtensions.push(vim());
+    // TODO: 写一个 editor toolbar 实时改变 mode
+    if (
+      this.widget.wiki.getTiddlerText(
+        '$:/config/codemirror-6/codemirror-vim-mode'
+      ) === 'yes'
+    ) {
+      setVimKeymap();
+      editorExtensions.push(vim());
+    } else {
+      // support toggle and emacsstylekeymap
+      // TODO: add readme and option: ctrl a need press twice to select all
+      // TODO: emacsstylekeymap 容易和 vim 造成一定混乱。
+      //  ...emacsStyleKeymap
+      editorExtensions.push(keymap.of([...defaultKeymap]));
+    }
 
     if (
       this.widget.wiki.getTiddlerText(
@@ -442,8 +441,6 @@ class CodeMirrorEngine {
       doc: options.value, // editor 文本输入
       extensions: editorExtensions
     });
-    // TODO: not work
-    // EditorState.tabSize = 2;
 
     // entry
     this.cm = new EditorView({
@@ -723,7 +720,8 @@ class CodeMirrorEngine {
         // { label: 'hello', type: 'variable', info: '(World)' },
         // { label: 'magic', type: 'text', apply: '⠁⭒*.✩.*⭒⠁', detail: 'macro' },
         ...widgetSnippets
-      ]
+      ],
+      span: /^[\w$]*$/
     };
   }
 }

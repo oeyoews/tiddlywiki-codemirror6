@@ -1,0 +1,6 @@
+title: $:/config/codemirror-6/codemirror-vim-mode
+caption: Codemirror Vim Mode
+description: enable codemirror vim mode
+settings-template: $:/plugins/BTC/tiddlywiki-codemirror-6/ui/templates/settings/input-switch
+
+no
