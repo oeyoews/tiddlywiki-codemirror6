@@ -10,7 +10,7 @@ const autocompletionConfig = () => {
     icons: config.autocompleteIcons(),
     closeOnBlur: true, // 焦点改变时关闭
     activateOnTyping: config.activateOnTyping(), // 输入时是否显示补全框。
-    maxRenderedOptions: Number(config.maxRenderedOptions())
+    maxRenderedOptions: config.maxRenderedOptions()
   });
 };
 

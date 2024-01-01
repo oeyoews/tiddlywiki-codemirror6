@@ -1,11 +1,16 @@
 const baseTitle = '$:/config/codemirror-6/';
 
+function isNumeric(str: string) {
+  return /^\d+$/.test(str);
+}
 function getConfig(title: string) {
   const config = $tw.wiki.getTiddlerText(baseTitle + title);
   if (config === 'yes') {
     return true;
   } else if (config === 'no') {
     return false;
+  } else if (isNumeric(config!)) {
+    return Number(config);
   }
   return config;
 }
