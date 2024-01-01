@@ -350,8 +350,9 @@ class CodeMirrorEngine {
 
     switch (mode) {
       // case 'text/vnd.tiddlywiki':
-      //   editorExtensions.push(tiddlywiki());
-      //   const actionCompletions = tiddlywikiLanguage.data.of({
+      //   actionCompletions = tiddlywikiLanguage.data.of({
+
+      //     autocomplete: this.widgetCompletions
       //   });
       //   editorExtensions.push(Prec.high(actionCompletions));
       //   break;
