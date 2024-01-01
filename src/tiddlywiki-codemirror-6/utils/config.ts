@@ -17,7 +17,8 @@ const titles = [
   'bracketMatching',
   'lineNumbers',
   'highlightActiveLine',
-  'tabSize'
+  'tabSize',
+  'activateOnTyping'
 ] as const;
 
 type IOptions = (typeof titles)[number];

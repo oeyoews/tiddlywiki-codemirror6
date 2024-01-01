@@ -14,10 +14,13 @@ export default function getAllWidget() {
 
   // TODO: 需要匹配 <$ 开头的
   // https://github.com/codemirror/website/tree/master/site/examples/autocompletion
+  // https://codemirror.net/docs/ref/#autocomplete
   const widgetSnippets = allwidgets.map((widget) =>
     snippetCompletion(`<\$${widget} \$\{0\}/>\$\{1\}`, {
-      label: `<\$${widget}`,
+      label: `<\$${widget}`, // 触发字符
+      displayLabel: widget, // 显示字符
       type: 'keyword'
+      // section: 'widgets'// 分组，类似 selection option group
       // detail: 'widget',
       // info: `<\$${widget} />` // TODO: 样式问题
     })

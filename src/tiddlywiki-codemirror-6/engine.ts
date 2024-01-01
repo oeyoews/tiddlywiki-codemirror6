@@ -17,7 +17,6 @@ import { html, htmlLanguage } from '@codemirror/lang-html';
 import { json, jsonLanguage } from '@codemirror/lang-json';
 import { css, cssLanguage } from '@codemirror/lang-css';
 
-// markdown
 import {
   markdown,
   markdownLanguage,
@@ -41,7 +40,6 @@ import {
 } from '@codemirror/search';
 
 import {
-  autocompletion,
   completeAnyWord,
   completionKeymap,
   closeBrackets,
@@ -50,7 +48,7 @@ import {
   acceptCompletion
 } from '@codemirror/autocomplete';
 
-import { lintKeymap } from '@codemirror/lint';
+// import { lintKeymap } from '@codemirror/lint';
 import {
   defaultKeymap,
   indentWithTab,
@@ -82,6 +80,7 @@ import tabSizePlugin from './utils/tab-size.js';
 import docSizePlugin from './utils/docSizePlugin.js';
 import config from './utils/config.js';
 import widgetCompletions from './modules/widgetCompletions.js';
+import autocompletionConfig from './modules/autocompletion-config.js';
 
 class CodeMirrorEngine {
   // @ts-ignore
@@ -128,34 +127,11 @@ class CodeMirrorEngine {
     this.solarizedDarkHighlightStyle =
       $tw.utils.codemirror.getSolarizedDarkHighlightStyle(HighlightStyle, tags);
 
-    // 自动选中补全
-    const selectOnOpen = config.selectOnOpen() === 'yes';
-    const autocompleteIcons = config.autocompleteIcons() === 'yes';
-    // 最大补全数
-    const maxRenderedOptions = parseInt(config.maxRenderedOptions());
-
-    const languageConf = new Compartment();
-
-    // 自动语言检测
-    const autoLanguage = EditorState.transactionExtender.of((tr) => {
-      if (!tr.docChanged) return null;
-      let docIsHTML = /^\s*</.test(tr.newDoc.sliceString(0, 100));
-      let stateIsHTML = tr.startState.facet(language) == htmlLanguage;
-      if (docIsHTML == stateIsHTML) return null;
-      return {
-        effects: languageConf.reconfigure(docIsHTML ? html() : javascript())
-      };
-    });
-
     // https://codemirror.net/docs/extensions/
     const editorExtensions = [
       docSizePlugin,
-      // autoLanguage, // 不好用，语法高亮
-      // languageConf.of(javascript(), markdown({base: markdownLanguage})),
       dropCursor(),
-      // solarizedTheme,
       oneDark,
-      // TODO: option
       tabSizePlugin(),
       // Prec.high(syntaxHighlighting(oneDarkHighlightStyle)),
       this.removeEditorOutline,
@@ -243,15 +219,7 @@ class CodeMirrorEngine {
       EditorState.allowMultipleSelections.of(true),
       indentOnInput(),
       syntaxHighlighting(defaultHighlightStyle, { fallback: true }),
-      // 自动补全
-      autocompletion({
-        tooltipClass: function () {
-          return 'cm-autocomplete-tooltip';
-        },
-        selectOnOpen,
-        icons: autocompleteIcons,
-        maxRenderedOptions
-      }), //{activateOnTyping: false, closeOnBlur: false}),
+      autocompletionConfig(),
       rectangularSelection(),
       crosshairCursor(),
       highlightSelectionMatches(),
@@ -260,8 +228,8 @@ class CodeMirrorEngine {
         ...searchKeymap,
         ...historyKeymap,
         ...foldKeymap,
-        ...completionKeymap,
-        ...lintKeymap
+        ...completionKeymap
+        // ...lintKeymap
       ]),
       // tab for autocomplete accept
       Prec.high(keymap.of({ key: 'Tab', run: acceptCompletion })),
