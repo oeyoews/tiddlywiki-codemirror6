@@ -1,0 +1,11 @@
+author: oeyoews
+core-version: >=5.2.5
+dependents: $:/plugins/oeyoews/tiddlywiki-tailwindcss
+description: Vim-like keyboard shortcuts for TiddlyWiki
+list: README
+name: motion
+plugin-type: plugin
+source: https://github.com/oeyoews/neotw/plugins/tiddlywiki-motion
+title: $:/plugins/oeyoews/motion
+type: application/json
+version: 0.3.45

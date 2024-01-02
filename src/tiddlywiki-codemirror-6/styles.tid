@@ -114,7 +114,7 @@ body {
 }
 
 .cm-selectionMatch {
-	background-color: <<colour-extend cm-selection-match>> !important;
+	<!-- background-color: <<colour-extend cm-selection-match>> !important; -->
 }
 
 .cm-editor.cm-focused .cm-matchingBracket, .cm-editor.cm-focused .cm-nonmatchingBracket {
