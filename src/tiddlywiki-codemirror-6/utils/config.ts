@@ -16,6 +16,8 @@ function getConfig(title: string) {
 }
 
 const titles = [
+  'minLength',
+  'delimiter',
   'minimap',
   'closeBrackets',
   'selectOnOpen',
@@ -25,7 +27,7 @@ const titles = [
   'autocorrect',
   'indentWithTab',
   'bracketMatching',
-  'codemirror-vim-mode',
+  'vimmode',
   'completeAnyWord',
   'bracketMatching',
   'lineNumbers',

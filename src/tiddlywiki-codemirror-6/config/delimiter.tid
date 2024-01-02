@@ -1,0 +1,6 @@
+title: $:/config/codemirror-6/delimiter
+caption: delimiter 触发符(ctrl+space 可手动触发)
+description: delimiter
+settings-template: $:/plugins/BTC/tiddlywiki-codemirror-6/ui/templates/settings/input
+
+/

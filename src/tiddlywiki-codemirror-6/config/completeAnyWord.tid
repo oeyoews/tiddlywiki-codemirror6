@@ -3,4 +3,4 @@ caption: Complete any word
 description: whether or not any word of the currently edited tiddler should be uses for autocompletion
 settings-template: $:/plugins/BTC/tiddlywiki-codemirror-6/ui/templates/settings/input-switch
 
-yes
+no

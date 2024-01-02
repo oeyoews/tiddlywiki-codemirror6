@@ -1,5 +1,6 @@
 // @ts-nocheck
 // https://github.com/BurningTreeC/tiddlywiki-codemirror-6/blob/main/plugins/tiddlywiki-codemirror-6/engine.js
+// https://burningtreec.github.io/tiddlywiki-codemirror-6/
 
 import {
   HighlightStyle,
@@ -40,7 +41,8 @@ import {
   closeBrackets,
   closeBracketsKeymap,
   completionStatus,
-  acceptCompletion
+  acceptCompletion,
+  startCompletion
 } from '@codemirror/autocomplete';
 
 // import { lintKeymap } from '@codemirror/lint';
@@ -281,7 +283,7 @@ class CodeMirrorEngine {
     }
 
     // TODO: 写一个 editor toolbar 实时改变 mode
-    if (config['codemirror-vim-mode']()) {
+    if (config.vimmode()) {
       setVimKeymap();
       editorExtensions.push(vim());
     } else {
