@@ -50,6 +50,9 @@ dependencies:
   '@lezer/highlight':
     specifier: ^1.2.0
     version: 1.2.0
+  '@replit/codemirror-emacs':
+    specifier: ^6.0.1
+    version: 6.0.1(@codemirror/autocomplete@6.11.1)(@codemirror/commands@6.3.3)(@codemirror/search@6.5.5)(@codemirror/state@6.4.0)(@codemirror/view@6.23.0)
   '@replit/codemirror-vim':
     specifier: ^6.1.0
     version: 6.1.0(@codemirror/commands@6.3.3)(@codemirror/language@6.10.0)(@codemirror/search@6.5.5)(@codemirror/state@6.4.0)(@codemirror/view@6.23.0)
@@ -1867,6 +1870,22 @@ packages:
     engines: {node: '>=14'}
     requiresBuild: true
     optional: true
+
+  /@replit/codemirror-emacs@6.0.1(@codemirror/autocomplete@6.11.1)(@codemirror/commands@6.3.3)(@codemirror/search@6.5.5)(@codemirror/state@6.4.0)(@codemirror/view@6.23.0):
+    resolution: {integrity: sha512-2WYkODZGH1QVAXWuOxTMCwktkoZyv/BjYdJi2A5w4fRrmOQFuIACzb6pO9dgU3J+Pm2naeiX2C8veZr/3/r6AA==}
+    peerDependencies:
+      '@codemirror/autocomplete': ^6.0.2
+      '@codemirror/commands': ^6.0.0
+      '@codemirror/search': ^6.0.0
+      '@codemirror/state': ^6.0.1
+      '@codemirror/view': ^6.3.0
+    dependencies:
+      '@codemirror/autocomplete': 6.11.1(@codemirror/language@6.10.0)(@codemirror/state@6.4.0)(@codemirror/view@6.23.0)(@lezer/common@1.2.0)
+      '@codemirror/commands': 6.3.3
+      '@codemirror/search': 6.5.5
+      '@codemirror/state': 6.4.0
+      '@codemirror/view': 6.23.0
+    dev: false
 
   /@replit/codemirror-minimap@0.5.2(@codemirror/language@6.10.0)(@codemirror/lint@6.4.2)(@codemirror/state@6.4.0)(@codemirror/view@6.23.0)(@lezer/common@1.2.0)(@lezer/highlight@1.2.0):
     resolution: {integrity: sha512-eNAtpr0hOG09/5zqAQ5PkgZEb3V/MHi30zentCxiR73r+utR2m9yVMCpBmfsWbb8mWxUWhMGPiHxM5hFtnscQA==}
