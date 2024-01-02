@@ -19,12 +19,12 @@ export const tiddlywikiLanguage = LRLanguage.define({
         Application: foldInside
       }),
       styleTags({
-        'FooBar/Bar': t.lineComment,
-        Bar: t.lineComment,
         Identifier: t.variableName,
         Boolean: t.bool,
+        Keyword: t.keyword,
         String: t.string,
         LineComment: t.lineComment,
+
         '( )': t.paren
       })
     ]

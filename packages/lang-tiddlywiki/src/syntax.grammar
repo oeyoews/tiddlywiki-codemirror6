@@ -1,41 +1,28 @@
-// https://discuss.codemirror.net/t/novice-trying-to-write-a-highlighter-stuck-on-disambiguation-and-token-depth-possibly-misunderstanding/5044/5
-// hight vscode  extension: lezer https://marketplace.visualstudio.com/items?itemName=tamuratak.vscode-lezer
-
 @top Program { expression* }
 
-// @skip { space | LineComment }
-
-// expression {
-//   Identifier |
-//   String |
-//   Boolean |
-//   Application { "(" expression* ")" }
-// }
-
-// @tokens {
-//   Identifier { $[a-zA-Z_\-0-9]+ }
-
-//   String { '"' (!["\\] | "\\" _)* '"' }
-
-//   Boolean { "#t" | "#f" }
-
-//   LineComment { ";" ![\n]* }
-
-//   space { $[ \t\n\r]+ }
-
-//   "(" ")"
-// }
+@skip { space | LineComment }
 
 expression {
-  FooBar |
-  Foo    |
-  Bar
+  Identifier |
+  String |
+  Boolean |
+  Application { "(" expression* ")" }
+  Keyword
 }
 
 @tokens {
-  Foo    { "foo" }
-  Bar    { "bar" }
-  FooBar { Foo Bar }
+  Identifier { $[a-zA-Z_\-0-9]+ }
+
+  String { '"' (!["\\] | "\\" _)* '"' }
+
+  Boolean { "#t" | "#f"}
+
+  LineComment { ";" ![\n]* }
+  Keyword { "now" }
+
+  space { $[ \t\n\r]+ }
+
+  "(" ")"
 }
 
 @detectDelim
