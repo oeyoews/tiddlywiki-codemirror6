@@ -295,7 +295,10 @@ class CodeMirrorEngine {
     }
 
     if (this.widget.editPlaceholder) {
-      editorExtensions.push(placeholder(self.widget.editPlaceholder));
+      const defaultPlaceholder = self.widget.editPlaceholder;
+      editorExtensions.push(
+        placeholder(config.placeholder() || defaultPlaceholder)
+      );
     }
 
     const cmIndentUnit = '	';

@@ -19,6 +19,7 @@ function getConfig(title: string) {
 }
 
 const titles = [
+  'placeholder',
   'cursorBlinkRate',
   'minLength',
   'delimiter',

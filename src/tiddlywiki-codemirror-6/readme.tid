@@ -10,7 +10,9 @@ If you like the plugin, feel free to leave me a star on [ext[GitHub|https://gith
 
 !! TODO
 
-* [ ] gutters 样式问题
+* [ ] hmr config
+* [ ] plugin i18n
+* [ ] gutters and selection style
 * [x] img completion
 * [x] highlight: lang-tiddlywiki https://codemirror.net/examples/lang-package/
 * [x] support tiddler completion
