@@ -10,6 +10,7 @@ If you like the plugin, feel free to leave me a star on [ext[GitHub|https://gith
 
 !! TODO
 
+* [x] img completion
 * [ ] https://github.com/Gk0Wk/TW5-CodeMirror-Enhanced 添加类似的功能 on cm6
 * [ ] completion trigger(delimiter)
 * [ ] highlight: lang-tiddlywiki https://codemirror.net/examples/lang-package/

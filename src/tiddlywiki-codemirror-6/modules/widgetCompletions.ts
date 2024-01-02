@@ -4,6 +4,7 @@ import getAllSnippets from '../utils/getAllSnippet';
 import config from '../utils/config';
 import { getAllTiddlers } from '../utils/getAllTiddlers';
 import triggerType from '../utils/triggerType';
+import { getAllImages } from '../utils/getAllImage';
 
 // https://codemirror.net/examples/autocompletion/
 export default function widgetCompletions(context: CompletionContext) {
@@ -38,6 +39,15 @@ export default function widgetCompletions(context: CompletionContext) {
 
   if (lastWord.startsWith(triggerType.doubleBrackets)) {
     const options = [...getAllTiddlers(triggerType.doubleBrackets)];
+    return {
+      from: wordStart,
+      options,
+      validFor: /^[\w$]*$/
+    };
+  }
+
+  if (lastWord.startsWith('[img[')) {
+    const options = [...getAllImages()];
     return {
       from: wordStart,
       options,
