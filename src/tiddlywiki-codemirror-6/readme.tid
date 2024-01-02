@@ -49,7 +49,10 @@ If you like the plugin, feel free to leave me a star on [ext[GitHub|https://gith
 * [ ] 补全 validFor 优化
 * [ ] 配置使用单一json(需要重新做配置UI, 可以模仿codemirror 5)
 * [ ] 焦点残留问题(vim mode)
+* [ ] ctrl + r not work on vim mode
 
 ## Links
 
 * https://discuss.codemirror.net/
+* https://github.com/BurningTreeC/tiddlywiki-codemirror-6/blob/main/plugins/tiddlywiki-codemirror-6/engine.js
+* https://burningtreec.github.io/tiddlywiki-codemirror-6/

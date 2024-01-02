@@ -1,8 +1,4 @@
 // @ts-nocheck
-
-// https://github.com/BurningTreeC/tiddlywiki-codemirror-6/blob/main/plugins/tiddlywiki-codemirror-6/engine.js
-// https://burningtreec.github.io/tiddlywiki-codemirror-6/
-
 import {
   HighlightStyle,
   indentUnit,
@@ -15,19 +11,6 @@ import {
 } from '@codemirror/language';
 import { showMinimap } from '@replit/codemirror-minimap';
 import setVimKeymap from './utils/vimrc.js';
-import { html, htmlLanguage } from '@codemirror/lang-html';
-import { json, jsonLanguage } from '@codemirror/lang-json';
-import { css, cssLanguage } from '@codemirror/lang-css';
-
-import { tiddlywiki, tiddlywikiLanguage } from 'codemirror-lang-tiddlywiki';
-import {
-  markdown,
-  markdownLanguage,
-  markdownKeymap
-} from '@codemirror/lang-markdown';
-
-import { javascript, javascriptLanguage } from '@codemirror/lang-javascript';
-
 import { EditorState, EditorSelection, Prec } from '@codemirror/state';
 
 import {
@@ -77,11 +60,9 @@ import tabSizePlugin from './utils/tab-size.js';
 import config from './utils/config.js';
 import autocompletionConfig from './modules/autocompletion-config.js';
 import { charsExtension } from './modules/charsExtension.js';
-import completions from './modules/completions.js';
-// import { tiddlywikiLanguage } from './modules/lang-tiddlywiki/index.js';
+import dynamicmode from './modules/mode.js';
 
 class CodeMirrorEngine {
-  // @ts-ignore
   constructor(options) {
     const self = this;
     this.widget = options.widget;
@@ -110,10 +91,9 @@ class CodeMirrorEngine {
     this.solarizedLightTheme = EditorView.theme({ dark: false });
     this.solarizedDarkTheme = EditorView.theme({ dark: true });
 
-    // remove editor outline style
     this.removeEditorOutline = EditorView.theme({
       '&.cm-focused': {
-        outline: 'none'
+        outline: 'none' // remove editor outline style
       }
     });
 
@@ -128,11 +108,7 @@ class CodeMirrorEngine {
     let miniMapNode = (v: EditorView) => {
       const dom = document.createElement('div');
       dom.style.cssText = 'background-color: transparent !important;';
-      // TODO: 调整 shadow
-      // dom.style.boxShadow = '0 0 0 1px rgba(0, 0, 0, 0.1) inset, 5px 5px 5px rgba(0, 0, 0, 0.2)';
-
-      // dom.style.display = 'none';
-      // dom.style.opacity = '0';
+      // TODO: 调整 shadow UI
       // TODO: use hover to show minimap
       return { dom };
     };
@@ -241,12 +217,9 @@ class CodeMirrorEngine {
         ...historyKeymap,
         ...foldKeymap,
         ...completionKeymap
-        // ...lintKeymap
       ]),
-      // tab for autocomplete accept
-      Prec.high(keymap.of({ key: 'Tab', run: acceptCompletion })),
-      // enable line wrap
-      EditorView.lineWrapping,
+      Prec.high(keymap.of({ key: 'Tab', run: acceptCompletion })), // tab for autocomplete accept
+      EditorView.lineWrapping, // enable line wrap
       EditorView.contentAttributes.of({
         tabindex: self.widget.editTabIndex ? self.widget.editTabIndex : ''
       }),
@@ -277,31 +250,21 @@ class CodeMirrorEngine {
       editorExtensions.push(keymap.of([indentWithTab]));
     }
 
-    // minimap will cause docpluzin missing(no covered), now use panel instead of docplugin
-    // TODO: how use hover to show minimap
     if (config.minimap()) {
       editorExtensions.push(
         showMinimap.compute(['doc'], (state) => {
           return {
             create: miniMapNode,
-            // displayText: 'blocks',
             showOverlay: 'mouse-over' // mouse-over
-            // gutters: [{ 1: '#00FF00', 2: '#00FF00' }]
           };
         })
       );
     }
 
-    // TODO: 写一个 editor toolbar 实时改变 mode
-    // BUG: ctrl + r not work to undo
     if (config.vimmode()) {
       setVimKeymap();
       editorExtensions.push(vim());
     } else {
-      // support toggle and emacsstylekeymap
-      // TODO: add readme and option: ctrl a need press twice to select all
-      // TODO: emacsstylekeymap 容易和 vim 造成一定混乱。
-      //  ...emacsStyleKeymap
       editorExtensions.push(keymap.of([...defaultKeymap]));
     }
 
@@ -340,60 +303,8 @@ class CodeMirrorEngine {
 
     let mode = this.widget.editType;
 
-    if (mode === '') {
-      mode = 'text/vnd.tiddlywiki';
-    }
-    let actionCompletions;
-
-    switch (mode) {
-      case 'text/vnd.tiddlywiki':
-        editorExtensions.push(tiddlywiki({ base: tiddlywikiLanguage }));
-
-        actionCompletions = tiddlywikiLanguage.data.of({
-          autocomplete: completions
-        });
-
-        editorExtensions.push(Prec.high(actionCompletions));
-        break;
-      case 'text/markdown':
-      case 'text/x-markdown':
-        editorExtensions.push(markdown({ base: markdownLanguage }));
-
-        actionCompletions = markdownLanguage.data.of({
-          autocomplete: completions
-        });
-
-        editorExtensions.push(Prec.high(actionCompletions));
-        editorExtensions.push(Prec.high(keymap.of(markdownKeymap)));
-        break;
-      case 'text/html':
-        editorExtensions.push(html({ selfClosingTags: true }));
-        actionCompletions = htmlLanguage.data.of({});
-        editorExtensions.push(Prec.high(actionCompletions));
-        break;
-
-      case 'application/javascript':
-        editorExtensions.push(javascript());
-        actionCompletions = javascriptLanguage.data.of({});
-        editorExtensions.push(Prec.high(actionCompletions));
-        // editorExtensions.push(
-        // 		javascriptLanguage.data.of({
-        // 			autocomplete: scopeCompletionSource(globalThis)
-        // 		})
-        // 	);
-        break;
-      case 'application/json':
-        editorExtensions.push(json());
-        actionCompletions = jsonLanguage.data.of({});
-        editorExtensions.push(Prec.high(actionCompletions));
-        break;
-      case 'text/css':
-        editorExtensions.push(css());
-        actionCompletions = cssLanguage.data.of({});
-        editorExtensions.push(Prec.high(actionCompletions));
-        break;
-      default:
-    }
+    // update extensions
+    dynamicmode(mode, editorExtensions);
 
     const state = EditorState.create({
       doc: options.value,
@@ -497,9 +408,7 @@ class CodeMirrorEngine {
     }
   }
 
-  /*
-  Update the DomNode with the new text
-  */
+  /* Update the DomNode with the new text */
   updateDomNodeText(text) {
     const self = this;
     const selections = this.cm.state.selection;
@@ -516,30 +425,22 @@ class CodeMirrorEngine {
     );
   }
 
-  /*
-  Get the text of the engine
-  */
+  /* Get the text of the engine */
   getText = function () {
     return this.cm.state.doc.toString();
   };
 
-  /**
-   * @description Fix the height of textarea to fit content, 其他的文本操作模块需要用到原型上的方法，比如 editortoolbar
-   */
+  /** @description Fix the height of textarea to fit content, 其他的文本操作模块需要用到原型上的方法，比如 editortoolbar */
   fixHeight() {
     this.cm.requestMeasure();
   }
 
-  /*
-  Focus the engine node
-  */
+  /* Focus the engine node */
   focus() {
     this.cm.focus();
   }
 
-  /*
-  Create a blank structure representing a text operation
-  */
+  /* Create a blank structure representing a text operation */
   createTextOperation(type) {
     const selections = this.cm.state.selection.ranges;
     let operations;
@@ -591,9 +492,7 @@ class CodeMirrorEngine {
     return operations;
   }
 
-  /*
-  Execute a text operation
-  */
+  /* Execute a text operation */
   executeTextOperation(operations) {
     const self = this;
     if (operations.type && operations.type === 'undo') {
