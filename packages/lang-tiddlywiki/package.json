@@ -1,5 +1,8 @@
 {
   "name": "codemirror-lang-tiddlywiki",
+  "publishConfig": {
+    "registry": "https://registry.npmjs.org"
+  },
   "version": "0.1.0",
   "description": "tiddlywiki language support for CodeMirror",
   "scripts": {
