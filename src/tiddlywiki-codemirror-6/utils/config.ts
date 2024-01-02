@@ -47,8 +47,8 @@ type IConfig = Record<IOptions, () => any>;
 const config = {} as IConfig;
 
 titles.forEach((title) => {
-  // config.set(title, getConfig(title)!);
   // NOTE: 需要每次重新计算新值，
+  // config.set(title, getConfig(title)!);
   config[title] = () => getConfig(title)!;
 });
 
