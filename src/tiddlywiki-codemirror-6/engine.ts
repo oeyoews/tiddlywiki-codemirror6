@@ -1,4 +1,5 @@
 // @ts-nocheck
+
 // https://github.com/BurningTreeC/tiddlywiki-codemirror-6/blob/main/plugins/tiddlywiki-codemirror-6/engine.js
 // https://burningtreec.github.io/tiddlywiki-codemirror-6/
 
@@ -41,11 +42,9 @@ import {
   closeBrackets,
   closeBracketsKeymap,
   completionStatus,
-  acceptCompletion,
-  startCompletion
+  acceptCompletion
 } from '@codemirror/autocomplete';
 
-// import { lintKeymap } from '@codemirror/lint';
 import {
   defaultKeymap,
   indentWithTab,
@@ -75,9 +74,9 @@ import { vim } from '@replit/codemirror-vim';
 import { oneDark } from '@codemirror/theme-one-dark';
 import tabSizePlugin from './utils/tab-size.js';
 import config from './utils/config.js';
-import widgetCompletions from './modules/widgetCompletions.js';
 import autocompletionConfig from './modules/autocompletion-config.js';
 import { charsExtension } from './modules/charsExtension.js';
+import completions from './modules/completions.js';
 
 class CodeMirrorEngine {
   // @ts-ignore
@@ -382,14 +381,8 @@ class CodeMirrorEngine {
       case 'text/x-markdown':
         editorExtensions.push(markdown({ base: markdownLanguage }));
         actionCompletions = markdownLanguage.data.of({
-          // autocomplete: [...widgetSnippets]
-          autocomplete: widgetCompletions
+          autocomplete: completions
         });
-
-        // TODO: js highlight
-        // editorExtensions.push(javascript());
-        // actionCompletions = javascriptLanguage.data.of({});
-        // editorExtensions.push(Prec.high(actionCompletions));
 
         editorExtensions.push(Prec.high(actionCompletions));
         editorExtensions.push(Prec.high(keymap.of(markdownKeymap)));
@@ -398,7 +391,7 @@ class CodeMirrorEngine {
     }
 
     const state = EditorState.create({
-      doc: options.value, // editor 文本输入
+      doc: options.value,
       extensions: editorExtensions
     });
 

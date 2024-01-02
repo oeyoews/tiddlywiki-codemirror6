@@ -7,7 +7,7 @@ import triggerType from '../utils/triggerType';
 import { getAllImages } from '../utils/getAllImage';
 
 // https://codemirror.net/examples/autocompletion/
-export default function widgetCompletions(context: CompletionContext) {
+export default function completions(context: CompletionContext) {
   // const word = context.matchBefore(/\w*/); // 这种遇到短横线会消失，但是不影响多次触发同一行内
   // const word = context.matchBefore(/<\$/);
 
