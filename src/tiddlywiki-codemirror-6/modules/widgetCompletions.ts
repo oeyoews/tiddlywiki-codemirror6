@@ -2,7 +2,8 @@ import { CompletionContext } from '@codemirror/autocomplete';
 import getAllWidget from '../utils/getAllWidget';
 import getAllSnippets from '../utils/getAllSnippet';
 import config from '../utils/config';
-// import { syntaxTree } from '@codemirror/language';
+import { getAllTiddlers } from '../utils/getAllTiddlers';
+import triggerType from '../utils/triggerType';
 
 // https://codemirror.net/examples/autocompletion/
 export default function widgetCompletions(context: CompletionContext) {
@@ -27,8 +28,7 @@ export default function widgetCompletions(context: CompletionContext) {
     return;
   }
 
-  if (lastWord.startsWith('<$')) {
-    console.log('widget');
+  if (lastWord.startsWith(triggerType.widgetArrow)) {
     return {
       from: wordStart,
       options: [...getAllWidget()],
@@ -36,9 +36,28 @@ export default function widgetCompletions(context: CompletionContext) {
     };
   }
 
+  if (lastWord.startsWith(triggerType.doubleBrackets)) {
+    const options = [...getAllTiddlers(triggerType.doubleBrackets)];
+    return {
+      from: wordStart,
+      options,
+      validFor: /^[\w$]*$/
+    };
+  }
+
+  if (lastWord.startsWith(triggerType.doublecurlyBrackets)) {
+    const options = [...getAllTiddlers(triggerType.doublecurlyBrackets)];
+    return {
+      from: wordStart,
+      options,
+      validFor: /^[\w$]*$/
+    };
+  }
+
   if (lastWord.length < config.minLength()) {
     return;
   }
+
   return {
     from: wordStart,
     options: [...getAllSnippets()],

@@ -1,6 +1,6 @@
 title: $:/plugins/BTC/tiddlywiki-codemirror-6/readme
 
-> 插件在 BTC 的基础上自定义而成.
+> modified on btc codemirror6 plugin
 
 !!! This plugin adds the [ext[CodeMirror 6|https://codemirror.net]] editor to [ext[TiddlyWiki|https://tiddlywiki.com]]
 
@@ -12,29 +12,31 @@ If you like the plugin, feel free to leave me a star on [ext[GitHub|https://gith
 
 * [ ] support copy image https://github.com/Jermolene/TiddlyWiki5/blob/f08d3d60309c97c4ddeeb3a8e0edf35bac74c928/plugins/tiddlywiki/codemirror/engine.js#L222
 * [ ] support tiddler completion [[]]
-* [ ] 补全validFor 优化
+* [ ] 补全 validFor 优化
 * [ ] https://github.com/Gk0Wk/TW5-CodeMirror-Enhanced 添加类似的功能 on cm6
-* [ ] 继承codemirror 5 的代码片段, / trigger.
+* [ ] completion trigger(delimiter)
 * [ ] 配置使用单一json(需要重新做配置UI, 可以模仿codemirror 5)
-* [x] $tw api
+* [ ] highlight: lang-tiddlywiki https://codemirror.net/examples/lang-package/
+* [ ] markdown https://codemirror.net/examples/mixed-language/
+* [ ] highlight widget keyword
+* [ ] 焦点残留问题(vim mode)
+* [x] 继承codemirror 5 的代码片段
+* [x] use $tw api
 * [x] 补全自动匹配选项
 * [x] 字体大小问题
 * [x] multi cursor
 * lsp: https://github.com/FurqanSoftware/codemirror-languageserver
 * [x] destory
-* [ ] support select cm6 or textarea
-* subplugin for different language
-* cm-gutter(s) 样式优先级不一致, 开发环境中正常, json plugin, 样式优先级不一致(或许是notebook-theme plus 导致的), color-expend styles.tid
-* [ ] highlight: lang-tiddlywiki https://codemirror.net/examples/lang-package/
-* [ ] markdown https://codemirror.net/examples/mixed-language/
-* [ ] highlight widget
+* [x] ~~support select cm6 or textarea~~
+* ~~subplugin for different language~~
+* [x] cm-gutter(s) 样式优先级不一致, 开发环境中正常, json plugin, 样式优先级不一致(或许是notebook-theme plus 导致的), color-expend styles.tid
 * [x] refactor engine.js to es6 class
-- [ ] split to vim plugin: 由于使用到了 cm6的包作为依赖, 因此将其单独打包出去, 作为模块的形式加载不太可能
-* 焦点残留问题
-* vim selection not visible
+- ~~split to vim plugin: 由于使用到了 cm6的包作为依赖, 因此将其单独打包出去, 作为模块的形式加载不太可能~~
+* vim selection not visible(style)
 * [x] theme: https://github.com/codemirror/theme-one-dark
-* tab to completion
-* min completion length
-* snippets support compatiable vscode or vim snippets
-* Uncaught RangeError: A document must have at least one line
-* https://codesandbox.io/p/sandbox/codesandbox-next-363-forked-734jrl?file=%2Fsrc%2Findex.js%3A4%2C1
+* [x] tab to completion
+* [x] min completion length
+* [x] snippets support compatiable vscode or vim snippets
+* ~~Uncaught RangeError: A document must have at least one line~~
+
+<!-- * https://codesandbox.io/p/sandbox/codesandbox-next-363-forked-734jrl?file=%2Fsrc%2Findex.js%3A4%2C1 -->
