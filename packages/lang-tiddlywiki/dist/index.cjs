@@ -1,7 +1,5 @@
 'use strict';
 
-Object.defineProperty(exports, '__esModule', { value: true });
-
 var lr = require('@lezer/lr');
 var language = require('@codemirror/language');
 var highlight = require('@lezer/highlight');
