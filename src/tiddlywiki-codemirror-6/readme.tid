@@ -10,16 +10,12 @@ If you like the plugin, feel free to leave me a star on [ext[GitHub|https://gith
 
 !! TODO
 
-* [ ] support copy image https://github.com/Jermolene/TiddlyWiki5/blob/f08d3d60309c97c4ddeeb3a8e0edf35bac74c928/plugins/tiddlywiki/codemirror/engine.js#L222
-* [ ] support tiddler completion [[]]
-* [ ] 补全 validFor 优化
 * [ ] https://github.com/Gk0Wk/TW5-CodeMirror-Enhanced 添加类似的功能 on cm6
 * [ ] completion trigger(delimiter)
-* [ ] 配置使用单一json(需要重新做配置UI, 可以模仿codemirror 5)
 * [ ] highlight: lang-tiddlywiki https://codemirror.net/examples/lang-package/
-* [ ] markdown https://codemirror.net/examples/mixed-language/
 * [ ] highlight widget keyword
-* [ ] 焦点残留问题(vim mode)
+* [ ] markdown https://codemirror.net/examples/mixed-language/
+* [x] support tiddler completion
 * [x] 继承codemirror 5 的代码片段
 * [x] use $tw api
 * [x] 补全自动匹配选项
@@ -40,3 +36,10 @@ If you like the plugin, feel free to leave me a star on [ext[GitHub|https://gith
 * ~~Uncaught RangeError: A document must have at least one line~~
 
 <!-- * https://codesandbox.io/p/sandbox/codesandbox-next-363-forked-734jrl?file=%2Fsrc%2Findex.js%3A4%2C1 -->
+
+## Next
+
+* [ ] support copy image https://github.com/Jermolene/TiddlyWiki5/blob/f08d3d60309c97c4ddeeb3a8e0edf35bac74c928/plugins/tiddlywiki/codemirror/engine.js#L222
+* [ ] 补全 validFor 优化
+* [ ] 配置使用单一json(需要重新做配置UI, 可以模仿codemirror 5)
+* [ ] 焦点残留问题(vim mode)
