@@ -10,11 +10,15 @@ If you like the plugin, feel free to leave me a star on [ext[GitHub|https://gith
 
 !! TODO
 
+* [ ] support emacs keymap https://www.npmjs.com/package/@replit/codemirror-emacs
 * [x] img completion
+* [ ] support vim snippets(vim-snippets repo)
+* [ ] custom preview(render to dom)
+* [ ] 内置一组代码片段
 * [ ] https://github.com/Gk0Wk/TW5-CodeMirror-Enhanced 添加类似的功能 on cm6
 * [ ] completion trigger(delimiter)
 * [ ] highlight: lang-tiddlywiki https://codemirror.net/examples/lang-package/
-* [ ] highlight widget keyword
+* [ ] highlight widget keyword https://github.com/Gk0Wk/TW5-CodeMirror-Enhanced/blob/main/src/cme/mode/parserules/blocks/heading.ts
 * [ ] markdown https://codemirror.net/examples/mixed-language/
 * [x] support tiddler completion
 * [x] 继承codemirror 5 的代码片段

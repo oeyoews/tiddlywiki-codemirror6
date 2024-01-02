@@ -519,7 +519,7 @@ class CodeMirrorEngine {
   };
 
   /**
-   * @description Fix the height of textarea to fit content, 其他的文本操作模块需要用到原型上的方法
+   * @description Fix the height of textarea to fit content, 其他的文本操作模块需要用到原型上的方法，比如 editortoolbar
    */
   fixHeight() {
     this.cm.requestMeasure();
