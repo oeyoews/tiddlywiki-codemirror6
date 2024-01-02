@@ -5,6 +5,7 @@
     "jsx": "react-jsx",
     "baseUrl": "./",
     "typeRoots": ["node_modules/@types", "node_modules/tw5-typed"],
+    "newLine": "lf",
     "lib": ["DOM", "ESNext"]
   },
   "include": ["src"],
