@@ -1,4 +1,4 @@
-import { EXAMPLELanguage } from '../dist/index.js';
+import { tiddlywikiLanguage } from '../dist/index.js';
 import { fileTests } from '@lezer/generator/dist/test';
 
 import * as fs from 'fs';
@@ -15,6 +15,6 @@ for (let file of fs.readdirSync(caseDir)) {
       fs.readFileSync(path.join(caseDir, file), 'utf8'),
       file
     ))
-      it(name, () => run(EXAMPLELanguage.parser));
+      it(name, () => run(tiddlywikiLanguage.parser));
   });
 }

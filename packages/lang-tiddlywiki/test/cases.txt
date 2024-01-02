@@ -1,3 +1,27 @@
+# Foo
+
+foo
+
+==>
+
+Program(Foo)
+
+# Bar
+
+bar
+
+==>
+
+Program(Bar)
+
+# FooBar
+
+foobar
+
+==>
+
+Program(FooBar)
+
 # Booleans
 
 #t
