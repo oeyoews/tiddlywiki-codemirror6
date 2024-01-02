@@ -16,6 +16,7 @@ function getConfig(title: string) {
 }
 
 const titles = [
+  'minimap',
   'closeBrackets',
   'selectOnOpen',
   'autocompleteIcons',

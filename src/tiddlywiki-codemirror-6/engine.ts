@@ -11,7 +11,7 @@ import {
   foldGutter,
   foldKeymap
 } from '@codemirror/language';
-
+import { showMinimap } from '@replit/codemirror-minimap';
 import setVimKeymap from './utils/vimrc.js';
 import { html, htmlLanguage } from '@codemirror/lang-html';
 import { json, jsonLanguage } from '@codemirror/lang-json';
@@ -121,6 +121,12 @@ class CodeMirrorEngine {
       );
     this.solarizedDarkHighlightStyle =
       $tw.utils.codemirror.getSolarizedDarkHighlightStyle(HighlightStyle, tags);
+    let create = (v: EditorView) => {
+      const dom = document.createElement('div');
+      dom.style.cssText = 'background-color: transparent !important;';
+      dom.style.boxShadow = '0 0 0 0px rgba(0, 0, 0, 0.1) inset';
+      return { dom };
+    };
 
     // https://codemirror.net/docs/extensions/
     const editorExtensions = [
@@ -258,6 +264,20 @@ class CodeMirrorEngine {
 
     if (config.indentWithTab()) {
       editorExtensions.push(keymap.of([indentWithTab]));
+    }
+
+    // minimap will cause docpluzin missing(no covered)
+    if (config.minimap()) {
+      editorExtensions.push(
+        showMinimap.compute(['doc'], (state) => {
+          return {
+            create,
+            // displayText: 'blocks',
+            showOverlay: 'blocks' // mouse-over
+            // gutters: [{ 1: '#00FF00', 2: '#00FF00' }]
+          };
+        })
+      );
     }
 
     // TODO: 写一个 editor toolbar 实时改变 mode
