@@ -3,6 +3,9 @@
   "workspaces": [
     "packages/*"
   ],
+  "publishConfig": {
+    "registry": "https://registry.npmjs.org"
+  },
   "license": "MIT",
   "version": "0.0.2",
   "packageManager": "pnpm@8.8.0",
@@ -27,7 +30,7 @@
     "@oeyoews/prettier-config": "^1.0.2",
     "@replit/codemirror-minimap": "^0.5.2",
     "@types/node": "^20.10.6",
-    "codemirror-lang-tiddlywiki": "workspace:^",
+    "codemirror-lang-tiddlywiki": "0.1.1",
     "rimraf": "^5.0.5",
     "ts-node": "^10.9.2",
     "tw5-typed": "^0.4.3",

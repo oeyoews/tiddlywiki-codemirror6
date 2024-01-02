@@ -82,7 +82,7 @@ importers:
         specifier: ^20.10.6
         version: 20.10.6
       codemirror-lang-tiddlywiki:
-        specifier: workspace:^
+        specifier: 0.1.1
         version: link:packages/lang-tiddlywiki
       rimraf:
         specifier: ^5.0.5

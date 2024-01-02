@@ -39,9 +39,7 @@ const tiddlywikiLanguage = LRLanguage.define({
         ]
     }),
     languageData: {
-        // TODO
         commentTokens: {
-            // line: '<!-- -->',
             block: {
                 open: '<!--',
                 close: '-->'
