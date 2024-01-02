@@ -101,7 +101,7 @@ body {
 }
 
 .cm-panels.cm-panels-bottom {
-	border-top: 2px solid <<colour foreground>>;
+	border-top: 0px solid <<colour foreground>> !important;
 }
 
 .cm-searchMatch {
@@ -415,4 +415,8 @@ color: #495057;
     border-color: #80bdff;
     outline: 0;
     box-shadow: 0 0 0 0.2rem rgba(0,123,255,.25);
+}
+
+.cm-button {
+	background-image: none !important;
 }

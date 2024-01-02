@@ -74,10 +74,10 @@ import { tags } from '@lezer/highlight';
 import { vim } from '@replit/codemirror-vim';
 import { oneDark } from '@codemirror/theme-one-dark';
 import tabSizePlugin from './utils/tab-size.js';
-import docSizePlugin from './utils/docSizePlugin.js';
 import config from './utils/config.js';
 import widgetCompletions from './modules/widgetCompletions.js';
 import autocompletionConfig from './modules/autocompletion-config.js';
+import { charsExtension } from './modules/charsExtension.js';
 
 class CodeMirrorEngine {
   // @ts-ignore
@@ -132,7 +132,7 @@ class CodeMirrorEngine {
 
     // https://codemirror.net/docs/extensions/
     const editorExtensions = [
-      docSizePlugin,
+      charsExtension(),
       dropCursor(),
       oneDark,
       tabSizePlugin(),

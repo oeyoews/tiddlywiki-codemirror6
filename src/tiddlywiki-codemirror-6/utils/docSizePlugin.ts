@@ -1,8 +1,10 @@
 // @ts-nocheck
+
 import { ViewPlugin } from '@codemirror/view';
 
 // TODO: https://codemirror.net/examples/panel/
 // 检测文档大小
+// @deprecated use panel instead
 export default ViewPlugin.fromClass(
   class {
     constructor(view) {
