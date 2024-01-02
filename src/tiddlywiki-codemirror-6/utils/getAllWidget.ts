@@ -1,5 +1,5 @@
 // https://codemirror.net/docs/ref/#autocomplete
-import { snippetCompletion } from '@codemirror/autocomplete';
+import { snippetCompletion as snip } from '@codemirror/autocomplete';
 
 export default function getAllWidget() {
   const modules = $tw.modules.titles;
@@ -16,7 +16,7 @@ export default function getAllWidget() {
   // https://github.com/codemirror/website/tree/master/site/examples/autocompletion
   // https://codemirror.net/docs/ref/#autocomplete
   const widgetSnippets = allwidgets.map((widget) =>
-    snippetCompletion(`<\$${widget} \$\{0\}/>\$\{1\}`, {
+    snip(`<\$${widget} \$\{0\}/>\$\{1\}`, {
       label: `<\$${widget}`, // 触发字符
       displayLabel: widget, // 显示字符
       type: 'keyword'

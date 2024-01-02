@@ -1,4 +1,4 @@
-import { snippetCompletion } from '@codemirror/autocomplete';
+import { snippetCompletion as snip } from '@codemirror/autocomplete';
 
 export default function getAllSnippets() {
   const snippetTiddlers = $tw.wiki.filterTiddlers(
@@ -16,7 +16,7 @@ export default function getAllSnippets() {
 
   return allInfo.map((info) =>
     // support placeholder
-    snippetCompletion(`${info.text}`, {
+    snip(`${info.text}`, {
       label: info.title,
       displayLabel: info.caption as string, // 显示字符
       type: 'keyword',

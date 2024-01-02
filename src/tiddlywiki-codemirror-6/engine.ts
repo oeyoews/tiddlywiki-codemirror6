@@ -77,6 +77,7 @@ import config from './utils/config.js';
 import autocompletionConfig from './modules/autocompletion-config.js';
 import { charsExtension } from './modules/charsExtension.js';
 import completions from './modules/completions.js';
+// import { tiddlywikiLanguage } from './modules/lang-tiddlywiki/index.js';
 
 class CodeMirrorEngine {
   // @ts-ignore
@@ -341,13 +342,13 @@ class CodeMirrorEngine {
     if (mode === '') {
       mode = 'text/vnd.tiddlywiki';
     }
-    let actionCompletions = undefined;
+    let actionCompletions;
 
     switch (mode) {
       // TODO:
       // case 'text/vnd.tiddlywiki':
       //   actionCompletions = tiddlywikiLanguage.data.of({
-      //     autocomplete: this.widgetCompletions
+      //     autocomplete: completions
       //   });
       //   editorExtensions.push(Prec.high(actionCompletions));
       //   break;
@@ -361,11 +362,11 @@ class CodeMirrorEngine {
         editorExtensions.push(javascript());
         actionCompletions = javascriptLanguage.data.of({});
         editorExtensions.push(Prec.high(actionCompletions));
-        /*editorExtensions.push(
-						javascriptLanguage.data.of({
-							autocomplete: scopeCompletionSource(globalThis)
-						})
-					);*/
+        // editorExtensions.push(
+        // 		javascriptLanguage.data.of({
+        // 			autocomplete: scopeCompletionSource(globalThis)
+        // 		})
+        // 	);
         break;
       case 'application/json':
         editorExtensions.push(json());
@@ -380,6 +381,7 @@ class CodeMirrorEngine {
       case 'text/markdown':
       case 'text/x-markdown':
         editorExtensions.push(markdown({ base: markdownLanguage }));
+
         actionCompletions = markdownLanguage.data.of({
           autocomplete: completions
         });
