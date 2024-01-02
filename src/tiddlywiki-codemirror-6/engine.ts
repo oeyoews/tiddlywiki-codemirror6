@@ -277,7 +277,7 @@ class CodeMirrorEngine {
           return {
             create,
             // displayText: 'blocks',
-            showOverlay: 'blocks' // mouse-over
+            showOverlay: 'mouse-over' // mouse-over
             // gutters: [{ 1: '#00FF00', 2: '#00FF00' }]
           };
         })
