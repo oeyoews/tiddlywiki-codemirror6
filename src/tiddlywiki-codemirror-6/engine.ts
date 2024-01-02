@@ -123,10 +123,16 @@ class CodeMirrorEngine {
       );
     this.solarizedDarkHighlightStyle =
       $tw.utils.codemirror.getSolarizedDarkHighlightStyle(HighlightStyle, tags);
-    let create = (v: EditorView) => {
+
+    let miniMapNode = (v: EditorView) => {
       const dom = document.createElement('div');
       dom.style.cssText = 'background-color: transparent !important;';
-      dom.style.boxShadow = '0 0 0 0px rgba(0, 0, 0, 0.1) inset';
+      // TODO: 调整 shadow
+      // dom.style.boxShadow = '0 0 0 1px rgba(0, 0, 0, 0.1) inset, 5px 5px 5px rgba(0, 0, 0, 0.2)';
+
+      // dom.style.display = 'none';
+      // dom.style.opacity = '0';
+      // TODO: use hover to show minimap
       return { dom };
     };
 
@@ -270,12 +276,13 @@ class CodeMirrorEngine {
       editorExtensions.push(keymap.of([indentWithTab]));
     }
 
-    // minimap will cause docpluzin missing(no covered)
+    // minimap will cause docpluzin missing(no covered), now use panel instead of docplugin
+    // TODO: how use hover to show minimap
     if (config.minimap()) {
       editorExtensions.push(
         showMinimap.compute(['doc'], (state) => {
           return {
-            create,
+            create: miniMapNode,
             // displayText: 'blocks',
             showOverlay: 'mouse-over' // mouse-over
             // gutters: [{ 1: '#00FF00', 2: '#00FF00' }]
@@ -285,6 +292,7 @@ class CodeMirrorEngine {
     }
 
     // TODO: 写一个 editor toolbar 实时改变 mode
+    // BUG: ctrl + r not work to undo
     if (config.vimmode()) {
       setVimKeymap();
       editorExtensions.push(vim());
