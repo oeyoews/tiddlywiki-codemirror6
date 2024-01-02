@@ -15,6 +15,7 @@ export default function getAllSnippets() {
   });
 
   return allInfo.map((info) =>
+    // support placeholder
     snippetCompletion(`${info.text}`, {
       label: info.title,
       displayLabel: info.caption as string, // 显示字符

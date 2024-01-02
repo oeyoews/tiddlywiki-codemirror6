@@ -5,11 +5,9 @@ export function getAllTiddlers(delimiters = '[[') {
   const allTiddlers = $tw.wiki.filterTiddlers('[!is[system]!has[draft.of]]');
 
   // support preview tiddler
-  return allTiddlers.map((title) =>
-    snippetCompletion(delimiters + title, {
-      label: delimiters + title,
-      displayLabel: title,
-      type: 'keyword'
-    })
-  );
+  return allTiddlers.map((title) => ({
+    label: delimiters + title,
+    displayLabel: title,
+    type: 'keyword'
+  }));
 }
