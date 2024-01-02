@@ -11,10 +11,12 @@ Edit-codemirror widget
   /*global $tw: false */
   'use strict';
 
-  var editTextWidgetFactory =
-      require('$:/core/modules/editor/factory.js').editTextWidgetFactory,
-    CodeMirrorEngine =
-      require('$:/plugins/BTC/tiddlywiki-codemirror-6/engine.js').CodeMirrorEngine;
+  const {
+    editTextWidgetFactory
+  } = require('$:/core/modules/editor/factory.js');
+  const {
+    CodeMirrorEngine
+  } = require('$:/plugins/BTC/tiddlywiki-codemirror-6/engine.js');
 
   exports['edit-codemirror-6'] = editTextWidgetFactory(
     CodeMirrorEngine,

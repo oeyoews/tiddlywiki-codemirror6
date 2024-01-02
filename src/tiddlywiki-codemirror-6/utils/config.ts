@@ -3,8 +3,11 @@ const baseTitle = '$:/config/codemirror-6/';
 function isNumeric(str: string) {
   return /^\d+$/.test(str);
 }
+
+// https://github.com/Jermolene/TiddlyWiki5/blob/master/plugins/tiddlywiki/codemirror/engine.js
+// cm5 是手动加了一个 type，判断类型
 function getConfig(title: string) {
-  const config = $tw.wiki.getTiddlerText(baseTitle + title);
+  const config = $tw.wiki.getTiddlerText(baseTitle + title)?.trim();
   if (config === 'yes') {
     return true;
   } else if (config === 'no') {
@@ -16,6 +19,7 @@ function getConfig(title: string) {
 }
 
 const titles = [
+  'cursorBlinkRate',
   'minLength',
   'delimiter',
   'minimap',

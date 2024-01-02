@@ -10,6 +10,7 @@ If you like the plugin, feel free to leave me a star on [ext[GitHub|https://gith
 
 !! TODO
 
+* [ ] support copy image https://github.com/Jermolene/TiddlyWiki5/blob/f08d3d60309c97c4ddeeb3a8e0edf35bac74c928/plugins/tiddlywiki/codemirror/engine.js#L222
 * [ ] support tiddler completion [[]]
 * [ ] 补全validFor 优化
 * [ ] https://github.com/Gk0Wk/TW5-CodeMirror-Enhanced 添加类似的功能 on cm6

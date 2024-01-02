@@ -218,7 +218,9 @@ class CodeMirrorEngine {
       // basicSetup,
       highlightSpecialChars(),
       history(), //{newGroupDelay: 0, joinToEvent: function() { return false; }}),
-      drawSelection(),
+      drawSelection({
+        cursorBlinkRate: config.cursorBlinkRate()
+      }),
       EditorState.allowMultipleSelections.of(true),
       indentOnInput(),
       syntaxHighlighting(defaultHighlightStyle, { fallback: true }),
