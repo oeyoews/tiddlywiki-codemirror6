@@ -1,5 +1,8 @@
 {
   "url": "https://github.com/oeyoews/tiddlywiki-codemirror6",
+  "workspaces": [
+    "packages/*"
+  ],
   "license": "MIT",
   "version": "0.0.2",
   "scripts": {
@@ -23,6 +26,7 @@
     "@oeyoews/prettier-config": "^1.0.2",
     "@replit/codemirror-minimap": "^0.5.2",
     "@types/node": "^20.10.6",
+    "codemirror-lang-tiddlywiki": "workspace:^",
     "rimraf": "^5.0.5",
     "ts-node": "^10.9.2",
     "tw5-typed": "^0.4.3",

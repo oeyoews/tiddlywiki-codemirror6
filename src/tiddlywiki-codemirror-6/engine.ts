@@ -19,6 +19,7 @@ import { html, htmlLanguage } from '@codemirror/lang-html';
 import { json, jsonLanguage } from '@codemirror/lang-json';
 import { css, cssLanguage } from '@codemirror/lang-css';
 
+import { tiddlywiki, tiddlywikiLanguage } from 'codemirror-lang-tiddlywiki';
 import {
   markdown,
   markdownLanguage,
@@ -345,13 +346,26 @@ class CodeMirrorEngine {
     let actionCompletions;
 
     switch (mode) {
-      // TODO:
-      // case 'text/vnd.tiddlywiki':
-      //   actionCompletions = tiddlywikiLanguage.data.of({
-      //     autocomplete: completions
-      //   });
-      //   editorExtensions.push(Prec.high(actionCompletions));
-      //   break;
+      case 'text/vnd.tiddlywiki':
+        editorExtensions.push(tiddlywiki({ base: tiddlywikiLanguage }));
+
+        actionCompletions = tiddlywikiLanguage.data.of({
+          autocomplete: completions
+        });
+
+        editorExtensions.push(Prec.high(actionCompletions));
+        break;
+      case 'text/markdown':
+      case 'text/x-markdown':
+        editorExtensions.push(markdown({ base: markdownLanguage }));
+
+        actionCompletions = markdownLanguage.data.of({
+          autocomplete: completions
+        });
+
+        editorExtensions.push(Prec.high(actionCompletions));
+        editorExtensions.push(Prec.high(keymap.of(markdownKeymap)));
+        break;
       case 'text/html':
         editorExtensions.push(html({ selfClosingTags: true }));
         actionCompletions = htmlLanguage.data.of({});
@@ -377,17 +391,6 @@ class CodeMirrorEngine {
         editorExtensions.push(css());
         actionCompletions = cssLanguage.data.of({});
         editorExtensions.push(Prec.high(actionCompletions));
-        break;
-      case 'text/markdown':
-      case 'text/x-markdown':
-        editorExtensions.push(markdown({ base: markdownLanguage }));
-
-        actionCompletions = markdownLanguage.data.of({
-          autocomplete: completions
-        });
-
-        editorExtensions.push(Prec.high(actionCompletions));
-        editorExtensions.push(Prec.high(keymap.of(markdownKeymap)));
         break;
       default:
     }
