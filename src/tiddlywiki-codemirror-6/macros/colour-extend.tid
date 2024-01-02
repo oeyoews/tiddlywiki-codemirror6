@@ -1,4 +1,4 @@
-title: $:/plugins/BTC/tiddlywiki-codemirror-6/macros/colour-extend
+title: $:/plugins/oeyoews/tiddlywiki-codemirror-6/macros/colour-extend
 tags: $:/tags/Global
 
 \procedure colour-extend(name,tiddler:"")

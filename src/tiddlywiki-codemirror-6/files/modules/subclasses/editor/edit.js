@@ -1,5 +1,5 @@
 /*\
-title: $:/plugins/BTC/tiddlywiki-codemirror-6/modules/subclasses/editor/edit.js
+title: $:/plugins/oeyoews/tiddlywiki-codemirror-6/modules/subclasses/editor/edit.js
 type: application/javascript
 module-type: widget-subclass
 

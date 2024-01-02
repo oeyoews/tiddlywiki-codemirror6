@@ -1,5 +1,5 @@
 /*\
-title: $:/plugins/BTC/tiddlywiki-codemirror-6/modules/startup/load-codemirror-modules.js
+title: $:/plugins/oeyoews/tiddlywiki-codemirror-6/modules/startup/load-codemirror-modules.js
 type: application/javascript
 module-type: startup
 

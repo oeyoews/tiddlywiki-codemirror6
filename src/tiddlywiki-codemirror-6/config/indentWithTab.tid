@@ -1,6 +1,6 @@
 title: $:/config/codemirror-6/indentWithTab
 caption: Indent with Tab
 description: whether or not the Tab key should indent
-settings-template: $:/plugins/BTC/tiddlywiki-codemirror-6/ui/templates/settings/input-switch
+settings-template: $:/plugins/oeyoews/tiddlywiki-codemirror-6/ui/templates/settings/input-switch
 
 yes

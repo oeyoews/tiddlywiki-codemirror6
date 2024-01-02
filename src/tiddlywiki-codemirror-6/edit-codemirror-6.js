@@ -1,5 +1,5 @@
 /*\
-title: $:/plugins/BTC/tiddlywiki-codemirror-6/edit-codemirror-6.js
+title: $:/plugins/oeyoews/tiddlywiki-codemirror-6/edit-codemirror-6.js
 type: application/javascript
 module-type: widget
 
@@ -16,7 +16,7 @@ Edit-codemirror widget
   } = require('$:/core/modules/editor/factory.js');
   const {
     CodeMirrorEngine
-  } = require('$:/plugins/BTC/tiddlywiki-codemirror-6/engine.js');
+  } = require('$:/plugins/oeyoews/tiddlywiki-codemirror-6/engine.js');
 
   exports['edit-codemirror-6'] = editTextWidgetFactory(
     CodeMirrorEngine,

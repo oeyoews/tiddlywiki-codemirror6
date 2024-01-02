@@ -1,6 +1,6 @@
-title: $:/plugins/BTC/tiddlywiki-codemirror-6/ui/EditorToolbar/undo
+title: $:/plugins/oeyoews/tiddlywiki-codemirror-6/ui/EditorToolbar/undo
 tags: $:/tags/EditorToolbar
-icon: $:/plugins/BTC/tiddlywiki-codemirror-6/icons/undo
+icon: $:/plugins/oeyoews/tiddlywiki-codemirror-6/icons/undo
 caption: Undo
 description: undo the last edit / text operation
 condition: [<targetTiddler>!has[type]] [<targetTiddler>get[type]!prefix[image/]] [<targetTiddler>get[type]match[image/svg+xml]]

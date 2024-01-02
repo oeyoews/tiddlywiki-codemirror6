@@ -1,5 +1,5 @@
 /*\
-title: $:/plugins/BTC/tiddlywiki-codemirror-6/modules/editor/operations/text/redo.js
+title: $:/plugins/oeyoews/tiddlywiki-codemirror-6/modules/editor/operations/text/redo.js
 type: application/javascript
 module-type: texteditoroperation
 

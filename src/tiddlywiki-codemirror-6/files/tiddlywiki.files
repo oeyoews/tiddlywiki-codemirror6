@@ -4,7 +4,7 @@
 			"file": "modules/startup/load-codemirror-modules.js",
 			"fields": {
 				"type": "application/javascript",
-				"title": "$:/plugins/BTC/tiddlywiki-codemirror-6/modules/startup/load-codemirror-modules.js",
+				"title": "$:/plugins/oeyoews/tiddlywiki-codemirror-6/modules/startup/load-codemirror-modules.js",
 				"module-type": "startup"
 			}
 		},
@@ -12,7 +12,7 @@
 			"file": "modules/utils/codemirror-highlight-utils.js",
 			"fields": {
 				"type": "application/javascript",
-				"title": "$:/plugins/BTC/tiddlywiki-codemirror-6/modules/utils/codemirror-highlight-utils.js",
+				"title": "$:/plugins/oeyoews/tiddlywiki-codemirror-6/modules/utils/codemirror-highlight-utils.js",
 				"module-type": "codemirror-utils"
 			}
 		},
@@ -20,7 +20,7 @@
 			"file": "modules/utils/codemirror-misc-utils.js",
 			"fields": {
 				"type": "application/javascript",
-				"title": "$:/plugins/BTC/tiddlywiki-codemirror-6/modules/utils/codemirror-misc-utils.js",
+				"title": "$:/plugins/oeyoews/tiddlywiki-codemirror-6/modules/utils/codemirror-misc-utils.js",
 				"module-type": "codemirror-utils"
 			}
 		},
@@ -116,7 +116,7 @@
 			"file": "modules/editor/operations/undo.js",
 			"fields": {
 				"type": "application/javascript",
-				"title": "$:/plugins/BTC/tiddlywiki-codemirror-6/modules/editor/operations/text/undo.js",
+				"title": "$:/plugins/oeyoews/tiddlywiki-codemirror-6/modules/editor/operations/text/undo.js",
 				"module-type": "texteditoroperation"
 			}
 		},
@@ -124,7 +124,7 @@
 			"file": "modules/editor/operations/redo.js",
 			"fields": {
 				"type": "application/javascript",
-				"title": "$:/plugins/BTC/tiddlywiki-codemirror-6/modules/editor/operations/text/redo.js",
+				"title": "$:/plugins/oeyoews/tiddlywiki-codemirror-6/modules/editor/operations/text/redo.js",
 				"module-type": "texteditoroperation"
 			}
 		},
@@ -132,7 +132,7 @@
 			"file": "modules/subclasses/editor/edit.js",
 			"fields": {
 				"type": "application/javascript",
-				"title": "$:/plugins/BTC/tiddlywiki-codemirror-6/modules/subclasses/editor/edit.js",
+				"title": "$:/plugins/oeyoews/tiddlywiki-codemirror-6/modules/subclasses/editor/edit.js",
 				"module-type": "widget-subclass"
 			}
 		},
@@ -140,7 +140,7 @@
 			"file": "modules/subclasses/editor/edit-codemirror-6.js",
 			"fields": {
 				"type": "application/javascript",
-				"title": "$:/plugins/BTC/tiddlywiki-codemirror-6/modules/subclasses/editor/edit-codemirror-6.js",
+				"title": "$:/plugins/oeyoews/tiddlywiki-codemirror-6/modules/subclasses/editor/edit-codemirror-6.js",
 				"module-type": "widget-subclass"
 			}
 		},
@@ -148,7 +148,7 @@
 			"file": "modules/subclasses/dropzone.js",
 			"fields": {
 				"type": "application/javascript",
-				"title": "$:/plugins/BTC/tiddlywiki-codemirror-6/modules/subclasses/dropzone.js",
+				"title": "$:/plugins/oeyoews/tiddlywiki-codemirror-6/modules/subclasses/dropzone.js",
 				"module-type": "widget-subclass"
 			}
 		}

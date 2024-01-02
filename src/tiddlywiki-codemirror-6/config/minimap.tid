@@ -1,6 +1,6 @@
 title: $:/config/codemirror-6/minimap
 caption: Minimap
 description: minimap
-settings-template: $:/plugins/BTC/tiddlywiki-codemirror-6/ui/templates/settings/input-switch
+settings-template: $:/plugins/oeyoews/tiddlywiki-codemirror-6/ui/templates/settings/input-switch
 
 no

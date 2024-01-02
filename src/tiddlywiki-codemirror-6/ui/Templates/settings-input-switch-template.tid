@@ -1,4 +1,4 @@
-title: $:/plugins/BTC/tiddlywiki-codemirror-6/ui/templates/settings/input-switch
+title: $:/plugins/oeyoews/tiddlywiki-codemirror-6/ui/templates/settings/input-switch
 
 <!-- NOTE: check 不会即使更新shadow tiddler -->
 <label class="btcui-form-label">

@@ -1,6 +1,6 @@
 title: $:/config/codemirror-6/rtl
 caption: Right to left view
 description: whether or not the editor should be displayed from right to left
-settings-template: $:/plugins/BTC/tiddlywiki-codemirror-6/ui/templates/settings/input-switch
+settings-template: $:/plugins/oeyoews/tiddlywiki-codemirror-6/ui/templates/settings/input-switch
 
 no
