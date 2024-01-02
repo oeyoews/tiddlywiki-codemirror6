@@ -15,6 +15,7 @@ export default function widgetCompletions(context: CompletionContext) {
   const doc = context.state.doc;
 
   let wordStart = cursorPos;
+  const validFor = /^[\w$]*$/;
 
   while (
     wordStart > 0 &&
@@ -33,7 +34,7 @@ export default function widgetCompletions(context: CompletionContext) {
     return {
       from: wordStart,
       options: [...getAllWidget()],
-      validFor: /^[\w$]*$/
+      validFor
     };
   }
 
@@ -42,7 +43,7 @@ export default function widgetCompletions(context: CompletionContext) {
     return {
       from: wordStart,
       options,
-      validFor: /^[\w$]*$/
+      validFor
     };
   }
 
@@ -51,7 +52,7 @@ export default function widgetCompletions(context: CompletionContext) {
     return {
       from: wordStart,
       options,
-      validFor: /^[\w$]*$/
+      validFor
     };
   }
 
@@ -60,7 +61,7 @@ export default function widgetCompletions(context: CompletionContext) {
     return {
       from: wordStart,
       options,
-      validFor: /^[\w$]*$/
+      validFor
     };
   }
 
@@ -71,6 +72,6 @@ export default function widgetCompletions(context: CompletionContext) {
   return {
     from: wordStart,
     options: [...getAllSnippets()],
-    validFor: /^[\w$]*$/
+    validFor
   };
 }
