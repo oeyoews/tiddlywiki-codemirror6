@@ -64,6 +64,7 @@ import { linkExt } from './extensions/linkExt.js';
 import { tidExt } from './extensions/tidExt.js';
 import removeOutlineExt from './extensions/removeOutlineExt.js';
 import { miniMapExt } from './extensions/miniMapExt.js';
+import { imgExt } from './extensions/imgExt.js';
 
 class CodeMirrorEngine {
   constructor(options) {
@@ -246,7 +247,7 @@ class CodeMirrorEngine {
       })
     ];
 
-    cmeConfig.clickable() && cme.push(linkExt, tidExt);
+    cmeConfig.clickable() && cme.push(linkExt, tidExt, imgExt);
 
     (cmeConfig.enableOneDarkTheme() &&
       $tw.wiki.getTiddler($tw.wiki.getTiddlerText('$:/palette'))?.fields[

@@ -46,6 +46,7 @@ const customLinkDecorator = new MatchDecorator({
     const content = match[0]; // 提取括号内的内容
     const title = content.replace(/\[\[|\]\]|\{\{|\}\}/g, '');
     if (!title.length) return;
+    // NOTE: 不会检查 system tiddler.
     if (!$tw.wiki.tiddlerExists(title)) return;
     const start = to,
       end = to;
