@@ -10,7 +10,6 @@ import {
   HighlightStyle,
   foldKeymap
 } from '@codemirror/language';
-import { showMinimap } from '@replit/codemirror-minimap';
 import setVimKeymap from './utils/vimrc.js';
 import { EditorState, EditorSelection, Prec } from '@codemirror/state';
 
@@ -63,6 +62,8 @@ import { charsExtension } from './modules/charsExtension.js';
 import dynamicmode from './modules/mode.js';
 import { urlPlugin } from './utils/linkPlugin.js';
 import { customLinkPlugin } from './utils/tiddlerPlugin.js';
+import removeOutlineExt from './modules/removeOutlineExt.js';
+import { miniMapExt } from './modules/miniMapExt.js';
 
 class CodeMirrorEngine {
   constructor(options) {
@@ -114,24 +115,12 @@ class CodeMirrorEngine {
         ? this.solarizedLightHighlightStyle
         : this.solarizedDarkHighlightStyle;
 
-    this.removeEditorOutline = EditorView.theme({
-      '&.cm-focused': {
-        outline: 'none' // remove editor outline style
-      }
-    });
-
-    const miniMapNode = (v: EditorView) => {
-      const dom = document.createElement('div');
-      dom.style.cssText = 'background-color: transparent !important;';
-      return { dom };
-    };
-
     // codemirror extensions
     const cme = [
       charsExtension(),
       dropCursor(),
       tabSizePlugin(),
-      this.removeEditorOutline,
+      removeOutlineExt,
       indentUnit.of('	'),
 
       Prec.high(
@@ -275,17 +264,6 @@ class CodeMirrorEngine {
       cme.push(keymap.of([indentWithTab]));
     }
 
-    if (config.minimap()) {
-      cme.push(
-        showMinimap.compute(['doc'], (state) => {
-          return {
-            create: miniMapNode,
-            showOverlay: 'mouse-over' // mouse-over
-          };
-        })
-      );
-    }
-
     if (config.vimmode()) {
       setVimKeymap();
       cme.push(vim());
@@ -295,9 +273,7 @@ class CodeMirrorEngine {
 
     if (config.completeAnyWord()) {
       cme.push(
-        EditorState.languageData.of(function () {
-          return [{ autocomplete: completeAnyWord }];
-        })
+        EditorState.languageData.of(() => [{ autocomplete: completeAnyWord }])
       );
     }
 
@@ -313,6 +289,9 @@ class CodeMirrorEngine {
     }
 
     let mode = this.widget.editType;
+
+    // add minimap
+    miniMapExt(cme);
 
     // update extensions
     dynamicmode(mode, cme);
