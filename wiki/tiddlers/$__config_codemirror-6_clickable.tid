@@ -1,0 +1,9 @@
+caption: 显示链接图标
+created: 20240103025430319
+description: show link icon
+modified: 20240103025430319
+settings-template: $:/plugins/oeyoews/tiddlywiki-codemirror-6/ui/templates/settings/input-switch
+title: $:/config/codemirror-6/clickable
+type: text/vnd.tiddlywiki
+
+yes

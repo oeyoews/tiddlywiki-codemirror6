@@ -118,8 +118,6 @@ class CodeMirrorEngine {
     // https://codemirror.net/docs/extensions/
     const editorExtensions = [
       charsExtension(),
-      urlPlugin,
-      customLinkPlugin,
       dropCursor(),
       oneDark,
       tabSizePlugin(),
@@ -249,6 +247,10 @@ class CodeMirrorEngine {
         }
       })
     ];
+
+    if (config.clickable()) {
+      editorExtensions.push(urlPlugin, customLinkPlugin);
+    }
 
     if (config.indentWithTab()) {
       editorExtensions.push(keymap.of([indentWithTab]));

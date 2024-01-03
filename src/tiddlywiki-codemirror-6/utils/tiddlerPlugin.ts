@@ -25,7 +25,7 @@ class CustomLink extends WidgetType {
     wrapper.innerHTML = ' 🔗';
     wrapper.className = 'cm-link';
     wrapper.title = contentWithoutBrackets;
-    // wrapper.href = `/#${encodeURIComponent(contentWithoutBrackets)}`;
+    wrapper.href = `/#${encodeURIComponent(contentWithoutBrackets)}`;
     wrapper.onclick = (e) => {
       e.preventDefault();
       const goto = new $tw.Story();
