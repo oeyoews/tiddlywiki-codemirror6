@@ -159,7 +159,7 @@ module-type: codemirror-utils
     sdbase03 = '#657b83',
     sdbase04 = '#839496',
     sdbase05 = '#93a1a1',
-    sdbase06 = '#eee8d5',
+    sdbase06 = '#e06c75',
     sdbase07 = '#fdf6e3',
     sdbase_red = '#dc322f',
     sdbase_orange = '#cb4b16',
