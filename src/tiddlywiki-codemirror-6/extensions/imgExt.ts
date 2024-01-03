@@ -1,10 +1,6 @@
 // @ts-nocheck
-import {
-  Decoration,
-  MatchDecorator,
-  ViewPlugin,
-  WidgetType
-} from '@codemirror/view';
+import { Decoration, MatchDecorator, WidgetType } from '@codemirror/view';
+import createViewPlugin from '../utils/createViewPlugin';
 
 // https://discuss.codemirror.net/t/avoid-replacing-match-in-matchdecorator-decorator-to-add-link-icon-after-urls/4719/3
 class HyperLink extends WidgetType {
@@ -44,17 +40,4 @@ const linkDecorator = new MatchDecorator({
   }
 });
 
-export const imgExt = ViewPlugin.fromClass(
-  class URLView {
-    constructor(view) {
-      this.decorator = linkDecorator;
-      this.decorations = this.decorator.createDeco(view);
-    }
-    update(update) {
-      if (update.docChanged || update.viewportChanged) {
-        this.decorations = this.decorator.updateDeco(update, this.decorations);
-      }
-    }
-  },
-  { decorations: (v) => v.decorations }
-);
+export const imgExt = createViewPlugin(linkDecorator);

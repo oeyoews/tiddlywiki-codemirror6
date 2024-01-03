@@ -1,11 +1,7 @@
 // @ts-nocheck
-import {
-  Decoration,
-  MatchDecorator,
-  ViewPlugin,
-  WidgetType
-} from '@codemirror/view';
+import { Decoration, MatchDecorator, WidgetType } from '@codemirror/view';
 import cmeConfig from '../cmeConfig';
+import createViewPlugin from '../utils/createViewPlugin';
 
 class CustomLink extends WidgetType {
   constructor(state) {
@@ -51,18 +47,4 @@ const customLinkDecorator = new MatchDecorator({
   }
 });
 
-export const tidExt = ViewPlugin.fromClass(
-  class CustomLinkView {
-    constructor(view) {
-      this.decorator = customLinkDecorator;
-      this.decorations = this.decorator.createDeco(view);
-    }
-
-    update(update) {
-      if (update.docChanged || update.viewportChanged) {
-        this.decorations = this.decorator.updateDeco(update, this.decorations);
-      }
-    }
-  },
-  { decorations: (v) => v.decorations }
-);
+export const tidExt = createViewPlugin(customLinkDecorator);
