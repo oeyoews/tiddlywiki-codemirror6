@@ -1,6 +1,5 @@
 title: $:/plugins/oeyoews/tiddlywiki-codemirror-6/styles
-
-<!-- tags: $:/tags/Stylesheet -->
+tags: $:/tags/Stylesheet
 
 \define make-editor-fullscreen()
 
