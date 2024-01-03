@@ -1,5 +1,15 @@
 title: $:/plugins/oeyoews/tiddlywiki-codemirror-6/readme
 
+!! Features
+
+* tiddler completion: [[xxx]] {{xxx}}
+* image completion: [img[xxx]]
+* support user snippets
+* widget completion: <$xxx />
+* minmap
+* vimmode
+* custom placeholder, tabsize, mincompletion length
+
 > modified on btc codemirror6 plugin
 
 !!! This plugin adds the [ext[CodeMirror 6|https://codemirror.net]] editor to [ext[TiddlyWiki|https://tiddlywiki.com]]
