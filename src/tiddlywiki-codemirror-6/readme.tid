@@ -24,6 +24,7 @@ If you like the plugin, feel free to leave me a star on [ext[GitHub|https://gith
 * [ ] hmr config
 * [ ] plugin i18n
 * [ ] gutters and selection style
+* [x] https://github.com/Gk0Wk/TW5-CodeMirror-Enhanced 添加类似的功能 on cm6
 * [x] img completion
 * [x] highlight: lang-tiddlywiki https://codemirror.net/examples/lang-package/
 * [x] support tiddler completion
@@ -61,7 +62,6 @@ If you like the plugin, feel free to leave me a star on [ext[GitHub|https://gith
 * [ ] completion trigger(delimiter)
 * [ ] finish lang-tiddlywiki package
 * [ ] highlight widget keyword https://github.com/Gk0Wk/TW5-CodeMirror-Enhanced/blob/main/src/cme/mode/parserules/blocks/heading.ts
-* [ ] https://github.com/Gk0Wk/TW5-CodeMirror-Enhanced 添加类似的功能 on cm6
 
 ## Links
 
