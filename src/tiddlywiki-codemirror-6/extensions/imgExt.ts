@@ -20,7 +20,7 @@ class HyperLink extends WidgetType {
   toDOM() {
     const wrapper = document.createElement('a');
     const goto = new $tw.Story();
-    const title = this.state.url;
+    const title = this.state.title;
     wrapper.href = title;
     wrapper.title = title;
     wrapper.innerHTML = ' 🖼️';
@@ -39,7 +39,7 @@ const linkDecorator = new MatchDecorator({
     const title = match[1]; // 使用捕获组 [img[xxx]] 中的 xxx 部分
     const start = to;
     const end = to;
-    const linkIcon = new HyperLink({ at: start, url: title });
+    const linkIcon = new HyperLink({ at: start, title });
     add(start, end, Decoration.widget({ widget: linkIcon, side: 0 }));
   }
 });
