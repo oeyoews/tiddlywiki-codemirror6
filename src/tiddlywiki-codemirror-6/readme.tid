@@ -9,6 +9,7 @@ title: $:/plugins/oeyoews/tiddlywiki-codemirror-6/readme
 * minmap
 * vimmode
 * custom placeholder, tabsize, mincompletion length
+* url(with icon) jump
 
 > modified on btc codemirror6 plugin
 

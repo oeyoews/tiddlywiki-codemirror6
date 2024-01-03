@@ -61,6 +61,7 @@ import config from './utils/config.js';
 import autocompletionConfig from './modules/autocompletion-config.js';
 import { charsExtension } from './modules/charsExtension.js';
 import dynamicmode from './modules/mode.js';
+import { urlPlugin } from './utils/linkPlugin.js';
 
 class CodeMirrorEngine {
   constructor(options) {
@@ -116,6 +117,7 @@ class CodeMirrorEngine {
     // https://codemirror.net/docs/extensions/
     const editorExtensions = [
       charsExtension(),
+      urlPlugin,
       dropCursor(),
       oneDark,
       tabSizePlugin(),
