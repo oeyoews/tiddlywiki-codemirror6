@@ -52,6 +52,7 @@ If you like the plugin, feel free to leave me a star on [ext[GitHub|https://gith
 
 !! Next TODO(Roadmap)
 
+* [ ] onedark 样式去掉后发现markdown 的高亮变化了
 * [ ] 支持系统tiddler 补全(目前默认是过滤掉了系统tiddler)
 * [ ] hmr config
 * [ ] plugin i18n

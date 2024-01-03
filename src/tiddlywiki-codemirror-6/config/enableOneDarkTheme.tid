@@ -3,4 +3,4 @@ caption: enable onedark
 description:  enable onedark
 settings-template: $:/plugins/oeyoews/tiddlywiki-codemirror-6/ui/templates/settings/input-switch
 
-no
+yes
