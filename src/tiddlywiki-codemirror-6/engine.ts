@@ -1,6 +1,5 @@
 // @ts-nocheck
 import {
-  HighlightStyle,
   indentUnit,
   defaultHighlightStyle,
   syntaxHighlighting,
@@ -53,7 +52,6 @@ import {
   tooltips
 } from '@codemirror/view';
 
-import { tags } from '@lezer/highlight';
 import { vim } from '@replit/codemirror-vim';
 import { oneDark } from '@codemirror/theme-one-dark';
 import tabSizePlugin from './utils/tab-size.js';
@@ -90,24 +88,13 @@ class CodeMirrorEngine {
     this.openSearchPanel = openSearchPanel;
     this.closeSearchPanel = closeSearchPanel;
 
-    this.solarizedLightTheme = EditorView.theme({ dark: false });
-    this.solarizedDarkTheme = EditorView.theme({ dark: true });
-
     this.removeEditorOutline = EditorView.theme({
       '&.cm-focused': {
         outline: 'none' // remove editor outline style
       }
     });
 
-    this.solarizedLightHighlightStyle =
-      $tw.utils.codemirror.getSolarizedLightHighlightStyle(
-        HighlightStyle,
-        tags
-      );
-    this.solarizedDarkHighlightStyle =
-      $tw.utils.codemirror.getSolarizedDarkHighlightStyle(HighlightStyle, tags);
-
-    let miniMapNode = (v: EditorView) => {
+    const miniMapNode = (v: EditorView) => {
       const dom = document.createElement('div');
       dom.style.cssText = 'background-color: transparent !important;';
       // TODO: 调整 shadow UI
@@ -233,7 +220,7 @@ class CodeMirrorEngine {
       }),
       EditorView.contentAttributes.of({
         translate:
-          this.getConfig(
+          $tw.wiki.getTiddlerText(
             '$:/state/codemirror-6/translate/' + self.widget.editTitle
           ) === 'yes'
             ? 'yes'
@@ -572,10 +559,6 @@ class CodeMirrorEngine {
     }
     this.cm.focus();
     return this.cm.state.doc.toString();
-  }
-
-  getConfig(title) {
-    return $tw.wiki.getTiddlerText(title);
   }
 }
 
