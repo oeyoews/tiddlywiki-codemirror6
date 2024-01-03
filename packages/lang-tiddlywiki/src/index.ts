@@ -24,7 +24,6 @@ export const tiddlywikiLanguage = LRLanguage.define({
         Keyword: t.keyword,
         String: t.string,
         LineComment: t.lineComment,
-
         '( )': t.paren
       })
     ]

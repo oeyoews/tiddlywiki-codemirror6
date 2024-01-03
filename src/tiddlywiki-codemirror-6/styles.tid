@@ -48,9 +48,15 @@ body {
 .cm-editor {
 	font-size: {{$:/config/codemirror-6/fontsize}};
 	color-scheme: {{{ [[$:/palette]get[text]!is[blank]] ~[[$:/palettes/vanilla]] +[get[color-scheme]] ~light }}};
-	background-color: <<colour tiddler-background>> !important;
-	color: <<colour foreground>> !important;
 }
+
+<!-- <$list filter="[{$:/config/codemirror-6/enableOneDarkTheme}match[no]]" variable="ignore">
+.cm-editor {
+	color-scheme: {{{ [[$:/palette]get[text]!is[blank]] ~[[$:/palettes/vanilla]] +[get[color-scheme]] ~light }}};
+	background-color: <<colour tiddler-background>> ;
+	color: <<colour foreground>>;
+}
+</$list> -->
 
 .cm-content {
 	caret-color: <<colour cm-caret-colour>> !important;
@@ -58,11 +64,6 @@ body {
 
 .cm-scroller {
 	font-family: {{$:/themes/tiddlywiki/vanilla/settings/editorfontfamily}} !important;
-}
-
-.cm-activeLine, .cm-activeLineGutter {
-	background-color: <<colour-extend cm-active-line>> !important;
-	color: <<colour foreground>>;
 }
 
 .cm-editor ::selection, .cm-editor.cm-focused .cm-selectionBackground, .cm-selectionBackground, .cm-content ::selection {
@@ -79,9 +80,18 @@ body {
 	border-left: {{$:/config/codemirror-6/cursor-thickness}} solid !important;
 }
 
+.cm-activeLineGutter {
+	background-bolor: transparent !important;
+}
+
+.cm-activeLine {
+	background-color: transparent !important;
+}
+
 .cm-gutters {
 	<!-- bug -->
-	background-color: <<colour-extend cm-gutter-background>> !important;
+	<!-- background-color: <<colour-extend cm-gutter-background>> !important; -->
+	background-color: transparent !important;
 	color: <<colour-extend cm-gutter-foreground>> !important;
 	border: none !important;
 }

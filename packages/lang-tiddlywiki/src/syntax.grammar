@@ -7,7 +7,6 @@ expression {
   String |
   Boolean |
   Application { "(" expression* ")" }
-  Keyword
 }
 
 @tokens {
@@ -15,10 +14,9 @@ expression {
 
   String { '"' (!["\\] | "\\" _)* '"' }
 
-  Boolean { "#t" | "#f"}
+  Boolean { "#t" | "#f" }
 
   LineComment { ";" ![\n]* }
-  Keyword { "now" }
 
   space { $[ \t\n\r]+ }
 

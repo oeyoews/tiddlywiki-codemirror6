@@ -234,7 +234,11 @@ class CodeMirrorEngine {
 
     config.clickable() && cme.push(urlPlugin, customLinkPlugin);
 
-    config.enableOneDarkTheme() && cme.push(oneDark);
+    config.enableOneDarkTheme() &&
+      $tw.wiki.getTiddler($tw.wiki.getTiddlerText('$:/palette'))?.fields[
+        'color-scheme'
+      ] === 'dark' &&
+      cme.push(oneDark);
 
     if (config.indentWithTab()) {
       cme.push(keymap.of([indentWithTab]));
