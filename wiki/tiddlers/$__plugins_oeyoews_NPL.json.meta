@@ -1,0 +1,10 @@
+author: oeyoews
+core-version: >=5.3.0
+dependents: 
+description: NPL
+list: readme
+name: NPL
+plugin-type: plugin
+title: $:/plugins/oeyoews/NPL
+type: application/json
+version: 0.0.1

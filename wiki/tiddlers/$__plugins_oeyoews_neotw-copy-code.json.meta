@@ -1,0 +1,11 @@
+author: oeyoews
+core-version: >=5.3.1
+dependents: $:/plugins/oeyoews/tiddlywiki-tailwindcss-plus $:/plugins/oeyoews/neotw-icons $:/plugins/oeyoews/notify
+description: Neotw Copy Code
+list: readme
+name: Neotw Copy Code
+plugin-priority: 1
+plugin-type: plugin
+title: $:/plugins/oeyoews/neotw-copy-code
+type: application/json
+version: 0.3.0

@@ -1,0 +1,10 @@
+author: oeyoews
+core-version: >=5.2.7
+dependents: 
+description: 主页展示
+list: readme
+name: Neotw Homepage
+plugin-type: plugin
+title: $:/plugins/oeyoews/neotw-homepage
+type: application/json
+version: 0.0.1
