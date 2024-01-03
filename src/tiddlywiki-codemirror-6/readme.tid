@@ -21,6 +21,7 @@ If you like the plugin, feel free to leave me a star on [ext[GitHub|https://gith
 
 !! TODO
 
+* [ ] 支持系统tiddler 补全
 * [ ] hmr config
 * [ ] plugin i18n
 * [ ] gutters and selection style
