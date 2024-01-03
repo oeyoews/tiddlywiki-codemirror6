@@ -7,6 +7,11 @@ ojk
 [[1st January 2024] demo]
 [[download.svg]] demo for 
 |! |!Alpha |!Beta |!Gamma |!Delta |
+|! |!Alpha |!Beta |!Gamma |!Delta |
+|!One | | | | |
+|!Two | | | | |
+|!Three | | | | |
+	Text of snippet demo . (Remember to add a descriptive title in the caption field).
 |!One | | | | |
 |!Two | | | | |
 |!Three | | | | |

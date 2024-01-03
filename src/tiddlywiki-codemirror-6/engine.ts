@@ -97,19 +97,16 @@ class CodeMirrorEngine {
     const miniMapNode = (v: EditorView) => {
       const dom = document.createElement('div');
       dom.style.cssText = 'background-color: transparent !important;';
-      // TODO: 调整 shadow UI
-      // TODO: use hover to show minimap
       return { dom };
     };
 
-    // https://codemirror.net/docs/extensions/
-    const editorExtensions = [
+    // codemirror extensions
+    const cme = [
       charsExtension(),
       dropCursor(),
-      oneDark,
       tabSizePlugin(),
-      // Prec.high(syntaxHighlighting(oneDarkHighlightStyle)),
       this.removeEditorOutline,
+      indentUnit.of('	'),
 
       Prec.high(
         EditorView.domEventHandlers({
@@ -235,16 +232,16 @@ class CodeMirrorEngine {
       })
     ];
 
-    if (config.clickable()) {
-      editorExtensions.push(urlPlugin, customLinkPlugin);
-    }
+    config.clickable() && cme.push(urlPlugin, customLinkPlugin);
+
+    config.enableOneDarkTheme() && cme.push(oneDark);
 
     if (config.indentWithTab()) {
-      editorExtensions.push(keymap.of([indentWithTab]));
+      cme.push(keymap.of([indentWithTab]));
     }
 
     if (config.minimap()) {
-      editorExtensions.push(
+      cme.push(
         showMinimap.compute(['doc'], (state) => {
           return {
             create: miniMapNode,
@@ -256,55 +253,38 @@ class CodeMirrorEngine {
 
     if (config.vimmode()) {
       setVimKeymap();
-      editorExtensions.push(vim());
+      cme.push(vim());
     } else {
-      editorExtensions.push(keymap.of([...defaultKeymap]));
+      cme.push(keymap.of([...defaultKeymap]));
     }
 
     if (config.completeAnyWord()) {
-      editorExtensions.push(
+      cme.push(
         EditorState.languageData.of(function () {
           return [{ autocomplete: completeAnyWord }];
         })
       );
     }
 
-    if (config.closeBrackets()) {
-      editorExtensions.push(closeBrackets());
-    }
-
-    if (config.bracketMatching()) {
-      editorExtensions.push(bracketMatching());
-    }
-
-    if (config.lineNumbers()) {
-      editorExtensions.push(lineNumbers());
-      editorExtensions.push(foldGutter());
-    }
-
-    if (config.highlightActiveLine()) {
-      editorExtensions.push(highlightActiveLine());
-      editorExtensions.push(highlightActiveLineGutter());
-    }
+    config.closeBrackets() && cme.push(closeBrackets());
+    config.bracketMatching() && cme.push(bracketMatching());
+    config.lineNumbers() && cme.push(lineNumbers(), foldGutter());
+    config.highlightActiveLine() &&
+      cme.push(highlightActiveLineGutter(), highlightActiveLine());
 
     if (this.widget.editPlaceholder) {
       const defaultPlaceholder = self.widget.editPlaceholder;
-      editorExtensions.push(
-        placeholder(config.placeholder() || defaultPlaceholder)
-      );
+      cme.push(placeholder(config.placeholder() || defaultPlaceholder));
     }
-
-    const cmIndentUnit = '	';
-    editorExtensions.push(indentUnit.of(cmIndentUnit));
 
     let mode = this.widget.editType;
 
     // update extensions
-    dynamicmode(mode, editorExtensions);
+    dynamicmode(mode, cme);
 
     const state = EditorState.create({
       doc: options.value,
-      extensions: editorExtensions
+      extensions: cme
     });
 
     // entry
