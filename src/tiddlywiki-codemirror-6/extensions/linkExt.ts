@@ -41,7 +41,7 @@ const linkDecorator = new MatchDecorator({
   }
 });
 
-export const urlPlugin = ViewPlugin.fromClass(
+export const linkExt = ViewPlugin.fromClass(
   class URLView {
     constructor(view) {
       this.decorator = linkDecorator;

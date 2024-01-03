@@ -54,7 +54,7 @@ const customLinkDecorator = new MatchDecorator({
   }
 });
 
-export const customLinkPlugin = ViewPlugin.fromClass(
+export const tidExt = ViewPlugin.fromClass(
   class CustomLinkView {
     constructor(view) {
       this.decorator = customLinkDecorator;

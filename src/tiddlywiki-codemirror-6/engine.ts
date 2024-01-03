@@ -58,10 +58,10 @@ import { oneDark } from '@codemirror/theme-one-dark';
 import tabSizePlugin from './utils/tab-size.js';
 import config from './utils/config.js';
 import autocompletionConfig from './modules/autocompletion-config.js';
-import { charsExtension } from './extensions/charsExtension.js';
+import { charsExtension } from './extensions/wordCountExt.js';
 import dynamicmode from './modules/mode.js';
-import { urlPlugin } from './extensions/linkPlugin.js';
-import { customLinkPlugin } from './extensions/tiddlerPlugin.js';
+import { linkExt } from './extensions/linkExt.js';
+import { tidExt } from './extensions/tidExt.js';
 import removeOutlineExt from './extensions/removeOutlineExt.js';
 import { miniMapExt } from './extensions/miniMapExt.js';
 
@@ -246,7 +246,7 @@ class CodeMirrorEngine {
       })
     ];
 
-    config.clickable() && cme.push(urlPlugin, customLinkPlugin);
+    config.clickable() && cme.push(linkExt, tidExt);
 
     (config.enableOneDarkTheme() &&
       $tw.wiki.getTiddler($tw.wiki.getTiddlerText('$:/palette'))?.fields[
