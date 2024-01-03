@@ -20,7 +20,11 @@ class CustomLink extends WidgetType {
   }
 
   toDOM() {
-    const contentWithoutBrackets = this.state.content.replace(/\[\[|\]\]/g, ''); // 去除双方括号
+    const contentWithoutBrackets = this.state.content.replace(
+      /\[\[|\]\]|\{\{|\}\}/g,
+      ''
+    ); // 去除双方括号或双花括号
+
     const wrapper = document.createElement('a');
     wrapper.innerHTML = ' 🔗';
     wrapper.className = 'cm-link';
@@ -36,9 +40,10 @@ class CustomLink extends WidgetType {
 }
 
 const customLinkDecorator = new MatchDecorator({
-  regexp: /\[\[([\s\S]*?)\]\]/g, // 匹配 [[xxx]]
+  regexp: /\[\[([\s\S]*?)\]\]|\{\{([\s\S]*?)\}\}/g, // 匹配 [[xxx]] 或 {{xxx}}
   decorate: (add, from, to, match, view) => {
     const content = match[0]; // 提取括号内的内容
+    if (content.length <= 4) return;
     const start = to,
       end = to;
     const customLink = new CustomLink({ at: start, content });

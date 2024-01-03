@@ -2,6 +2,6 @@
 	"title": "$:/plugins/oeyoews/tiddlywiki-codemirror-6",
 	"name": "CodeMirror6",
 	"description": "CodeMirror 6 editor with vim mode",
-	"version": "0.2.6",
+	"version": "0.2.7",
 	"list": "readme usage"
 }
