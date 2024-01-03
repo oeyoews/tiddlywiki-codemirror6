@@ -29,10 +29,12 @@ class HyperLink extends WidgetType {
   }
 }
 
+// [img[]]
 const linkDecorator = new MatchDecorator({
   regexp: /\[img\[([a-z0-9\._/~%\-\+&\#\?!=\(\)@]*)\]\]/gi,
   decorate: (add, from, to, match, view) => {
     const title = match[1]; // 使用捕获组 [img[xxx]] 中的 xxx 部分
+    if (!$tw.wiki.tiddlerExists(title)) return;
     const start = to;
     const end = to;
     const linkIcon = new HyperLink({ at: start, title });

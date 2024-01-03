@@ -22,6 +22,7 @@ class CustomLink extends WidgetType {
     wrapper.innerHTML = cmeConfig['clickable-icon']() || ' 🔗';
     wrapper.className = 'cm-link';
     wrapper.style.cursor = 'pointer';
+    wrapper.style.userSelect = 'none';
     wrapper.title = title;
     wrapper.onclick = (e) => {
       e.preventDefault();
@@ -32,16 +33,15 @@ class CustomLink extends WidgetType {
   }
 }
 
+// [[xxx]] || {{xxx}}
 const customLinkDecorator = new MatchDecorator({
-  regexp: /\[\[([\s\S]*?)\]\]|\{\{([\s\S]*?)\}\}/g, // 匹配 [[xxx]] 或 {{xxx}}
+  regexp: /(?:\[\[([\s\S]*?)\]\]|\{\{([\s\S]*?)\}\})/g,
   decorate: (add, from, to, match, view) => {
-    const title = match[1];
-    console.log(title);
-    // if (!title.length) return;
+    const title = match[1] || match[2];
     // NOTE: 不会检查 system tiddler.
     if (!$tw.wiki.tiddlerExists(title)) return;
-    const start = to,
-      end = to;
+    const start = to;
+    const end = to;
     const customLink = new CustomLink({ at: start, title });
     add(start, end, Decoration.widget({ widget: customLink, side: 1 }));
   }
