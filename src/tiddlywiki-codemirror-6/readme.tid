@@ -56,7 +56,6 @@ If you like the plugin, feel free to leave me a star on [ext[GitHub|https://gith
 * [ ] 支持系统tiddler 补全(目前默认是过滤掉了系统tiddler)
 * [ ] hmr config
 * [ ] plugin i18n
-* [ ] onedark 样式冲突
 * [ ] 打包一个没有vim插件的.(vim由于含有大量的按键映射, 占了将近200kb).
 * [ ] 内置一组代码片段
 * [ ] support copy image https://github.com/Jermolene/TiddlyWiki5/blob/f08d3d60309c97c4ddeeb3a8e0edf35bac74c928/plugins/tiddlywiki/codemirror/engine.js#L222

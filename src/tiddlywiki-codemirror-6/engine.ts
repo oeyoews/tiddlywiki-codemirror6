@@ -1,4 +1,5 @@
 // @ts-nocheck
+import { tags } from '@lezer/highlight';
 import {
   indentUnit,
   defaultHighlightStyle,
@@ -6,6 +7,7 @@ import {
   indentOnInput,
   bracketMatching,
   foldGutter,
+  HighlightStyle,
   foldKeymap
 } from '@codemirror/language';
 import { showMinimap } from '@replit/codemirror-minimap';
@@ -87,6 +89,30 @@ class CodeMirrorEngine {
     this.redo = redo;
     this.openSearchPanel = openSearchPanel;
     this.closeSearchPanel = closeSearchPanel;
+
+    this.solarizedLightTheme = EditorView.theme({}, { dark: false });
+    this.solarizedDarkTheme = EditorView.theme({}, { dark: true });
+    this.solarizedLightHighlightStyle =
+      $tw.utils.codemirror.getSolarizedLightHighlightStyle(
+        HighlightStyle,
+        tags
+      );
+    this.solarizedDarkHighlightStyle =
+      $tw.utils.codemirror.getSolarizedDarkHighlightStyle(HighlightStyle, tags);
+
+    const cmeTheme =
+      $tw.wiki.getTiddler(this.widget.wiki.getTiddlerText('$:/palette')).fields[
+        'color-scheme'
+      ] === 'light'
+        ? this.solarizedLightTheme
+        : this.solarizedDarkTheme;
+
+    const cmeThemeHighlightStyle =
+      $tw.wiki.getTiddler(this.widget.wiki.getTiddlerText('$:/palette')).fields[
+        'color-scheme'
+      ] === 'light'
+        ? this.solarizedLightHighlightStyle
+        : this.solarizedDarkHighlightStyle;
 
     this.removeEditorOutline = EditorView.theme({
       '&.cm-focused': {
@@ -234,11 +260,16 @@ class CodeMirrorEngine {
 
     config.clickable() && cme.push(urlPlugin, customLinkPlugin);
 
-    config.enableOneDarkTheme() &&
+    // TODO: add togle button
+    (config.enableOneDarkTheme() &&
       $tw.wiki.getTiddler($tw.wiki.getTiddlerText('$:/palette'))?.fields[
         'color-scheme'
       ] === 'dark' &&
-      cme.push(oneDark);
+      cme.push(oneDark)) ||
+      cme.push(
+        EditorView.theme({}, { dark: false }),
+        Prec.high(syntaxHighlighting(cmeThemeHighlightStyle))
+      );
 
     if (config.indentWithTab()) {
       cme.push(keymap.of([indentWithTab]));
