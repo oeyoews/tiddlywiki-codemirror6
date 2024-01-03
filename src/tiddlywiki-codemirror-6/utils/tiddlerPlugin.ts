@@ -43,7 +43,9 @@ const customLinkDecorator = new MatchDecorator({
   regexp: /\[\[([\s\S]*?)\]\]|\{\{([\s\S]*?)\}\}/g, // 匹配 [[xxx]] 或 {{xxx}}
   decorate: (add, from, to, match, view) => {
     const content = match[0]; // 提取括号内的内容
-    if (content.length <= 4) return;
+    const title = content.replace(/\[\[|\]\]|\{\{|\}\}/g, '');
+    if (!title.length) return;
+    if (!$tw.wiki.tiddlerExists(title)) return;
     const start = to,
       end = to;
     const customLink = new CustomLink({ at: start, content });
