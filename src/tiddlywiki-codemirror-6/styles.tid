@@ -80,17 +80,14 @@ body {
 	border-left: {{$:/config/codemirror-6/cursor-thickness}} solid !important;
 }
 
-.cm-activeLineGutter {
-	background-bolor: transparent !important;
-}
-
-.cm-activeLine {
-	background-color: transparent !important;
+.cm-activeLine, .cm-activeLineGutter {
+	background-color: <<colour-extend cm-active-line>> !important;
+	color: <<colour foreground>>;
 }
 
 .cm-gutters {
 	<!-- bug -->
-	<!-- background-color: <<colour-extend cm-gutter-background>> !important; -->
+	background-color: <<colour-extend cm-gutter-background>> !important;
 	background-color: transparent !important;
 	color: <<colour-extend cm-gutter-foreground>> !important;
 	border: none !important;
