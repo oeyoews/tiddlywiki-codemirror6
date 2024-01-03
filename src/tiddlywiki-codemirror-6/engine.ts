@@ -279,7 +279,8 @@ class CodeMirrorEngine {
 
     config.closeBrackets() && cme.push(closeBrackets());
     config.bracketMatching() && cme.push(bracketMatching());
-    config.lineNumbers() && cme.push(lineNumbers(), foldGutter());
+    config.lineNumbers() && cme.push(lineNumbers());
+    config.lineNumbers() && config.foldGutter() && cme.push(foldGutter());
     config.highlightActiveLine() &&
       cme.push(highlightActiveLineGutter(), highlightActiveLine());
 

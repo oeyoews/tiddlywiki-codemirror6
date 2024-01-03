@@ -17,7 +17,7 @@ import { javascript, javascriptLanguage } from '@codemirror/lang-javascript';
 
 import { Prec } from '@codemirror/state';
 
-export default function dynamicmode(mode: string, editorExtensions: []) {
+export default function dynamicmode(mode: string, cme: []) {
   let actionCompletions;
   if (mode === '') {
     mode = 'text/vnd.tiddlywiki';
@@ -25,35 +25,35 @@ export default function dynamicmode(mode: string, editorExtensions: []) {
 
   switch (mode) {
     case 'text/vnd.tiddlywiki':
-      editorExtensions.push(tiddlywiki({ base: tiddlywikiLanguage }));
+      cme.push(tiddlywiki({ base: tiddlywikiLanguage }));
 
       actionCompletions = tiddlywikiLanguage.data.of({
         autocomplete: completions
       });
 
-      editorExtensions.push(Prec.high(actionCompletions));
+      cme.push(Prec.high(actionCompletions));
       break;
     case 'text/markdown':
     case 'text/x-markdown':
-      editorExtensions.push(markdown({ base: markdownLanguage }));
+      cme.push(markdown({ base: markdownLanguage }));
 
       actionCompletions = markdownLanguage.data.of({
         autocomplete: completions
       });
 
-      editorExtensions.push(Prec.high(actionCompletions));
-      editorExtensions.push(Prec.high(keymap.of(markdownKeymap)));
+      cme.push(Prec.high(actionCompletions));
+      cme.push(Prec.high(keymap.of(markdownKeymap)));
       break;
     case 'text/html':
-      editorExtensions.push(html({ selfClosingTags: true }));
+      cme.push(html({ selfClosingTags: true }));
       actionCompletions = htmlLanguage.data.of({});
-      editorExtensions.push(Prec.high(actionCompletions));
+      cme.push(Prec.high(actionCompletions));
       break;
 
     case 'application/javascript':
-      editorExtensions.push(javascript());
+      cme.push(javascript());
       actionCompletions = javascriptLanguage.data.of({});
-      editorExtensions.push(Prec.high(actionCompletions));
+      cme.push(Prec.high(actionCompletions));
       // editorExtensions.push(
       // 		javascriptLanguage.data.of({
       // 			autocomplete: scopeCompletionSource(globalThis)
@@ -61,14 +61,14 @@ export default function dynamicmode(mode: string, editorExtensions: []) {
       // 	);
       break;
     case 'application/json':
-      editorExtensions.push(json());
+      cme.push(json());
       actionCompletions = jsonLanguage.data.of({});
-      editorExtensions.push(Prec.high(actionCompletions));
+      cme.push(Prec.high(actionCompletions));
       break;
     case 'text/css':
-      editorExtensions.push(css());
+      cme.push(css());
       actionCompletions = cssLanguage.data.of({});
-      editorExtensions.push(Prec.high(actionCompletions));
+      cme.push(Prec.high(actionCompletions));
       break;
     default:
   }

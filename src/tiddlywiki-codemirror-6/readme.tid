@@ -76,3 +76,10 @@ If you like the plugin, feel free to leave me a star on [ext[GitHub|https://gith
 !! Tips
 
 * prese `ctrl + /` to comment line(non vimmode)
+
+```js
+    { key: "Ctrl-Shift-[", mac: "Cmd-Alt-[", run: foldCode },
+    { key: "Ctrl-Shift-]", mac: "Cmd-Alt-]", run: unfoldCode },
+    { key: "Ctrl-Alt-[", run: foldAll },
+    { key: "Ctrl-Alt-]", run: unfoldAll }
+```
