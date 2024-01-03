@@ -66,8 +66,8 @@ body {
 }
 
 .cm-editor ::selection, .cm-editor.cm-focused .cm-selectionBackground, .cm-selectionBackground, .cm-content ::selection {
-	background: initial !important;
-	background-color: <<colour-extend cm-selection-background>> !important;
+	<!-- background: initial !important; -->
+	<!-- background-color: <<colour-extend cm-selection-background>> !important; -->
 	color: <<colour-extend cm-selection-foreground>> !important;
 }
 
@@ -110,7 +110,7 @@ body {
 }
 
 .cm-searchMatch.cm-searchMatch-selected {
-	background-color: <<colour-extend cm-search-match-selected>> !important;
+	<!-- background-color: <<colour-extend cm-search-match-selected>> !important; -->
 }
 
 .cm-selectionMatch {
@@ -419,4 +419,7 @@ color: #495057;
 
 .cm-button {
 	background-image: none !important;
+	border-radius: 2px;
+	border: none !important;
+	user-select: none
 }
