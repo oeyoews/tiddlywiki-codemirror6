@@ -1,7 +1,7 @@
 import { CompletionContext } from '@codemirror/autocomplete';
 import getAllWidget from '../utils/getAllWidget';
 import getAllSnippets from '../utils/getAllSnippet';
-import config from '../utils/config';
+import cmeConfig from '../cmeConfig';
 import { getAllTiddlers } from '../utils/getAllTiddlers';
 import triggerType from '../utils/triggerType';
 import { getAllImages } from '../utils/getAllImage';
@@ -68,7 +68,7 @@ export default function completions(context: CompletionContext) {
     };
   }
 
-  if (lastWord.length < config.minLength()) {
+  if (lastWord.length < cmeConfig.minLength()) {
     return;
   }
 

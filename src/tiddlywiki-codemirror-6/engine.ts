@@ -56,7 +56,7 @@ import {
 import { vim } from '@replit/codemirror-vim';
 import { oneDark } from '@codemirror/theme-one-dark';
 import tabSizePlugin from './utils/tab-size.js';
-import config from './utils/config.js';
+import cmeConfig from './cmeConfig.js';
 import autocompletionConfig from './modules/autocompletion-config.js';
 import { charsExtension } from './extensions/wordCountExt.js';
 import dynamicmode from './modules/mode.js';
@@ -202,7 +202,7 @@ class CodeMirrorEngine {
       highlightSpecialChars(),
       history(), //{newGroupDelay: 0, joinToEvent: function() { return false; }}),
       drawSelection({
-        cursorBlinkRate: config.cursorBlinkRate()
+        cursorBlinkRate: cmeConfig.cursorBlinkRate()
       }),
       EditorState.allowMultipleSelections.of(true),
       indentOnInput(),
@@ -224,10 +224,10 @@ class CodeMirrorEngine {
         tabindex: self.widget.editTabIndex ? self.widget.editTabIndex : ''
       }),
       EditorView.contentAttributes.of({
-        spellcheck: config.spellcheck()
+        spellcheck: cmeConfig.spellcheck()
       }),
       EditorView.contentAttributes.of({
-        autocorrect: config.autocorrect()
+        autocorrect: cmeConfig.autocorrect()
       }),
       EditorView.contentAttributes.of({
         translate:
@@ -246,9 +246,9 @@ class CodeMirrorEngine {
       })
     ];
 
-    config.clickable() && cme.push(linkExt, tidExt);
+    cmeConfig.clickable() && cme.push(linkExt, tidExt);
 
-    (config.enableOneDarkTheme() &&
+    (cmeConfig.enableOneDarkTheme() &&
       $tw.wiki.getTiddler($tw.wiki.getTiddlerText('$:/palette'))?.fields[
         'color-scheme'
       ] === 'dark' &&
@@ -258,32 +258,32 @@ class CodeMirrorEngine {
         Prec.high(syntaxHighlighting(cmeThemeHighlightStyle))
       );
 
-    if (config.indentWithTab()) {
+    if (cmeConfig.indentWithTab()) {
       cme.push(keymap.of([indentWithTab]));
     }
 
-    if (config.vimmode()) {
+    if (cmeConfig.vimmode()) {
       setVimKeymap();
       cme.push(vim());
     } else {
       cme.push(keymap.of([...defaultKeymap]));
     }
 
-    config.completeAnyWord() &&
+    cmeConfig.completeAnyWord() &&
       cme.push(
         EditorState.languageData.of(() => [{ autocomplete: completeAnyWord }])
       );
 
-    config.closeBrackets() && cme.push(closeBrackets());
-    config.bracketMatching() && cme.push(bracketMatching());
-    config.lineNumbers() && cme.push(lineNumbers());
-    config.lineNumbers() && config.foldGutter() && cme.push(foldGutter());
-    config.highlightActiveLine() &&
+    cmeConfig.closeBrackets() && cme.push(closeBrackets());
+    cmeConfig.bracketMatching() && cme.push(bracketMatching());
+    cmeConfig.lineNumbers() && cme.push(lineNumbers());
+    cmeConfig.lineNumbers() && cmeConfig.foldGutter() && cme.push(foldGutter());
+    cmeConfig.highlightActiveLine() &&
       cme.push(highlightActiveLineGutter(), highlightActiveLine());
 
     if (this.widget.editPlaceholder) {
       const defaultPlaceholder = self.widget.editPlaceholder;
-      cme.push(placeholder(config.placeholder() || defaultPlaceholder));
+      cme.push(placeholder(cmeConfig.placeholder() || defaultPlaceholder));
     }
 
     let mode = this.widget.editType;

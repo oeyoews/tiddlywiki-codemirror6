@@ -1,4 +1,4 @@
-import config from '../utils/config';
+import cmeConfig from '../cmeConfig';
 import { autocompletion } from '@codemirror/autocomplete';
 
 const autocompletionConfig = () => {
@@ -6,11 +6,11 @@ const autocompletionConfig = () => {
     tooltipClass: function () {
       return 'cm-autocomplete-tooltip';
     },
-    selectOnOpen: config.selectOnOpen(),
-    icons: config.autocompleteIcons(),
+    selectOnOpen: cmeConfig.selectOnOpen(),
+    icons: cmeConfig.autocompleteIcons(),
     closeOnBlur: true, // 焦点改变时关闭
-    activateOnTyping: config.activateOnTyping(), // 输入时是否显示补全框。
-    maxRenderedOptions: config.maxRenderedOptions()
+    activateOnTyping: cmeConfig.activateOnTyping(), // 输入时是否显示补全框。
+    maxRenderedOptions: cmeConfig.maxRenderedOptions()
   });
 };
 

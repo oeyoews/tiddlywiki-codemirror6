@@ -1,5 +1,5 @@
 import { EditorView } from '@codemirror/view';
-import config from '../utils/config';
+import cmeConfig from '../cmeConfig';
 import { showMinimap } from '@replit/codemirror-minimap';
 
 export function miniMapExt(cme: []) {
@@ -9,7 +9,7 @@ export function miniMapExt(cme: []) {
     return { dom };
   };
 
-  if (config.minimap()) {
+  if (cmeConfig.minimap()) {
     cme.push(
       // @ts-ignore
       showMinimap.compute(['doc'], (state) => {

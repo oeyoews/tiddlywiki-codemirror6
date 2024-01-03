@@ -49,12 +49,12 @@ type IOptions = (typeof titles)[number];
 type IConfig = Record<IOptions, () => any>;
 
 // export const config: Map<IOptions, string | boolean> = new Map();
-const config = {} as IConfig;
+const cmeConfig = {} as IConfig;
 
 titles.forEach((title) => {
   // NOTE: 需要每次重新计算新值，
   // config.set(title, getConfig(title)!);
-  config[title] = () => getConfig(title)!;
+  cmeConfig[title] = () => getConfig(title)!;
 });
 
-export default config;
+export default cmeConfig;

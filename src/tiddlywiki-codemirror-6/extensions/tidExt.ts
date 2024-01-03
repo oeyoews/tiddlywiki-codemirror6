@@ -5,7 +5,7 @@ import {
   ViewPlugin,
   WidgetType
 } from '@codemirror/view';
-import config from '../utils/config';
+import cmeConfig from '../cmeConfig';
 
 class CustomLink extends WidgetType {
   constructor(state) {
@@ -27,7 +27,7 @@ class CustomLink extends WidgetType {
     ); // 去除双方括号或双花括号
 
     const wrapper = document.createElement('a');
-    wrapper.innerHTML = config['clickable-icon']() || ' 🔗';
+    wrapper.innerHTML = cmeConfig['clickable-icon']() || ' 🔗';
     wrapper.className = 'cm-link';
     wrapper.title = contentWithoutBrackets;
     wrapper.href = `/#${encodeURIComponent(contentWithoutBrackets)}`;
