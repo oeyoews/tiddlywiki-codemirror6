@@ -19,3 +19,10 @@ Things you'll need to do (see the [language support example](https://codemirror.
 - Optionally add a license.
 
 - Publish. Put your package on npm under a name like `codemirror-lang-EXAMPLE`.
+
+## Links
+
+- https://marvinsblog.net/post/2022-04-21-lezer-parser-generator/
+- https://github.com/lezer-parser/markdown/blob/main/src/markdown.ts
+- https://lezer.codemirror.net/
+- https://discuss.codemirror.net/c/lezer/6
