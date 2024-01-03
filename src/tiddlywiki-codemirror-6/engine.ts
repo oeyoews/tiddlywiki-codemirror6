@@ -249,7 +249,6 @@ class CodeMirrorEngine {
 
     config.clickable() && cme.push(urlPlugin, customLinkPlugin);
 
-    // TODO: add togle button
     (config.enableOneDarkTheme() &&
       $tw.wiki.getTiddler($tw.wiki.getTiddlerText('$:/palette'))?.fields[
         'color-scheme'
@@ -271,11 +270,10 @@ class CodeMirrorEngine {
       cme.push(keymap.of([...defaultKeymap]));
     }
 
-    if (config.completeAnyWord()) {
+    config.completeAnyWord() &&
       cme.push(
         EditorState.languageData.of(() => [{ autocomplete: completeAnyWord }])
       );
-    }
 
     config.closeBrackets() && cme.push(closeBrackets());
     config.bracketMatching() && cme.push(bracketMatching());
