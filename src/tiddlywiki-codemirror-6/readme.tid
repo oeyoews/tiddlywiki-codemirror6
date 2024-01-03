@@ -1,17 +1,17 @@
 title: $:/plugins/oeyoews/tiddlywiki-codemirror-6/readme
 
+> modified on btc codemirror6 plugin
+
 !! Features
 
-* tiddler completion: [[xxx]] {{xxx}}
-* image completion: [img[xxx]]
+* tiddler completion: `[[xxx]]` `{{xxx}}`
+* image completion: `[img[xxx]]`
 * support user snippets
-* widget completion: <$xxx />
+* widget completion: `<$xxx />`
 * minmap
 * vimmode
 * custom placeholder, tabsize, mincompletion length
 * tiddler and url jump
-
-> modified on btc codemirror6 plugin
 
 !!! This plugin adds the [ext[CodeMirror 6|https://codemirror.net]] editor to [ext[TiddlyWiki|https://tiddlywiki.com]]
 
@@ -19,41 +19,41 @@ See the ''usage'' section for keyboard shortcuts
 
 If you like the plugin, feel free to leave me a star on [ext[GitHub|https://github.com/BurningTreeC/tiddlywiki-codemirror-6]]
 
-!! TODO
+!! DONE
 
-* [ ] 支持系统tiddler 补全(目前默认是过滤掉了系统tiddler)
-* [ ] hmr config
-* [ ] plugin i18n
-* [ ] gutters and selection style
-* [x] https://github.com/Gk0Wk/TW5-CodeMirror-Enhanced 添加类似的功能 on cm6
-* [x] img completion
-* [x] highlight: lang-tiddlywiki https://codemirror.net/examples/lang-package/
-* [x] support tiddler completion
-* [x] 继承codemirror 5 的代码片段
-* [x] use $tw api
-* [x] 补全自动匹配选项
-* [x] 字体大小问题
-* [x] multi cursor
-* [x] destory
-* [x] ~~support select cm6 or textarea~~
-* [x] refactor engine.js to es6 class
-* [x] placeholder 样式问题(不可见)
-* [x] theme: https://github.com/codemirror/theme-one-dark
-* [x] tab to completion
-* [x] min completion length
-* [x] snippets support compatiable vscode or vim snippets
-- ~~split to vim plugin: 由于使用到了 cm6的包作为依赖, 因此将其单独打包出去, 作为模块的形式加载不太可能~~
+* https://github.com/Gk0Wk/TW5-CodeMirror-Enhanced 添加类似的功能 on cm6
+* img completion
+* highlight: lang-tiddlywiki https://codemirror.net/examples/lang-package/
+* support tiddler completion
+* 继承codemirror 5 的代码片段
+* use $tw api
+* 补全自动匹配选项
+* 字体大小问题
+* multi cursor
+* destory
+* ~~support select cm6 or textarea~~
+* refactor engine.js to es6 class
+* placeholder 样式问题(不可见)
+* theme: https://github.com/codemirror/theme-one-dark
+* tab to completion
+* min completion length
+* snippets support compatiable vscode or vim snippets
+
+<!-- * ~~split to vim plugin: 由于使用到了 cm6的包作为依赖, 因此将其单独打包出去, 作为模块的形式加载不太可能~~
 * ~~Uncaught RangeError: A document must have at least one line~~
 * ~~support emacs keymap https://www.npmjs.com/package/@replit/codemirror-emacs~~
 * ~~support vim snippets(vim-snippets repo)~~
 * ~~custom preview(render to dom)~~
 * ~~subplugin for different language~~
 * ~~lsp: https://github.com/FurqanSoftware/codemirror-languageserver~~
-
-<!-- * https://codesandbox.io/p/sandbox/codesandbox-next-363-forked-734jrl?file=%2Fsrc%2Findex.js%3A4%2C1 -->
+* https://codesandbox.io/p/sandbox/codesandbox-next-363-forked-734jrl?file=%2Fsrc%2Findex.js%3A4%2C1 -->
 
 ## Next TODO(Roadmap)
 
+* [ ] 支持系统tiddler 补全(目前默认是过滤掉了系统tiddler)
+* [ ] hmr config
+* [ ] plugin i18n
+* [ ] gutters and selection style
 * [ ] 打包一个没有vim插件的.(vim由于含有大量的按键映射, 占了将近200kb).
 * [ ] 内置一组代码片段
 * [ ] support copy image https://github.com/Jermolene/TiddlyWiki5/blob/f08d3d60309c97c4ddeeb3a8e0edf35bac74c928/plugins/tiddlywiki/codemirror/engine.js#L222
@@ -67,6 +67,6 @@ If you like the plugin, feel free to leave me a star on [ext[GitHub|https://gith
 
 ## Links
 
-* https://discuss.codemirror.net/
+* https://discuss.codemirror.net
 * https://github.com/BurningTreeC/tiddlywiki-codemirror-6/blob/main/plugins/tiddlywiki-codemirror-6/engine.js
 * https://burningtreec.github.io/tiddlywiki-codemirror-6/
