@@ -199,7 +199,6 @@ class CodeMirrorEngine {
       tooltips({
         parent: self.domNode.ownerDocument.body
       }),
-      // basicSetup,
       highlightSpecialChars(),
       history(), //{newGroupDelay: 0, joinToEvent: function() { return false; }}),
       drawSelection({
