@@ -1,9 +1,9 @@
 caption: 显示折叠
 created: 20240103163141437
 description: show fold symbol
-modified: 20240103163141437
+modified: 20240103164305077
 settings-template: $:/plugins/oeyoews/tiddlywiki-codemirror-6/ui/templates/settings/input-switch
 title: $:/config/codemirror-6/foldGutter
 type: text/vnd.tiddlywiki
 
-yes
+no

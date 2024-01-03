@@ -5,7 +5,7 @@ import {
   ViewPlugin,
   WidgetType
 } from '@codemirror/view';
-import config from './config';
+import config from '../utils/config';
 
 class CustomLink extends WidgetType {
   constructor(state) {

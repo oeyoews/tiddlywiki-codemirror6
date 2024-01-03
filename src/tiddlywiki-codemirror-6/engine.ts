@@ -58,12 +58,12 @@ import { oneDark } from '@codemirror/theme-one-dark';
 import tabSizePlugin from './utils/tab-size.js';
 import config from './utils/config.js';
 import autocompletionConfig from './modules/autocompletion-config.js';
-import { charsExtension } from './modules/charsExtension.js';
+import { charsExtension } from './extensions/charsExtension.js';
 import dynamicmode from './modules/mode.js';
-import { urlPlugin } from './utils/linkPlugin.js';
-import { customLinkPlugin } from './utils/tiddlerPlugin.js';
-import removeOutlineExt from './modules/removeOutlineExt.js';
-import { miniMapExt } from './modules/miniMapExt.js';
+import { urlPlugin } from './extensions/linkPlugin.js';
+import { customLinkPlugin } from './extensions/tiddlerPlugin.js';
+import removeOutlineExt from './extensions/removeOutlineExt.js';
+import { miniMapExt } from './extensions/miniMapExt.js';
 
 class CodeMirrorEngine {
   constructor(options) {
