@@ -26,7 +26,8 @@ import {
   closeBrackets,
   closeBracketsKeymap,
   completionStatus,
-  acceptCompletion
+  acceptCompletion,
+  nextSnippetField
 } from '@codemirror/autocomplete';
 
 import {
@@ -212,6 +213,32 @@ class CodeMirrorEngine {
       rectangularSelection(),
       crosshairCursor(),
       highlightSelectionMatches(),
+      Prec.high(
+        keymap.of({
+          key: 'Tab',
+          run: acceptCompletion
+        })
+      ), // tab for autocomplete accept
+      Prec.high(
+        keymap.of([
+          {
+            key: 'Ctrl-i',
+            scope: 'editor',
+            run: acceptCompletion
+          }
+        ])
+      ),
+      // https://discuss.codemirror.net/t/capturing-ctrl-s-doesnt-work-opens-browsers-save-dialog/5228
+      // Prec.highest(
+      //   keymap.of([
+      //     {
+      //       key: 'Ctrl-n',
+      //       preventDefault: true,
+      //       // scope: 'editor',
+      //       run: acceptCompletion
+      //     }
+      //   ])
+      // ),
       keymap.of([
         ...closeBracketsKeymap,
         ...searchKeymap,
@@ -219,7 +246,6 @@ class CodeMirrorEngine {
         ...foldKeymap,
         ...completionKeymap
       ]),
-      Prec.high(keymap.of({ key: 'Tab', run: acceptCompletion })), // tab for autocomplete accept
       EditorView.lineWrapping, // enable line wrap
       EditorView.contentAttributes.of({
         tabindex: self.widget.editTabIndex ? self.widget.editTabIndex : ''

@@ -1,0 +1,6 @@
+title: $:/config/codemirror-6/closeOnBlur
+caption: 自动关闭补全框
+description: 自动关闭补全框
+settings-template: $:/plugins/oeyoews/tiddlywiki-codemirror-6/ui/templates/settings/input-switch
+
+yes

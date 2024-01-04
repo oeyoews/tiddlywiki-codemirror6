@@ -1,0 +1,9 @@
+caption: Autocompletion with all tiddlers
+created: 20240104151330375
+description: Autocompletion with all tiddlers
+modified: 20240104151330375
+settings-template: $:/plugins/oeyoews/tiddlywiki-codemirror-6/ui/templates/settings/input-switch
+title: $:/config/codemirror-6/enableSystemTiddlersCompletion
+type: text/vnd.tiddlywiki
+
+yes

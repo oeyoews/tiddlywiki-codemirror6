@@ -8,7 +8,7 @@ const autocompletionConfig = () => {
     },
     selectOnOpen: cmeConfig.selectOnOpen(),
     icons: cmeConfig.autocompleteIcons(),
-    closeOnBlur: true, // 焦点改变时关闭
+    closeOnBlur: cmeConfig.closeOnBlur(), // 焦点改变时关闭
     activateOnTyping: cmeConfig.activateOnTyping(), // 输入时是否显示补全框。
     maxRenderedOptions: cmeConfig.maxRenderedOptions()
   });

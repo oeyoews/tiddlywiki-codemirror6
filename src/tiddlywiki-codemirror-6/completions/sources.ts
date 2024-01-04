@@ -2,6 +2,7 @@
 
 import { snippetCompletion as snip } from '@codemirror/autocomplete';
 import triggerType from '../utils/triggerType';
+import cmeConfig from '../cmeConfig';
 
 function getImageSnippets() {
   const allImageTiddlers = $tw.wiki.filterTiddlers('[!is[system]is[image]]');
@@ -61,9 +62,12 @@ function getAllWidgetSnippets() {
 }
 
 function getAllTiddlers(delimiters = triggerType.doubleBrackets) {
-  const allTiddlers = $tw.wiki.filterTiddlers(
-    '[all[tiddlers+shadows]!has[draft.of]!prefix[$:/status]!preifx[$:/temp]!prefix[$:/state]!tag[$:/tags/TextEditor/Snippet]!prefix[$:/language]]'
-  );
+  const systemFilter =
+    '[all[tiddlers+shadows]!has[draft.of]!prefix[$:/status]!preifx[$:/temp]!prefix[$:/state]!tag[$:/tags/TextEditor/Snippet]!prefix[$:/language]!prefix[$:/config/Server/]]';
+  const filter = cmeConfig.enableSystemTiddlersCompletion()
+    ? systemFilter
+    : '[!is[system]]';
+  const allTiddlers = $tw.wiki.filterTiddlers(filter);
 
   return allTiddlers.map((title) => ({
     label: delimiters + title,

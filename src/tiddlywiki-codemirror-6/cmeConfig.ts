@@ -19,6 +19,8 @@ function getConfig(title: string) {
 }
 
 const titles = [
+  'enableSystemTiddlersCompletion',
+  'closeOnBlur',
   'foldGutter',
   'enableOneDarkTheme',
   'clickable-icon',
