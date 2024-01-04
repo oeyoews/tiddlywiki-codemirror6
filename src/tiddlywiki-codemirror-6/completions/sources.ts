@@ -3,26 +3,25 @@
 import { snippetCompletion as snip } from '@codemirror/autocomplete';
 import triggerType from '../utils/triggerType';
 
-const allTiddlers = $tw.wiki.filterTiddlers(
-  '[all[tiddlers+shadows]!has[draft.of]!prefix[$:/status]!preifx[$:/temp]!prefix[$:/state]!tag[$:/tags/TextEditor/Snippet]!prefix[$:/language]]'
-);
-const allImageTiddlers = $tw.wiki.filterTiddlers('[!is[system]is[image]]');
-const userSnippetTiddlers = $tw.wiki.filterTiddlers(
-  '[all[shadows+system+tiddlers]tag[$:/tags/TextEditor/Snippet]!has[draft.of]]'
-);
-
-const imageSnippets = allImageTiddlers.map((title) => ({
-  label: `[img[${title}`,
-  displayLabel: title,
-  type: 'cm-image'
-}));
+function getImageSnippets() {
+  const allImageTiddlers = $tw.wiki.filterTiddlers('[!is[system]is[image]]');
+  return allImageTiddlers.map((title) => ({
+    label: `[img[${title}`,
+    displayLabel: title,
+    type: 'cm-image'
+  }));
+}
 
 function getAllUserSnippets() {
+  const userSnippetTiddlers = $tw.wiki.filterTiddlers(
+    '[all[shadows+system+tiddlers]tag[$:/tags/TextEditor/Snippet]!has[draft.of]]'
+  );
+
   const allInfo = userSnippetTiddlers.map((title) => {
     const { caption = '', text = '' } = $tw.wiki.getTiddler(title)?.fields!;
     return {
       title: title.split('/').pop()!,
-      text,
+      text: text.trim(),
       caption
     };
   });
@@ -36,8 +35,6 @@ function getAllUserSnippets() {
     })
   );
 }
-
-const userSnippets = getAllUserSnippets();
 
 function getAllWidgetSnippets() {
   const modules = $tw.modules.titles;
@@ -63,9 +60,11 @@ function getAllWidgetSnippets() {
   );
 }
 
-const widgetSnippets = getAllWidgetSnippets();
-
 function getAllTiddlers(delimiters = triggerType.doubleBrackets) {
+  const allTiddlers = $tw.wiki.filterTiddlers(
+    '[all[tiddlers+shadows]!has[draft.of]!prefix[$:/status]!preifx[$:/temp]!prefix[$:/state]!tag[$:/tags/TextEditor/Snippet]!prefix[$:/language]]'
+  );
+
   return allTiddlers.map((title) => ({
     label: delimiters + title,
     displayLabel: title.length > 35 ? title.slice(0, 35) + ' …' : title,
@@ -74,11 +73,8 @@ function getAllTiddlers(delimiters = triggerType.doubleBrackets) {
   }));
 }
 
-const linkSnippets = getAllTiddlers();
-const embedSnippets = getAllTiddlers(triggerType.doublecurlyBrackets);
-
 export default {
-  imageSnippets: getAllTiddlers,
+  imageSnippets: getImageSnippets,
   userSnippets: getAllUserSnippets,
   widgetSnippets: getAllWidgetSnippets,
   linkSnippets: getAllTiddlers,
