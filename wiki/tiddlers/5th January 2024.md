@@ -1,6 +1,3 @@
 [[demo]]
-[[demo]]
-[[$:/demo]]
-[[demo]]
-o[]
-[[demo]]
+demo
+k

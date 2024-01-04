@@ -66,6 +66,7 @@ import { tidExt } from './extensions/tidExt.js';
 import removeOutlineExt from './extensions/removeOutlineExt.js';
 import { miniMapExt } from './extensions/miniMapExt.js';
 import { imgExt } from './extensions/imgExt.js';
+import { underlineSelection } from './extensions/underlineSelection.js';
 
 class CodeMirrorEngine {
   constructor(options) {
@@ -239,6 +240,15 @@ class CodeMirrorEngine {
       //     }
       //   ])
       // ),
+      Prec.high([
+        keymap.of([
+          {
+            key: 'Mod-h',
+            preventDefault: true,
+            run: underlineSelection
+          }
+        ])
+      ]),
       keymap.of([
         ...closeBracketsKeymap,
         ...searchKeymap,
