@@ -29,7 +29,13 @@ const underlineField = StateField.define<DecorationSet>({
 const underlineMark = Decoration.mark({ class: 'cm-underline' });
 
 const underlineTheme = EditorView.baseTheme({
-  '.cm-underline': { textDecoration: 'underline 2px purple' }
+  // '.cm-underline': { textDecoration: 'underline 2px purple' }
+  '.cm-underline': {
+    background: 'mediumpurple',
+    padding: '0 2px',
+    borderRadius: '2px',
+    color: 'black'
+  }
 });
 
 export function underlineSelection(view: EditorView) {
