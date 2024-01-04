@@ -29,8 +29,7 @@ function getAllUserSnippets() {
 
   return allInfo.map((info) =>
     snip(`${info.text}`, {
-      label: info.title,
-      displayLabel: info.caption as string,
+      label: (info.caption as string) || info.title,
       type: 'cm-snippet', // class: cm-completionIcon-cm-snippets
       apply: info.text,
       info: info.text
@@ -79,9 +78,9 @@ const linkSnippets = getAllTiddlers();
 const embedSnippets = getAllTiddlers(triggerType.doublecurlyBrackets);
 
 export default {
-  imageSnippets,
-  userSnippets,
-  widgetSnippets,
-  linkSnippets,
-  embedSnippets
+  imageSnippets: getAllTiddlers,
+  userSnippets: getAllUserSnippets,
+  widgetSnippets: getAllWidgetSnippets,
+  linkSnippets: getAllTiddlers,
+  embedSnippets: () => getAllTiddlers(triggerType.doublecurlyBrackets)
 };

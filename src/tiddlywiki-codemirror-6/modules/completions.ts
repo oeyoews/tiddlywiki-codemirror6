@@ -28,20 +28,20 @@ export default function completions(context: CompletionContext) {
     return;
   }
 
-  let dynamicSource = sources.userSnippets;
+  let dynamicSource = sources.userSnippets();
 
   if (lastWord.length < cmeConfig.minLength()) {
     return;
   }
 
   if (lastWord.startsWith(triggerType.doubleBrackets)) {
-    dynamicSource = sources.linkSnippets;
+    dynamicSource = sources.linkSnippets();
   } else if (lastWord.startsWith('[img[')) {
-    dynamicSource = sources.imageSnippets;
+    dynamicSource = sources.imageSnippets();
   } else if (lastWord.startsWith(triggerType.doublecurlyBrackets)) {
-    dynamicSource = sources.embedSnippets;
+    dynamicSource = sources.embedSnippets();
   } else if (lastWord.startsWith(triggerType.widgetArrow)) {
-    dynamicSource = sources.widgetSnippets;
+    dynamicSource = sources.widgetSnippets();
   }
 
   return {

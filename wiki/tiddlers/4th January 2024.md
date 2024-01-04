@@ -1,15 +1,36 @@
 |! |!Alpha |!Beta |!Gamma |!Delta |
+	Text of snippet name . (Remember to add a descriptive title in the caption field).
+	name
+[[hello]]
 |!One | | | | |
 |!Two | | | | |
+[[motion]]
 |!Three | | | | |
 [[$:/core/templates/single.tiddler.windowfor]]o
+test
+[[hellotiddler]]
 
+Text of snippet. (Remember to add a descriptive title in the caption field).
+[[hellotiddler]]
+[[motionfordemo]]
+
+hello
+[[$:/config/Server/ExternalFilters/[all[tiddlers]!is[system]sort[title]]]]]
+[[$:/config/Server/ExternalFilters/[all[tiddlers]!is[system]sort[title]]]]]
+[[$:/demo]]
+
+[[$:/demo]]
+
+{{hel}}
+
+[[hello]]
 [[download.svg]]
 [[]]
 [img[download.svg]]
 [[hello]]
 [[hello]]
 [img[download.svg]]
+[[hello]]
 [[hell]]
 {{hello}}
 {{hell}}
