@@ -1,0 +1,9 @@
+caption: Select autocompletion-match on open
+created: 20240104161716925
+description: whether or not the first autocompletion match should be selected as soon as the autocompletion tooltip opens
+modified: 20240104161803195
+settings-template: $:/plugins/oeyoews/tiddlywiki-codemirror-6/ui/templates/settings/input-switch
+title: $:/config/codemirror-6/selectOnOpen
+type: text/vnd.tiddlywiki
+
+yes

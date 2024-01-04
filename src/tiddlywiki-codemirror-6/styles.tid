@@ -442,3 +442,17 @@ color: #495057;
 .cm-completionIcon-cm-tiddler:after {
 	content: '🐟 ';
 }
+
+.cm-autocomplete-tooltip {
+	border-radius: 4px;
+	border: none !important
+}
+
+.cm-autocomplete-option {
+	border-radius: 4px !important;
+	margin: 0 4px;
+}
+
+.cm-completionInfo {
+	border: none !important;
+}
