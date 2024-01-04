@@ -54,11 +54,6 @@ export default function dynamicmode(mode: string, cme: []) {
       cme.push(javascript());
       actionCompletions = javascriptLanguage.data.of({});
       cme.push(Prec.high(actionCompletions));
-      // editorExtensions.push(
-      // 		javascriptLanguage.data.of({
-      // 			autocomplete: scopeCompletionSource(globalThis)
-      // 		})
-      // 	);
       break;
     case 'application/json':
       cme.push(json());

@@ -1,6 +1,6 @@
 import { snippetCompletion as snip } from '@codemirror/autocomplete';
 
-export default function getAllSnippets() {
+function getAllSnippets() {
   const snippetTiddlers = $tw.wiki.filterTiddlers(
     '[all[shadows+system+tiddlers]tag[$:/tags/TextEditor/Snippet]!has[draft.of]]'
   );
@@ -25,3 +25,5 @@ export default function getAllSnippets() {
     })
   );
 }
+
+export const snippets = getAllSnippets();

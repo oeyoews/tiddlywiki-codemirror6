@@ -1,4 +1,4 @@
-export function getAllImages() {
+function getAllImages() {
   const allImageTiddlers = $tw.wiki.filterTiddlers('[!is[system]is[image]]');
 
   // support preview tiddler
@@ -8,3 +8,5 @@ export function getAllImages() {
     type: 'cm-image'
   }));
 }
+
+export const images = getAllImages();

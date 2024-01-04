@@ -1,10 +1,10 @@
 import { CompletionContext } from '@codemirror/autocomplete';
-import getAllWidget from '../utils/getAllWidget';
-import getAllSnippets from '../utils/getAllSnippet';
+import { widgets } from '../utils/getAllWidget';
 import cmeConfig from '../cmeConfig';
 import { getAllTiddlers } from '../utils/getAllTiddlers';
 import triggerType from '../utils/triggerType';
-import { getAllImages } from '../utils/getAllImage';
+import { images } from '../utils/getAllImage';
+import { snippets } from '../utils/getAllSnippet';
 
 // @see-also: https://github.com/codemirror/lang-javascript/blob/4dcee95aee9386fd2c8ad55f93e587b39d968489/src/complete.ts
 // https://codemirror.net/examples/autocompletion/
@@ -31,50 +31,25 @@ export default function completions(context: CompletionContext) {
     return;
   }
 
-  if (lastWord.startsWith(triggerType.widgetArrow)) {
-    return {
-      from: wordStart,
-      options: [...getAllWidget()],
-      validFor
-    };
-  }
-
-  /** different snippets source */
-
-  if (lastWord.startsWith(triggerType.doubleBrackets)) {
-    const options = [...getAllTiddlers(triggerType.doubleBrackets)];
-    return {
-      from: wordStart,
-      options,
-      validFor
-    };
-  }
-
-  if (lastWord.startsWith('[img[')) {
-    const options = [...getAllImages()];
-    return {
-      from: wordStart,
-      options,
-      validFor
-    };
-  }
-
-  if (lastWord.startsWith(triggerType.doublecurlyBrackets)) {
-    const options = [...getAllTiddlers(triggerType.doublecurlyBrackets)];
-    return {
-      from: wordStart,
-      options,
-      validFor
-    };
-  }
+  let sources = snippets;
 
   if (lastWord.length < cmeConfig.minLength()) {
     return;
   }
 
+  if (lastWord.startsWith(triggerType.doubleBrackets)) {
+    sources = getAllTiddlers(triggerType.doubleBrackets);
+  } else if (lastWord.startsWith('[img[')) {
+    sources = images;
+  } else if (lastWord.startsWith(triggerType.doublecurlyBrackets)) {
+    sources = getAllTiddlers(triggerType.doublecurlyBrackets);
+  } else if (lastWord.startsWith(triggerType.widgetArrow)) {
+    sources = widgets;
+  }
+
   return {
     from: wordStart,
-    options: [...getAllSnippets()],
+    options: sources,
     validFor
   };
 }
