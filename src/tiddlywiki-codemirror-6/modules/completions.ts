@@ -5,10 +5,7 @@ import sources from '../completions/sources';
 
 // @see-also: https://github.com/codemirror/lang-javascript/blob/4dcee95aee9386fd2c8ad55f93e587b39d968489/src/complete.ts
 // https://codemirror.net/examples/autocompletion/
-export default function completions(context: CompletionContext) {
-  // const word = context.matchBefore(/\w*/); // 这种遇到短横线会消失，但是不影响多次触发同一行内
-  // const word = context.matchBefore(/<\$/);
-
+export default (context: CompletionContext) => {
   const cursorPos = context.state.selection.main.head;
   const doc = context.state.doc;
 
@@ -23,30 +20,42 @@ export default function completions(context: CompletionContext) {
   }
 
   // 获取光标位置前最后一个单词
-  const lastWord = doc.sliceString(wordStart, cursorPos);
-  if (wordStart === cursorPos) {
+  let lastWord = doc.sliceString(wordStart, cursorPos);
+  if (wordStart === cursorPos && lastWord.length < 1) {
     return;
   }
-
-  let dynamicSource = sources.userSnippets();
 
   if (lastWord.length < cmeConfig.minLength()) {
     return;
   }
 
+  // let dynamicSource = sources.userSnippets();
+  let options = sources.userSnippets();
+
   if (lastWord.startsWith(triggerType.doubleBrackets)) {
-    dynamicSource = sources.linkSnippets();
+    options = sources.linkSnippets();
   } else if (lastWord.startsWith('[img[')) {
-    dynamicSource = sources.imageSnippets();
+    options = sources.imageSnippets();
+    console.log(options);
   } else if (lastWord.startsWith(triggerType.doublecurlyBrackets)) {
-    dynamicSource = sources.embedSnippets();
+    options = sources.embedSnippets();
   } else if (lastWord.startsWith(triggerType.widgetArrow)) {
-    dynamicSource = sources.widgetSnippets();
+    options = sources.widgetSnippets();
+  } else if (lastWord.startsWith('/')) {
+    // TODO: https://discuss.codemirror.net/t/mid-word-completion-that-replaces-the-rest-of-the-word/7262
+    // TODO: modify apply to remove /
+    // lastWord = lastWord.replace(/^\/+/, '');
+    // options = [...sources.userSnippets()];
+    // return {
+    //   from: wordStart + 1, // 这会影响匹配项
+    //   options,
+    //   validFor
+    // };
   }
 
   return {
     from: wordStart,
-    options: dynamicSource,
+    options,
     validFor
   };
-}
+};
