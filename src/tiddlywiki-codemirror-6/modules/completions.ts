@@ -1,10 +1,7 @@
 import { CompletionContext } from '@codemirror/autocomplete';
-import { widgets } from '../utils/getAllWidget';
 import cmeConfig from '../cmeConfig';
-import { getAllTiddlers } from '../utils/getAllTiddlers';
 import triggerType from '../utils/triggerType';
-import { images } from '../utils/getAllImage';
-import { snippets } from '../utils/getAllSnippet';
+import sources from '../completions/sources';
 
 // @see-also: https://github.com/codemirror/lang-javascript/blob/4dcee95aee9386fd2c8ad55f93e587b39d968489/src/complete.ts
 // https://codemirror.net/examples/autocompletion/
@@ -31,25 +28,25 @@ export default function completions(context: CompletionContext) {
     return;
   }
 
-  let sources = snippets;
+  let dynamicSource = sources.userSnippets;
 
   if (lastWord.length < cmeConfig.minLength()) {
     return;
   }
 
   if (lastWord.startsWith(triggerType.doubleBrackets)) {
-    sources = getAllTiddlers(triggerType.doubleBrackets);
+    dynamicSource = sources.linkSnippets;
   } else if (lastWord.startsWith('[img[')) {
-    sources = images;
+    dynamicSource = sources.imageSnippets;
   } else if (lastWord.startsWith(triggerType.doublecurlyBrackets)) {
-    sources = getAllTiddlers(triggerType.doublecurlyBrackets);
+    dynamicSource = sources.embedSnippets;
   } else if (lastWord.startsWith(triggerType.widgetArrow)) {
-    sources = widgets;
+    dynamicSource = sources.widgetSnippets;
   }
 
   return {
     from: wordStart,
-    options: sources,
+    options: dynamicSource,
     validFor
   };
 }
