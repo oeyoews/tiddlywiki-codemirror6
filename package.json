@@ -10,6 +10,7 @@
   "version": "0.0.2",
   "packageManager": "pnpm@8.8.0",
   "scripts": {
+    "bump": "node scripts/bump.js",
     "dev": "tiddlywiki-plugin-dev dev",
     "build": "npm run clean && tiddlywiki-plugin-dev build",
     "publish": "npm run clean && tiddlywiki-plugin-dev publish",
