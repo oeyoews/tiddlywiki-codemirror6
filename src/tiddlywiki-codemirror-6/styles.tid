@@ -430,3 +430,15 @@ color: #495057;
 	border: none !important;
 	user-select: none
 }
+
+.cm-completionIcon-cm-snippet:after {
+	content: '📦 ';
+}
+
+.cm-completionIcon-cm-image:after {
+	content: '🖼️ ';
+}
+
+.cm-completionIcon-cm-tiddler:after {
+	content: '🐟 ';
+}

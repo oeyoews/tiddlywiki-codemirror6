@@ -18,8 +18,8 @@ export default function getAllSnippets() {
     // support placeholder
     snip(`${info.text}`, {
       label: info.title,
-      displayLabel: info.caption as string, // 显示字符
-      type: 'keyword',
+      displayLabel: info.caption as string, // 覆盖 label
+      type: 'cm-snippet', // class: cm-completionIcon-cm-snippets
       apply: info.text,
       info: info.text
     })

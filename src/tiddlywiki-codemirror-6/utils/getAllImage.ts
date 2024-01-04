@@ -5,6 +5,6 @@ export function getAllImages() {
   return allImageTiddlers.map((title) => ({
     label: `[img[${title}`,
     displayLabel: title,
-    type: 'keyword'
+    type: 'cm-image'
   }));
 }

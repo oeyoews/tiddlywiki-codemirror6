@@ -8,6 +8,6 @@ export function getAllTiddlers(delimiters = '[[') {
   return allTiddlers.map((title) => ({
     label: delimiters + title,
     displayLabel: title,
-    type: 'keyword'
+    type: 'cm-tiddler'
   }));
 }
