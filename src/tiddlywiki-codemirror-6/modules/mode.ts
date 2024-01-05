@@ -1,5 +1,10 @@
 // @ts-nocheck
 
+import cmeConfig from '../cmeConfig.js';
+import { linkExt } from '../extensions/linkExt.js';
+import { tidExt } from '../extensions/tidExt.js';
+import { imgExt } from '../extensions/imgExt.js';
+import { color } from '@uiw/codemirror-extensions-color';
 import { keymap } from '@codemirror/view';
 import { tiddlywiki, tiddlywikiLanguage } from 'codemirror-lang-tiddlywiki';
 import completions from './completions';
@@ -31,6 +36,7 @@ export default function dynamicmode(mode: string, cme: []) {
         autocomplete: completions
       });
 
+      cmeConfig.clickable() && cme.push(linkExt, tidExt, imgExt);
       cme.push(Prec.high(actionCompletions));
       break;
     case 'text/markdown':
@@ -41,6 +47,7 @@ export default function dynamicmode(mode: string, cme: []) {
         autocomplete: completions
       });
 
+      cmeConfig.clickable() && cme.push(linkExt, tidExt, imgExt);
       cme.push(Prec.high(actionCompletions));
       cme.push(Prec.high(keymap.of(markdownKeymap)));
       break;
@@ -63,7 +70,7 @@ export default function dynamicmode(mode: string, cme: []) {
     case 'text/css':
       cme.push(css());
       actionCompletions = cssLanguage.data.of({});
-      cme.push(Prec.high(actionCompletions));
+      cme.push(Prec.high(actionCompletions), color);
       break;
     default:
   }

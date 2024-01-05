@@ -81,6 +81,9 @@ importers:
       '@types/node':
         specifier: ^20.10.6
         version: 20.10.6
+      '@uiw/codemirror-extensions-color':
+        specifier: ^4.21.21
+        version: 4.21.21(@codemirror/language@6.10.0)(@codemirror/state@6.4.0)(@codemirror/view@6.23.0)
       '@uiw/codemirror-theme-material':
         specifier: ^4.21.21
         version: 4.21.21(@codemirror/language@6.10.0)(@codemirror/state@6.4.0)(@codemirror/view@6.23.0)
@@ -2508,6 +2511,21 @@ packages:
       eslint-visitor-keys: 3.4.3
     dev: true
 
+  /@uiw/codemirror-extensions-color@4.21.21(@codemirror/language@6.10.0)(@codemirror/state@6.4.0)(@codemirror/view@6.23.0):
+    resolution: {integrity: sha512-NB1uEdASjbCT29cd/GoysvLh9jdu4hc6Y0udEzj03blhHFspuo/+dIXcCwHG/ND3FYMfcMsmqYzBppYq214gSQ==}
+    peerDependencies:
+      '@codemirror/language': '>=6.0.0'
+      '@codemirror/state': '>=6.0.0'
+      '@codemirror/view': '>=6.0.0'
+    dependencies:
+      '@codemirror/language': 6.10.0
+      '@codemirror/state': 6.4.0
+      '@codemirror/view': 6.23.0
+      colors-named: 1.0.2
+      colors-named-hex: 1.0.2
+      hsl-matcher: 1.2.4
+    dev: true
+
   /@uiw/codemirror-theme-material@4.21.21(@codemirror/language@6.10.0)(@codemirror/state@6.4.0)(@codemirror/view@6.23.0):
     resolution: {integrity: sha512-Xdd2uI7kdKCD7xbgNhOjL7ksZsw8D+nw66QXAvyLUaBBGOFmObV7yJhCU7DGx9yAHO4eRMz6eRMuSolNnidgsg==}
     dependencies:
@@ -2984,6 +3002,16 @@ packages:
 
   /color-name@1.1.4:
     resolution: {integrity: sha512-dOy+3AuW3a2wNbZHIuMZpTcgjGuLU/uBL/ubcZF9OXbDo8ff4O8yVp5Bf0efS8uEoYo5q4Fx7dY9OgQGXgAsQA==}
+
+  /colors-named-hex@1.0.2:
+    resolution: {integrity: sha512-k6kq1e1pUCQvSVwIaGFq2l0LrkAPQZWyeuZn1Z8nOiYSEZiKoFj4qx690h2Kd34DFl9Me0gKS6MUwAMBJj8nuA==}
+    engines: {node: '>=14.16'}
+    dev: true
+
+  /colors-named@1.0.2:
+    resolution: {integrity: sha512-2ANq2r393PV9njYUD66UdfBcxR1slMqRA3QRTWgCx49JoCJ+kOhyfbQYxKJbPZQIhZUcNjVOs5AlyY1WwXec3w==}
+    engines: {node: '>=14.16'}
+    dev: true
 
   /commander@10.0.1:
     resolution: {integrity: sha512-y4Mg2tXshplEbSGzx7amzPwKKOCGuoSRP/CjEdwwk0FOGlUbq6lKuoyDZTNZkmxHdJtp54hdfY/JUrdL7Xfdug==}
@@ -4195,6 +4223,11 @@ packages:
   /helpertypes@0.0.19:
     resolution: {integrity: sha512-J00e55zffgi3yVnUp0UdbMztNkr2PnizEkOe9URNohnrNhW5X0QpegkuLpOmFQInpi93Nb8MCjQRHAiCDF42NQ==}
     engines: {node: '>=10.0.0'}
+    dev: true
+
+  /hsl-matcher@1.2.4:
+    resolution: {integrity: sha512-tS7XnJS33Egirm+6cI+Z/kH/aVZt94uxGlJxOZlGql2/yqbAzPg3zHHnTnVN4cVpoJnEYEGq+LE3iXbuUIe8BA==}
+    engines: {node: '>=16.0.0'}
     dev: true
 
   /html-minifier-terser@7.2.0:

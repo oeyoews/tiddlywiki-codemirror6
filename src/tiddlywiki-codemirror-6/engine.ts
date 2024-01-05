@@ -26,8 +26,7 @@ import {
   closeBrackets,
   closeBracketsKeymap,
   completionStatus,
-  acceptCompletion,
-  nextSnippetField
+  acceptCompletion
 } from '@codemirror/autocomplete';
 
 import {
@@ -61,11 +60,8 @@ import cmeConfig from './cmeConfig.js';
 import autocompletionConfig from './modules/autocompletion-config.js';
 import { charsExtension } from './extensions/wordCountExt.js';
 import dynamicmode from './modules/mode.js';
-import { linkExt } from './extensions/linkExt.js';
-import { tidExt } from './extensions/tidExt.js';
 import removeOutlineExt from './extensions/removeOutlineExt.js';
 import { miniMapExt } from './extensions/miniMapExt.js';
-import { imgExt } from './extensions/imgExt.js';
 import { underlineSelection } from './extensions/underlineSelection.js';
 
 class CodeMirrorEngine {
@@ -268,8 +264,6 @@ class CodeMirrorEngine {
         }
       })
     ];
-
-    cmeConfig.clickable() && cme.push(linkExt, tidExt, imgExt);
 
     const { fields = {} } =
       $tw.wiki.getTiddler($tw.wiki.getTiddlerText('$:/palette')) || {};
