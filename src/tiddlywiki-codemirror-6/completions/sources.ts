@@ -29,7 +29,7 @@ function getAllUserSnippets() {
 
   return allInfo.map((info) =>
     snip(`${info.text}`, {
-      label: '/' + (info.caption as string) || '/' + info.title,
+      label: cmeConfig.delimiter + ((info.caption as string) || info.title),
       displayLabel: (info.caption as string) || info.title,
       type: 'cm-snippet', // class: cm-completionIcon-cm-snippets
       apply: info.text,
