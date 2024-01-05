@@ -5,7 +5,7 @@
 expression {
   Identifier |
   String |
-  Boolean |
+  Heading
   Application { "(" expression* ")" }
 }
 
@@ -14,7 +14,7 @@ expression {
 
   String { '"' (!["\\] | "\\" _)* '"' }
 
-  Boolean { "#t" | "#f" }
+  Heading { "!!" }
 
   LineComment { ";" ![\n]* }
 

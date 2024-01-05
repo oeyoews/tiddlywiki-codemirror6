@@ -1,1 +1,1 @@
-/lore
+dmeo 
