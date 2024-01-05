@@ -33,6 +33,6 @@ function charCountPanel(view: EditorView): Panel {
   };
 }
 
-export function charsExtension() {
+export function wordCountExt() {
   return showPanel.of(charCountPanel);
 }

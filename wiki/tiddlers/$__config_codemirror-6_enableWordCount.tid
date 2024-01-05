@@ -1,0 +1,9 @@
+caption: word count
+created: 20240105191356440
+description: word count
+modified: 20240105191356440
+settings-template: $:/plugins/oeyoews/tiddlywiki-codemirror-6/ui/templates/settings/input-switch
+title: $:/config/codemirror-6/enableWordCount
+type: text/vnd.tiddlywiki
+
+no

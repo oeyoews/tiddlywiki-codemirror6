@@ -60,7 +60,7 @@ import { oneDark } from '@codemirror/theme-one-dark';
 import tabSizePlugin from './utils/tab-size.js';
 import cmeConfig from './cmeConfig.js';
 import autocompletionConfig from './modules/autocompletion-config.js';
-import { charsExtension } from './extensions/wordCountExt.js';
+import { wordCountExt } from './extensions/wordCountExt.js';
 import dynamicmode from './modules/mode.js';
 import removeOutlineExt from './extensions/removeOutlineExt.js';
 import { miniMapExt } from './extensions/miniMapExt.js';
@@ -105,7 +105,6 @@ class CodeMirrorEngine {
 
     // codemirror extensions
     const cme = [
-      charsExtension(),
       dropCursor(),
       tabSizePlugin(),
       removeOutlineExt,
@@ -292,6 +291,7 @@ class CodeMirrorEngine {
         EditorState.languageData.of(() => [{ autocomplete: completeAnyWord }])
       );
 
+    cmeConfig.enableWordCount() && cme.push(wordCountExt());
     cmeConfig.highlightTrailingWhitespace() &&
       cme.push(highlightTrailingWhitespace());
     cmeConfig.highlightWhitespace() && cme.push(highlightWhitespace());
