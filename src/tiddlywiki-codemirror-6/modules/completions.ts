@@ -6,19 +6,17 @@ import {
 import cmeConfig from '../cmeConfig';
 import triggerType from '../utils/triggerType';
 import sources from '../completions/sources';
-import { syntaxTree } from '@codemirror/language';
-
-const apply: Completion['apply'] = (view, completion, from, to) => {
-  view.dispatch(
-    insertCompletionText(view.state, completion.label, from - 1, to)
-  );
-};
 
 // @see-also: https://github.com/codemirror/lang-javascript/blob/4dcee95aee9386fd2c8ad55f93e587b39d968489/src/complete.ts
 // https://codemirror.net/examples/autocompletion/
 export default (context: CompletionContext) => {
   const cursorPos = context.state.selection.main.head;
   const doc = context.state.doc;
+  const apply: Completion['apply'] = (view, completion, from, to) => {
+    view.dispatch(
+      insertCompletionText(view.state, completion.label, from - 1, to)
+    );
+  };
 
   let wordStart = cursorPos;
   const validFor = /^[\w$]*$/;
