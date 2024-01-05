@@ -443,6 +443,10 @@ color: #495057;
 	content: '🐟 ';
 }
 
+.cm-completionIcon-cm-macro:after {
+	content: '🧩';
+}
+
 .cm-autocomplete-tooltip {
 	border-radius: 4px;
 	border: none !important;

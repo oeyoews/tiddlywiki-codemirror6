@@ -1,5 +1,7 @@
 export default {
-  doubleBrackets: '[[',
-  doublecurlyBrackets: '{{',
-  widgetArrow: '<$'
+  link: '[[',
+  embed: '{{',
+  macro: '<<',
+  img: '[img[',
+  widget: '<$'
 };

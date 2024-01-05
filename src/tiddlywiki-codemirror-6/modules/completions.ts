@@ -43,22 +43,25 @@ export default (context: CompletionContext) => {
   let options: any[] = [];
 
   switch (true) {
-    case lastWord.startsWith(triggerType.doubleBrackets):
+    case lastWord.startsWith(triggerType.link):
       options = sources.linkSnippets();
       break;
 
-    case lastWord.startsWith('[img['):
+    case lastWord.startsWith(triggerType.img):
       options = sources.imageSnippets();
       break;
 
-    case lastWord.startsWith(triggerType.doublecurlyBrackets):
+    case lastWord.startsWith(triggerType.embed):
       options = sources.embedSnippets();
       break;
 
-    case lastWord.startsWith(triggerType.widgetArrow):
+    case lastWord.startsWith(triggerType.widget):
       options = sources.widgetSnippets();
       break;
 
+    case lastWord.startsWith(triggerType.macro):
+      options = sources.macroSnippets();
+      break;
     case lastWord.startsWith(cmeConfig.delimiter()):
       // @see-also https://discuss.codemirror.net/t/mid-word-completion-that-replaces-the-rest-of-the-word/7262
       options = [...sources.userSnippets()];

@@ -62,7 +62,29 @@ function getAllWidgetSnippets() {
   );
 }
 
-function getAllTiddlers(delimiters = triggerType.doubleBrackets) {
+function getAllMacros() {
+  // just include js macro.
+  const macros = Object.entries($tw.macros);
+
+  return macros.map(([_, { name, params }]) => {
+    const macro =
+      params.length > 0
+        ? `<<${name} ${params[0].name}="#{1}">>`
+        : `<<${name}>>#{1}`;
+    const paramList =
+      params.length > 0
+        ? params.map((p) => p.name).join(', ')
+        : 'no parameters';
+    return snip(macro, {
+      label: triggerType.macro + name,
+      displayLabel: name,
+      type: 'cm-macro',
+      info: paramList
+    });
+  });
+}
+
+function getAllTiddlers(delimiters = triggerType.link) {
   const systemFilter =
     '[all[tiddlers+shadows]!has[draft.of]!prefix[$:/status]!preifx[$:/temp]!prefix[$:/state]!tag[$:/tags/TextEditor/Snippet]!prefix[$:/language]!prefix[$:/config/Server/]]';
   const filter = cmeConfig.enableSystemTiddlersCompletion()
@@ -83,5 +105,6 @@ export default {
   userSnippets: getAllUserSnippets,
   widgetSnippets: getAllWidgetSnippets,
   linkSnippets: getAllTiddlers,
-  embedSnippets: () => getAllTiddlers(triggerType.doublecurlyBrackets)
+  macroSnippets: getAllMacros,
+  embedSnippets: () => getAllTiddlers(triggerType.embed)
 };
