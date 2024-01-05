@@ -1,0 +1,6 @@
+title: $:/config/codemirror-6/highlightTrailingWhitespace
+caption: trailing whitespace
+description: trailing whitespace
+settings-template: $:/plugins/oeyoews/tiddlywiki-codemirror-6/ui/templates/settings/input-switch
+
+no

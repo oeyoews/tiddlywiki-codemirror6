@@ -12,7 +12,6 @@ import {
 } from '@codemirror/language';
 import setVimKeymap from './utils/vimrc.js';
 import { EditorState, EditorSelection, Prec } from '@codemirror/state';
-// import { materialLight } from '@uiw/codemirror-theme-material';
 import { githubLight } from '@uiw/codemirror-theme-github';
 import {
   searchKeymap,
@@ -51,7 +50,9 @@ import {
   lineNumbers,
   highlightActiveLineGutter,
   placeholder,
-  tooltips
+  tooltips,
+  highlightWhitespace,
+  highlightTrailingWhitespace
 } from '@codemirror/view';
 
 import { vim } from '@replit/codemirror-vim';
@@ -289,6 +290,9 @@ class CodeMirrorEngine {
         EditorState.languageData.of(() => [{ autocomplete: completeAnyWord }])
       );
 
+    cmeConfig.highlightTrailingWhitespace() &&
+      cme.push(highlightTrailingWhitespace());
+    cmeConfig.highlightWhitespace() && cme.push(highlightWhitespace());
     cmeConfig.closeBrackets() && cme.push(closeBrackets());
     cmeConfig.bracketMatching() && cme.push(bracketMatching());
     cmeConfig.lineNumbers() && cme.push(lineNumbers());
