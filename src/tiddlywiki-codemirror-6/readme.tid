@@ -75,6 +75,7 @@ If you like the plugin, feel free to leave me a star on [ext[GitHub|https://gith
 * [ ] 保存每个tiddler 的最后一次编辑的光标位置. https://discuss.codemirror.net/t/storing-restoring-treecursor-location-efficiently/7227 https://discuss.codemirror.net/t/set-cursor-position-in-v6/4476
 * [ ] support codemirror-themes-all(70kb) https://uiwjs.github.io/react-codemirror/#/theme/data/material/dark
 * [ ] remove codemirror highlight utils
+* [ ] 模仿rainbow 高亮 [[xxx]] 里面的tiddler, 或许可以直接加上点击事件
 
 !! Links
 

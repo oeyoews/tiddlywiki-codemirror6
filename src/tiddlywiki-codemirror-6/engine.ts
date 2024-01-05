@@ -65,6 +65,7 @@ import dynamicmode from './modules/mode.js';
 import removeOutlineExt from './extensions/removeOutlineExt.js';
 import { miniMapExt } from './extensions/miniMapExt.js';
 import { underlineSelection } from './extensions/underlineSelection.js';
+import rainbowBrackets from './extensions/rainbowBrackets.js';
 
 class CodeMirrorEngine {
   constructor(options) {
@@ -198,6 +199,7 @@ class CodeMirrorEngine {
       rectangularSelection(),
       crosshairCursor(),
       highlightSelectionMatches(),
+      rainbowBrackets(),
       Prec.high(
         keymap.of({
           key: 'Tab',
