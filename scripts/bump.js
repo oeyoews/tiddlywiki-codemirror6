@@ -26,4 +26,4 @@ const updatedInfoFileContent = JSON.stringify(info, null, 2);
 // 将更新后的内容写回文件
 fs.writeFileSync(infoFilePath, updatedInfoFileContent, 'utf8');
 
-console.log('版本号已成功递增！', info.version);
+console.log('版本号已更新！', info.version);

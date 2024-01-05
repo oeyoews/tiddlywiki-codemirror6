@@ -62,9 +62,10 @@ export default (context: CompletionContext) => {
     case lastWord.startsWith(cmeConfig.delimiter()):
       // @see-also https://discuss.codemirror.net/t/mid-word-completion-that-replaces-the-rest-of-the-word/7262
       options = [...sources.userSnippets()];
-    // options.forEach((option) => {
-    //   option.apply = apply;
-    // });
+      // options.forEach((option) => {
+      //   option.apply = apply;
+      // });
+      break;
     // return {
     //   from: wordStart + 1, // @deprecated: 这会影响匹配项，所以需要加 1, apply 会减 1
     //   options,
