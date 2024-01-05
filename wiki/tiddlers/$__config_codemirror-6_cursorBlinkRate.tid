@@ -1,6 +1,9 @@
-title: $:/config/codemirror-6/cursorBlinkRate
 caption: cursor blink rate
+created: 20240105141500162
 description: cursor blink rate
+modified: 20240105141500162
 settings-template: $:/plugins/oeyoews/tiddlywiki-codemirror-6/ui/templates/settings/input
+title: $:/config/codemirror-6/cursorBlinkRate
+type: text/vnd.tiddlywiki
 
-1000
+0
