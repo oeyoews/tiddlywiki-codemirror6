@@ -1,7 +1,18 @@
-import { CompletionContext } from '@codemirror/autocomplete';
+import {
+  insertCompletionText,
+  Completion,
+  CompletionContext
+} from '@codemirror/autocomplete';
 import cmeConfig from '../cmeConfig';
 import triggerType from '../utils/triggerType';
 import sources from '../completions/sources';
+import { syntaxTree } from '@codemirror/language';
+
+const apply: Completion['apply'] = (view, completion, from, to) => {
+  view.dispatch(
+    insertCompletionText(view.state, completion.label, from - 1, to)
+  );
+};
 
 // @see-also: https://github.com/codemirror/lang-javascript/blob/4dcee95aee9386fd2c8ad55f93e587b39d968489/src/complete.ts
 // https://codemirror.net/examples/autocompletion/
@@ -29,7 +40,8 @@ export default (context: CompletionContext) => {
     return;
   }
 
-  let options;
+  // NOTE: 一定要保证是数组
+  let options: any[] = [];
 
   switch (true) {
     case lastWord.startsWith(triggerType.doubleBrackets):
@@ -48,20 +60,19 @@ export default (context: CompletionContext) => {
       options = sources.widgetSnippets();
       break;
 
-    case lastWord.startsWith('/'):
-      // TODO: https://discuss.codemirror.net/t/mid-word-completion-that-replaces-the-rest-of-the-word/7262
-      // TODO: modify apply to remove /
-      // lastWord = lastWord.replace(/^\/+/, '');
-      // options = [...sources.userSnippets()];
-      // return {
-      //   from: wordStart + 1, // 这会影响匹配项
-      //   options,
-      //   validFor
-      // };
-      break;
+    case lastWord.startsWith(cmeConfig.delimiter()):
+      // @see-also https://discuss.codemirror.net/t/mid-word-completion-that-replaces-the-rest-of-the-word/7262
+      options = [...sources.userSnippets()];
+      options.forEach((option) => {
+        option.apply = apply;
+      });
+      return {
+        from: wordStart + 1, // 这会影响匹配项，所以需要加 1, apply 会减 1
+        options,
+        validFor
+      };
 
     default:
-      options = sources.userSnippets();
       break;
   }
 

@@ -23,6 +23,7 @@ If you like the plugin, feel free to leave me a star on [ext[GitHub|https://gith
 
 !! DONE
 
+* [x] completion trigger(delimiter)
 * https://github.com/Gk0Wk/TW5-CodeMirror-Enhanced 添加类似的功能 on cm6
 * img completion
 * highlight: lang-tiddlywiki https://codemirror.net/examples/lang-package/
@@ -63,7 +64,6 @@ If you like the plugin, feel free to leave me a star on [ext[GitHub|https://gith
 * [ ] 配置使用单一json(需要重新做配置UI, 可以模仿codemirror 5)
 * [ ] 焦点残留问题(vim mode)
 * [ ] ctrl + r not work on vim mode
-* [ ] completion trigger(delimiter)
 * [ ] finish lang-tiddlywiki package
 * [ ] highlight widget keyword https://github.com/Gk0Wk/TW5-CodeMirror-Enhanced/blob/main/src/cme/mode/parserules/blocks/heading.ts
 * [ ] 保存每个tiddler 的最后一次编辑的光标位置. https://discuss.codemirror.net/t/storing-restoring-treecursor-location-efficiently/7227 https://discuss.codemirror.net/t/set-cursor-position-in-v6/4476
