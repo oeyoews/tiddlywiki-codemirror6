@@ -32,6 +32,7 @@
     "@replit/codemirror-minimap": "^0.5.2",
     "@types/node": "^20.10.6",
     "@uiw/codemirror-extensions-color": "^4.21.21",
+    "@uiw/codemirror-theme-github": "^4.21.21",
     "@uiw/codemirror-theme-material": "^4.21.21",
     "codemirror-lang-tiddlywiki": "workspace:^",
     "rimraf": "^5.0.5",

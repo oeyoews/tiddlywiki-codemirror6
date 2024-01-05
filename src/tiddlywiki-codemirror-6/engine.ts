@@ -12,7 +12,8 @@ import {
 } from '@codemirror/language';
 import setVimKeymap from './utils/vimrc.js';
 import { EditorState, EditorSelection, Prec } from '@codemirror/state';
-import { materialLight } from '@uiw/codemirror-theme-material';
+// import { materialLight } from '@uiw/codemirror-theme-material';
+import { githubLight } from '@uiw/codemirror-theme-github';
 import {
   searchKeymap,
   highlightSelectionMatches,
@@ -270,7 +271,7 @@ class CodeMirrorEngine {
     const darkMode = fields?.['color-scheme'] === 'dark';
 
     (cmeConfig.enableOneDarkTheme() && darkMode && cme.push(oneDark)) ||
-      cme.push(materialLight);
+      cme.push(githubLight);
 
     if (cmeConfig.indentWithTab()) {
       cme.push(keymap.of([indentWithTab]));
