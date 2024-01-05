@@ -67,7 +67,7 @@ function getAllTiddlers(delimiters = triggerType.doubleBrackets) {
     '[all[tiddlers+shadows]!has[draft.of]!prefix[$:/status]!preifx[$:/temp]!prefix[$:/state]!tag[$:/tags/TextEditor/Snippet]!prefix[$:/language]!prefix[$:/config/Server/]]';
   const filter = cmeConfig.enableSystemTiddlersCompletion()
     ? systemFilter
-    : '[!is[system]]';
+    : '[!is[system]!has[draft.of]]';
   const allTiddlers = $tw.wiki.filterTiddlers(filter);
 
   return allTiddlers.map((title) => ({
