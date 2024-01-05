@@ -29,28 +29,40 @@ export default (context: CompletionContext) => {
     return;
   }
 
-  // let dynamicSource = sources.userSnippets();
-  let options = sources.userSnippets();
+  let options;
 
-  if (lastWord.startsWith(triggerType.doubleBrackets)) {
-    options = sources.linkSnippets();
-  } else if (lastWord.startsWith('[img[')) {
-    options = sources.imageSnippets();
-    console.log(options);
-  } else if (lastWord.startsWith(triggerType.doublecurlyBrackets)) {
-    options = sources.embedSnippets();
-  } else if (lastWord.startsWith(triggerType.widgetArrow)) {
-    options = sources.widgetSnippets();
-  } else if (lastWord.startsWith('/')) {
-    // TODO: https://discuss.codemirror.net/t/mid-word-completion-that-replaces-the-rest-of-the-word/7262
-    // TODO: modify apply to remove /
-    // lastWord = lastWord.replace(/^\/+/, '');
-    // options = [...sources.userSnippets()];
-    // return {
-    //   from: wordStart + 1, // 这会影响匹配项
-    //   options,
-    //   validFor
-    // };
+  switch (true) {
+    case lastWord.startsWith(triggerType.doubleBrackets):
+      options = sources.linkSnippets();
+      break;
+
+    case lastWord.startsWith('[img['):
+      options = sources.imageSnippets();
+      break;
+
+    case lastWord.startsWith(triggerType.doublecurlyBrackets):
+      options = sources.embedSnippets();
+      break;
+
+    case lastWord.startsWith(triggerType.widgetArrow):
+      options = sources.widgetSnippets();
+      break;
+
+    case lastWord.startsWith('/'):
+      // TODO: https://discuss.codemirror.net/t/mid-word-completion-that-replaces-the-rest-of-the-word/7262
+      // TODO: modify apply to remove /
+      // lastWord = lastWord.replace(/^\/+/, '');
+      // options = [...sources.userSnippets()];
+      // return {
+      //   from: wordStart + 1, // 这会影响匹配项
+      //   options,
+      //   validFor
+      // };
+      break;
+
+    default:
+      options = sources.userSnippets();
+      break;
   }
 
   return {
