@@ -12,11 +12,12 @@ import sources from '../completions/sources';
 export default (context: CompletionContext) => {
   const cursorPos = context.state.selection.main.head;
   const doc = context.state.doc;
-  const apply: Completion['apply'] = (view, completion, from, to) => {
-    view.dispatch(
-      insertCompletionText(view.state, completion.info as any, from - 1, to)
-    );
-  };
+
+  // const apply: Completion['apply'] = (view, completion, from, to) => {
+  //   view.dispatch(
+  //     insertCompletionText(view.state, completion.info as any, from - 1, to)
+  //   );
+  // };
 
   let wordStart = cursorPos;
   const validFor = /^[\w$]*$/;
@@ -61,11 +62,11 @@ export default (context: CompletionContext) => {
     case lastWord.startsWith(cmeConfig.delimiter()):
       // @see-also https://discuss.codemirror.net/t/mid-word-completion-that-replaces-the-rest-of-the-word/7262
       options = [...sources.userSnippets()];
-      options.forEach((option) => {
-        option.apply = apply;
-      });
+      // options.forEach((option) => {
+      //   option.apply = apply;
+      // });
       return {
-        from: wordStart + 1, // 这会影响匹配项，所以需要加 1, apply 会减 1
+        from: wordStart, // @deprecated: 这会影响匹配项，所以需要加 1, apply 会减 1
         options,
         validFor
       };
