@@ -1,4 +1,4 @@
-title: $:/config/codemirror-6/tab-size
+title: $:/config/codemirror-6/tabSize
 caption: tab-size
 description: tab size
 settings-template: $:/plugins/oeyoews/tiddlywiki-codemirror-6/ui/templates/settings/input
