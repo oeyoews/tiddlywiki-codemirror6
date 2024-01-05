@@ -1,6 +1,6 @@
 import {
-  insertCompletionText,
-  Completion,
+  // insertCompletionText,
+  // Completion,
   CompletionContext
 } from '@codemirror/autocomplete';
 import cmeConfig from '../cmeConfig';

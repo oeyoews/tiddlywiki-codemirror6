@@ -14,6 +14,7 @@ title: $:/plugins/oeyoews/tiddlywiki-codemirror-6/readme
 * tiddler and url jump
 * 字符数统计
 * markdown: autolist(and task list)
+* multi themes(material, onedark etc.)
 
 !! Preview
 
@@ -72,6 +73,8 @@ If you like the plugin, feel free to leave me a star on [ext[GitHub|https://gith
 * [ ] finish lang-tiddlywiki package
 * [ ] highlight widget keyword https://github.com/Gk0Wk/TW5-CodeMirror-Enhanced/blob/main/src/cme/mode/parserules/blocks/heading.ts
 * [ ] 保存每个tiddler 的最后一次编辑的光标位置. https://discuss.codemirror.net/t/storing-restoring-treecursor-location-efficiently/7227 https://discuss.codemirror.net/t/set-cursor-position-in-v6/4476
+* [ ] support codemirror-themes-all(70kb) https://uiwjs.github.io/react-codemirror/#/theme/data/material/dark
+* [ ] remove codemirror highlight utils
 
 !! Links
 

@@ -12,7 +12,7 @@ import {
 } from '@codemirror/language';
 import setVimKeymap from './utils/vimrc.js';
 import { EditorState, EditorSelection, Prec } from '@codemirror/state';
-
+import { materialLight } from '@uiw/codemirror-theme-material';
 import {
   searchKeymap,
   highlightSelectionMatches,
@@ -103,20 +103,6 @@ class CodeMirrorEngine {
       );
     this.solarizedDarkHighlightStyle =
       $tw.utils.codemirror.getSolarizedDarkHighlightStyle(HighlightStyle, tags);
-
-    const cmeTheme =
-      $tw.wiki.getTiddler(this.widget.wiki.getTiddlerText('$:/palette')).fields[
-        'color-scheme'
-      ] === 'light'
-        ? this.solarizedLightTheme
-        : this.solarizedDarkTheme;
-
-    const cmeThemeHighlightStyle =
-      $tw.wiki.getTiddler(this.widget.wiki.getTiddlerText('$:/palette')).fields[
-        'color-scheme'
-      ] === 'light'
-        ? this.solarizedLightHighlightStyle
-        : this.solarizedDarkHighlightStyle;
 
     // codemirror extensions
     const cme = [
@@ -285,15 +271,12 @@ class CodeMirrorEngine {
 
     cmeConfig.clickable() && cme.push(linkExt, tidExt, imgExt);
 
-    (cmeConfig.enableOneDarkTheme() &&
-      $tw.wiki.getTiddler($tw.wiki.getTiddlerText('$:/palette'))?.fields[
-        'color-scheme'
-      ] === 'dark' &&
-      cme.push(oneDark)) ||
-      cme.push(
-        EditorView.theme({}, { dark: false }),
-        Prec.high(syntaxHighlighting(cmeThemeHighlightStyle))
-      );
+    const { fields = {} } =
+      $tw.wiki.getTiddler($tw.wiki.getTiddlerText('$:/palette')) || {};
+    const darkMode = fields?.['color-scheme'] === 'dark';
+
+    (cmeConfig.enableOneDarkTheme() && darkMode && cme.push(oneDark)) ||
+      cme.push(materialLight);
 
     if (cmeConfig.indentWithTab()) {
       cme.push(keymap.of([indentWithTab]));
