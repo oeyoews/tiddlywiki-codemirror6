@@ -18,6 +18,7 @@ function getConfig(title: string) {
   return config;
 }
 
+// NOTE: 对应配置的 caption 不要写成 TxxxBxxx 格式。
 const titles = [
   'enableSystemTiddlersCompletion',
   'closeOnBlur',
