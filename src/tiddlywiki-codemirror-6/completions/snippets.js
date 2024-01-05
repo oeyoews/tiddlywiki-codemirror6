@@ -13,11 +13,11 @@ export const usersnippets = [
   },
   {
     title: 'date',
-    text: `${new Date().toISOString().split('T')[0]}`
+    text: `${new Date().toLocaleDateString()}`
   },
   {
     title: 'time',
-    text: `${new Date().toISOString().split('.')[0].replace('T', ' ')}`
+    text: `${new Date().toLocaleString()}`
   }
 ];
 
