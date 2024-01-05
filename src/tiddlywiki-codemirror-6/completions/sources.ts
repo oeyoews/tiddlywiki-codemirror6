@@ -29,6 +29,7 @@ function getAllUserSnippets() {
 
   const allInfo = userSnippetTiddlers.map((title) => {
     const { caption = '', text = '' } = $tw.wiki.getTiddler(title)?.fields!;
+
     return {
       title: title.split('/').pop()!,
       text: text.trim(),
@@ -51,7 +52,7 @@ function getAllUserSnippets() {
     }
   }
 
-  // 内置代码片段
+  // 加载内置代码片段
   allInfo.push(...usersnippets);
 
   return allInfo.map((info) =>
@@ -60,7 +61,8 @@ function getAllUserSnippets() {
       displayLabel: info.title,
       type: 'cm-snippet', // class: cm-completionIcon-cm-snippets
       apply: info.text,
-      info: info.text
+      info:
+        info.text.length > 100 ? info.text.slice(0, 100) + ' ...' : info.text
     })
   );
 }

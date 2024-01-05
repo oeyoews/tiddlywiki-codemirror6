@@ -4,6 +4,7 @@ title: $:/plugins/oeyoews/tiddlywiki-codemirror-6/readme
 
 !! Features
 
+* rainbow brackets
 * tiddler completion: `[[xxx]]` `{{xxx}}`
 * image completion: `[img[xxx]]`
 * support user snippets
@@ -82,6 +83,7 @@ If you like the plugin, feel free to leave me a star on [ext[GitHub|https://gith
 * https://discuss.codemirror.net
 * https://github.com/BurningTreeC/tiddlywiki-codemirror-6/blob/main/plugins/tiddlywiki-codemirror-6/engine.js
 * https://burningtreec.github.io/tiddlywiki-codemirror-6/
+* https://github.com/val-town/codemirror-ts/blob/main/src/hover/getHover.ts
 
 !! Tips
 
