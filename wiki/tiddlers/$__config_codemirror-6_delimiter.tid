@@ -1,9 +1,9 @@
 caption: 代码触发
 created: 20240105044411750
 description: delimiter
-modified: 20240105044412320
+modified: 20240105053309988
 settings-template: $:/plugins/oeyoews/tiddlywiki-codemirror-6/ui/templates/settings/input
 title: $:/config/codemirror-6/delimiter
 type: text/vnd.tiddlywiki
 
-@
+/

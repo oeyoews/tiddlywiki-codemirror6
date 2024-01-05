@@ -14,7 +14,7 @@ export default (context: CompletionContext) => {
   const doc = context.state.doc;
   const apply: Completion['apply'] = (view, completion, from, to) => {
     view.dispatch(
-      insertCompletionText(view.state, completion.label, from - 1, to)
+      insertCompletionText(view.state, completion.info as any, from - 1, to)
     );
   };
 
