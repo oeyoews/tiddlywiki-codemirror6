@@ -22,6 +22,10 @@ pnpm build
 
 ![image](./assets/image.gif)
 
+### 颜色修改
+
+![color](./assets/color.png)
+
 ## Preview
 
 https://tiddlywiki-codemirror6.vercel.app
