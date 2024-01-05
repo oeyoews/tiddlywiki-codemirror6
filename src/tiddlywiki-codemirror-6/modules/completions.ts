@@ -40,7 +40,7 @@ export default (context: CompletionContext) => {
   }
 
   // NOTE: 一定要保证是数组
-  let options: any[] = [];
+  let options: any[] = sources.wordsSnippets();
 
   switch (true) {
     case lastWord.startsWith(triggerType.link):
@@ -64,7 +64,8 @@ export default (context: CompletionContext) => {
       break;
     case lastWord.startsWith(cmeConfig.delimiter()):
       // @see-also https://discuss.codemirror.net/t/mid-word-completion-that-replaces-the-rest-of-the-word/7262
-      options = [...sources.userSnippets()];
+      options = sources.userSnippets();
+      console.log(options);
       // options.forEach((option) => {
       //   option.apply = apply;
       // });

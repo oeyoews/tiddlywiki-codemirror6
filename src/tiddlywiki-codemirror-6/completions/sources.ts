@@ -1,5 +1,6 @@
 // @ts-nocheck
 
+import { usersnippets, words } from '../completions/snippets';
 import { snippetCompletion as snip } from '@codemirror/autocomplete';
 import triggerType from '../utils/triggerType';
 import cmeConfig from '../cmeConfig';
@@ -10,6 +11,14 @@ function getImageSnippets() {
     label: `[img[${title}`,
     displayLabel: title,
     type: 'cm-image'
+  }));
+}
+
+function getAllWords() {
+  return words.map((word) => ({
+    label: word,
+    displayLabel: word,
+    type: 'cm-word'
   }));
 }
 
@@ -27,10 +36,28 @@ function getAllUserSnippets() {
     };
   });
 
+  // 支持加载 snippets 模块 (可以做成外部插件)
+  const snippetModules = $tw.modules.types['snippets'];
+
+  const req = Object.getOwnPropertyNames(snippetModules);
+
+  if (req) {
+    if ($tw.utils.isArray(req)) {
+      req.forEach((item) => {
+        allInfo.push(...require(item));
+      });
+    } else {
+      allInfo.push(...require(item));
+    }
+  }
+
+  // 内置代码片段
+  allInfo.push(...usersnippets);
+
   return allInfo.map((info) =>
     snip(`${info.text}`, {
-      label: cmeConfig.delimiter() + (info.caption || +info.title),
-      displayLabel: (info.caption as string) || info.title,
+      label: cmeConfig.delimiter() + info.title,
+      displayLabel: info.title,
       type: 'cm-snippet', // class: cm-completionIcon-cm-snippets
       apply: info.text,
       info: info.text
@@ -39,6 +66,7 @@ function getAllUserSnippets() {
 }
 
 function getAllWidgetSnippets() {
+  // $tw.modules.types 获取不到 widget name, 除非根据文件名
   const modules = $tw.modules.titles;
   if (!modules) return [];
   const allwidgets = Object.entries(modules)
@@ -106,5 +134,6 @@ export default {
   widgetSnippets: getAllWidgetSnippets,
   linkSnippets: getAllTiddlers,
   macroSnippets: getAllMacros,
-  embedSnippets: () => getAllTiddlers(triggerType.embed)
+  embedSnippets: () => getAllTiddlers(triggerType.embed),
+  wordsSnippets: getAllWords
 };

@@ -4,15 +4,15 @@
 
 // js
 
-// TODO
+// TODO: 单独成插件。
 
-const markdownsnippets = [
+export const usersnippets = [
   {
     title: 'codeblcok',
-    snippet: '```${1:lang}\n ${2} ```'
+    text: '```${1:lang}\n${2:code}\n```'
   }
 ];
 
-export default builtinSnippets = {
-  markdownsnippets
-};
+// general words
+
+export const words = ['tiddlywiki', 'GitHub'];
