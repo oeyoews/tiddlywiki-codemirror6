@@ -15,7 +15,12 @@ title: $:/plugins/oeyoews/tiddlywiki-codemirror-6/readme
 * 字符数统计
 * markdown: autolist(and task list)
 
-!!! This plugin adds the [ext[CodeMirror 6|https://codemirror.net]] editor to [ext[TiddlyWiki|https://tiddlywiki.com]]
+!! Preview
+
+https://tiddlywiki-codemirror6.vercel.app
+https://oeyoews.github.io/tiddlywiki-codemirror6
+
+!! This plugin adds the [ext[CodeMirror 6|https://codemirror.net]] editor to [ext[TiddlyWiki|https://tiddlywiki.com]]
 
 See the ''usage'' section for keyboard shortcuts
 
