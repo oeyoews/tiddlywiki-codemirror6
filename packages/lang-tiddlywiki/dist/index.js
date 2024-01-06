@@ -55,12 +55,19 @@ const tiddlywikiLanguage = LRLanguage.define({
         }
     }
 });
+const tiddlywikiCompletion = tiddlywikiLanguage.data.of({
+// autocomplete: completeFromList([
+//   { label: 'tiddlywiki', type: 'keyword' },
+//   { label: 'define', type: 'keyword' },
+//   { label: 'let', type: 'keyword' }
+// ])
+});
 function tiddlywiki() {
-    return new LanguageSupport(tiddlywikiLanguage);
+    return new LanguageSupport(tiddlywikiLanguage, [tiddlywikiCompletion]);
 }
 function isHeading(type) {
     let match = /^(?:ATX|Setext)Heading(\d)$/.exec(type.name);
     return match ? +match[1] : undefined;
 }
 
-export { tiddlywiki, tiddlywikiLanguage };
+export { tiddlywiki, tiddlywikiCompletion, tiddlywikiLanguage };

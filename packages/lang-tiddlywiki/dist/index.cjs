@@ -57,8 +57,15 @@ const tiddlywikiLanguage = language.LRLanguage.define({
         }
     }
 });
+const tiddlywikiCompletion = tiddlywikiLanguage.data.of({
+// autocomplete: completeFromList([
+//   { label: 'tiddlywiki', type: 'keyword' },
+//   { label: 'define', type: 'keyword' },
+//   { label: 'let', type: 'keyword' }
+// ])
+});
 function tiddlywiki() {
-    return new language.LanguageSupport(tiddlywikiLanguage);
+    return new language.LanguageSupport(tiddlywikiLanguage, [tiddlywikiCompletion]);
 }
 function isHeading(type) {
     let match = /^(?:ATX|Setext)Heading(\d)$/.exec(type.name);
@@ -66,4 +73,5 @@ function isHeading(type) {
 }
 
 exports.tiddlywiki = tiddlywiki;
+exports.tiddlywikiCompletion = tiddlywikiCompletion;
 exports.tiddlywikiLanguage = tiddlywikiLanguage;

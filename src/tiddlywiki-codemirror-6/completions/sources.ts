@@ -84,7 +84,7 @@ function getAllWidgetSnippets() {
     snip(`<\$${widget} \$\{0\}/>\$\{1\}`, {
       label: `<\$${widget}`,
       displayLabel: widget,
-      type: 'keyword'
+      type: 'cm-widget'
       // section: 'widgets'// 分组，类似 selection option group
       // detail: 'widget',
       // info: `<\$${widget} />`

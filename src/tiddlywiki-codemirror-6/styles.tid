@@ -432,19 +432,24 @@ color: #495057;
 }
 
 .cm-completionIcon-cm-snippet:after {
-	content: '📦 ';
+	content: '𝒔';
+	<!-- color: green; -->
+}
+
+.cm-completionIcon-cm-widget:after {
+	content: '𝓌';
 }
 
 .cm-completionIcon-cm-image:after {
-	content: '🖼️ ';
+	content: '𝒊️ ';
 }
 
 .cm-completionIcon-cm-tiddler:after {
-	content: '🐟 ';
+	content: '𝒕';
 }
 
 .cm-completionIcon-cm-macro:after {
-	content: '🧩';
+	content: '𝓂';
 }
 
 .cm-autocomplete-tooltip {

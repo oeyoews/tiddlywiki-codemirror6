@@ -1,4 +1,5 @@
 import { parser } from './syntax.grammar';
+import { completeFromList } from '@codemirror/autocomplete';
 import { SyntaxNode, NodeType, NodeProp } from '@lezer/common';
 import {
   LRLanguage,
@@ -44,8 +45,16 @@ export const tiddlywikiLanguage = LRLanguage.define({
   }
 });
 
+export const tiddlywikiCompletion = tiddlywikiLanguage.data.of({
+  // autocomplete: completeFromList([
+  //   { label: 'tiddlywiki', type: 'keyword' },
+  //   { label: 'define', type: 'keyword' },
+  //   { label: 'let', type: 'keyword' }
+  // ])
+});
+
 export function tiddlywiki() {
-  return new LanguageSupport(tiddlywikiLanguage);
+  return new LanguageSupport(tiddlywikiLanguage, [tiddlywikiCompletion]);
 }
 
 function isHeading(type: NodeType) {
