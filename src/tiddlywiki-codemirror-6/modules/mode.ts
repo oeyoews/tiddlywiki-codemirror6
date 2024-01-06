@@ -11,6 +11,8 @@ import completions from './completions';
 import { html, htmlLanguage } from '@codemirror/lang-html';
 import { json, jsonLanguage } from '@codemirror/lang-json';
 import { css, cssLanguage } from '@codemirror/lang-css';
+// import { languages } from '@codemirror/language-data';
+// import { GFM, Emoji } from '@lezer/markdown';
 
 import {
   markdown,
@@ -41,7 +43,18 @@ export default function dynamicmode(mode: string, cme: []) {
       break;
     case 'text/markdown':
     case 'text/x-markdown':
-      cme.push(markdown({ base: markdownLanguage }));
+      cme.push(
+        markdown({
+          base: markdownLanguage,
+          completeHTMLTags: true,
+          defaultCodeLanguage: cmeConfig.enableMarkdownJsHighlight()
+            ? javascriptLanguage
+            : '' // 默认为 js
+          // NOTE: 高亮 markdown 代码，但是插件大小会增加 1M
+          // codeLanguages: language
+          // extensions
+        })
+      );
 
       actionCompletions = markdownLanguage.data.of({
         autocomplete: completions

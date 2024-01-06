@@ -1,2 +1,3 @@
-<div class="dead-link">
-dmeo</div>
+```js
+console.log('hi')
+```

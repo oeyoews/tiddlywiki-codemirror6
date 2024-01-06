@@ -30,7 +30,7 @@ If you like the plugin, feel free to leave me a star on [ext[GitHub|https://gith
 
 !! DONE
 
-* [x] completion trigger(delimiter)
+* completion trigger(delimiter)
 * https://github.com/Gk0Wk/TW5-CodeMirror-Enhanced 添加类似的功能 on cm6
 * img completion
 * highlight: lang-tiddlywiki https://codemirror.net/examples/lang-package/
@@ -48,6 +48,7 @@ If you like the plugin, feel free to leave me a star on [ext[GitHub|https://gith
 * tab to completion
 * min completion length
 * snippets support compatiable vscode or vim snippets
+* 内置一组代码片段
 
 <!-- * ~~split to vim plugin: 由于使用到了 cm6的包作为依赖, 因此将其单独打包出去, 作为模块的形式加载不太可能~~
 * ~~Uncaught RangeError: A document must have at least one line~~
@@ -65,7 +66,6 @@ If you like the plugin, feel free to leave me a star on [ext[GitHub|https://gith
 * [ ] hmr config
 * [ ] plugin i18n
 * [ ] 打包一个没有vim插件的.(vim由于含有大量的按键映射, 占了将近150kb).
-* [ ] 内置一组代码片段
 * [ ] support copy image https://github.com/Jermolene/TiddlyWiki5/blob/f08d3d60309c97c4ddeeb3a8e0edf35bac74c928/plugins/tiddlywiki/codemirror/engine.js#L222
 * [ ] 补全 validFor 优化
 * [ ] 配置使用单一json(需要重新做配置UI, 可以模仿codemirror 5)
