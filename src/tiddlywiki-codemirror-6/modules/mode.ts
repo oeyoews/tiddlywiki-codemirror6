@@ -48,9 +48,9 @@ export default function dynamicmode(mode: string, cme: []) {
         markdown({
           base: markdownLanguage,
           completeHTMLTags: true,
-          defaultCodeLanguage: cmeConfig.enableMarkdownJsHighlight()
-            ? javascriptLanguage
-            : '', // 默认为 js
+          // defaultCodeLanguage: cmeConfig.enableMarkdownJsHighlight()
+          //   ? javascriptLanguage
+          //   : '', // 默认为 js
           // NOTE: use language-data's languages 高亮 markdown 代码，但是插件大小会增加 1M, 这里仅仅加上常用的高亮
           // codeLanguages: language
           codeLanguages: (info) => {
