@@ -64,7 +64,7 @@ import { wordCountExt } from './extensions/wordCountExt.js';
 import dynamicmode from './modules/mode.js';
 import removeOutlineExt from './extensions/removeOutlineExt.js';
 import { miniMapExt } from './extensions/miniMapExt.js';
-import { underlineSelection } from './extensions/underlineSelection.js';
+import { underlineSelection } from './extensions/underlineSelection';
 import rainbowBrackets from './extensions/rainbowBrackets.js';
 
 class CodeMirrorEngine {

@@ -1,0 +1,9 @@
+caption: 显示补全框(ctrl+space 可手动触发)
+created: 20240106160019548
+description: show autocompletion popup
+modified: 20240106160037059
+settings-template: $:/plugins/oeyoews/tiddlywiki-codemirror-6/ui/templates/settings/input-switch
+title: $:/config/codemirror-6/activateOnTyping
+type: text/vnd.tiddlywiki
+
+yes

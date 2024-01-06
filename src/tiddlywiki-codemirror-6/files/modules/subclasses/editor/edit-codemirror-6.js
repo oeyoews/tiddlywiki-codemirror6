@@ -57,21 +57,13 @@ Handle an edit text operation message from the toolbar
   };
 
   exports.prototype.refresh = function (changedTiddlers) {
-    var changedAttributes = this.computeAttributes();
+    const changedAttributes = this.computeAttributes();
+
     if (
-      changedAttributes.type ||
-      changedTiddlers['$:/config/codemirror-6/indentWithTab'] ||
-      changedTiddlers['$:/config/codemirror-6/lineNumbers'] ||
-      changedTiddlers['$:/config/codemirror-6/spellcheck'] ||
-      changedTiddlers['$:/config/codemirror-6/highlightActiveLine'] ||
-      changedTiddlers['$:/config/codemirror-6/autocorrect'] ||
-      changedTiddlers['$:/state/codemirror-6/translate/' + this.editTitle] ||
-      changedTiddlers['$:/config/codemirror-6/selectOnOpen'] ||
-      changedTiddlers['$:/config/codemirror-6/bracketMatching'] ||
-      changedTiddlers['$:/config/codemirror-6/closeBrackets'] ||
-      changedTiddlers['$:/config/codemirror-6/completeAnyWord'] ||
-      changedTiddlers['$:/config/codemirror-6/autocompleteIcons'] ||
-      changedTiddlers['$:/config/codemirror-6/maxRenderedOptions']
+      Object.keys(changedTiddlers).some((tiddler) =>
+        tiddler.startsWith('$:/config/codemirror-6')
+      ) ||
+      changedAttributes.type
     ) {
       this.refreshSelf();
       return true;
