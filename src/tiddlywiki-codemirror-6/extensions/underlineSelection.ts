@@ -9,6 +9,8 @@ const addUnderline = StateEffect.define<{ from: number; to: number }>({
   })
 });
 
+const underlineMark = Decoration.mark({ class: 'cm-underline' });
+
 const underlineField = StateField.define<DecorationSet>({
   create() {
     return Decoration.none;
@@ -26,14 +28,11 @@ const underlineField = StateField.define<DecorationSet>({
   provide: (f) => EditorView.decorations.from(f)
 });
 
-const underlineMark = Decoration.mark({ class: 'cm-underline' });
-
 const underlineTheme = EditorView.baseTheme({
-  // '.cm-underline': { textDecoration: 'underline 2px purple' }
   '.cm-underline': {
     background: 'mediumpurple',
     padding: '0 2px',
-    borderRadius: '2px',
+    borderRadius: '4px',
     color: 'black'
   }
 });
