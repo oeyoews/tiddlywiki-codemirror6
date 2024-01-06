@@ -456,14 +456,19 @@ color: #495057;
 	border-radius: 4px;
 	border: none !important;
 	box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1), 0 1px 3px rgba(0, 0, 0, 0.08);
+	<!-- margin: 4px; -->
 }
 
 .cm-autocomplete-option {
 	border-radius: 4px !important;
-	margin: 0 4px;
+	margin: 2px 4px;
 }
+
+<!-- .cm-autocomplete-option:hover { } -->
 
 .cm-completionInfo {
 	border: none !important;
 	box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1), 0 1px 3px rgba(0, 0, 0, 0.08);
+	border-radius: 4px;
+	margin-left: 2px;
 }
