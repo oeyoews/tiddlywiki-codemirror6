@@ -9,7 +9,7 @@ export function miniMapExt(cme: []) {
     return { dom };
   };
 
-  if (cmeConfig.minimap()) {
+  if (cmeConfig.minimap) {
     cme.push(
       // @ts-ignore
       showMinimap.compute(['doc'], (state) => {

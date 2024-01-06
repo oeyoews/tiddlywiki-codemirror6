@@ -38,7 +38,7 @@ export default function dynamicmode(mode: string, cme: []) {
         autocomplete: completions
       });
 
-      cmeConfig.clickable() && cme.push(linkExt, tidExt, imgExt);
+      cmeConfig.clickable && cme.push(linkExt, tidExt, imgExt);
       cme.push(Prec.high(actionCompletions));
       break;
     case 'text/markdown':
@@ -81,7 +81,7 @@ export default function dynamicmode(mode: string, cme: []) {
         autocomplete: completions
       });
 
-      cmeConfig.clickable() && cme.push(linkExt, tidExt, imgExt);
+      cmeConfig.clickable && cme.push(linkExt, tidExt, imgExt);
       cme.push(Prec.high(actionCompletions));
       cme.push(Prec.high(keymap.of(markdownKeymap)));
       break;

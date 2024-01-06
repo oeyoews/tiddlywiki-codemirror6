@@ -6,9 +6,9 @@ export default () =>
   autocompletion({
     tooltipClass: () => 'cm-autocomplete-tooltip',
     optionClass: () => 'cm-autocomplete-option',
-    selectOnOpen: cmeConfig.selectOnOpen(),
-    icons: cmeConfig.autocompleteIcons(),
-    closeOnBlur: cmeConfig.closeOnBlur(), // 焦点改变时关闭
-    activateOnTyping: cmeConfig.activateOnTyping(), // 输入时是否显示补全框。
-    maxRenderedOptions: cmeConfig.maxRenderedOptions()
+    selectOnOpen: cmeConfig.selectOnOpen,
+    icons: cmeConfig.autocompleteIcons,
+    closeOnBlur: cmeConfig.closeOnBlur, // 焦点改变时关闭
+    activateOnTyping: cmeConfig.activateOnTyping, // 输入时是否显示补全框。
+    maxRenderedOptions: cmeConfig.maxRenderedOptions
   });

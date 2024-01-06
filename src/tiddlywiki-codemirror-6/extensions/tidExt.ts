@@ -19,7 +19,7 @@ class CustomLink extends WidgetType {
   toDOM() {
     const wrapper = document.createElement('a');
     const title = this.state.title;
-    wrapper.innerHTML = cmeConfig['clickable-icon']() || ' 🔗';
+    wrapper.innerHTML = cmeConfig['clickable-icon'] || ' 🔗';
     wrapper.className = 'cm-link';
     wrapper.style.cursor = 'pointer';
     wrapper.style.userSelect = 'none';

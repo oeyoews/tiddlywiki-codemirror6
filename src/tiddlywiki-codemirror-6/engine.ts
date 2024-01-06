@@ -189,7 +189,7 @@ class CodeMirrorEngine {
       highlightSpecialChars(),
       history(), //{newGroupDelay: 0, joinToEvent: function() { return false; }}),
       drawSelection({
-        cursorBlinkRate: cmeConfig.cursorBlinkRate()
+        cursorBlinkRate: cmeConfig.cursorBlinkRate
       }),
       EditorState.allowMultipleSelections.of(true),
       indentOnInput(),
@@ -246,10 +246,10 @@ class CodeMirrorEngine {
         tabindex: self.widget.editTabIndex ? self.widget.editTabIndex : ''
       }),
       EditorView.contentAttributes.of({
-        spellcheck: cmeConfig.spellcheck()
+        spellcheck: cmeConfig.spellcheck
       }),
       EditorView.contentAttributes.of({
-        autocorrect: cmeConfig.autocorrect()
+        autocorrect: cmeConfig.autocorrect
       }),
       EditorView.contentAttributes.of({
         translate:
@@ -272,39 +272,39 @@ class CodeMirrorEngine {
       $tw.wiki.getTiddler($tw.wiki.getTiddlerText('$:/palette')) || {};
     const darkMode = fields?.['color-scheme'] === 'dark';
 
-    (cmeConfig.enableOneDarkTheme() && darkMode && cme.push(oneDark)) ||
+    (cmeConfig.enableOneDarkTheme && darkMode && cme.push(oneDark)) ||
       cme.push(githubLight);
 
-    if (cmeConfig.indentWithTab()) {
+    if (cmeConfig.indentWithTab) {
       cme.push(keymap.of([indentWithTab]));
     }
 
-    if (cmeConfig.vimmode()) {
+    if (cmeConfig.vimmode) {
       setVimKeymap();
       cme.push(vim());
     } else {
       cme.push(keymap.of([...defaultKeymap]));
     }
 
-    cmeConfig.completeAnyWord() &&
+    cmeConfig.completeAnyWord &&
       cme.push(
         EditorState.languageData.of(() => [{ autocomplete: completeAnyWord }])
       );
 
-    cmeConfig.enableWordCount() && cme.push(wordCountExt());
-    cmeConfig.highlightTrailingWhitespace() &&
+    cmeConfig.enableWordCount && cme.push(wordCountExt());
+    cmeConfig.highlightTrailingWhitespace &&
       cme.push(highlightTrailingWhitespace());
-    cmeConfig.highlightWhitespace() && cme.push(highlightWhitespace());
-    cmeConfig.closeBrackets() && cme.push(closeBrackets());
-    cmeConfig.bracketMatching() && cme.push(bracketMatching());
-    cmeConfig.lineNumbers() && cme.push(lineNumbers());
-    cmeConfig.lineNumbers() && cmeConfig.foldGutter() && cme.push(foldGutter());
-    cmeConfig.highlightActiveLine() &&
+    cmeConfig.highlightWhitespace && cme.push(highlightWhitespace());
+    cmeConfig.closeBrackets && cme.push(closeBrackets());
+    cmeConfig.bracketMatching && cme.push(bracketMatching());
+    cmeConfig.lineNumbers && cme.push(lineNumbers());
+    cmeConfig.lineNumbers && cmeConfig.foldGutter && cme.push(foldGutter());
+    cmeConfig.highlightActiveLine &&
       cme.push(highlightActiveLineGutter(), highlightActiveLine());
 
     if (this.widget.editPlaceholder) {
       const defaultPlaceholder = self.widget.editPlaceholder;
-      cme.push(placeholder(cmeConfig.placeholder() || defaultPlaceholder));
+      cme.push(placeholder(cmeConfig.placeholder || defaultPlaceholder));
     }
 
     let mode = this.widget.editType;

@@ -35,7 +35,7 @@ export default (context: CompletionContext) => {
     return;
   }
 
-  if (lastWord.length < cmeConfig.minLength()) {
+  if (lastWord.length < cmeConfig.minLength) {
     return;
   }
 
@@ -62,7 +62,7 @@ export default (context: CompletionContext) => {
     case lastWord.startsWith(triggerType.macro):
       options = sources.macroSnippets();
       break;
-    case lastWord.startsWith(cmeConfig.delimiter()):
+    case lastWord.startsWith(cmeConfig.delimiter):
       // @see-also https://discuss.codemirror.net/t/mid-word-completion-that-replaces-the-rest-of-the-word/7262
       options = sources.userSnippets();
       // options.forEach((option) => {

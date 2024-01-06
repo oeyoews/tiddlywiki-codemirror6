@@ -1,9 +1,9 @@
 caption: Minimap
 created: 20240103140531191
 description: minimap
-modified: 20240106160133809
+modified: 20240106161245511
 settings-template: $:/plugins/oeyoews/tiddlywiki-codemirror-6/ui/templates/settings/input-switch
 title: $:/config/codemirror-6/minimap
 type: text/vnd.tiddlywiki
 
-no
+yes

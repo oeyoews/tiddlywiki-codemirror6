@@ -1,9 +1,9 @@
 caption: 开启 Vim Mode
 created: 20240102190348267
 description: 启动 vim 模式
-modified: 20240106160110525
+modified: 20240106161304269
 settings-template: $:/plugins/oeyoews/tiddlywiki-codemirror-6/ui/templates/settings/input-switch
 title: $:/config/codemirror-6/vimmode
 type: text/vnd.tiddlywiki
 
-no
+yes
