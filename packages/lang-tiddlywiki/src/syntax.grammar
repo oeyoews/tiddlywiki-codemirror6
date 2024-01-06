@@ -5,7 +5,9 @@
 expression {
   Identifier |
   String |
-  Heading
+  Heading1 |
+  Heading2 |
+  List
   Application { "(" expression* ")" }
 }
 
@@ -14,7 +16,11 @@ expression {
 
   String { '"' (!["\\] | "\\" _)* '"' }
 
-  Heading { "!!" }
+  Heading1 { "!" }
+
+  Heading2 { "!!" }
+
+  List { '#' }
 
   LineComment { ";" ![\n]* }
 

@@ -48,14 +48,15 @@ export default function dynamicmode(mode: string, cme: []) {
         markdown({
           base: markdownLanguage,
           completeHTMLTags: true,
+          // defaultCodeLanguage: markdownLanguage,
           // defaultCodeLanguage: cmeConfig.enableMarkdownJsHighlight()
-          //   ? javascriptLanguage
-          //   : '', // 默认为 js
+          //   ? javascriptLanguage : '', // 默认为 js
           // NOTE: use language-data's languages 高亮 markdown 代码，但是插件大小会增加 1M, 这里仅仅加上常用的高亮
-          // codeLanguages: language
+          // codeLanguages: languages
           codeLanguages: (info) => {
             switch (info) {
               case 'javascript':
+              case 'js':
                 return javascriptLanguage;
               case 'css':
                 return cssLanguage;
@@ -64,14 +65,15 @@ export default function dynamicmode(mode: string, cme: []) {
               case 'json':
                 return jsonLanguage;
               case 'markdown':
+              case 'md':
                 return markdownLanguage;
               case 'tiddlywiki':
+              case 'tw':
+              case 'wiki':
                 return tiddlywikiLanguage;
               default:
-                break;
             }
           }
-          // extensions
         })
       );
 
