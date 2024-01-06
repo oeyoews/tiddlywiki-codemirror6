@@ -24,15 +24,10 @@ export const tiddlywikiLanguage = LRLanguage.define({
       }),
       headingProp.add(isHeading),
       styleTags({
-        // Identifier: t.variableName,
         Heading1: t.heading1,
         Heading2: t.heading2,
         List: t.list,
-        BlockComment: t.blockComment,
-        // Boolean: t.bool,
-        Keyword: t.keyword,
-        String: t.string,
-        // LineComment: t.lineComment,
+        // BlockComment: t.blockComment,
         '( )': t.paren
       })
     ]

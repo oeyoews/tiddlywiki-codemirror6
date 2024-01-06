@@ -1,10 +1,8 @@
 @top Program { expression* }
 
-@skip { space | LineComment }
+@skip { space }
 
 expression {
-  Identifier |
-  String |
   Heading1 |
   Heading2 |
   List
@@ -12,17 +10,11 @@ expression {
 }
 
 @tokens {
-  Identifier { $[a-zA-Z_\-0-9]+ }
-
-  String { '"' (!["\\] | "\\" _)* '"' }
-
   Heading1 { "!" }
 
   Heading2 { "!!" }
 
-  List { '#' }
-
-  LineComment { ";" ![\n]* }
+  List { '\#' }
 
   space { $[ \t\n\r]+ }
 
