@@ -43,6 +43,7 @@ export default function dynamicmode(mode: string, cme: []) {
       break;
     case 'text/markdown':
     case 'text/x-markdown':
+      // NOTE: 目前 tiddlywikiLanguage 还没有完成，所以目前仅仅支持 markdown 代码块
       cme.push(
         markdown({
           base: markdownLanguage,
