@@ -3,6 +3,7 @@
 @skip { space }
 
 expression {
+  Identifier |
   Heading1 |
   Heading2 |
   Delete |
@@ -17,6 +18,7 @@ expression {
 }
 
 @tokens {
+  Identifier { "@@" ![\n]* "@@" }
   Heading1 { "! " ![\n]* }
   Heading2 { "!! " ![\n]* }
   Delete { "~~" ![\n]*  "~~"}

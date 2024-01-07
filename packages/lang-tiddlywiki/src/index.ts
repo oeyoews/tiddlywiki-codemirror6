@@ -29,6 +29,7 @@ export const tiddlywikiLanguage = LRLanguage.define({
         Delete: t.strikethrough,
         Bold: t.strong,
         Underline: t.strong,
+        Identifier: t.strong,
         Italic: t.emphasis,
         Link: t.link,
         List: t.number,
