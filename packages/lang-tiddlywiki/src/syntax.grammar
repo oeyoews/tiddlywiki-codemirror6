@@ -5,22 +5,29 @@
 expression {
   Heading1 |
   Heading2 |
+  Delete |
+  Bold |
+  UnderLine |
+  Italic |
+  Link |
   List |
+  Blockquote |
   LineComment |
-  Definition |
-  Blockquote
+  Definition
 }
 
 @tokens {
-  Heading1 { "! " }
-
+  Heading1 { "! " ![\n]* }
   Heading2 { "!! " ![\n]* }
-
-  Blockquote { ">" }
+  Delete { "~~" ![\n]*  "~~"}
+  Bold { "''" ![\n]*  "''"}
+  UnderLine { "__" ![\n]*  "__"}
+  Italic { "//" ![\n]*  "//"}
+  Link { "[[" ![\n] "]]" }
+  List { '# ' }
+  Blockquote { "> " }
   LineComment { "<!--" ![\n]* "-->" }
   Definition { ";" ![\n]* }
-  List { '#' }
-
   space { $[ \t\n\r]+ }
 }
 

@@ -1,0 +1,33 @@
+created: 20240107051236318
+modified: 20240107062039732
+tags: 
+title: wiki mode
+type: text/vnd.tiddlywiki
+
+!! Delete
+
+~~delete~~
+
+!! Bold
+
+''bold''
+
+!! Underline
+
+__demo__
+
+!! Italic
+
+//italictext//
+
+!! Blockquote
+
+> Blockquote
+
+!! Definition
+
+; dmeo demo 
+
+!! List
+
+# demo demo 

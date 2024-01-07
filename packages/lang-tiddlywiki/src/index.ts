@@ -24,14 +24,17 @@ export const tiddlywikiLanguage = LRLanguage.define({
       }),
       headingProp.add(isHeading),
       styleTags({
-        List: t.number,
         Heading1: t.heading1,
         Heading2: t.heading2,
+        Delete: t.strikethrough,
+        Bold: t.strong,
+        Underline: t.strong,
+        Italic: t.emphasis,
+        Link: t.link,
+        List: t.number,
         Blockquote: t.quote,
-        LineComment: t.comment,
-        Definition: t.strong,
-        // BlockComment: t.blockComment,
-        '( )': t.paren
+        LineComment: t.blockComment,
+        Definition: t.strong
       })
     ]
   }),
