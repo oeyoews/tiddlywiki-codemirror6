@@ -66,6 +66,7 @@ import removeOutlineExt from './extensions/removeOutlineExt.js';
 import { miniMapExt } from './extensions/miniMapExt.js';
 import { underlineSelection } from './extensions/underlineSelection';
 import rainbowBrackets from './extensions/rainbowBrackets.js';
+import fontSizeExt from './extensions/fontSizeExt.js';
 
 class CodeMirrorEngine {
   constructor(options) {
@@ -107,7 +108,9 @@ class CodeMirrorEngine {
     const cme = [
       dropCursor(),
       tabSizePlugin(),
+      // css-in-js
       removeOutlineExt,
+      fontSizeExt(),
       indentUnit.of('	'),
 
       Prec.high(

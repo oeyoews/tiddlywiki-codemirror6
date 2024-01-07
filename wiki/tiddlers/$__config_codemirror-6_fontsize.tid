@@ -1,0 +1,9 @@
+caption: Font-size
+created: 20240107124040295
+description: The fontsize of the text within the editor
+modified: 20240107124319434
+settings-template: $:/plugins/oeyoews/tiddlywiki-codemirror-6/ui/templates/settings/input
+title: $:/config/codemirror-6/fontsize
+type: text/vnd.tiddlywiki
+
+18px
