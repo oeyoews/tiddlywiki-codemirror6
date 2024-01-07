@@ -1,4 +1,5 @@
 // @ts-nocheck
+
 import {
   indentUnit,
   defaultHighlightStyle,
@@ -26,16 +27,16 @@ import {
   tooltips
 } from '@codemirror/view';
 
-import tabSizePlugin from './utils/tab-size.js';
-import cmeConfig from './cmeConfig.js';
-import autocompletionConfig from './modules/autocompletion-config.js';
-import dynamicmode from './modules/mode.js';
-import removeOutlineExt from './extensions/removeOutlineExt.js';
-import { miniMapExt } from './extensions/miniMapExt.js';
+import tabSizePlugin from './utils/tab-size';
+import cmeConfig from './cmeConfig';
+import autocompletionConfig from './modules/autocompletion-config';
+import dynamicmode from './modules/mode';
+import removeOutlineExt from './extensions/removeOutlineExt';
+import { miniMapExt } from './extensions/miniMapExt';
 import rainbowBrackets from './extensions/rainbowBrackets';
 import fontSizeExt from './extensions/fontSizeExt';
 import { cmkeymaps } from './modules/keymap';
-import configExtensions from './modules/config/index.js';
+import configExtensions from './modules/config/index';
 import { operationTypes } from './operationTypes';
 
 class CodeMirrorEngine {
