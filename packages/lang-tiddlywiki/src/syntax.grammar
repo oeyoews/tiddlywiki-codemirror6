@@ -37,4 +37,6 @@ expression {
   space { $[ \t\n\r]+ }
 }
 
+// @external propSource jsHighlight from "./highlight"
+
 @detectDelim
