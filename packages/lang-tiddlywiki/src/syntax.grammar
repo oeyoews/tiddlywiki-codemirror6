@@ -14,7 +14,9 @@ expression {
   List |
   Blockquote |
   LineComment |
-  Definition
+  Definition |
+  Keyword |
+  Macro
 }
 
 @tokens {
@@ -30,6 +32,8 @@ expression {
   Blockquote { "> " }
   LineComment { "<!--" ![\n]* "-->" }
   Definition { ";" ![\n]* }
+  Keyword { "<$list " | "</$list>" | '<$set ' | "</$set>" | "<$vars " | "</$vars>" | "<$link>" | "<$text " | "filter=" }
+  Macro { "<<now>>" }
   space { $[ \t\n\r]+ }
 }
 

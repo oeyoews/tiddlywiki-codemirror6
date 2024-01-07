@@ -1,10 +1,26 @@
 created: 20240107051236318
-modified: 20240107062039732
+modified: 20240107071055116
 tags: 
 title: wiki mode
 type: text/vnd.tiddlywiki
 
 !! Delete
+
+!! List
+
+<$vars filter="[get[text]length[]compare:integer:gteq[1000]]">
+<$list filter="[tag[HelloThere]search[po]filter<myfilter>]">
+<div>
+<$link>
+<$text text=<<currentTiddler>>/>
+</$link>
+</div>
+</$list>
+</$vars>
+
+!! Macro Keyword
+
+<<now>> demo
 
 ~~delete~~
 
@@ -31,3 +47,7 @@ __demo__
 !! List
 
 # demo demo 
+
+!! Markup
+
+@@markup@@

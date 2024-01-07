@@ -24,6 +24,8 @@ export const tiddlywikiLanguage = LRLanguage.define({
       }),
       headingProp.add(isHeading),
       styleTags({
+        Macro: t.variableName,
+        Keyword: t.keyword,
         Heading1: t.heading1,
         Heading2: t.heading2,
         Delete: t.strikethrough,
