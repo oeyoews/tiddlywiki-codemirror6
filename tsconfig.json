@@ -2,12 +2,21 @@
   "extends": "@modern-js/tsconfig/base.json",
   "compilerOptions": {
     "declaration": false,
-    "jsx": "react-jsx",
     "baseUrl": "./",
-    "typeRoots": ["node_modules/@types", "node_modules/tw5-typed"],
+    // "typeRoots": [
+    //   "node_modules/@types",
+    //   "node_modules/tw5-typed"
+    // ],
     "newLine": "lf",
-    "lib": ["DOM", "ESNext"]
+    "lib": [
+      "DOM",
+      "ESNext"
+    ]
   },
-  "include": ["src"],
-  "exclude": ["./**/*.js"]
+  "include": [
+    "src"
+  ],
+  "exclude": [
+    "./**/*.js"
+  ]
 }
