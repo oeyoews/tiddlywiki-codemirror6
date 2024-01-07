@@ -6,6 +6,10 @@ pnpm dev
 pnpm build
 ```
 
+### Wiki Mode
+
+![wikimode](./assets/wiki-mode.png)
+
 ### 代码片段补全
 
 ![usersnippets](./assets/usersnippets.gif)

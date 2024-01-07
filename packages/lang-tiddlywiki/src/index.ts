@@ -32,6 +32,7 @@ export const tiddlywikiLanguage = LRLanguage.define({
         Identifier: t.strong,
         Italic: t.emphasis,
         Link: t.link,
+        // TODO use list
         List: t.number,
         Blockquote: t.quote,
         LineComment: t.blockComment,
