@@ -38,30 +38,27 @@ import { cmkeymaps } from './modules/keymap';
 import configExtensions from './modules/config/index.js';
 
 class CodeMirrorEngine {
-  constructor(options) {
+  constructor(options: IOptions) {
     const self = this;
+
     this.widget = options.widget;
-    this.value = options.value;
     this.parentNode = options.parentNode;
     this.nextSibling = options.nextSibling;
 
-    // Create the wrapper DIV
-    this.domNode = this.widget.document.createElement('div');
-    if (this.widget.editClass) {
-      this.domNode.className = this.widget.editClass;
-    }
+    this.domNode = this.widget.document.createElement('div'); // Create the wrapper DIV
 
+    this.domNode.className = this.widget.editClass || ''; // style
     this.domNode.style.display = 'inline-block';
 
-    this.parentNode.insertBefore(this.domNode, this.nextSibling);
+    this.parentNode.insertBefore(this.domNode, this.nextSibling); // mount
     this.widget.domNodes.push(this.domNode);
+
     this.dragCalcel = false;
 
-    // codemirror extensions
-    const cme = [
+    // codemirror extensions(cme)
+    this.cme = [
       dropCursor(),
       tabSizePlugin(),
-      // css-in-js
       removeOutlineExt,
       fontSizeExt(),
       indentUnit.of('	'),
@@ -183,24 +180,24 @@ class CodeMirrorEngine {
       })
     ];
 
-    configExtensions(cme);
+    configExtensions(this.cme);
 
     // add minimap
-    miniMapExt(cme);
+    miniMapExt(this.cme);
 
     // update extensions
-    let mode = this.widget.editType;
-    dynamicmode(mode, cme);
+    const mode = this.widget.editType;
+    dynamicmode(mode, this.cme);
 
-    const state = EditorState.create({
+    this.state = EditorState.create({
       doc: options.value,
-      extensions: cme
+      extensions: this.cme
     });
 
     // entry
     this.cm = new EditorView({
       parent: this.domNode,
-      state
+      state: this.state
     });
   }
 
