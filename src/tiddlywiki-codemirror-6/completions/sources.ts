@@ -41,15 +41,17 @@ function getAllUserSnippets() {
   // 支持加载 snippets 模块 (可以做成外部插件)
   const snippetModules = $tw.modules.types['snippets'];
 
-  const req = Object.getOwnPropertyNames(snippetModules);
+  if (snippetModules) {
+    const req = Object.getOwnPropertyNames(snippetModules);
 
-  if (req) {
-    if ($tw.utils.isArray(req)) {
-      req.forEach((item) => {
+    if (req) {
+      if ($tw.utils.isArray(req)) {
+        req.forEach((item) => {
+          allInfo.push(...require(item));
+        });
+      } else {
         allInfo.push(...require(item));
-      });
-    } else {
-      allInfo.push(...require(item));
+      }
     }
   }
 
