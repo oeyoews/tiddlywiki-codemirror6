@@ -438,5 +438,3 @@ class CodeMirrorEngine {
 exports.CodeMirrorEngine = $tw.browser
   ? CodeMirrorEngine
   : require('$:/core/modules/editor/engines/simple.js').SimpleEngine;
-
-const d = new CodeMirrorEngine();
