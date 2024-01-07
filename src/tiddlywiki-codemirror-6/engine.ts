@@ -5,14 +5,12 @@ import {
   syntaxHighlighting,
   indentOnInput,
   bracketMatching,
-  foldGutter,
-  foldKeymap
+  foldGutter
 } from '@codemirror/language';
 import setVimKeymap from './utils/vimrc.js';
 import { EditorState, EditorSelection, Prec } from '@codemirror/state';
 import { githubLight } from '@uiw/codemirror-theme-github';
 import {
-  searchKeymap,
   highlightSelectionMatches,
   openSearchPanel,
   closeSearchPanel
@@ -20,18 +18,14 @@ import {
 
 import {
   completeAnyWord,
-  completionKeymap,
   closeBrackets,
-  closeBracketsKeymap,
-  completionStatus,
-  acceptCompletion
+  completionStatus
 } from '@codemirror/autocomplete';
 
 import {
   defaultKeymap,
   indentWithTab,
   history,
-  historyKeymap,
   undo,
   redo
 } from '@codemirror/commands';
@@ -62,9 +56,9 @@ import { wordCountExt } from './extensions/wordCountExt.js';
 import dynamicmode from './modules/mode.js';
 import removeOutlineExt from './extensions/removeOutlineExt.js';
 import { miniMapExt } from './extensions/miniMapExt.js';
-import { underlineSelection } from './extensions/underlineSelection';
-import rainbowBrackets from './extensions/rainbowBrackets.js';
-import fontSizeExt from './extensions/fontSizeExt.js';
+import rainbowBrackets from './extensions/rainbowBrackets';
+import fontSizeExt from './extensions/fontSizeExt';
+import { cmkeymaps } from './modules/keymap';
 
 class CodeMirrorEngine {
   constructor(options) {
@@ -73,6 +67,7 @@ class CodeMirrorEngine {
     this.value = options.value;
     this.parentNode = options.parentNode;
     this.nextSibling = options.nextSibling;
+
     // Create the wrapper DIV
     this.domNode = this.widget.document.createElement('div');
     if (this.widget.editClass) {
@@ -83,14 +78,7 @@ class CodeMirrorEngine {
 
     this.parentNode.insertBefore(this.domNode, this.nextSibling);
     this.widget.domNodes.push(this.domNode);
-
-    this.editorSelection = EditorSelection;
-    this.completionStatus = completionStatus;
-
-    this.undo = undo;
-    this.redo = redo;
-    this.openSearchPanel = openSearchPanel;
-    this.closeSearchPanel = closeSearchPanel;
+    this.dragCalcel = false;
 
     // codemirror extensions
     const cme = [
@@ -151,7 +139,7 @@ class CodeMirrorEngine {
             }
             return false;
           },
-          paste(event, view) {
+          paste(event) {
             if (self.widget.isFileDropEnabled) {
               event['twEditor'] = true;
               return self.widget.handlePasteEvent.call(self.widget, event);
@@ -169,7 +157,7 @@ class CodeMirrorEngine {
             }
             return false;
           },
-          blur(event, view) {
+          blur() {
             return false;
           }
         })
@@ -190,48 +178,7 @@ class CodeMirrorEngine {
       crosshairCursor(),
       highlightSelectionMatches(),
       rainbowBrackets(),
-      Prec.high(
-        keymap.of({
-          key: 'Tab',
-          run: acceptCompletion
-        })
-      ), // tab for autocomplete accept
-      Prec.high(
-        keymap.of([
-          {
-            key: 'Ctrl-i',
-            scope: 'editor',
-            run: acceptCompletion
-          }
-        ])
-      ),
-      // https://discuss.codemirror.net/t/capturing-ctrl-s-doesnt-work-opens-browsers-save-dialog/5228
-      // Prec.highest(
-      //   keymap.of([
-      //     {
-      //       key: 'Ctrl-n',
-      //       preventDefault: true,
-      //       // scope: 'editor',
-      //       run: acceptCompletion
-      //     }
-      //   ])
-      // ),
-      Prec.high([
-        keymap.of([
-          {
-            key: 'Mod-h',
-            preventDefault: true,
-            run: underlineSelection
-          }
-        ])
-      ]),
-      keymap.of([
-        ...closeBracketsKeymap,
-        ...searchKeymap,
-        ...historyKeymap,
-        ...foldKeymap,
-        ...completionKeymap
-      ]),
+      cmkeymaps,
       EditorView.lineWrapping, // enable line wrap
       EditorView.contentAttributes.of({
         tabindex: self.widget.editTabIndex ? self.widget.editTabIndex : ''
@@ -344,20 +291,20 @@ class CodeMirrorEngine {
     return false;
   }
 
-  handleKeydownEvent(event: KeyboardEvent) {
-    if ($tw.keyboardManager.handleKeydownEvent(event, { onlyPriority: true })) {
+  handleKeydownEvent(e: KeyboardEvent) {
+    if ($tw.keyboardManager.handleKeydownEvent(e, { onlyPriority: true })) {
       this.dragCancel = false;
       return true;
     }
     if (
-      event.key === 'Escape' &&
-      !event.ctrlKey &&
-      !event.shiftKey &&
-      !event.altKey &&
-      !event.metaKey &&
-      this.completionStatus(this.cm.state) === 'active'
+      e.key === 'Escape' &&
+      !e.ctrlKey &&
+      !e.shiftKey &&
+      !e.altKey &&
+      !e.metaKey &&
+      completionStatus(this.cm.state) === 'active'
     ) {
-      event.stopPropagation();
+      e.stopPropagation();
       return false;
     }
 
@@ -374,7 +321,7 @@ class CodeMirrorEngine {
       for (let i = 0; i < keyboardWidgets.length; i++) {
         const keyboardWidget = keyboardWidgets[i];
         const keyInfoArray = keyboardWidget.keyInfoArray;
-        if ($tw.keyboardManager.checkKeyDescriptors(event, keyInfoArray)) {
+        if ($tw.keyboardManager.checkKeyDescriptors(e, keyInfoArray)) {
           if (
             this.dragCancel &&
             $tw.keyboardManager
@@ -391,13 +338,13 @@ class CodeMirrorEngine {
         this.dragCancel = false;
         return true;
       } else if (handled === false) {
-        event.stopPropagation();
+        e.stopPropagation();
         this.dragCancel = false;
         return true;
       }
     }
     this.dragCancel = false;
-    return this.widget.handleKeydownEvent.call(this.widget, event);
+    return this.widget.handleKeydownEvent.call(this.widget, e);
   }
 
   /*
@@ -495,13 +442,12 @@ class CodeMirrorEngine {
 
   /* Execute a text operation */
   executeTextOperation(operations) {
-    const self = this;
     if (operations.type && operations.type === 'undo') {
-      this.undo(this.cm);
+      undo(this.cm);
     } else if (operations.type && operations.type === 'redo') {
-      this.redo(this.cm);
+      redo(this.cm);
     } else if (operations.type && operations.type === 'search') {
-      this.closeSearchPanel(this.cm) || this.openSearchPanel(this.cm);
+      closeSearchPanel(this.cm) || openSearchPanel(this.cm);
     } else if (
       operations.type !== 'focus-editor' &&
       operations &&
@@ -523,7 +469,7 @@ class CodeMirrorEngine {
               insert: operations[index].replacement
             }
           ];
-          const selectionRange = self.editorSelection.range(
+          const selectionRange = EditorSelection.range(
             operations[index].newSelStart,
             operations[index].newSelEnd
           );
@@ -551,7 +497,7 @@ class CodeMirrorEngine {
               insert: operations.replacement
             }
           ];
-          const selectionRange = self.editorSelection.range(
+          const selectionRange = EditorSelection.range(
             operations.newSelStart,
             operations.newSelEnd
           );
