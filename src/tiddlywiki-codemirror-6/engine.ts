@@ -36,6 +36,7 @@ import rainbowBrackets from './extensions/rainbowBrackets';
 import fontSizeExt from './extensions/fontSizeExt';
 import { cmkeymaps } from './modules/keymap';
 import configExtensions from './modules/config/index.js';
+import { operationTypes } from './operationTypes';
 
 class CodeMirrorEngine {
   constructor(options: IOptions) {
@@ -328,50 +329,35 @@ class CodeMirrorEngine {
   createTextOperation(type) {
     const selections = this.cm.state.selection.ranges;
     let operations;
-    switch (type) {
-      case 'excise':
-      case 'focus-editor':
-      case 'insert-text':
-      case 'make-link':
-      case 'prefix-lines':
-      case 'redo':
-      case 'replace-all':
-      case 'replace-selection':
-      case 'save-selection':
-      case 'search':
-      case 'undo':
-      case 'wrap-lines':
-      case 'wrap-selection':
-        operations = [];
-        for (let i = 0; i < selections.length; i++) {
-          const anchorPos = selections[i].from,
-            headPos = selections[i].to;
-          const operation = {
-            text: this.cm.state.doc.toString(),
-            selStart: anchorPos,
-            selEnd: headPos,
-            cutStart: null,
-            cutEnd: null,
-            replacement: null,
-            newSelStart: null,
-            newSelEnd: null
-          };
-          operation.selection = this.cm.state.sliceDoc(anchorPos, headPos);
-          operations.push(operation);
-        }
-        break;
-      default:
-        operations = {
+    if (operationTypes.includes(type)) {
+      operations = [];
+      for (let i = 0; i < selections.length; i++) {
+        const anchorPos = selections[i].from,
+          headPos = selections[i].to;
+        const operation = {
           text: this.cm.state.doc.toString(),
-          selStart: selections[0].from,
-          selEnd: selections[0].to,
+          selStart: anchorPos,
+          selEnd: headPos,
           cutStart: null,
           cutEnd: null,
           replacement: null,
           newSelStart: null,
           newSelEnd: null
         };
-        break;
+        operation.selection = this.cm.state.sliceDoc(anchorPos, headPos);
+        operations.push(operation);
+      }
+    } else {
+      operations = {
+        text: this.cm.state.doc.toString(),
+        selStart: selections[0].from,
+        selEnd: selections[0].to,
+        cutStart: null,
+        cutEnd: null,
+        replacement: null,
+        newSelStart: null,
+        newSelEnd: null
+      };
     }
     return operations;
   }
