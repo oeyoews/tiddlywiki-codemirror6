@@ -37,6 +37,7 @@ expression {
   space { $[ \t\n\r]+ }
 }
 
+// https://github.com/lezer-parser/javascript/blob/main/src/javascript.grammar
 // @external propSource jsHighlight from "./highlight"
 
 @detectDelim
