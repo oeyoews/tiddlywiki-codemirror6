@@ -62,8 +62,11 @@ function getAllUserSnippets() {
       displayLabel: info.title,
       type: 'cm-snippet', // class: cm-completionIcon-cm-snippets
       apply: info.text,
-      info:
-        info.text.length > 100 ? info.text.slice(0, 100) + ' ...' : info.text
+      info: info.desc
+        ? info.desc
+        : info.text.length > 100
+          ? info.text.slice(0, 100) + ' ...'
+          : info.text
     })
   );
 }
