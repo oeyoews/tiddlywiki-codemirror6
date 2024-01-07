@@ -19,7 +19,7 @@ import {
 
 import { vim } from '@replit/codemirror-vim';
 import { oneDark } from '@codemirror/theme-one-dark';
-import cmeConfig from 'src/tiddlywiki-codemirror-6/cmeConfig';
+import conf from 'src/tiddlywiki-codemirror-6/cmeConfig';
 import { wordCountExt } from 'src/tiddlywiki-codemirror-6/extensions/wordCountExt';
 
 export default function configExtensions(cme: any[]) {
@@ -29,35 +29,34 @@ export default function configExtensions(cme: any[]) {
   // @ts-ignore
   const darkMode = fields?.['color-scheme'] === 'dark';
 
-  (cmeConfig.enableOneDarkTheme() && darkMode && cme.push(oneDark)) ||
+  (conf.enableOneDarkTheme() && darkMode && cme.push(oneDark)) ||
     cme.push(githubLight);
 
-  if (cmeConfig.indentWithTab()) {
+  if (conf.indentWithTab()) {
     cme.push(keymap.of([indentWithTab]));
   }
 
-  if (cmeConfig.vimmode()) {
+  if (conf.vimmode()) {
     setVimKeymap();
     cme.push(vim());
   } else {
     cme.push(keymap.of([...defaultKeymap]));
   }
 
-  cmeConfig.completeAnyWord() &&
+  conf.completeAnyWord() &&
     cme.push(
       EditorState.languageData.of(() => [{ autocomplete: completeAnyWord }])
     );
 
-  cmeConfig.enableWordCount() && cme.push(wordCountExt());
-  cmeConfig.highlightTrailingWhitespace() &&
-    cme.push(highlightTrailingWhitespace());
-  cmeConfig.highlightWhitespace() && cme.push(highlightWhitespace());
-  cmeConfig.closeBrackets() && cme.push(closeBrackets());
-  cmeConfig.bracketMatching() && cme.push(bracketMatching());
-  cmeConfig.lineNumbers() && cme.push(lineNumbers());
-  cmeConfig.lineNumbers() && cmeConfig.foldGutter() && cme.push(foldGutter());
-  cmeConfig.highlightActiveLine() &&
+  conf.enableWordCount() && cme.push(wordCountExt());
+  conf.highlightTrailingWhitespace() && cme.push(highlightTrailingWhitespace());
+  conf.highlightWhitespace() && cme.push(highlightWhitespace());
+  conf.closeBrackets() && cme.push(closeBrackets());
+  conf.bracketMatching() && cme.push(bracketMatching());
+  conf.lineNumbers() && cme.push(lineNumbers());
+  conf.lineNumbers() && conf.foldGutter() && cme.push(foldGutter());
+  conf.highlightActiveLine() &&
     cme.push(highlightActiveLineGutter(), highlightActiveLine());
 
-  cme.push(placeholder(cmeConfig.placeholder()));
+  cme.push(placeholder(conf.placeholder()));
 }

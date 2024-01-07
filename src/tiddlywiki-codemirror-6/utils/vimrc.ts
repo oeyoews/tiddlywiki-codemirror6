@@ -5,4 +5,7 @@ export default function setVimKeymap() {
   Vim.map('jk', '<Esc>', 'insert'); // in insert mode
   Vim.map('H', '0', 'normal');
   Vim.map('L', '$', 'normal');
+  Vim.defineEx('write', 'w', function () {
+    console.log('write');
+  });
 }
