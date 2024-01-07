@@ -1,5 +1,4 @@
 // @ts-nocheck
-import { tags } from '@lezer/highlight';
 import {
   indentUnit,
   defaultHighlightStyle,
@@ -7,7 +6,6 @@ import {
   indentOnInput,
   bracketMatching,
   foldGutter,
-  HighlightStyle,
   foldKeymap
 } from '@codemirror/language';
 import setVimKeymap from './utils/vimrc.js';
@@ -93,16 +91,6 @@ class CodeMirrorEngine {
     this.redo = redo;
     this.openSearchPanel = openSearchPanel;
     this.closeSearchPanel = closeSearchPanel;
-
-    this.solarizedLightTheme = EditorView.theme({}, { dark: false });
-    this.solarizedDarkTheme = EditorView.theme({}, { dark: true });
-    this.solarizedLightHighlightStyle =
-      $tw.utils.codemirror.getSolarizedLightHighlightStyle(
-        HighlightStyle,
-        tags
-      );
-    this.solarizedDarkHighlightStyle =
-      $tw.utils.codemirror.getSolarizedDarkHighlightStyle(HighlightStyle, tags);
 
     // codemirror extensions
     const cme = [
@@ -356,13 +344,13 @@ class CodeMirrorEngine {
     return false;
   }
 
-  handleKeydownEvent(event, view) {
+  handleKeydownEvent(event: KeyboardEvent) {
     if ($tw.keyboardManager.handleKeydownEvent(event, { onlyPriority: true })) {
       this.dragCancel = false;
       return true;
     }
     if (
-      event.keyCode === 27 &&
+      event.key === 'Escape' &&
       !event.ctrlKey &&
       !event.shiftKey &&
       !event.altKey &&
@@ -372,6 +360,7 @@ class CodeMirrorEngine {
       event.stopPropagation();
       return false;
     }
+
     let widget = this.widget;
     const keyboardWidgets = [];
     while (widget) {
