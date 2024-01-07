@@ -1,9 +1,0 @@
-caption: 自动关闭补全框
-created: 20240104144634274
-description: 自动关闭补全框
-modified: 20240104144634274
-settings-template: $:/plugins/oeyoews/tiddlywiki-codemirror-6/ui/templates/settings/input-switch
-title: $:/config/codemirror-6/closeOnBlur
-type: text/vnd.tiddlywiki
-
-no

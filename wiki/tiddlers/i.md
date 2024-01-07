@@ -1,5 +1,0 @@
-## demo 
-
-* for 
-* dmeo
-* dmeo

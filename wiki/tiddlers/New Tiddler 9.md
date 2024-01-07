@@ -1,1 +1,0 @@
-	demo Text of snippet demo . (Remember to add a descriptive title in the caption field).

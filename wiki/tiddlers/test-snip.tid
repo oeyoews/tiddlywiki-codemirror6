@@ -1,8 +1,0 @@
-caption: Name as shown in menu
-created: 20240103083409757
-modified: 20240103083441891
-tags: $:/tags/TextEditor/Snippet
-title: test-snip
-type: text/vnd.tiddlywiki
-
-Text of snippet ${1:name} . (Remember to add a descriptive title in the caption field).

@@ -1,9 +1,0 @@
-caption: trailing whitespace
-created: 20240105150253097
-description: trailing whitespace
-modified: 20240105164836683
-settings-template: $:/plugins/oeyoews/tiddlywiki-codemirror-6/ui/templates/settings/input-switch
-title: $:/config/codemirror-6/highlightTrailingWhitespace
-type: text/vnd.tiddlywiki
-
-no
