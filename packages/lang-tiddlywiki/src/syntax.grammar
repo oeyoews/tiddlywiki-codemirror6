@@ -5,7 +5,8 @@
 expression {
   Heading1 |
   Heading2 |
-  List
+  List |
+  Blockquote
   Application { "(" expression* ")" }
 }
 
@@ -14,7 +15,9 @@ expression {
 
   Heading2 { "!!" }
 
-  List { '\#' }
+  Blockquote { ">" }
+
+  List { '#' }
 
   space { $[ \t\n\r]+ }
 

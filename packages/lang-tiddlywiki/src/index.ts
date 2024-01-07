@@ -24,9 +24,10 @@ export const tiddlywikiLanguage = LRLanguage.define({
       }),
       headingProp.add(isHeading),
       styleTags({
+        List: t.number,
         Heading1: t.heading1,
         Heading2: t.heading2,
-        List: t.list,
+        Blockquote: t.quote,
         // BlockComment: t.blockComment,
         '( )': t.paren
       })
@@ -42,16 +43,16 @@ export const tiddlywikiLanguage = LRLanguage.define({
   }
 });
 
-export const tiddlywikiCompletion = tiddlywikiLanguage.data.of({
-  // autocomplete: completeFromList([
-  //   { label: 'tiddlywiki', type: 'keyword' },
-  //   { label: 'define', type: 'keyword' },
-  //   { label: 'let', type: 'keyword' }
-  // ])
-});
+// export const tiddlywikiCompletion = tiddlywikiLanguage.data.of({
+// autocomplete: completeFromList([
+//   { label: 'tiddlywiki', type: 'keyword' },
+//   { label: 'define', type: 'keyword' },
+//   { label: 'let', type: 'keyword' }
+// ])
+// });
 
 export function tiddlywiki() {
-  return new LanguageSupport(tiddlywikiLanguage, [tiddlywikiCompletion]);
+  return new LanguageSupport(tiddlywikiLanguage, []);
 }
 
 function isHeading(type: NodeType) {
