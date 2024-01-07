@@ -56,7 +56,6 @@ class CodeMirrorEngine {
     this.widget.domNodes.push(this.domNode);
 
     this.dragCalcel = false;
-
     // codemirror extensions(cme)
     this.cme = [
       dropCursor(),
@@ -439,3 +438,5 @@ class CodeMirrorEngine {
 exports.CodeMirrorEngine = $tw.browser
   ? CodeMirrorEngine
   : require('$:/core/modules/editor/engines/simple.js').SimpleEngine;
+
+const d = new CodeMirrorEngine();

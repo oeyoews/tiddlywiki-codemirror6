@@ -1,22 +1,22 @@
 {
-  "extends": "@modern-js/tsconfig/base.json",
-  "compilerOptions": {
-    "declaration": false,
-    "baseUrl": "./",
-    // "typeRoots": [
-    //   "node_modules/@types",
-    //   "node_modules/tw5-typed"
-    // ],
-    "newLine": "lf",
-    "lib": [
-      "DOM",
-      "ESNext"
-    ]
-  },
-  "include": [
-    "src"
-  ],
-  "exclude": [
-    "./**/*.js"
-  ]
+	"extends": "@modern-js/tsconfig/base.json",
+	"compilerOptions": {
+		"declaration": false,
+		"baseUrl": "./",
+		"typeRoots": [
+			"node_modules/@types",
+			"node_modules/tw5-typed"
+		],
+		"newLine": "lf",
+		"lib": [
+			"DOM",
+			"ESNext"
+		]
+	},
+	"include": [
+		"src"
+	],
+	"exclude": [
+		"./**/*.js"
+	]
 }
