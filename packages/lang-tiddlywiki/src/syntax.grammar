@@ -9,7 +9,6 @@ expression {
   Bold |
   UnderLine |
   Italic |
-  Link |
   List |
   Blockquote |
   LineComment |
@@ -26,13 +25,12 @@ expression {
   Bold { "''" ![\n]*  "''"}
   UnderLine { "__" ![\n]*  "__"}
   Italic { "//" ![\n]*  "//"}
-  Link { "[[" ![\n] "]]" }
   List { '#' @whitespace }
   Blockquote { ">" @whitespace }
   LineComment { "<!--" ![\n]* "-->" }
   Definition { ";" ![\n]* }
   Keyword { "<$list " | "</$list>" | '<$set ' | "</$set>" | "<$vars " | "</$vars>" | "<$link>" | "<$text " | "filter=" | "<% " ![\n]* "%>"  | "<% " ("else" | "elseif" | "endif") @whitespace "%>" | "<$list-template>" | "<$list-empty>" | "</$list-template>" | "</$list-empty>" }
-  Image { "[img[" $[0-9a-zA-Z,.:/$_-]* "]]" }
+  Image { ("[img " |"[img[" | "[[" | "{{" ) ![\n]* ("]]" | "}}") }
   Macro { "<<now>>" }
   space { $[ \t\n\r]+ }
 }
