@@ -24,7 +24,7 @@ import { javascript, javascriptLanguage } from '@codemirror/lang-javascript';
 
 import { Prec } from '@codemirror/state';
 
-export default function dynamicmode(mode: string, cme: []) {
+const dynamicmode = (mode: string, cme: []) => {
   let actionCompletions;
   if (mode === '') {
     mode = 'text/vnd.tiddlywiki';
@@ -133,4 +133,6 @@ export default function dynamicmode(mode: string, cme: []) {
       break;
     default:
   }
-}
+};
+
+export default dynamicmode;

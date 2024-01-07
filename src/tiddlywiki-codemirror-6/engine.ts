@@ -3,62 +3,39 @@ import {
   indentUnit,
   defaultHighlightStyle,
   syntaxHighlighting,
-  indentOnInput,
-  bracketMatching,
-  foldGutter
+  indentOnInput
 } from '@codemirror/language';
-import setVimKeymap from './utils/vimrc.js';
 import { EditorState, EditorSelection, Prec } from '@codemirror/state';
-import { githubLight } from '@uiw/codemirror-theme-github';
 import {
   highlightSelectionMatches,
   openSearchPanel,
   closeSearchPanel
 } from '@codemirror/search';
 
-import {
-  completeAnyWord,
-  closeBrackets,
-  completionStatus
-} from '@codemirror/autocomplete';
+import { completionStatus } from '@codemirror/autocomplete';
 
-import {
-  defaultKeymap,
-  indentWithTab,
-  history,
-  undo,
-  redo
-} from '@codemirror/commands';
+import { history, undo, redo } from '@codemirror/commands';
 
 import {
   EditorView,
   dropCursor,
-  keymap,
   highlightSpecialChars,
   drawSelection,
-  highlightActiveLine,
   rectangularSelection,
   crosshairCursor,
-  lineNumbers,
-  highlightActiveLineGutter,
-  placeholder,
-  tooltips,
-  highlightWhitespace,
-  highlightTrailingWhitespace
+  tooltips
 } from '@codemirror/view';
 
-import { vim } from '@replit/codemirror-vim';
-import { oneDark } from '@codemirror/theme-one-dark';
 import tabSizePlugin from './utils/tab-size.js';
 import cmeConfig from './cmeConfig.js';
 import autocompletionConfig from './modules/autocompletion-config.js';
-import { wordCountExt } from './extensions/wordCountExt.js';
 import dynamicmode from './modules/mode.js';
 import removeOutlineExt from './extensions/removeOutlineExt.js';
 import { miniMapExt } from './extensions/miniMapExt.js';
 import rainbowBrackets from './extensions/rainbowBrackets';
 import fontSizeExt from './extensions/fontSizeExt';
 import { cmkeymaps } from './modules/keymap';
+import configExtensions from './modules/config/index.js';
 
 class CodeMirrorEngine {
   constructor(options) {
@@ -206,51 +183,13 @@ class CodeMirrorEngine {
       })
     ];
 
-    const { fields = {} } =
-      $tw.wiki.getTiddler($tw.wiki.getTiddlerText('$:/palette')) || {};
-    const darkMode = fields?.['color-scheme'] === 'dark';
-
-    (cmeConfig.enableOneDarkTheme() && darkMode && cme.push(oneDark)) ||
-      cme.push(githubLight);
-
-    if (cmeConfig.indentWithTab()) {
-      cme.push(keymap.of([indentWithTab]));
-    }
-
-    if (cmeConfig.vimmode()) {
-      setVimKeymap();
-      cme.push(vim());
-    } else {
-      cme.push(keymap.of([...defaultKeymap]));
-    }
-
-    cmeConfig.completeAnyWord() &&
-      cme.push(
-        EditorState.languageData.of(() => [{ autocomplete: completeAnyWord }])
-      );
-
-    cmeConfig.enableWordCount() && cme.push(wordCountExt());
-    cmeConfig.highlightTrailingWhitespace() &&
-      cme.push(highlightTrailingWhitespace());
-    cmeConfig.highlightWhitespace() && cme.push(highlightWhitespace());
-    cmeConfig.closeBrackets() && cme.push(closeBrackets());
-    cmeConfig.bracketMatching() && cme.push(bracketMatching());
-    cmeConfig.lineNumbers() && cme.push(lineNumbers());
-    cmeConfig.lineNumbers() && cmeConfig.foldGutter() && cme.push(foldGutter());
-    cmeConfig.highlightActiveLine() &&
-      cme.push(highlightActiveLineGutter(), highlightActiveLine());
-
-    if (this.widget.editPlaceholder) {
-      const defaultPlaceholder = self.widget.editPlaceholder;
-      cme.push(placeholder(cmeConfig.placeholder() || defaultPlaceholder));
-    }
-
-    let mode = this.widget.editType;
+    configExtensions(cme);
 
     // add minimap
     miniMapExt(cme);
 
     // update extensions
+    let mode = this.widget.editType;
     dynamicmode(mode, cme);
 
     const state = EditorState.create({
