@@ -28,6 +28,8 @@ export const tiddlywikiLanguage = LRLanguage.define({
         Heading1: t.heading1,
         Heading2: t.heading2,
         Blockquote: t.quote,
+        LineComment: t.comment,
+        Definition: t.strong,
         // BlockComment: t.blockComment,
         '( )': t.paren
       })

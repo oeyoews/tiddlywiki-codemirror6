@@ -6,22 +6,22 @@ expression {
   Heading1 |
   Heading2 |
   List |
+  LineComment |
+  Definition |
   Blockquote
-  Application { "(" expression* ")" }
 }
 
 @tokens {
-  Heading1 { "!" }
+  Heading1 { "! " }
 
-  Heading2 { "!!" }
+  Heading2 { "!! " ![\n]* }
 
   Blockquote { ">" }
-
+  LineComment { "<!--" ![\n]* "-->" }
+  Definition { ";" ![\n]* }
   List { '#' }
 
   space { $[ \t\n\r]+ }
-
-  "(" ")"
 }
 
 @detectDelim
