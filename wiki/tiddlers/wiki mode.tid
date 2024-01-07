@@ -1,10 +1,16 @@
 created: 20240107051236318
-modified: 20240107071659390
+modified: 20240107093847160
 tags: 
 title: wiki mode
 type: text/vnd.tiddlywiki
 
 !! Delete
+
+[img[测试]]
+
+
+
+
 
 !! List
 
@@ -47,6 +53,7 @@ __demo__
 !! List
 
 # demo demo 
+# demo
 
 !! Markup
 

@@ -4,8 +4,7 @@
 
 expression {
   Identifier |
-  Heading1 |
-  Heading2 |
+  Heading |
   Delete |
   Bold |
   UnderLine |
@@ -16,27 +15,29 @@ expression {
   LineComment |
   Definition |
   Keyword |
+  Image |
   Macro
 }
 
 @tokens {
   Identifier { "@@" ![\n]* "@@" }
-  Heading1 { "! " ![\n]* }
-  Heading2 { "!! " ![\n]* }
+  Heading { ($[!]+) @whitespace ![\n]* }
   Delete { "~~" ![\n]*  "~~"}
   Bold { "''" ![\n]*  "''"}
   UnderLine { "__" ![\n]*  "__"}
   Italic { "//" ![\n]*  "//"}
   Link { "[[" ![\n] "]]" }
-  List { '# ' }
-  Blockquote { "> " }
+  List { '#' @whitespace }
+  Blockquote { ">" @whitespace }
   LineComment { "<!--" ![\n]* "-->" }
   Definition { ";" ![\n]* }
-  Keyword { "<$list " | "</$list>" | '<$set ' | "</$set>" | "<$vars " | "</$vars>" | "<$link>" | "<$text " | "filter=" | "<% " ![\n]* "%>"  | "<% " ("else" | "elseif" | "endif") " " "%>" | "<$list-template>" | "<$list-empty>" | "</$list-template>" | "</$list-empty>" }
+  Keyword { "<$list " | "</$list>" | '<$set ' | "</$set>" | "<$vars " | "</$vars>" | "<$link>" | "<$text " | "filter=" | "<% " ![\n]* "%>"  | "<% " ("else" | "elseif" | "endif") @whitespace "%>" | "<$list-template>" | "<$list-empty>" | "</$list-template>" | "</$list-empty>" }
+  Image { "[img[" @asciiLetter* "]]" }
   Macro { "<<now>>" }
   space { $[ \t\n\r]+ }
 }
 
+// https://lezer.codemirror.net/docs/guide/#writing-a-grammar
 // https://github.com/lezer-parser/javascript/blob/main/src/javascript.grammar
 // @external propSource jsHighlight from "./highlight"
 

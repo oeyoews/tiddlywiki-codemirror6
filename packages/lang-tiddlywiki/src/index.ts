@@ -26,8 +26,8 @@ export const tiddlywikiLanguage = LRLanguage.define({
       styleTags({
         Macro: t.variableName,
         Keyword: t.keyword,
-        Heading1: t.heading1,
-        Heading2: t.heading2,
+        Image: t.strong,
+        Heading: t.heading,
         Delete: t.strikethrough,
         Bold: t.strong,
         Underline: t.strong,
