@@ -32,7 +32,7 @@ expression {
   LineComment { "<!--" ![\n]* "-->" }
   Definition { ";" ![\n]* }
   Keyword { "<$list " | "</$list>" | '<$set ' | "</$set>" | "<$vars " | "</$vars>" | "<$link>" | "<$text " | "filter=" | "<% " ![\n]* "%>"  | "<% " ("else" | "elseif" | "endif") @whitespace "%>" | "<$list-template>" | "<$list-empty>" | "</$list-template>" | "</$list-empty>" }
-  Image { "[img[" @asciiLetter* "]]" }
+  Image { "[img[" $[0-9a-zA-Z,.:/$_-]* "]]" }
   Macro { "<<now>>" }
   space { $[ \t\n\r]+ }
 }
