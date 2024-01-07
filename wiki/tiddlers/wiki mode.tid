@@ -1,13 +1,24 @@
 created: 20240107051236318
-modified: 20240107093847160
+modified: 20240107103108514
 tags: 
 title: wiki mode
 type: text/vnd.tiddlywiki
 
 !! Delete
 
-[img[测试]]
+[img[测试]] demo
+[img[ljkjkemo]] demo
 
+<<demo>>
+
+测试jk
+
+
+[[]]
+
+{{hellotiddler}}
+
+[img demo]]
 
 
 
@@ -58,3 +69,7 @@ __demo__
 !! Markup
 
 @@markup@@
+
+```md
+## demo 
+```

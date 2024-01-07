@@ -24,7 +24,7 @@ expression {
   Bold { "''" ![\n]*  "''"}
   UnderLine { "__" ![\n]*  "__"}
   Italic { "//" ![\n]*  "//"}
-  List { '#' @whitespace }
+  List { $[#]+ @whitespace }
   Blockquote { ">" @whitespace }
   LineComment { "<!--" ![\n]* "-->" }
   Definition { ";" ![\n]* }

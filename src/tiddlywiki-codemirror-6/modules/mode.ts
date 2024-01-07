@@ -32,7 +32,32 @@ export default function dynamicmode(mode: string, cme: []) {
 
   switch (mode) {
     case 'text/vnd.tiddlywiki':
-      cme.push(tiddlywiki({ base: tiddlywikiLanguage }));
+      cme.push(
+        tiddlywiki({
+          base: tiddlywikiLanguage
+          // codeLanguages: (info) => {
+          //   switch (info) {
+          //     case 'javascript':
+          //     case 'js':
+          //       return javascriptLanguage;
+          //     case 'css':
+          //       return cssLanguage;
+          //     case 'html':
+          //       return htmlLanguage;
+          //     case 'json':
+          //       return jsonLanguage;
+          //     case 'markdown':
+          //     case 'md':
+          //       return markdownLanguage;
+          //     case 'tiddlywiki':
+          //     case 'tw':
+          //     case 'wiki':
+          //       return tiddlywikiLanguage;
+          //     default:
+          //   }
+          // }
+        })
+      );
 
       actionCompletions = tiddlywikiLanguage.data.of({
         autocomplete: completions
