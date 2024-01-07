@@ -14,8 +14,7 @@ expression {
   LineComment |
   Definition |
   Keyword |
-  Image |
-  Macro
+  Image
 }
 
 @tokens {
@@ -30,8 +29,7 @@ expression {
   LineComment { "<!--" ![\n]* "-->" }
   Definition { ";" ![\n]* }
   Keyword { "<$list " | "</$list>" | '<$set ' | "</$set>" | "<$vars " | "</$vars>" | "<$link>" | "<$text " | "filter=" | "<% " ![\n]* "%>"  | "<% " ("else" | "elseif" | "endif") @whitespace "%>" | "<$list-template>" | "<$list-empty>" | "</$list-template>" | "</$list-empty>" }
-  Image { ("[img " |"[img[" | "[[" | "{{" | "{{{" ) ![\n]* ("]]" | "}}" | "}}}") }
-  Macro { "<<now>>" }
+  Image { ("<<" | "[img " |"[img[" | "[[" | "{{" | "{{{" ) ![\n]* ("]]" | "}}" | "}}}" | ">>") }
   space { $[ \t\n\r]+ }
 }
 
