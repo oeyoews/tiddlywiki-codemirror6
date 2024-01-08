@@ -3,5 +3,6 @@ export default {
   embed: '{{',
   macro: '<<',
   img: '[img[',
-  widget: '<$'
+  widget: '<$',
+  emoji: ':'
 };

@@ -16,7 +16,6 @@ function getImageSnippets() {
     type: 'cm-image',
     info: () => {
       const imagePreview = document.createElement('div');
-      // imagePreview.style.width = '300px';
       imagePreview.className = 'cm-image-preview';
       const imageHTML = $tw.wiki.renderTiddler('text/html', title, {
         // parseAsInline: true
@@ -33,6 +32,35 @@ function getAllWords() {
     displayLabel: word,
     type: 'cm-word'
   }));
+}
+
+function getAllEmojiSnippets() {
+  const snippetModules = $tw.modules.types['emoji-snippets'];
+  const allInfo: IInfo[] = [];
+
+  if (snippetModules) {
+    const req = Object.getOwnPropertyNames(snippetModules);
+
+    if (req) {
+      if ($tw.utils.isArray(req)) {
+        req.forEach((item) => {
+          allInfo.push(...require(item));
+        });
+      } else {
+        // @ts-ignore
+        allInfo.push(...require(req));
+      }
+    }
+  }
+
+  return allInfo.map((info) =>
+    snip(info.text, {
+      label: ':' + cmeConfig.delimiter() + info.title,
+      displayLabel: info.title,
+      type: 'cm-emoji',
+      info: info.text
+    })
+  );
 }
 
 function getAllUserSnippets() {
@@ -70,7 +98,6 @@ function getAllUserSnippets() {
 
   // 加载内置代码片段
   allInfo.push(...usersnippets);
-  console.log(allInfo);
 
   return allInfo.map((info) =>
     snip(info.text, {
@@ -163,5 +190,6 @@ export default {
   linkSnippets: getAllTiddlers,
   macroSnippets: getAllMacros,
   embedSnippets: () => getAllTiddlers(triggerType.embed),
-  wordsSnippets: getAllWords
+  wordsSnippets: getAllWords,
+  emojiSnippets: getAllEmojiSnippets
 };

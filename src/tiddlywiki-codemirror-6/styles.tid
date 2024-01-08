@@ -449,6 +449,10 @@ color: #495057;
 	content: '𝒕';
 }
 
+.cm-completionIcon-cm-emoji:after {
+	content: '𝓮';
+}
+
 .cm-completionIcon-cm-macro:after {
 	content: '𝓂';
 }
