@@ -77,7 +77,7 @@ If you like the plugin, feel free to leave me a star on [ext[GitHub|https://gith
 * [ ] support codemirror-themes-all(70kb) https://uiwjs.github.io/react-codemirror/#/theme/data/material/dark
 * [ ] remove codemirror highlight utils
 * [ ] 模仿 rainbow 高亮 [[xxx]] 里面的tiddler, 或许可以直接加上点击事件
-* [ ] inline hint complete
+* [ ] inline hint complete https://github.com/ChromeDevTools/devtools-frontend/blob/main/front_end/ui/components/text_editor/config.ts#L370
 
 !! Links
 
