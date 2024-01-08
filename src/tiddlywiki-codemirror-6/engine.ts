@@ -1,4 +1,4 @@
-import { inlineSuggestion } from 'codemirror-extension-inline-suggestion';
+// import { inlineSuggestion } from 'codemirror-extension-inline-suggestion';
 import {
   indentUnit,
   defaultHighlightStyle,
@@ -259,7 +259,6 @@ class CodeMirrorEngine {
   }
 
   handleKeydownEvent(e: KeyboardEvent, view: EditorView) {
-    // @ts-expect-error
     if ($tw.keyboardManager.handleKeydownEvent(e, { onlyPriority: true })) {
       this.dragCancel = false;
       return true;
@@ -289,11 +288,9 @@ class CodeMirrorEngine {
       for (let i = 0; i < keyboardWidgets.length; i++) {
         const keyboardWidget = keyboardWidgets[i];
         const keyInfoArray = keyboardWidget.keyInfoArray;
-        // @ts-ignore
         if ($tw.keyboardManager.checkKeyDescriptors(e, keyInfoArray)) {
           if (
             this.dragCancel &&
-            // @ts-ignore
             $tw.keyboardManager
               .getPrintableShortcuts(keyInfoArray)
               .indexOf('Escape') !== -1

@@ -21,7 +21,7 @@ export interface IOptions {
   nextSibling: any;
 }
 
-export type IInfo = {
+export type ISource = {
   title: string;
   text: string;
   desc?: string;

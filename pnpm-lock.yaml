@@ -84,6 +84,9 @@ importers:
       '@oeyoews/prettier-config':
         specifier: ^1.0.2
         version: 1.0.2(prettier@3.1.1)
+      '@oeyoews/tw5-typed':
+        specifier: ^0.4.4
+        version: registry.npmjs.org/@oeyoews/tw5-typed@0.4.4
       '@replit/codemirror-minimap':
         specifier: ^0.5.2
         version: 0.5.2(@codemirror/language@6.10.0)(@codemirror/lint@6.4.2)(@codemirror/state@6.4.0)(@codemirror/view@6.23.0)(@lezer/common@1.2.0)(@lezer/highlight@1.2.0)
@@ -108,9 +111,6 @@ importers:
       ts-node:
         specifier: ^10.9.2
         version: 10.9.2(@types/node@20.10.6)(typescript@5.3.3)
-      tw5-typed:
-        specifier: ^0.4.3
-        version: 0.4.3
       typescript:
         specifier: ^5.3.3
         version: 5.3.3
@@ -2560,8 +2560,8 @@ packages:
     resolution: {integrity: sha512-w+tIMs3rq2afQdsPJlODhoUEKzFP1ayaoyl1CcnwtIlsVe7K7bA1NGm4s3PraqTLlXnbIN84zuBlxBWo1u9BLw==}
     dev: true
 
-  /@types/node@18.19.4:
-    resolution: {integrity: sha512-xNzlUhzoHotIsnFoXmJB+yWmBvFZgKCI9TtPIEdYIMM1KWfwuY8zh7wvc1u1OAXlC7dlf6mZVx/s+Y5KfFz19A==}
+  /@types/node@18.19.5:
+    resolution: {integrity: sha512-22MG6T02Hos2JWfa1o5jsIByn+bc5iOt1IS4xyg6OG68Bu+wMonVZzdrgCw693++rpLE9RUT/Bx15BeDzO0j+g==}
     dependencies:
       undici-types: 5.26.5
     dev: true
@@ -6320,14 +6320,6 @@ packages:
       typescript: 5.3.3
     dev: true
 
-  /tw5-typed@0.4.3:
-    resolution: {integrity: sha512-8nYTgN60PhvbDD4nOOMK34KOI4+2IXD4Wc3BvTT0nmLAz+td+FgK2UcDcsvmF4G/pwTQ+vjK7VdrJj+ZBtC52A==}
-    dependencies:
-      '@types/codemirror': 5.60.15
-      '@types/echarts': 4.9.22
-      '@types/node': 18.19.4
-    dev: true
-
   /type-check@0.4.0:
     resolution: {integrity: sha512-XleUoc9uwGXqjWwXaUTZAmzMcFZ5858QA2vvx1Ur5xIcixXIP+8LnFDgRplU30us6teqdlskFfu+ae4K79Ooew==}
     engines: {node: '>= 0.8.0'}
@@ -6648,3 +6640,13 @@ packages:
 
   /zod@3.22.4:
     resolution: {integrity: sha512-iC+8Io04lddc+mVqQ9AZ7OQ2MrUKGN+oIQyq1vemgt46jwCwLfhq7/pwnBnNXXXZb8VTVLKwp9EDkx+ryxIWmg==}
+
+  registry.npmjs.org/@oeyoews/tw5-typed@0.4.4:
+    resolution: {integrity: sha512-ddDeO0AGtAH72O+wF0Fi7ABRI1fdDn/yH82dvULkUKoobxtg1J6rElYIcESEQK3GliiwTHZ3W/oA+XjPOHc9wA==, registry: https://registry.npmmirror.com/, tarball: https://registry.npmjs.org/@oeyoews/tw5-typed/-/tw5-typed-0.4.4.tgz}
+    name: '@oeyoews/tw5-typed'
+    version: 0.4.4
+    dependencies:
+      '@types/codemirror': 5.60.15
+      '@types/echarts': 4.9.22
+      '@types/node': 18.19.5
+    dev: true

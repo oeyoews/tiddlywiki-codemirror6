@@ -7,7 +7,7 @@
     "registry": "https://registry.npmjs.org"
   },
   "license": "MIT",
-  "version": "0.4.8",
+  "version": "0.4.9",
   "packageManager": "pnpm@8.8.0",
   "scripts": {
     "bump": "node scripts/bump.js",
@@ -37,7 +37,7 @@
     "codemirror-lang-tiddlywiki": "workspace:^",
     "rimraf": "^5.0.5",
     "ts-node": "^10.9.2",
-    "tw5-typed": "^0.4.3",
+    "@oeyoews/tw5-typed": "^0.4.4",
     "typescript": "^5.3.3"
   },
   "dependencies": {

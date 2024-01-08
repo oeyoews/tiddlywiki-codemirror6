@@ -24,10 +24,8 @@ import { wordCountExt } from 'src/tiddlywiki-codemirror-6/extensions/wordCountEx
 import { IWidget } from 'src/tiddlywiki-codemirror-6/types';
 
 export default function configExtensions(cme: Extension[], widget: IWidget) {
-  const { fields = {} } =
-    // @ts-ignore
-    $tw.wiki.getTiddler($tw.wiki.getTiddlerText('$:/palette')) || {};
-  // @ts-ignore
+  const fields = $tw.wiki.getTiddler($tw.wiki.getTiddlerText('$:/palette')!)
+    ?.fields;
   const darkMode = fields?.['color-scheme'] === 'dark';
 
   (conf.enableOneDarkTheme() && darkMode && cme.push(oneDark)) ||
