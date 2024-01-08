@@ -1,7 +1,7 @@
 import { usersnippets, words } from '../completions/snippets';
 import { snippetCompletion as snip } from '@codemirror/autocomplete';
-import triggerType from '../utils/triggerType';
-import cmeConfig from '../cmeConfig';
+import delimiter from '../utils/triggerType';
+import conf from '../cmeConfig';
 import type { IInfo } from '../types';
 
 // 如果不对 label 进行特殊处理，就要处理光标位置，自定义 app function, 灵活性较差 https://github.com/BurningTreeC/tiddlywiki-codemirror-6/blob/6ed53e8624b12cf2c09187f4f5fdcdd5960889c3/plugins/tiddlywiki-codemirror-6/engine.js#L327-L346C3
@@ -54,7 +54,7 @@ function getAllEmojiSnippets() {
   }
 
   return allInfo.map((info) => ({
-    label: ':' + cmeConfig.delimiter() + info.title,
+    label: delimiter.emoji + conf.delimiter() + info.title,
     displayLabel: info.title,
     detail: info.text,
     type: 'cm-emoji'
@@ -100,7 +100,7 @@ function getAllUserSnippets() {
 
   return allInfo.map((info) =>
     snip(info.text, {
-      label: cmeConfig.delimiter() + info.title,
+      label: conf.delimiter() + info.title,
       displayLabel: info.title,
       type: 'cm-snippet', // class: cm-completionIcon-cm-snippets
       info: info.desc || info.text
@@ -149,7 +149,7 @@ function getAllMacros() {
         ? params.map((p: { name: string }) => p.name).join(', ')
         : 'no parameters';
     return snip(macro, {
-      label: triggerType.macro + name,
+      label: delimiter.macro + name,
       displayLabel: name,
       type: 'cm-macro',
       info: paramList
@@ -157,10 +157,10 @@ function getAllMacros() {
   });
 }
 
-function getAllTiddlers(delimiters = triggerType.link) {
+function getAllTiddlers(delimiters = delimiter.link) {
   const systemFilter =
     '[all[tiddlers+shadows]!has[draft.of]!prefix[$:/status]!preifx[$:/temp]!prefix[$:/state]!tag[$:/tags/TextEditor/Snippet]!prefix[$:/language]!prefix[$:/config/Server/]]';
-  const filter = cmeConfig.enableSystemTiddlersCompletion()
+  const filter = conf.enableSystemTiddlersCompletion()
     ? systemFilter
     : '[!is[system]!has[draft.of]]';
   const allTiddlers = $tw.wiki.filterTiddlers(filter);
@@ -188,7 +188,7 @@ export default {
   widgetSnippets: getAllWidgetSnippets,
   linkSnippets: getAllTiddlers,
   macroSnippets: getAllMacros,
-  embedSnippets: () => getAllTiddlers(triggerType.embed),
+  embedSnippets: () => getAllTiddlers(delimiter.embed),
   wordsSnippets: getAllWords,
   emojiSnippets: getAllEmojiSnippets
 };
