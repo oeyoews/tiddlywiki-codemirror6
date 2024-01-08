@@ -1,10 +1,9 @@
-## DEV
-
-```bash
-pnpm install
-pnpm dev
-pnpm build
-```
+<center>
+<video width="600" height="400" controls>
+  <source src="./assets/demo.mp4" type="video/mp4">
+  您的浏览器不支持 video 标签。
+</video>
+</center>
 
 ## Emoji 补全
 
