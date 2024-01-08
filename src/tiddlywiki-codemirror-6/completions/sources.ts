@@ -31,7 +31,8 @@ function getAllUserSnippets() {
     const { caption = '', text = '' } = $tw.wiki.getTiddler(title)?.fields!;
 
     return {
-      title: title.split('/').pop()!,
+      // title: title.split('/').pop()!,
+      title: title,
       text: text.trim(),
       caption
     };
@@ -46,17 +47,18 @@ function getAllUserSnippets() {
     if (req) {
       if ($tw.utils.isArray(req)) {
         req.forEach((item) => {
-          allInfo.push(require(item));
+          allInfo.push(...require(item));
         });
       } else {
         // @ts-ignore
-        allInfo.push(require(req));
+        allInfo.push(...require(req));
       }
     }
   }
 
   // 加载内置代码片段
   allInfo.push(...usersnippets);
+  console.log(allInfo);
 
   return allInfo.map((info) =>
     snip(info.text, {
