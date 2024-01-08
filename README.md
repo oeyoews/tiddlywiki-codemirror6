@@ -1,9 +1,4 @@
-<center>
-<video width="600" height="400" controls>
-  <source src="./assets/demo.mp4" type="video/mp4">
-  您的浏览器不支持 video 标签。
-</video>
-</center>
+https://user-images.githubusercontent.com/72405338/294956491-948b791f-04e1-4447-a5d3-81ebb13619de.mp4
 
 ## Emoji 补全
 
