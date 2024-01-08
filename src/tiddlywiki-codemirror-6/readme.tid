@@ -90,7 +90,7 @@ If you like the plugin, feel free to leave me a star on [ext[GitHub|https://gith
 
 !! Tips
 
-* 你过你希望扩展snippets, 你可以编写自己的snippets 插件(module-type: snippets).
+* 如果你希望扩展snippets, 你可以编写自己的snippets 插件(module-type: snippets).
 * prese `ctrl + /` to comment line(non vimmode)
 
 ```js
