@@ -1,6 +1,15 @@
 title: $:/plugins/oeyoews/tiddlywiki-codemirror-6/readme
 
-> modified on btc codemirror6 plugin
+> Modified on BurningTreeC codemirror-6 plugin
+
+!! This plugin adds the [ext[CodeMirror 6|https://codemirror.net]] editor to [ext[TiddlyWiki|https://tiddlywiki.com]]
+
+See the ''usage'' section for keyboard shortcuts
+
+If you like the plugin, feel free to leave me a star on [ext[GitHub|https://github.com/oeyoews/tiddlywiki-codemirror6]]
+
+
+[[Demo|https://oeyoews.github.io/tiddlywiki-codemirror6/#%24%3A%2Fplugins%2Foeyoews%2Ftiddlywiki-codemirror-6]]
 
 <center>
 <video width="400" height="300" controls>
@@ -12,33 +21,14 @@ title: $:/plugins/oeyoews/tiddlywiki-codemirror-6/readme
 
 !! Features
 
-* support load snippet module
 * autocomplete preview(include image)
-* emoji complete
-* codeblock highlight
-* rainbow brackets
-* tiddler completion: `[[xxx]]` `{{xxx}}`
+* support load snippet module
+* emoji complete, user snippets
+* tiddler completion: `[[xxx]]`, `{{xxx}}`
 * image completion: `[img[xxx]]`
-* support user snippets
 * widget completion: `<$xxx />`
-* minmap
-* vimmode
+* minmap, vimmode, word count, rainbow brackets, codeblock highlight
 * custom placeholder, tabsize, mincompletion length
-* tiddler and url jump
-* word count
-* markdown: autolist(and task list)
-* multi themes(material, onedark etc.)
-
-!! Preview
-
-* https://tiddlywiki-codemirror6.vercel.app
-* https://oeyoews.github.io/tiddlywiki-codemirror6
-
-!! This plugin adds the [ext[CodeMirror 6|https://codemirror.net]] editor to [ext[TiddlyWiki|https://tiddlywiki.com]]
-
-See the ''usage'' section for keyboard shortcuts
-
-If you like the plugin, feel free to leave me a star on [ext[GitHub|https://github.com/oeyoews/tiddlywiki-codemirror6]]
 
 <!-- * ~~split to vim plugin: 由于使用到了 cm6的包作为依赖, 因此将其单独打包出去, 作为模块的形式加载不太可能~~
 * ~~Uncaught RangeError: A document must have at least one line~~
@@ -49,7 +39,7 @@ If you like the plugin, feel free to leave me a star on [ext[GitHub|https://gith
 * ~~lsp: https://github.com/FurqanSoftware/codemirror-languageserver~~
 * https://codesandbox.io/p/sandbox/codesandbox-next-363-forked-734jrl?file=%2Fsrc%2Findex.js%3A4%2C1 -->
 
-!! Next TODO(Roadmap)
+<!-- !! Next TODO(Roadmap)
 
 * [ ] plugin i18n
 * [ ] support copy image https://github.com/Jermolene/TiddlyWiki5/blob/f08d3d60309c97c4ddeeb3a8e0edf35bac74c928/plugins/tiddlywiki/codemirror/engine.js#L222
@@ -64,14 +54,14 @@ If you like the plugin, feel free to leave me a star on [ext[GitHub|https://gith
 * [ ] remove codemirror highlight utils
 * [ ] 模仿 rainbow 高亮 [[xxx]] 里面的tiddler, 或许可以直接加上点击事件
 * [ ] inline hint complete https://github.com/ChromeDevTools/devtools-frontend/blob/main/front_end/ui/components/text_editor/config.ts#L370
-* [ ] 切换全屏如何刷新预览
+* [ ] 切换全屏如何刷新预览 -->
 
-!! Links
+<!-- !! Links
 
 * https://discuss.codemirror.net
 * https://github.com/BurningTreeC/tiddlywiki-codemirror-6/blob/main/plugins/tiddlywiki-codemirror-6/engine.js
 * https://burningtreec.github.io/tiddlywiki-codemirror-6/
-* https://github.com/val-town/codemirror-ts/blob/main/src/hover/getHover.ts
+* https://github.com/val-town/codemirror-ts/blob/main/src/hover/getHover.ts -->
 
 !! Tips
 
@@ -79,10 +69,3 @@ If you like the plugin, feel free to leave me a star on [ext[GitHub|https://gith
 * if you hope add your custom snippets, your can write a simple plugin module(module-type: snippets).
 * presss tab to accept current completion
 * prese `ctrl + /` to comment line(non vimmode)
-
-```js
-    { key: "Ctrl-Shift-[", mac: "Cmd-Alt-[", run: foldCode },
-    { key: "Ctrl-Shift-]", mac: "Cmd-Alt-]", run: unfoldCode },
-    { key: "Ctrl-Alt-[", run: foldAll },
-    { key: "Ctrl-Alt-]", run: unfoldAll }
-```
