@@ -36,4 +36,4 @@ export const usersnippets = [
 
 // general words
 
-export const words = ['tiddlywiki', 'GitHub'];
+export const words = ['tiddlywiki', 'GitHub', 'TiddlyWiki5'];
