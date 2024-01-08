@@ -492,10 +492,11 @@ color: #495057;
 	margin-left: 2px;
 }
 
+<!-- 有个max-width 400.xxxpx -->
 .cm-image-preview {
 	overflow: auto;
-	max-width: 600px;
-	max-height: 400px;
+	width: 400px;
+	max-height: 300px;
 	border-radius: 4px;
 	padding-right: 8px;
 }
