@@ -65,6 +65,9 @@ importers:
       '@replit/codemirror-vim':
         specifier: ^6.1.0
         version: 6.1.0(@codemirror/commands@6.3.3)(@codemirror/language@6.10.0)(@codemirror/search@6.5.5)(@codemirror/state@6.4.0)(@codemirror/view@6.23.0)
+      codemirror-extension-inline-suggestion:
+        specifier: ^0.0.1
+        version: 0.0.1(@codemirror/state@6.4.0)(@codemirror/view@6.23.0)
       tiddlywiki:
         specifier: ^5.3.3
         version: 5.3.3
@@ -3212,6 +3215,16 @@ packages:
   /clone@1.0.4:
     resolution: {integrity: sha512-JQHZ2QMW6l3aH/j6xCqQThY/9OH4D/9ls34cgkUBiEeocRTU04tHfKPBsUK1PqZCUQM7GiA0IIXJSuXHI64Kbg==}
     engines: {node: '>=0.8'}
+    dev: false
+
+  /codemirror-extension-inline-suggestion@0.0.1(@codemirror/state@6.4.0)(@codemirror/view@6.23.0):
+    resolution: {integrity: sha512-lwxsk365lspmv8ZDS3zQbzmKkVWMZFEHelqQo68HPEZustq1rYtR/D2s4XBNgTNYna6Mba7fU8UUXXqmFBNlpA==}
+    peerDependencies:
+      '@codemirror/state': ^6.2.0
+      '@codemirror/view': ^6.7.2
+    dependencies:
+      '@codemirror/state': 6.4.0
+      '@codemirror/view': 6.23.0
     dev: false
 
   /color-convert@1.9.3:

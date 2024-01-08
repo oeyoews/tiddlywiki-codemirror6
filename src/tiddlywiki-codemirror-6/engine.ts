@@ -1,3 +1,4 @@
+import { inlineSuggestion } from 'codemirror-extension-inline-suggestion';
 import {
   indentUnit,
   defaultHighlightStyle,
@@ -69,8 +70,21 @@ class CodeMirrorEngine {
     this.parentNode.insertBefore(this.domNode, this.nextSibling); // mount
     this.widget.domNodes.push(this.domNode);
 
+    // TODO
+    const fetchSuggestion = async (state: EditorState) => {
+      // if vim normal, return
+      if (completionStatus(this.cm.state) === 'active') {
+        return;
+      } else {
+        return ' world';
+      }
+    };
     // codemirror extensions(cme)
     this.cme = [
+      // inlineSuggestion({
+      //   fetchFn: fetchSuggestion as any,
+      //   delay: 500
+      // }),
       dropCursor(),
       tabSizePlugin(),
       removeOutlineExt,
