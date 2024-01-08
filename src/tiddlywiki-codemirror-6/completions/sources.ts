@@ -1,9 +1,8 @@
-// @ts-nocheck
-
 import { usersnippets, words } from '../completions/snippets';
 import { snippetCompletion as snip } from '@codemirror/autocomplete';
 import triggerType from '../utils/triggerType';
 import cmeConfig from '../cmeConfig';
+import type { IInfo } from '../types';
 
 // 如果不对 label 进行特殊处理，就要处理光标位置，自定义 app function, 灵活性较差 https://github.com/BurningTreeC/tiddlywiki-codemirror-6/blob/6ed53e8624b12cf2c09187f4f5fdcdd5960889c3/plugins/tiddlywiki-codemirror-6/engine.js#L327-L346C3
 function getImageSnippets() {
@@ -28,7 +27,7 @@ function getAllUserSnippets() {
     '[all[shadows+system+tiddlers]tag[$:/tags/TextEditor/Snippet]!has[draft.of]]'
   );
 
-  const allInfo = userSnippetTiddlers.map((title) => {
+  const allInfo: IInfo[] = userSnippetTiddlers.map((title) => {
     const { caption = '', text = '' } = $tw.wiki.getTiddler(title)?.fields!;
 
     return {
@@ -50,7 +49,8 @@ function getAllUserSnippets() {
           allInfo.push(require(item));
         });
       } else {
-        allInfo.push(...require(req));
+        // @ts-ignore
+        allInfo.push(require(req));
       }
     }
   }
@@ -59,16 +59,11 @@ function getAllUserSnippets() {
   allInfo.push(...usersnippets);
 
   return allInfo.map((info) =>
-    snip(`${info.text}`, {
+    snip(info.text, {
       label: cmeConfig.delimiter() + info.title,
       displayLabel: info.title,
       type: 'cm-snippet', // class: cm-completionIcon-cm-snippets
-      apply: info.text,
-      info: info.desc
-        ? info.desc
-        : info.text.length > 100
-          ? info.text.slice(0, 100) + ' ...'
-          : info.text
+      info: info.desc || info.text
     })
   );
 }
@@ -82,6 +77,7 @@ function getAllWidgetSnippets() {
       ([_, { moduleType, exports }]) =>
         moduleType === 'widget' && exports && Object.keys(exports).length > 0
     )
+    // @ts-ignore
     .map(([_, { exports }]) => Object.keys(exports)[0]);
 
   // https://github.com/codemirror/website/tree/master/site/examples/autocompletion
@@ -99,9 +95,10 @@ function getAllWidgetSnippets() {
 }
 
 function getAllMacros() {
-  // just include js macro.
+  // @ts-ignore
   const macros = Object.entries($tw.macros);
 
+  // @ts-ignore
   return macros.map(([_, { name, params }]) => {
     const macro =
       params.length > 0
@@ -109,7 +106,7 @@ function getAllMacros() {
         : `<<${name}>>#{1}`;
     const paramList =
       params.length > 0
-        ? params.map((p) => p.name).join(', ')
+        ? params.map((p: { name: string }) => p.name).join(', ')
         : 'no parameters';
     return snip(macro, {
       label: triggerType.macro + name,

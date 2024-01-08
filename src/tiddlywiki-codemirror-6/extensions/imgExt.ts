@@ -1,4 +1,5 @@
 // @ts-nocheck
+
 import { Decoration, MatchDecorator, WidgetType } from '@codemirror/view';
 import createViewPlugin from '../utils/createViewPlugin';
 

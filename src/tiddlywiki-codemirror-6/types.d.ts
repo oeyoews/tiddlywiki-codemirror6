@@ -19,3 +19,10 @@ export interface IOptions {
   parentNode: any;
   nextSibling: any;
 }
+
+export type IInfo = {
+  title: string;
+  text: string;
+  desc?: string;
+  captions?: string;
+};
