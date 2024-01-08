@@ -4,6 +4,7 @@ title: $:/plugins/oeyoews/tiddlywiki-codemirror-6/readme
 
 !! Features
 
+* 补全预览, 图片预览
 * codeblock highlight
 * rainbow brackets
 * tiddler completion: `[[xxx]]` `{{xxx}}`

@@ -477,7 +477,7 @@ color: #495057;
 
 .cm-image-preview {
 	overflow: scroll;
-	width: 200px;
-	height: 200px;
+	width: 400px;
+	height: 400px;
 	border-radius: 4px;
 }
