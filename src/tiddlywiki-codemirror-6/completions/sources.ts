@@ -19,7 +19,7 @@ function getImageSnippets() {
       // imagePreview.style.width = '300px';
       imagePreview.className = 'cm-image-preview';
       const imageHTML = $tw.wiki.renderTiddler('text/html', title, {
-        parseAsInline: true
+        // parseAsInline: true
       });
       imagePreview.innerHTML = imageHTML;
       return imagePreview;
@@ -143,7 +143,16 @@ function getAllTiddlers(delimiters = triggerType.link) {
     label: delimiters + title,
     displayLabel: title.length > 35 ? title.slice(0, 35) + ' …' : title,
     type: 'cm-tiddler',
-    info: title
+    info: () => {
+      const previewNode = $tw.wiki.renderTiddler('text/html', title, {
+        // 如果需要解析为 inline 的话，会导致 !! 这种 wikitext 的语法 parse 错误
+        // parseAsInline: true
+      });
+      const preview = document.createElement('div');
+      preview.innerHTML = previewNode;
+      preview.className = 'cm-image-preview';
+      return preview;
+    }
   }));
 }
 
