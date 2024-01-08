@@ -169,7 +169,13 @@ function getAllTiddlers(delimiters = delimiter.link) {
     label: delimiters + title,
     displayLabel: title.length > 35 ? title.slice(0, 35) + ' …' : title,
     type: 'cm-tiddler',
+    // NOTE: TypeError: Cannot set property parentNode of #<Node> which has only a getter, 部分 widget 使用到$tw 的 fakedom api, 会导致报错。
     info: () => {
+      if (!$tw.wiki.getTiddlerText(title)) {
+        const titleNode = document.createElement('h2');
+        titleNode.innerHTML = title;
+        return titleNode;
+      }
       const previewNode = $tw.wiki.renderTiddler('text/html', title, {
         // 如果需要解析为 inline 的话，会导致 !! 这种 wikitext 的语法 parse 错误
         // parseAsInline: true
