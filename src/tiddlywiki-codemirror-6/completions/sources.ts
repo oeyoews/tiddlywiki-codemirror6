@@ -53,14 +53,13 @@ function getAllEmojiSnippets() {
     }
   }
 
-  return allInfo.map((info) =>
-    snip(info.text, {
-      label: ':' + cmeConfig.delimiter() + info.title,
-      displayLabel: info.title,
-      type: 'cm-emoji',
-      info: info.text
-    })
-  );
+  return allInfo.map((info) => ({
+    label: ':' + cmeConfig.delimiter() + info.title,
+    displayLabel: info.title,
+    detail: info.text,
+    type: 'cm-emoji'
+    // info: info.title
+  }));
 }
 
 function getAllUserSnippets() {

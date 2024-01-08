@@ -457,6 +457,10 @@ color: #495057;
 	content: '𝓂';
 }
 
+.cm-completionDetail {
+	font-style: normal !important;
+}
+
 .cm-autocomplete-tooltip {
 	border-radius: 4px;
 	border: none !important;
