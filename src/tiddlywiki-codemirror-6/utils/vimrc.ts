@@ -6,9 +6,12 @@ export default function setVimKeymap(widget?: IWidget) {
   Vim.map('jk', '<Esc>', 'insert'); // in insert mode
   Vim.map('H', '0', 'normal');
   Vim.map('L', '$', 'normal');
-  // TODO: 不接受文件名
   Vim.defineEx('write', 'w', () => {
-    // TODO: save as
-    console.log(widget?.editTitle);
+    // $tw.rootWidget.invokeActionString();
+    // $tw.rootWidget.dispatchEvent({
+    //   type: 'tm-new-tiddler',
+    //   param: widget?.editTitle
+    // });
+    // $tw.rootWidget.dispatchEvent({ type: 'tm-modal', param: 'GettingStarted' });
   });
 }
