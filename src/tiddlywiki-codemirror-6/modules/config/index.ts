@@ -1,6 +1,6 @@
 import { bracketMatching, foldGutter } from '@codemirror/language';
 import setVimKeymap from 'src/tiddlywiki-codemirror-6/utils/vimrc.js';
-import { EditorState } from '@codemirror/state';
+import { EditorState, Extension } from '@codemirror/state';
 import { githubLight } from '@uiw/codemirror-theme-github';
 
 import { completeAnyWord, closeBrackets } from '@codemirror/autocomplete';
@@ -21,8 +21,12 @@ import { vim } from '@replit/codemirror-vim';
 import { oneDark } from '@codemirror/theme-one-dark';
 import conf from 'src/tiddlywiki-codemirror-6/cmeConfig';
 import { wordCountExt } from 'src/tiddlywiki-codemirror-6/extensions/wordCountExt';
+import { IWidget } from 'src/tiddlywiki-codemirror-6/types';
 
-export default function configExtensions(cme: any[]) {
+export default function configExtensions(
+  cme: Extension[],
+  editPlaceholder: IWidget['editPlaceholder']
+) {
   const { fields = {} } =
     // @ts-ignore
     $tw.wiki.getTiddler($tw.wiki.getTiddlerText('$:/palette')) || {};
@@ -58,5 +62,7 @@ export default function configExtensions(cme: any[]) {
   conf.highlightActiveLine() &&
     cme.push(highlightActiveLineGutter(), highlightActiveLine());
 
-  cme.push(placeholder(conf.placeholder()));
+  cme.push(
+    placeholder(conf.customPlaceholder() ? conf.placeholder() : editPlaceholder)
+  );
 }

@@ -32,6 +32,7 @@ const titles = [
   'enableOneDarkTheme',
   'clickable-icon',
   'clickable',
+  'customPlaceholder',
   'placeholder',
   'cursorBlinkRate',
   'minLength',
