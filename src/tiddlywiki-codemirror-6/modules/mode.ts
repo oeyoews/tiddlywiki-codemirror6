@@ -22,9 +22,9 @@ import {
 
 import { javascript, javascriptLanguage } from '@codemirror/lang-javascript';
 
-import { Prec } from '@codemirror/state';
+import { Extension, Prec } from '@codemirror/state';
 
-const dynamicmode = (mode: string, cme: []) => {
+const dynamicmode = (mode: string, cme: Extension[]) => {
   let actionCompletions;
   if (mode === '') {
     mode = 'text/vnd.tiddlywiki';

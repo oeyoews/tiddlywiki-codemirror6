@@ -1,12 +1,15 @@
-// @ts-nocheck
-
 import {
   indentUnit,
   defaultHighlightStyle,
   syntaxHighlighting,
   indentOnInput
 } from '@codemirror/language';
-import { EditorState, EditorSelection, Prec } from '@codemirror/state';
+import {
+  EditorState,
+  EditorSelection,
+  Prec,
+  Extension
+} from '@codemirror/state';
 import {
   highlightSelectionMatches,
   openSearchPanel,
@@ -37,9 +40,20 @@ import rainbowBrackets from './extensions/rainbowBrackets';
 import fontSizeExt from './extensions/fontSizeExt';
 import { cmkeymaps } from './modules/keymap';
 import configExtensions from './modules/config/index';
-import { operationTypes } from './operationTypes';
+import { IOperation, IOperationType, operationTypes } from './operationTypes';
+import type { TW_Element, Widget } from 'tiddlywiki';
+import type { IWidget, IOptions } from './types';
 
 class CodeMirrorEngine {
+  widget: IWidget;
+  cme: Extension[];
+  cm: EditorView;
+  domNode: TW_Element;
+  parentNode: Node;
+  nextSibling: Node;
+  private state: EditorState;
+  private dragCancel: boolean = false;
+
   constructor(options: IOptions) {
     const self = this;
 
@@ -55,7 +69,6 @@ class CodeMirrorEngine {
     this.parentNode.insertBefore(this.domNode, this.nextSibling); // mount
     this.widget.domNodes.push(this.domNode);
 
-    this.dragCalcel = false;
     // codemirror extensions(cme)
     this.cme = [
       dropCursor(),
@@ -74,24 +87,24 @@ class CodeMirrorEngine {
             self.dragCancel = true;
             return false;
           },
-          dragenter(event, view) {
+          dragenter(event: DragEvent, view) {
             self.dragCancel = true;
             if (
               self.widget.isFileDropEnabled &&
               ($tw.utils.dragEventContainsFiles(event) ||
-                event.dataTransfer.files.length)
+                event.dataTransfer?.files.length)
             ) {
               event.preventDefault();
               return true;
             }
             return false;
           },
-          dragover(event, view) {
+          dragover(event: DragEvent, view) {
             self.dragCancel = true;
             if (
               self.widget.isFileDropEnabled &&
               ($tw.utils.dragEventContainsFiles(event) ||
-                event.dataTransfer.files.length)
+                event.dataTransfer?.files.length)
             ) {
               event.preventDefault();
               return true;
@@ -116,9 +129,11 @@ class CodeMirrorEngine {
           },
           paste(event) {
             if (self.widget.isFileDropEnabled) {
+              // @ts-ignore
               event['twEditor'] = true;
               return self.widget.handlePasteEvent.call(self.widget, event);
             } else {
+              // @ts-ignore
               event['twEditor'] = true;
             }
             return false;
@@ -128,6 +143,7 @@ class CodeMirrorEngine {
           },
           focus(event, view) {
             if (self.widget.editCancelPopups) {
+              // @ts-ignore
               $tw.popup.cancel(0);
             }
             return false;
@@ -202,18 +218,18 @@ class CodeMirrorEngine {
     });
   }
 
-  handleDropEvent(event, view) {
+  handleDropEvent(event: DragEvent, view: EditorView) {
     if (!this.widget.isFileDropEnabled) {
       event.stopPropagation();
       return false;
     }
     if (
       $tw.utils.dragEventContainsFiles(event) ||
-      event.dataTransfer.files.length
+      event.dataTransfer?.files.length
     ) {
       const dropCursorPos = view.posAtCoords(
         { x: event.clientX, y: event.clientY },
-        true
+        false
       );
       view.dispatch({
         selection: { anchor: dropCursorPos, head: dropCursorPos }
@@ -224,11 +240,12 @@ class CodeMirrorEngine {
     return false;
   }
 
-  handleDragEnterEvent(event) {
+  handleDragEnterEvent(event: DragEvent) {
     return false;
   }
 
-  handleKeydownEvent(e: KeyboardEvent) {
+  handleKeydownEvent(e: KeyboardEvent, view: EditorView) {
+    // @ts-expect-error
     if ($tw.keyboardManager.handleKeydownEvent(e, { onlyPriority: true })) {
       this.dragCancel = false;
       return true;
@@ -251,16 +268,18 @@ class CodeMirrorEngine {
       if (widget.parseTreeNode.type === 'keyboard') {
         keyboardWidgets.push(widget);
       }
-      widget = widget.parentWidget;
+      widget = widget.parentWidget as IWidget;
     }
     if (keyboardWidgets.length > 0) {
       let handled = undefined;
       for (let i = 0; i < keyboardWidgets.length; i++) {
         const keyboardWidget = keyboardWidgets[i];
         const keyInfoArray = keyboardWidget.keyInfoArray;
+        // @ts-ignore
         if ($tw.keyboardManager.checkKeyDescriptors(e, keyInfoArray)) {
           if (
             this.dragCancel &&
+            // @ts-ignore
             $tw.keyboardManager
               .getPrintableShortcuts(keyInfoArray)
               .indexOf('Escape') !== -1
@@ -287,33 +306,33 @@ class CodeMirrorEngine {
   /*
   Set the text of the engine if it doesn't currently have focus
   */
-  setText(text, type) {
+  setText(text: string) {
     if (!this.cm.hasFocus) {
       this.updateDomNodeText(text);
     }
   }
 
   /* Update the DomNode with the new text */
-  updateDomNodeText(text) {
-    const self = this;
+  updateDomNodeText(text: string) {
     const selections = this.cm.state.selection;
     this.cm.dispatch(
       this.cm.state.update({
         changes: {
           from: 0,
-          to: self.cm.state.doc.length,
+          to: this.cm.state.doc.length,
           insert: text
         },
         selection: selections,
+        // @ts-ignore
         docChanged: true
       })
     );
   }
 
   /* Get the text of the engine */
-  getText = function () {
+  getText() {
     return this.cm.state.doc.toString();
-  };
+  }
 
   /** @description Fix the height of textarea to fit content, 其他的文本操作模块需要用到原型上的方法，比如 editortoolbar */
   fixHeight() {
@@ -326,7 +345,7 @@ class CodeMirrorEngine {
   }
 
   /* Create a blank structure representing a text operation */
-  createTextOperation(type) {
+  createTextOperation(type: IOperationType) {
     const selections = this.cm.state.selection.ranges;
     let operations;
     if (operationTypes.includes(type)) {
@@ -344,6 +363,7 @@ class CodeMirrorEngine {
           newSelStart: null,
           newSelEnd: null
         };
+        // @ts-ignore
         operation.selection = this.cm.state.sliceDoc(anchorPos, headPos);
         operations.push(operation);
       }
@@ -363,7 +383,7 @@ class CodeMirrorEngine {
   }
 
   /* Execute a text operation */
-  executeTextOperation(operations) {
+  executeTextOperation(operations: IOperation) {
     if (operations.type && operations.type === 'undo') {
       undo(this.cm);
     } else if (operations.type && operations.type === 'redo') {
@@ -386,13 +406,18 @@ class CodeMirrorEngine {
           }
           const editorChanges = [
             {
+              // @ts-ignore
               from: operations[index].cutStart,
+              // @ts-ignore
               to: operations[index].cutEnd,
+              // @ts-ignore
               insert: operations[index].replacement
             }
           ];
           const selectionRange = EditorSelection.range(
+            // @ts-ignore
             operations[index].newSelStart,
+            // @ts-ignore
             operations[index].newSelEnd
           );
           return {

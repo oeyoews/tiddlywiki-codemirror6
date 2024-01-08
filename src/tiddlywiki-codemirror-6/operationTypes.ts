@@ -1,3 +1,14 @@
+export type IOperation = {
+  length: number;
+  type: IOperationType;
+  cutStart: number;
+  cutEnd: number;
+  newSelStart: number;
+  newSelEnd: number;
+  replacement: string;
+  [key: string]: any | undefined;
+};
+
 export const operationTypes = [
   'excise',
   'focus-editor',
@@ -12,4 +23,6 @@ export const operationTypes = [
   'undo',
   'wrap-lines',
   'wrap-selection'
-];
+] as const;
+
+export type IOperationType = (typeof operationTypes)[number];

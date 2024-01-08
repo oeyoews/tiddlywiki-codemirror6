@@ -47,10 +47,10 @@ function getAllUserSnippets() {
     if (req) {
       if ($tw.utils.isArray(req)) {
         req.forEach((item) => {
-          allInfo.push(...require(item));
+          allInfo.push(require(item));
         });
       } else {
-        allInfo.push(...require(item));
+        allInfo.push(...require(req));
       }
     }
   }
