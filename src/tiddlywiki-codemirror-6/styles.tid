@@ -500,3 +500,8 @@ color: #495057;
 	border-radius: 4px;
 	padding-right: 8px;
 }
+
+<!-- https://github.com/Jermolene/TiddlyWiki5/pull/7787 -->
+.tc-tiddler-preview {
+	grid-template-columns: repeat(2, minmax(0px, 1fr)) !important;
+}
