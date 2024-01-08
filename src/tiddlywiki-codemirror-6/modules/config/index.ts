@@ -23,10 +23,7 @@ import conf from 'src/tiddlywiki-codemirror-6/cmeConfig';
 import { wordCountExt } from 'src/tiddlywiki-codemirror-6/extensions/wordCountExt';
 import { IWidget } from 'src/tiddlywiki-codemirror-6/types';
 
-export default function configExtensions(
-  cme: Extension[],
-  editPlaceholder: IWidget['editPlaceholder']
-) {
+export default function configExtensions(cme: Extension[], widget: IWidget) {
   const { fields = {} } =
     // @ts-ignore
     $tw.wiki.getTiddler($tw.wiki.getTiddlerText('$:/palette')) || {};
@@ -41,7 +38,7 @@ export default function configExtensions(
   }
 
   if (conf.vimmode()) {
-    setVimKeymap();
+    setVimKeymap(widget);
     cme.push(vim());
   } else {
     cme.push(keymap.of([...defaultKeymap]));
@@ -63,6 +60,8 @@ export default function configExtensions(
     cme.push(highlightActiveLineGutter(), highlightActiveLine());
 
   cme.push(
-    placeholder(conf.customPlaceholder() ? conf.placeholder() : editPlaceholder)
+    placeholder(
+      conf.customPlaceholder() ? conf.placeholder() : widget.editPlaceholder
+    )
   );
 }

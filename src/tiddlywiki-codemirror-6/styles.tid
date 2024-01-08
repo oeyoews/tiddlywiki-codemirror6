@@ -474,3 +474,10 @@ color: #495057;
 	border-radius: 4px;
 	margin-left: 2px;
 }
+
+.cm-image-preview {
+	overflow: scroll;
+	width: 200px;
+	height: 200px;
+	border-radius: 4px;
+}

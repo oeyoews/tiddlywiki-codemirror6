@@ -197,7 +197,7 @@ class CodeMirrorEngine {
       })
     ];
 
-    configExtensions(this.cme, this.widget.editPlaceholder);
+    configExtensions(this.cme, this.widget);
 
     // add minimap
     miniMapExt(this.cme);
