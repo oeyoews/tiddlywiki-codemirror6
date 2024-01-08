@@ -6,6 +6,10 @@ pnpm dev
 pnpm build
 ```
 
+## Emoji 补全
+
+![emoji](./assets/emoji.png)
+
 ### Wiki Mode
 
 ![wikimode](./assets/wiki-mode.png)
