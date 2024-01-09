@@ -8,7 +8,7 @@ const options = {
   toplevel: true,
   compress: {
     global_defs: {
-      '@console.log': 'alert'
+      //   '@console.log': 'alert'
     },
     passes: 2
   },
