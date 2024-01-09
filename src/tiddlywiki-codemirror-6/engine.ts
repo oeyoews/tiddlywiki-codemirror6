@@ -48,10 +48,10 @@ import type { IWidget, IOptions } from './types';
 class CodeMirrorEngine {
   widget: IWidget;
   cme: Extension[];
-  cm: EditorView;
   domNode: TW_Element;
   parentNode: Node;
   nextSibling: Node;
+  private cm: EditorView = new EditorView();
   private state: EditorState;
   private dragCancel: boolean = false;
 
@@ -62,6 +62,7 @@ class CodeMirrorEngine {
     this.parentNode = options.parentNode;
     this.nextSibling = options.nextSibling;
 
+    // Must use this.widget.document.createElement('div'), try catch works ???
     this.domNode = this.widget.document.createElement('div'); // Create the wrapper DIV
 
     this.domNode.className = this.widget.editClass || ''; // style
@@ -70,15 +71,16 @@ class CodeMirrorEngine {
     this.parentNode.insertBefore(this.domNode, this.nextSibling); // mount
     this.widget.domNodes.push(this.domNode);
 
-    // TODO
-    const fetchSuggestion = async (state: EditorState) => {
-      // if vim normal, return
-      if (completionStatus(this.cm.state) === 'active') {
-        return;
-      } else {
-        return ' world';
-      }
-    };
+    // // TODO
+    // const fetchSuggestion = async (state: EditorState) => {
+    //   // if vim normal, return
+    //   if (completionStatus(this.cm.state) === 'active') {
+    //     return;
+    //   } else {
+    //     return ' world';
+    //   }
+    // };
+
     // codemirror extensions(cme)
     this.cme = [
       // inlineSuggestion({
@@ -173,7 +175,7 @@ class CodeMirrorEngine {
         })
       ),
       tooltips({
-        parent: self.domNode.ownerDocument.body
+        parent: this.domNode.ownerDocument?.body // preview render bug: Cannot set property parentNode of #<Node> which has only a getter
       }),
       highlightSpecialChars(),
       history(), //{newGroupDelay: 0, joinToEvent: function() { return false; }}),
@@ -231,10 +233,14 @@ class CodeMirrorEngine {
     });
 
     // entry
-    this.cm = new EditorView({
-      parent: this.domNode,
-      state: this.state
-    });
+    try {
+      this.cm = new EditorView({
+        parent: this.domNode,
+        state: this.state
+      });
+    } catch (e) {
+      // console.warn(e);
+    }
   }
 
   handleDropEvent(event: DragEvent, view: EditorView) {
