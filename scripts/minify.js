@@ -28,7 +28,7 @@ function minifyFilesRecursively(directory) {
       const originalCode = fs.readFileSync(filePath, 'utf8');
       const result = await minify(originalCode, options);
       //   console.log(result.code, filePath);
-      fs.writeFileSync(filePath, 'utf8');
+      fs.writeFileSync(filePath, result.code);
     }
   });
 }
