@@ -5,6 +5,7 @@ import { searchKeymap } from '@codemirror/search';
 import { foldKeymap } from '@codemirror/language';
 import { completionKeymap } from '@codemirror/autocomplete';
 import { userKeymap } from './keymap';
+// import { vscodeKeymap } from '@replit/codemirror-vscode-keymap';
 
 export const cmkeymaps = keymap.of([
   ...closeBracketsKeymap,
@@ -13,4 +14,5 @@ export const cmkeymaps = keymap.of([
   ...foldKeymap,
   ...completionKeymap,
   ...userKeymap
+  // ...vscodeKeymap
 ]);

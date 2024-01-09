@@ -45,10 +45,10 @@ body {
 
 \end
 
-<!-- .cm-editor {
-	font-size: {{$:/config/codemirror-6/fontsize}};
+.cm-editor {
+	<!-- font-size: {{$:/config/codemirror-6/fontsize}}; -->
 	color-scheme: {{{ [[$:/palette]get[text]!is[blank]] ~[[$:/palettes/vanilla]] +[get[color-scheme]] ~light }}};
-} -->
+}
 
 <!-- <$list filter="[{$:/config/codemirror-6/enableOneDarkTheme}match[no]]" variable="ignore">
 .cm-editor {

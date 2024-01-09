@@ -18,7 +18,7 @@ import {
 } from '@codemirror/search';
 
 import { completionStatus } from '@codemirror/autocomplete';
-
+import { indentationMarkers } from '@replit/codemirror-indentation-markers';
 import { history, undo, redo } from '@codemirror/commands';
 
 import {
@@ -85,6 +85,11 @@ class CodeMirrorEngine {
       //   fetchFn: fetchSuggestion as any,
       //   delay: 500
       // }),
+      indentationMarkers({
+        thickness: 2,
+        hideFirstIndent: false,
+        markerType: 'codeOnly'
+      }),
       dropCursor(),
       tabSizePlugin(),
       removeOutlineExt,
