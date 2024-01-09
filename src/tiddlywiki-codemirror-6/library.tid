@@ -5,4 +5,4 @@ caption: [img width=16 [$:/plugins/oeyoews/tiddlywiki-codemirror-6/icon]] Codemi
 url: https://oeyoews.github.io/tiddlywiki-codemirror6/library/index.html
 
 <!-- NOTE: vercel not allow get json file -->
-Codemirror6 Library
+{{!!caption}}
