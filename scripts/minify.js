@@ -1,25 +1,32 @@
 const fs = require('fs');
 const path = require('path');
-const {minify} = require('terser');
+const { minify } = require('terser');
 
-const currentDir = process.cwd();
+const currentDir = path.join(__dirname, '..', 'src/tiddlywiki-codemirror-6');
 
-// 获取当前目录下的所有 JS 文件
-const jsFiles = fs.readdirSync(currentDir)
-  .filter(file => path.extname(file) === '.js');
+const options = {
+  toplevel: true,
+  compress: {
+    global_defs: {
+      '@console.log': 'alert'
+    },
+    passes: 2
+  },
+  format: {
+    // preamble: '/* minified */'
+    comments: '/title|type|module-type/'
+  }
+};
 
-// 循环处理每个 JS 文件
-jsFiles.forEach(file => {
+const jsFiles = fs
+  .readdirSync(currentDir)
+  .filter((file) => path.extname(file) === '.js');
+
+jsFiles.forEach(async (file) => {
+  const code = {};
   const filePath = path.join(currentDir, file);
   const originalCode = fs.readFileSync(filePath, 'utf8');
-
-  // 使用 Terser 压缩代码
-  const minifiedCode = minify(originalCode).code;
-
-  // 写入压缩后的代码
-  fs.writeFileSync(filePath, minifiedCode, 'utf8');
-
-  console.log(`已压缩文件：${file}`);
+  code[file] = originalCode;
+  const result = await minify(code, options);
+  console.log(result.code);
 });
-
-console.log('压缩完成！');
