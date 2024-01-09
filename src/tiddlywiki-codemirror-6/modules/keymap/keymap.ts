@@ -1,7 +1,13 @@
-import { acceptCompletion } from '@codemirror/autocomplete';
+import {
+  acceptCompletion,
+  moveCompletionSelection,
+  nextSnippetField
+} from '@codemirror/autocomplete';
 import { underlineSelection } from '../../extensions/underlineSelection';
+import { KeyBinding } from '@codemirror/view';
 
-export const userKeymap = [
+//  TODO: presnippetfield not work, snipkeymap
+export const userKeymap: KeyBinding[] = [
   {
     key: 'Mod-h',
     preventDefault: true,
@@ -11,6 +17,18 @@ export const userKeymap = [
     key: 'Ctrl-i',
     scope: 'editor',
     run: acceptCompletion
+  },
+  {
+    key: 'Ctrl-j',
+    scope: 'editor',
+    // preventDefault: true,
+    run: moveCompletionSelection(true) // 占位符
+  },
+  {
+    key: 'Ctrl-k',
+    scope: 'editor',
+    preventDefault: true,
+    run: moveCompletionSelection(false) // 占位符
   },
   {
     key: 'Tab',

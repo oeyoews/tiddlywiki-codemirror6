@@ -80,12 +80,12 @@ function getAllUserSnippets() {
   );
 
   const source: ISource[] = userSnippetTiddlers.map((title) => {
-    const { caption = '', text = '' } = $tw.wiki.getTiddler(title)?.fields!;
+    const { caption, text = '' } = $tw.wiki.getTiddler(title)?.fields!;
 
     return {
       title: title.split('/').pop()!,
       text: text.trim(),
-      caption
+      caption: (caption || title) as ISource['caption']
     };
   });
 
@@ -112,8 +112,8 @@ function getAllUserSnippets() {
 
   return source.map((info) =>
     snip(info.text, {
-      label: conf.delimiter() + info.title,
-      displayLabel: info.title,
+      label: conf.delimiter() + info.caption || info.title,
+      displayLabel: info.caption || info.title,
       type: 'cm-snippet', // class: cm-completionIcon-cm-snippets
       info: info.desc || info.text,
       section: 'Snippets'

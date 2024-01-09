@@ -25,5 +25,5 @@ export type ISource = {
   title: string;
   text: string;
   desc?: string;
-  captions?: string;
+  caption?: string;
 };
