@@ -42,7 +42,7 @@ import fontSizeExt from './extensions/fontSizeExt';
 import { cmkeymaps } from './modules/keymap';
 import configExtensions from './modules/config/index';
 import { IOperation, IOperationType, operationTypes } from './operationTypes';
-import type { TW_Element, Widget } from 'tiddlywiki';
+import type { TW_Element } from 'tiddlywiki';
 import type { IWidget, IOptions } from './types';
 
 class CodeMirrorEngine {
