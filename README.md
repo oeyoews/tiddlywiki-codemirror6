@@ -30,6 +30,6 @@ https://user-images.githubusercontent.com/72405338/294956491-948b791f-04e1-4447-
 
 ## Preview
 
-https://tiddlywiki-codemirror6.vercel.app
+- https://tiddlywiki-codemirror6.vercel.app
 
-https://oeyoews.github.io/tiddlywiki-codemirror6
+- https://oeyoews.github.io/tiddlywiki-codemirror6
