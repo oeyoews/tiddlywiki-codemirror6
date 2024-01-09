@@ -17,6 +17,8 @@ export interface IWidget extends Widget {
 export interface IOptions {
   widget: IWidget;
   value: any;
+  /** tiddler type */
+  type: string;
   parentNode: any;
   nextSibling: any;
 }

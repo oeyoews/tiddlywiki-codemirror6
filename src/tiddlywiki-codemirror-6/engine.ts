@@ -56,11 +56,13 @@ class CodeMirrorEngine {
   private state: EditorState;
   private dragCancel: boolean = false;
   private errorNode: TW_Element;
+  private value = '';
 
-  constructor(options: IOptions) {
+  constructor(options = {} as IOptions) {
     const self = this;
 
     this.widget = options.widget;
+    this.value = options.value;
     this.parentNode = options.parentNode;
     this.nextSibling = options.nextSibling;
 
@@ -193,7 +195,7 @@ class CodeMirrorEngine {
       cmkeymaps,
       EditorView.lineWrapping, // enable line wrap
       EditorView.contentAttributes.of({
-        tabindex: self.widget.editTabIndex ? self.widget.editTabIndex : ''
+        tabindex: this.widget.editTabIndex ? this.widget.editTabIndex : ''
       }),
       EditorView.contentAttributes.of({
         spellcheck: cmeConfig.spellcheck()
@@ -224,8 +226,7 @@ class CodeMirrorEngine {
     miniMapExt(this.cme);
 
     // update extensions
-    const mode = this.widget.editType;
-    dynamicmode(mode, this.cme);
+    dynamicmode(options.type, this.cme);
 
     this.state = EditorState.create({
       doc: options.value,
@@ -236,7 +237,6 @@ class CodeMirrorEngine {
     this.errorNode.textContent = 'Tiddler render error';
     this.errorNode.style.fontSize = '0.8rem';
     this.errorNode.style.color = 'red';
-
     // entry
     try {
       this.cm = new EditorView({
@@ -244,14 +244,15 @@ class CodeMirrorEngine {
         state: this.state
       });
     } catch (e) {
-      console.error(e);
+      // console.error(e);
       this.domNode = this.errorNode;
     }
 
     // modunt to tiddlywiki editor widget
     this.parentNode.insertBefore(this.domNode, this.nextSibling); // mount
     this.widget.domNodes.push(this.domNode);
-    console.log('domNode Type', this.domNode.isTiddlyWikiFakeDom);
+
+    // console.log('domNode Type', this.widget.document.isTiddlyWikiFakeDom);
   }
 
   handleDropEvent(event: DragEvent, view: EditorView) {
