@@ -32,3 +32,4 @@ Things you'll need to do (see the [language support example](https://codemirror.
 - https://github.com/lezer-parser/markdown/blob/main/src/markdown.ts
 - https://lezer.codemirror.net/
 - https://discuss.codemirror.net/c/lezer/6
+- https://github.com/replit/codemirror-lang-solidity
