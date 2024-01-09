@@ -1,6 +1,6 @@
 title: $:/plugins/oeyoews/tiddlywiki-codemirror-6/readme
 
-> Modified on BurningTreeC codemirror-6 plugin
+> Modified on BurningTreeC's codemirror-6 plugin
 
 !! This plugin adds the [ext[CodeMirror 6|https://codemirror.net]] editor to [ext[TiddlyWiki|https://tiddlywiki.com]]
 
@@ -8,8 +8,7 @@ See the ''usage'' section for keyboard shortcuts
 
 If you like the plugin, feel free to leave me a star on [ext[GitHub|https://github.com/oeyoews/tiddlywiki-codemirror6]]
 
-
-[[Demo|https://oeyoews.github.io/tiddlywiki-codemirror6/#%24%3A%2Fplugins%2Foeyoews%2Ftiddlywiki-codemirror-6]]
+[[Codemirror6 Plugin Demo|https://oeyoews.github.io/tiddlywiki-codemirror6/#%24%3A%2Fplugins%2Foeyoews%2Ftiddlywiki-codemirror-6]]
 
 <center>
 <video width="400" height="300" controls>
@@ -21,14 +20,14 @@ If you like the plugin, feel free to leave me a star on [ext[GitHub|https://gith
 
 !! Features
 
-* autocomplete preview(include image)
-* support load snippet module
-* emoji complete, user snippets
-* tiddler completion: `[[xxx]]`, `{{xxx}}`
-* image completion: `[img[xxx]]`
-* widget completion: `<$xxx />`
-* minmap, vimmode, word count, rainbow brackets, codeblock highlight
-* custom placeholder, tabsize, mincompletion length
+* Autocomplete preview(include image)
+* Support load snippet module
+* Emoji complete, user snippets
+* Tiddler completion: `[[xxx]]`, `{{xxx}}`
+* Image completion: `[img[xxx]]`
+* Widget completion: `<$xxx />`
+* Minmap, vimmode, word count, rainbow brackets, codeblock highlight
+* Custom placeholder, tabsize, mincompletion length
 
 <!-- * ~~split to vim plugin: 由于使用到了 cm6的包作为依赖, 因此将其单独打包出去, 作为模块的形式加载不太可能~~
 * ~~Uncaught RangeError: A document must have at least one line~~
@@ -65,16 +64,17 @@ If you like the plugin, feel free to leave me a star on [ext[GitHub|https://gith
 
 !! Tips
 
-* emoji complete need install [[$:/plugins/oeyoews/tiddlywiki-cmp-emoji]] plugin
-* if you hope add your custom snippets, your can write a simple plugin module(module-type: snippets).
-* presss tab to accept current completion
-* prese `ctrl + /` to comment line(non vimmode)
+* Emoji complete need install [[$:/plugins/oeyoews/tiddlywiki-cmp-emoji]] plugin
+* If you hope add your custom snippets, your can write a simple plugin module(module-type: snippets).
+* Presss tab to accept current completion
+* Prese `ctrl + /` to comment line(non vimmode)
 
 !! Can be removed plugins
 
-* cm5 series plugins
-* autolist plugin
-* autocomplete plugin
-* insert current time plugin
-* insert emoji button plugin
+* Cm5 series plugins
+* Autolist plugin
+* Autocomplete plugin
+* Insert current time plugin
+* Emoji button plugin
+* Chars button plugin
 * ...
