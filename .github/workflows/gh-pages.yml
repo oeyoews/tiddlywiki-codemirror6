@@ -28,7 +28,7 @@ jobs:
         run: pnpm install --frozen-lockfile
 
       - name: Build Library and static website
-        run: pnpm minify && pnpm run publish && pnpm build:library
+        run: pnpm minify && pnpm run publish
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v1
