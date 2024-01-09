@@ -233,7 +233,7 @@ class CodeMirrorEngine {
     });
 
     this.errorNode = this.widget.document.createElement('div');
-    this.errorNode.textContent = 'Codemirror6 render error';
+    this.errorNode.textContent = 'Tiddler render error';
     this.errorNode.style.fontSize = '0.8rem';
     this.errorNode.style.color = 'red';
 
@@ -244,13 +244,14 @@ class CodeMirrorEngine {
         state: this.state
       });
     } catch (e) {
-      // console.error(e);
+      console.error(e);
       this.domNode = this.errorNode;
     }
 
-    // modunt to tw
+    // modunt to tiddlywiki editor widget
     this.parentNode.insertBefore(this.domNode, this.nextSibling); // mount
     this.widget.domNodes.push(this.domNode);
+    console.log('domNode Type', this.domNode.isTiddlyWikiFakeDom);
   }
 
   handleDropEvent(event: DragEvent, view: EditorView) {
