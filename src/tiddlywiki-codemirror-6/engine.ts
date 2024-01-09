@@ -1,4 +1,5 @@
 // import { inlineSuggestion } from 'codemirror-extension-inline-suggestion';
+
 import {
   indentUnit,
   defaultHighlightStyle,
@@ -54,6 +55,7 @@ class CodeMirrorEngine {
   private cm: EditorView = new EditorView();
   private state: EditorState;
   private dragCancel: boolean = false;
+  private errorNode: TW_Element;
 
   constructor(options: IOptions) {
     const self = this;
@@ -67,9 +69,6 @@ class CodeMirrorEngine {
 
     this.domNode.className = this.widget.editClass || ''; // style
     this.domNode.style.display = 'inline-block';
-
-    this.parentNode.insertBefore(this.domNode, this.nextSibling); // mount
-    this.widget.domNodes.push(this.domNode);
 
     // // TODO
     // const fetchSuggestion = async (state: EditorState) => {
@@ -232,15 +231,25 @@ class CodeMirrorEngine {
       extensions: this.cme
     });
 
+    this.errorNode = this.widget.document.createElement('div');
+    this.errorNode.textContent = 'Codemirror6 render error';
+    this.errorNode.style.fontSize = '0.8rem';
+    this.errorNode.style.color = 'red';
+
     // entry
     try {
       this.cm = new EditorView({
-        parent: this.domNode,
+        parent: this.domNode, // editor mount
         state: this.state
       });
     } catch (e) {
-      // console.warn(e);
+      // console.error(e);
+      this.domNode = this.errorNode;
     }
+
+    // modunt to tw
+    this.parentNode.insertBefore(this.domNode, this.nextSibling); // mount
+    this.widget.domNodes.push(this.domNode);
   }
 
   handleDropEvent(event: DragEvent, view: EditorView) {
