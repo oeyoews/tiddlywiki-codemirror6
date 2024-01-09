@@ -61,9 +61,8 @@ Handle an edit text operation message from the toolbar
 
     if (
       Object.keys(changedTiddlers).some(
-        (tiddler) =>
-          tiddler.startsWith('$:/config/codemirror-6')
-          // || tiddler.startsWith('$:/state/codemirror-6/fullscreen') // NOTE: 切换 fullscreen 时需要刷新，防止一些样式 ui 导致预览区宽度异常。但是刷新 cm6 是不够的需要刷新整个预览区域
+        (tiddler) => tiddler.startsWith('$:/config/codemirror-6')
+        // || tiddler.startsWith('$:/state/codemirror-6/fullscreen') // NOTE: 切换 fullscreen 时需要刷新，防止一些样式 ui 导致预览区宽度异常。但是刷新 cm6 是不够的需要刷新整个预览区域
       ) ||
       changedAttributes.type
     ) {
