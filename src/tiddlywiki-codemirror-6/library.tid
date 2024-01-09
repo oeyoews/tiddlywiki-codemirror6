@@ -4,4 +4,5 @@ tags: $:/tags/PluginLibrary
 caption: Codemirror6
 url: https://oeyoews.github.io/tiddlywiki-codemirror6/library/index.html
 
+<!-- NOTE: vercel not allow get json file -->
 Codemirror6 Library
