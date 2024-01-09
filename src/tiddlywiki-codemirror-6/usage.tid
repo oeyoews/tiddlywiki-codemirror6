@@ -7,8 +7,13 @@ title: $:/plugins/oeyoews/tiddlywiki-codemirror-6/usage
 
 """
 
-''Ctrl-J'': next completion
-''Ctrl-K'': prev completion
+
+
+''Ctrl-f(or F3)'': show search panel
+''Alt-shift-f'': editor fullscreen
+''Ctrl-shift-j'': gotoline
+''Ctrl-j'': next completion
+''Ctrl-k'': prev completion
 ''Ctrl-c(or Escape)'': close completion
 ''Tab'': accept current completion, or next placeholder
 ''ArrowLeft'': cursorCharLeft (selectCharLeft with Shift)

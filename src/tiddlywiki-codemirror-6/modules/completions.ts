@@ -7,6 +7,7 @@ import cmeConfig from '../cmeConfig';
 import triggerType from '../utils/triggerType';
 import sources from '../completions/sources';
 
+// TODO: use ifIn to better completion.
 // @see-also: https://github.com/codemirror/lang-javascript/blob/4dcee95aee9386fd2c8ad55f93e587b39d968489/src/complete.ts
 // https://codemirror.net/examples/autocompletion/
 export default (context: CompletionContext) => {

@@ -428,7 +428,8 @@ color: #495057;
 	background-image: none !important;
 	border-radius: 2px;
 	border: none !important;
-	user-select: none
+	user-select: none;
+	cursor: pointer;
 }
 
 .cm-completionIcon-cm-snippet:after {

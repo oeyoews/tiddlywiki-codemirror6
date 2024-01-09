@@ -5,6 +5,7 @@ import {
 } from '@codemirror/autocomplete';
 import { underlineSelection } from '../../extensions/underlineSelection';
 import { KeyBinding } from '@codemirror/view';
+import { gotoLine } from '@codemirror/search';
 
 //  TODO: presnippetfield not work, snipkeymap
 export const userKeymap: KeyBinding[] = [
@@ -17,6 +18,11 @@ export const userKeymap: KeyBinding[] = [
     key: 'Ctrl-i',
     scope: 'editor',
     run: acceptCompletion
+  },
+  {
+    key: 'Ctrl-Shift-j',
+    scope: 'editor',
+    run: gotoLine
   },
   {
     key: 'Ctrl-j',
