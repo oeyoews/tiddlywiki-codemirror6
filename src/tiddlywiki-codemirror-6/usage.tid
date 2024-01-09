@@ -1,14 +1,10 @@
 title: $:/plugins/oeyoews/tiddlywiki-codemirror-6/usage
 
-!!! Keyboard shortcuts
+!! Keyboard shortcuts
 
-!!!! Note that any ~TiddlyWiki global keyboard shortcut or keyboard shortcut defined in a surrounding keyboard widget gets precedence
-
+> Note that any ~TiddlyWiki global keyboard shortcut or keyboard shortcut defined in a surrounding keyboard widget gets precedence
 
 """
-
-
-
 ''Ctrl-f(or F3)'': show search panel
 ''Alt-shift-f'': editor fullscreen
 ''Ctrl-shift-j'': gotoline
@@ -59,5 +55,4 @@ title: $:/plugins/oeyoews/tiddlywiki-codemirror-6/usage
 ''Shift-Ctrl-\'' (Shift-Cmd-\ on macOS): cursorMatchingBracket
 ''Ctrl-/'' (Cmd-/ on macOS): toggleComment.
 ''Shift-Alt-a'': toggleBlockComment.
-
 """
