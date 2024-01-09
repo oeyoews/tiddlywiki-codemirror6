@@ -1,5 +1,5 @@
 title: $:/config/codemirror-6/clickable-icon
-caption: 链接图标
+caption: link icon
 description: link icon
 settings-template: $:/plugins/oeyoews/tiddlywiki-codemirror-6/ui/templates/settings/input
 

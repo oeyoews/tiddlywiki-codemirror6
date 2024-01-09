@@ -1,5 +1,5 @@
 title: $:/config/codemirror-6/vimmode
-caption: 开启 Vim Mode
+caption: enable vim mode
 description: 启动 vim 模式
 settings-template: $:/plugins/oeyoews/tiddlywiki-codemirror-6/ui/templates/settings/input-switch
 

@@ -1,5 +1,5 @@
 title: $:/config/codemirror-6/activateOnTyping
-caption: 显示补全框(ctrl+space 可手动触发)
+caption: show completion
 description: show autocompletion popup
 settings-template: $:/plugins/oeyoews/tiddlywiki-codemirror-6/ui/templates/settings/input-switch
 

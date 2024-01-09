@@ -1,6 +1,6 @@
 title: $:/config/codemirror-6/minLength
-caption: 最小补全长度
-description: show autocompletion popup
+caption: min completion length
+description: min completion length
 settings-template: $:/plugins/oeyoews/tiddlywiki-codemirror-6/ui/templates/settings/input
 
 3
