@@ -16,6 +16,7 @@
     "publish": "npm run clean && tiddlywiki-plugin-dev publish",
     "clean": "rimraf dist",
     "format": "prettier . --write",
+    "minify": "node scripts/minify.js",
     "update": "pnpm update --lastet",
     "new": "tiddlywiki-plugin-dev new",
     "build:library": "npm run clean && tiddlywiki-plugin-dev build --library --output dist/library",

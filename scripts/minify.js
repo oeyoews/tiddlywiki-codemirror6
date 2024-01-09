@@ -13,20 +13,24 @@ const options = {
     passes: 2
   },
   format: {
-    // preamble: '/* minified */'
     comments: '/title|type|module-type/'
   }
 };
 
-const jsFiles = fs
-  .readdirSync(currentDir)
-  .filter((file) => path.extname(file) === '.js');
+function minifyFilesRecursively(directory) {
+  const files = fs.readdirSync(directory);
+  files.forEach(async (file) => {
+    const filePath = path.join(directory, file);
+    const fileStat = fs.statSync(filePath);
+    if (fileStat.isDirectory()) {
+      minifyFilesRecursively(filePath); // 如果是文件夹，则递归调用
+    } else if (path.extname(file) === '.js') {
+      const originalCode = fs.readFileSync(filePath, 'utf8');
+      const result = await minify(originalCode, options);
+      //   console.log(result.code, filePath);
+      fs.writeFileSync(filePath, 'utf8');
+    }
+  });
+}
 
-jsFiles.forEach(async (file) => {
-  const code = {};
-  const filePath = path.join(currentDir, file);
-  const originalCode = fs.readFileSync(filePath, 'utf8');
-  code[file] = originalCode;
-  const result = await minify(code, options);
-  console.log(result.code);
-});
+minifyFilesRecursively(currentDir);
