@@ -16,7 +16,7 @@ module.exports = [
     text: ':::tip\n${2:text}\n:::'
   },
   {
-    title: 'unsplash image',
-    text: 'https://source.unsplash.com/random/1920x1080?fm=blurhash&${sea}'
+    title: 'unsplash-image',
+    text: '[img[https://source.unsplash.com/random/1920x1080?fm=blurhash&${1:sea}]]#{2}'
   }
 ];
