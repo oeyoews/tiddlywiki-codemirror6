@@ -3,6 +3,7 @@
   "name": "CodeMirror6",
   "description": "CodeMirror 6 editor with vim mode",
   "version": "0.4.18",
+  "core-version": ">=5.3.3",
   "list": "readme usage",
   "dependents": [
     "$:/plugins/oeyoews/tiddlywiki-cmp",
