@@ -56,13 +56,11 @@ class CodeMirrorEngine {
   private state: EditorState;
   private dragCancel: boolean = false;
   private errorNode: TW_Element;
-  private value = '';
 
   constructor(options = {} as IOptions) {
     const self = this;
 
     this.widget = options.widget;
-    this.value = options.value;
     this.parentNode = options.parentNode;
     this.nextSibling = options.nextSibling;
 
@@ -72,22 +70,7 @@ class CodeMirrorEngine {
     this.domNode.className = this.widget.editClass || ''; // style
     this.domNode.style.display = 'inline-block';
 
-    // // TODO
-    // const fetchSuggestion = async (state: EditorState) => {
-    //   // if vim normal, return
-    //   if (completionStatus(this.cm.state) === 'active') {
-    //     return;
-    //   } else {
-    //     return ' world';
-    //   }
-    // };
-
-    // codemirror extensions(cme)
     this.cme = [
-      // inlineSuggestion({
-      //   fetchFn: fetchSuggestion as any,
-      //   delay: 500
-      // }),
       indentationMarkers({
         thickness: 2,
         hideFirstIndent: false,
@@ -178,9 +161,8 @@ class CodeMirrorEngine {
       tooltips({
         parent: this.domNode.ownerDocument?.body // preview render bug: Cannot set property parentNode of #<Node> which has only a getter
       }),
-      // TODO: 可以高亮 连接
-      highlightSpecialChars(),
-      history(), //{newGroupDelay: 0, joinToEvent: function() { return false; }}),
+      highlightSpecialChars(), // TODO: 可以高亮 link
+      history(),
       drawSelection({
         cursorBlinkRate: cmeConfig.cursorBlinkRate()
       }),
@@ -221,38 +203,32 @@ class CodeMirrorEngine {
     ];
 
     configExtensions(this.cme, this.widget);
+    miniMapExt(this.cme); // add minimap
+    dynamicmode(options.type, this.cme); // update extensions
 
-    // add minimap
-    miniMapExt(this.cme);
-
-    // update extensions
-    dynamicmode(options.type, this.cme);
+    this.errorNode = this.widget.document.createElement('div');
+    this.errorNode.textContent = 'Tiddler render error';
+    this.errorNode.style.fontSize = '0.8rem';
+    this.errorNode.style.color = 'red';
 
     this.state = EditorState.create({
       doc: options.value,
       extensions: this.cme
     });
 
-    this.errorNode = this.widget.document.createElement('div');
-    this.errorNode.textContent = 'Tiddler render error';
-    this.errorNode.style.fontSize = '0.8rem';
-    this.errorNode.style.color = 'red';
-    // entry
-    try {
+    // console.log('domNode Type', this.widget.document.isTiddlyWikiFakeDom);
+    if (this.widget.document.isTiddlyWikiFakeDom) {
+      this.domNode = this.errorNode;
+    } else {
       this.cm = new EditorView({
         parent: this.domNode, // editor mount
         state: this.state
       });
-    } catch (e) {
-      // console.error(e);
-      this.domNode = this.errorNode;
     }
 
     // modunt to tiddlywiki editor widget
     this.parentNode.insertBefore(this.domNode, this.nextSibling); // mount
     this.widget.domNodes.push(this.domNode);
-
-    // console.log('domNode Type', this.widget.document.isTiddlyWikiFakeDom);
   }
 
   handleDropEvent(event: DragEvent, view: EditorView) {
