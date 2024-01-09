@@ -29,7 +29,8 @@ import {
   drawSelection,
   rectangularSelection,
   crosshairCursor,
-  tooltips
+  tooltips,
+  hoverTooltip
 } from '@codemirror/view';
 
 import tabSizePlugin from './utils/tab-size';
@@ -161,6 +162,7 @@ class CodeMirrorEngine {
       tooltips({
         parent: this.domNode.ownerDocument?.body // preview render bug: Cannot set property parentNode of #<Node> which has only a getter
       }),
+      // hoverTooltip(), // previe tiddler
       highlightSpecialChars(), // TODO: 可以高亮 link
       history(),
       drawSelection({

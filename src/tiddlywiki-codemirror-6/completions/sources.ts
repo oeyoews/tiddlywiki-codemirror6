@@ -74,6 +74,7 @@ function getAllEmojiSnippets() {
   );
 }
 
+// TODO: 检查 异常数据，防止补全失效
 function getAllUserSnippets() {
   const userSnippetTiddlers = $tw.wiki.filterTiddlers(
     '[all[shadows+system+tiddlers]tag[$:/tags/TextEditor/Snippet]!has[draft.of]]'
