@@ -69,3 +69,12 @@ If you like the plugin, feel free to leave me a star on [ext[GitHub|https://gith
 * if you hope add your custom snippets, your can write a simple plugin module(module-type: snippets).
 * presss tab to accept current completion
 * prese `ctrl + /` to comment line(non vimmode)
+
+!! Can be removed plugins
+
+* cm5 series plugins
+* autolist plugin
+* autocomplete plugin
+* insert current time plugin
+* insert emoji button plugin
+* ...
