@@ -7,6 +7,7 @@ import { underlineSelection } from '../../extensions/underlineSelection';
 import { KeyBinding } from '@codemirror/view';
 import { gotoLine } from '@codemirror/search';
 
+// add keymap, press ? to show a modal tip
 //  TODO: presnippetfield not work, snipkeymap
 export const userKeymap: KeyBinding[] = [
   {

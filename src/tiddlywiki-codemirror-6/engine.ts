@@ -176,6 +176,7 @@ class CodeMirrorEngine {
       tooltips({
         parent: this.domNode.ownerDocument?.body // preview render bug: Cannot set property parentNode of #<Node> which has only a getter
       }),
+      // TODO: 可以高亮 连接
       highlightSpecialChars(),
       history(), //{newGroupDelay: 0, joinToEvent: function() { return false; }}),
       drawSelection({
