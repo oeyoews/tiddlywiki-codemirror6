@@ -4,8 +4,13 @@ title: $:/plugins/oeyoews/tiddlywiki-codemirror-6/usage
 
 !!!! Note that any ~TiddlyWiki global keyboard shortcut or keyboard shortcut defined in a surrounding keyboard widget gets precedence
 
+
 """
 
+''Ctrl-J'': next completion
+''Ctrl-K'': prev completion
+''Ctrl-c(or Escape)'': close completion
+''Tab'': accept current completion, or next placeholder
 ''ArrowLeft'': cursorCharLeft (selectCharLeft with Shift)
 ''ArrowRight'': cursorCharRight (selectCharRight with Shift)
 ''Ctrl-ArrowLeft'' (Alt-ArrowLeft on macOS): cursorGroupLeft (selectGroupLeft with Shift)
