@@ -37,6 +37,7 @@
     "@uiw/codemirror-theme-material": "^4.21.21",
     "codemirror-lang-tiddlywiki": "workspace:^",
     "rimraf": "^5.0.5",
+    "terser": "^5.26.0",
     "ts-node": "^10.9.2",
     "typescript": "^5.3.3"
   },
