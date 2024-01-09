@@ -112,7 +112,7 @@ function getAllUserSnippets() {
 
   return source.map((info) =>
     snip(info.text, {
-      label: conf.delimiter() + info.caption || info.title,
+      label: conf.delimiter() + (info.caption || info.title),
       displayLabel: info.caption || info.title,
       type: 'cm-snippet', // class: cm-completionIcon-cm-snippets
       info: info.desc || info.text,
