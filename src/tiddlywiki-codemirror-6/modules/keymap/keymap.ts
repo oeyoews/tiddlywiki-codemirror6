@@ -20,11 +20,11 @@ export const userKeymap: KeyBinding[] = [
     scope: 'editor',
     run: acceptCompletion
   },
-  {
-    key: 'Ctrl-Shift-j',
-    scope: 'editor',
-    run: gotoLine
-  },
+  // {
+  //   key: 'Ctrl-Shift-j',
+  //   scope: 'editor',
+  //   run: gotoLine
+  // },
   {
     key: 'Ctrl-j',
     scope: 'editor',

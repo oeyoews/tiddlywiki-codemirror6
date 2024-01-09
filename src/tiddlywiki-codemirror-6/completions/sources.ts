@@ -74,7 +74,6 @@ function getAllEmojiSnippets() {
   );
 }
 
-// TODO: 检查 异常数据，防止补全失效
 function getAllUserSnippets() {
   const userSnippetTiddlers = $tw.wiki.filterTiddlers(
     '[all[shadows+system+tiddlers]tag[$:/tags/TextEditor/Snippet]!has[draft.of]]'
@@ -110,8 +109,9 @@ function getAllUserSnippets() {
 
   // 加载内置代码片段
   source.push(...usersnippets);
+  const filteredSource = source.filter((item) => item.title && item.text);
 
-  return source.map((info) =>
+  return filteredSource.map((info) =>
     snip(info.text, {
       label: conf.delimiter() + (info.caption || info.title),
       displayLabel: info.caption || info.title,

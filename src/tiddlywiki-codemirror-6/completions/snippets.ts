@@ -1,16 +1,18 @@
 // wikitext
 
+import type { ISource } from '../types';
+
 // markdown
 
 // js
 
 // TODO: 单独成插件。
 
-export const usersnippets = [
+export const usersnippets: ISource[] = [
   {
     title: 'codeblcok',
     text: '```${1:lang}\n${2:code}\n```',
-    desc: 'codeblock'
+    desc: ''
   },
   {
     title: 'date',
