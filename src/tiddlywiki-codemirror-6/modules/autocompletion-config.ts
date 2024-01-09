@@ -4,6 +4,7 @@ import { autocompletion } from '@codemirror/autocomplete';
 // addToOption 可以生成一个节点，preview tiddler
 export default () =>
   autocompletion({
+    aboveCursor: false,
     tooltipClass: () => 'cm-autocomplete-tooltip',
     optionClass: () => 'cm-autocomplete-option',
     selectOnOpen: cmeConfig.selectOnOpen(),
