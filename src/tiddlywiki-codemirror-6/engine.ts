@@ -82,6 +82,7 @@ class CodeMirrorEngine {
       removeOutlineExt,
       fontSizeExt(),
       indentUnit.of('	'),
+      // EditorState.readOnly.of(true),
 
       Prec.high(
         EditorView.domEventHandlers({
@@ -209,7 +210,7 @@ class CodeMirrorEngine {
     dynamicmode(options.type, this.cme); // update extensions
 
     this.errorNode = this.widget.document.createElement('div');
-    this.errorNode.textContent = 'Tiddler render error';
+    this.errorNode.textContent = 'Virtual dom detected, no rendering';
     this.errorNode.style.fontSize = '0.8rem';
     this.errorNode.style.color = 'red';
 
@@ -218,7 +219,7 @@ class CodeMirrorEngine {
       extensions: this.cme
     });
 
-    // console.log('domNode Type', this.widget.document.isTiddlyWikiFakeDom);
+    // or use try catch
     if (this.widget.document.isTiddlyWikiFakeDom) {
       this.domNode = this.errorNode;
     } else {

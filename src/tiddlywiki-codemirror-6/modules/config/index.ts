@@ -35,7 +35,8 @@ export default function configExtensions(cme: Extension[], widget: IWidget) {
     cme.push(keymap.of([indentWithTab]));
   }
 
-  if (widget.editTitle.startsWith('Draft of ')) {
+  // DEBUG
+  if (widget?.editTitle?.startsWith('Draft of ')) {
     conf.enableWordCount() && cme.push(wordCountExt());
     conf.lineNumbers() && cme.push(lineNumbers());
 
