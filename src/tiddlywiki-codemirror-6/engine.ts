@@ -231,9 +231,9 @@ class CodeMirrorEngine {
         state: this.state
       });
     } catch (e) {
-      console.error(e);
+      this.parentNode.removeChild(this.domNode);
+      // console.error(e);
       if (this.widget.document.isTiddlyWikiFakeDom) {
-        this.parentNode.removeChild(this.domNode);
         this.parentNode.appendChild(this.errorNode);
       }
     }
