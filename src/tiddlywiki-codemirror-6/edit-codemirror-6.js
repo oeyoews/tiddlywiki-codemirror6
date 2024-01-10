@@ -18,6 +18,7 @@ Edit-codemirror widget
     CodeMirrorEngine
   } = require('$:/plugins/oeyoews/tiddlywiki-codemirror-6/engine.js');
 
+  // 工厂函数用法
   exports['edit-codemirror-6'] = editTextWidgetFactory(
     CodeMirrorEngine,
     CodeMirrorEngine

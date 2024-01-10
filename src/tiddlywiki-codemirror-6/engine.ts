@@ -234,7 +234,7 @@ class CodeMirrorEngine {
       this.parentNode.removeChild(this.domNode);
       // console.error(e);
       if (this.widget.document.isTiddlyWikiFakeDom) {
-        this.parentNode.appendChild(this.errorNode);
+        // this.parentNode.appendChild(this.errorNode);
       }
     }
   }
