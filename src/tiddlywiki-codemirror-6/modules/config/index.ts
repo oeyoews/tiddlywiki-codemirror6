@@ -21,7 +21,7 @@ import { vim } from '@replit/codemirror-vim';
 import { oneDark } from '@codemirror/theme-one-dark';
 import conf from 'src/tiddlywiki-codemirror-6/cmeConfig';
 import { wordCountExt } from 'src/tiddlywiki-codemirror-6/extensions/wordCountExt';
-import { IWidget } from 'src/tiddlywiki-codemirror-6/types';
+import { type IWidget } from 'src/tiddlywiki-codemirror-6/types';
 
 export default function configExtensions(cme: Extension[], widget: IWidget) {
   const fields = $tw.wiki.getTiddler($tw.wiki.getTiddlerText('$:/palette')!)
@@ -35,25 +35,29 @@ export default function configExtensions(cme: Extension[], widget: IWidget) {
     cme.push(keymap.of([indentWithTab]));
   }
 
-  if (conf.vimmode()) {
-    setVimKeymap(widget);
-    cme.push(vim());
-  } else {
-    cme.push(keymap.of([...defaultKeymap]));
-  }
-
   conf.completeAnyWord() &&
     cme.push(
       EditorState.languageData.of(() => [{ autocomplete: completeAnyWord }])
     );
 
-  conf.enableWordCount() && cme.push(wordCountExt());
+  if (widget.editTitle.startsWith('Draft of ')) {
+    conf.enableWordCount() && cme.push(wordCountExt());
+    conf.lineNumbers() && cme.push(lineNumbers());
+
+    if (conf.vimmode()) {
+      setVimKeymap(widget);
+      cme.push(vim()); // 不支持 new Comparement
+    } else {
+      cme.push(keymap.of([...defaultKeymap]));
+    }
+
+    conf.lineNumbers() && conf.foldGutter() && cme.push(foldGutter());
+  }
+
   conf.highlightTrailingWhitespace() && cme.push(highlightTrailingWhitespace());
   conf.highlightWhitespace() && cme.push(highlightWhitespace());
   conf.closeBrackets() && cme.push(closeBrackets());
   conf.bracketMatching() && cme.push(bracketMatching());
-  conf.lineNumbers() && cme.push(lineNumbers());
-  conf.lineNumbers() && conf.foldGutter() && cme.push(foldGutter());
   conf.highlightActiveLine() &&
     cme.push(highlightActiveLineGutter(), highlightActiveLine());
 
