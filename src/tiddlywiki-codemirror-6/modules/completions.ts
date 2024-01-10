@@ -11,28 +11,16 @@ import sources from '../completions/sources';
 // @see-also: https://github.com/codemirror/lang-javascript/blob/4dcee95aee9386fd2c8ad55f93e587b39d968489/src/complete.ts
 // https://codemirror.net/examples/autocompletion/
 // maybe help: https://github.com/Gk0Wk/TW5-CodeMirror-Enhanced/blob/811760507bfcd5493df4d5c117d33d7bfa076ab2/src/cme/addon/hint/hint-tw5-tiddler.ts#L58
+// IME: https://developer.mozilla.org/en-US/docs/Web/API/Element/compositionend_event
 export default (context: CompletionContext) => {
   const cursorPos = context.state.selection.main.head;
   const doc = context.state.doc;
-
-  // const apply: Completion['apply'] = (view, completion, from, to) => {
-  //   view.dispatch(
-  //     insertCompletionText(view.state, completion.info as any, from - 1, to)
-  //   );
-  // };
-
-  let wordStart = cursorPos;
+  const offset = doc.length - cursorPos;
+  let lastWord = doc.lineAt(cursorPos).text.trim().split(' ').pop()!;
+  lastWord = lastWord.slice(0, lastWord.length - offset);
+  const wordStart = cursorPos - lastWord.length;
   const validFor = /^[\w$]*$/;
 
-  while (
-    wordStart > 0 &&
-    /[^\s]/.test(doc.sliceString(wordStart - 1, wordStart)) // 使用 [^\s] 表示非空白字符
-  ) {
-    wordStart--;
-  }
-
-  // 获取光标位置前最后一个单词
-  let lastWord = doc.sliceString(wordStart, cursorPos);
   if (wordStart === cursorPos && lastWord.length < 1) {
     return;
   }
