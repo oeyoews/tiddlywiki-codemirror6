@@ -225,18 +225,11 @@ class CodeMirrorEngine {
       extensions: this.cme
     });
 
-    try {
-      this.cm = new EditorView({
-        parent: this.domNode, // editor mount
-        state: this.state
-      });
-    } catch (e) {
-      this.parentNode.removeChild(this.domNode);
-      // console.error(e);
-      if (this.widget.document.isTiddlyWikiFakeDom) {
-        // this.parentNode.appendChild(this.errorNode);
-      }
-    }
+    // entry
+    this.cm = new EditorView({
+      parent: this.domNode, // editor mount
+      state: this.state
+    });
   }
 
   handleDropEvent(event: DragEvent, view: EditorView) {

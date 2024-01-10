@@ -1,5 +1,3 @@
-// @ts-nocheck
-
 import cmeConfig from '../cmeConfig.js';
 import { linkExt } from '../extensions/linkExt.js';
 import { tidExt } from '../extensions/tidExt.js';
@@ -11,8 +9,6 @@ import completions from './completions';
 import { html, htmlLanguage } from '@codemirror/lang-html';
 import { json, jsonLanguage } from '@codemirror/lang-json';
 import { css, cssLanguage } from '@codemirror/lang-css';
-// import { languages } from '@codemirror/language-data';
-// import { GFM, Emoji } from '@lezer/markdown';
 
 import {
   markdown,
@@ -32,32 +28,8 @@ const dynamicmode = (mode: string, cme: Extension[]) => {
 
   switch (mode) {
     case 'text/vnd.tiddlywiki':
-      cme.push(
-        tiddlywiki({
-          base: tiddlywikiLanguage
-          // codeLanguages: (info) => {
-          //   switch (info) {
-          //     case 'javascript':
-          //     case 'js':
-          //       return javascriptLanguage;
-          //     case 'css':
-          //       return cssLanguage;
-          //     case 'html':
-          //       return htmlLanguage;
-          //     case 'json':
-          //       return jsonLanguage;
-          //     case 'markdown':
-          //     case 'md':
-          //       return markdownLanguage;
-          //     case 'tiddlywiki':
-          //     case 'tw':
-          //     case 'wiki':
-          //       return tiddlywikiLanguage;
-          //     default:
-          //   }
-          // }
-        })
-      );
+      // @ts-expect-error
+      cme.push(tiddlywiki({ base: tiddlywikiLanguage }));
 
       actionCompletions = tiddlywikiLanguage.data.of({
         autocomplete: completions
@@ -78,6 +50,7 @@ const dynamicmode = (mode: string, cme: Extension[]) => {
           //   ? javascriptLanguage : '', // 默认为 js
           // NOTE: use language-data's languages 高亮 markdown 代码，但是插件大小会增加 1M, 这里仅仅加上常用的高亮
           // codeLanguages: languages
+          // @ts-expect-error
           codeLanguages: (info) => {
             switch (info) {
               case 'javascript':

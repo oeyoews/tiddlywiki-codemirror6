@@ -35,6 +35,9 @@ importers:
       '@codemirror/language-data':
         specifier: ^6.3.1
         version: 6.3.1(@codemirror/state@6.4.0)(@codemirror/view@6.23.0)(@lezer/common@1.2.0)
+      '@codemirror/legacy-modes':
+        specifier: github:codemirror/legacy-modes
+        version: github.com/codemirror/legacy-modes/48c56cf79a883068880ba24efc053c1413bb8df0
       '@codemirror/lint':
         specifier: ^6.4.2
         version: 6.4.2
@@ -6688,6 +6691,16 @@ packages:
 
   /zod@3.22.4:
     resolution: {integrity: sha512-iC+8Io04lddc+mVqQ9AZ7OQ2MrUKGN+oIQyq1vemgt46jwCwLfhq7/pwnBnNXXXZb8VTVLKwp9EDkx+ryxIWmg==}
+
+  github.com/codemirror/legacy-modes/48c56cf79a883068880ba24efc053c1413bb8df0:
+    resolution: {tarball: https://codeload.github.com/codemirror/legacy-modes/tar.gz/48c56cf79a883068880ba24efc053c1413bb8df0}
+    name: '@codemirror/legacy-modes'
+    version: 6.3.3
+    prepare: true
+    requiresBuild: true
+    dependencies:
+      '@codemirror/language': 6.10.0
+    dev: false
 
   registry.npmjs.org/@oeyoews/tw5-typed@0.4.4:
     resolution: {integrity: sha512-ddDeO0AGtAH72O+wF0Fi7ABRI1fdDn/yH82dvULkUKoobxtg1J6rElYIcESEQK3GliiwTHZ3W/oA+XjPOHc9wA==, registry: https://registry.npmmirror.com/, tarball: https://registry.npmjs.org/@oeyoews/tw5-typed/-/tw5-typed-0.4.4.tgz}
