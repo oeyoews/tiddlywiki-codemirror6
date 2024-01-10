@@ -25,6 +25,7 @@ Widget base class
   };
 
   // TODO: use https://codemirror.net/examples/config compartment or appendconfig
+  // to support cm6 hmr config
   exports.prototype.refresh = function (changedTiddlers) {
     var changedAttributes = this.computeAttributes();
     if (changedAttributes.type) {

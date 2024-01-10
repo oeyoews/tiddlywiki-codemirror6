@@ -68,6 +68,10 @@ class CodeMirrorEngine {
     // Must use this.widget.document.createElement('div'), try catch works ???
     this.domNode = this.widget.document.createElement('div'); // Create the wrapper DIV
 
+    // modunt to tiddlywiki editor widget
+    this.parentNode.insertBefore(this.domNode, this.nextSibling); // mount
+    this.widget.domNodes.push(this.domNode);
+
     this.domNode.className = this.widget.editClass || ''; // style
     this.domNode.style.display = 'inline-block';
 
@@ -227,15 +231,12 @@ class CodeMirrorEngine {
         state: this.state
       });
     } catch (e) {
-      // console.log(e);
+      console.error(e);
       if (this.widget.document.isTiddlyWikiFakeDom) {
-        this.domNode = this.errorNode;
+        this.parentNode.removeChild(this.domNode);
+        this.parentNode.appendChild(this.errorNode);
       }
     }
-
-    // modunt to tiddlywiki editor widget
-    this.parentNode.insertBefore(this.domNode, this.nextSibling); // mount
-    this.widget.domNodes.push(this.domNode);
   }
 
   handleDropEvent(event: DragEvent, view: EditorView) {
