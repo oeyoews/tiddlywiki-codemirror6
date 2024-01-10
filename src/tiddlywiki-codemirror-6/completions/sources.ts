@@ -137,6 +137,8 @@ function getAllWidgetSnippets() {
     // @ts-ignore
     .map(([_, { exports }]) => Object.keys(exports)[0]);
 
+  // $tw.wiki.filterTiddlers('[[macro]modules[]]') // 根据文件名
+
   // https://github.com/codemirror/website/tree/master/site/examples/autocompletion
   // https://codemirror.net/docs/ref/#autocomplete
   return allwidgets.map((widget) =>

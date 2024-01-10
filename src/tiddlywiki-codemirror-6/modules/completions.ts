@@ -10,6 +10,7 @@ import sources from '../completions/sources';
 // TODO: use ifIn to better completion.
 // @see-also: https://github.com/codemirror/lang-javascript/blob/4dcee95aee9386fd2c8ad55f93e587b39d968489/src/complete.ts
 // https://codemirror.net/examples/autocompletion/
+// maybe help: https://github.com/Gk0Wk/TW5-CodeMirror-Enhanced/blob/811760507bfcd5493df4d5c117d33d7bfa076ab2/src/cme/addon/hint/hint-tw5-tiddler.ts#L58
 export default (context: CompletionContext) => {
   const cursorPos = context.state.selection.main.head;
   const doc = context.state.doc;
