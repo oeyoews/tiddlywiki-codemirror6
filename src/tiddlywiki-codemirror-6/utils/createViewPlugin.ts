@@ -1,22 +1,27 @@
-// @ts-nocheck
-import { MatchDecorator, ViewPlugin } from '@codemirror/view';
+import {
+  DecorationSet,
+  ViewUpdate,
+  MatchDecorator,
+  ViewPlugin,
+  EditorView
+} from '@codemirror/view';
 
 export default function createViewPlugin(linkDecorator: MatchDecorator) {
   return ViewPlugin.fromClass(
-    class URLView {
-      constructor(view) {
-        this.decorator = linkDecorator;
-        this.decorations = this.decorator.createDeco(view);
+    class {
+      decorations: DecorationSet;
+      // 附加到 view 上
+      constructor(view: EditorView) {
+        this.decorations = linkDecorator.createDeco(view);
       }
-      update(update) {
+
+      update(update: ViewUpdate) {
         if (update.docChanged || update.viewportChanged) {
-          this.decorations = this.decorator.updateDeco(
-            update,
-            this.decorations
-          );
+          this.decorations = linkDecorator.updateDeco(update, this.decorations);
         }
       }
     },
+
     { decorations: (v) => v.decorations }
   );
 }

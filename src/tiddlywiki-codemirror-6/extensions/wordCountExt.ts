@@ -21,7 +21,7 @@ function countWords(doc: Text) {
 }
 
 function charCountPanel(view: EditorView): Panel {
-  let dom = document.createElement('div');
+  const dom = document.createElement('div');
   dom.style.cssText = 'color: grey; font-size:0.8rem;';
   dom.textContent = countWords(view.state.doc);
 
