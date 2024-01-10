@@ -1,6 +1,7 @@
 import { Vim } from '@replit/codemirror-vim';
 import { IWidget } from '../types';
 
+// TODO: support navigator clipboard
 // https://github.com/replit/codemirror-vim
 export default function setVimKeymap(widget?: IWidget) {
   Vim.map('jk', '<Esc>', 'insert'); // in insert mode

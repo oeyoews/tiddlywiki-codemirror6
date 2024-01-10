@@ -67,6 +67,8 @@ If you like the plugin, feel free to leave me a star on [ext[GitHub|https://gith
 * If you hope add your custom snippets, your can write a simple plugin module(module-type: snippets).
 * Presss tab to accept current completion
 * Prese `ctrl + /` to comment line(non vimmode)
+* vimmode: `"+y`(copy to system clipboard)
+* vimmode: `"+p`(paste system clipboard to editor)
 
 !! Can be removed plugins
 
