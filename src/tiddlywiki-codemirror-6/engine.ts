@@ -213,6 +213,7 @@ class CodeMirrorEngine {
     this.errorNode.textContent = 'Virtual dom detected, no rendering';
     this.errorNode.style.fontSize = '0.8rem';
     this.errorNode.style.color = 'red';
+    this.errorNode.style.fontWeight = 'bold';
 
     this.state = EditorState.create({
       doc: options.value,
