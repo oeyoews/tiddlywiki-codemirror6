@@ -210,7 +210,8 @@ class CodeMirrorEngine {
     dynamicmode(options.type, this.cme); // update extensions
 
     this.errorNode = this.widget.document.createElement('div');
-    this.errorNode.textContent = 'Virtual dom detected, no rendering';
+    this.errorNode.textContent =
+      'Virtual DOM detected, Skip rendering this widget !!!';
     this.errorNode.style.fontSize = '0.8rem';
     this.errorNode.style.color = 'red';
     this.errorNode.style.fontWeight = 'bold';
@@ -220,14 +221,16 @@ class CodeMirrorEngine {
       extensions: this.cme
     });
 
-    // or use try catch
-    if (this.widget.document.isTiddlyWikiFakeDom) {
-      this.domNode = this.errorNode;
-    } else {
+    try {
       this.cm = new EditorView({
         parent: this.domNode, // editor mount
         state: this.state
       });
+    } catch (e) {
+      console.log(e);
+      if (this.widget.document.isTiddlyWikiFakeDom) {
+        this.domNode = this.errorNode;
+      }
     }
 
     // modunt to tiddlywiki editor widget

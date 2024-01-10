@@ -3,7 +3,7 @@
   "publishConfig": {
     "registry": "https://registry.npmjs.org"
   },
-  "version": "0.4.31",
+  "version": "0.4.32",
   "description": "tiddlywiki language support for CodeMirror",
   "scripts": {
     "test": "mocha test/test.js",
