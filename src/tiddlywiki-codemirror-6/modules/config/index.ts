@@ -52,14 +52,15 @@ export default function configExtensions(cme: Extension[], widget: IWidget) {
     }
 
     conf.lineNumbers() && conf.foldGutter() && cme.push(foldGutter());
+
+    conf.highlightActiveLine() &&
+      cme.push(highlightActiveLineGutter(), highlightActiveLine());
   }
 
   conf.highlightTrailingWhitespace() && cme.push(highlightTrailingWhitespace());
   conf.highlightWhitespace() && cme.push(highlightWhitespace());
   conf.closeBrackets() && cme.push(closeBrackets());
   conf.bracketMatching() && cme.push(bracketMatching());
-  conf.highlightActiveLine() &&
-    cme.push(highlightActiveLineGutter(), highlightActiveLine());
 
   cme.push(
     placeholder(
