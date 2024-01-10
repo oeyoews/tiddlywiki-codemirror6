@@ -43,7 +43,6 @@ If you like the plugin, feel free to leave me a star on [ext[GitHub|https://gith
 * [ ] plugin i18n
 * [ ] 补全 validFor 优化
 * [ ] 配置使用单一json(需要重新做配置UI, 可以模仿codemirror 5)
-* [ ] 焦点残留问题(vim mode)
 * [ ] ctrl + r(u) to undo
 * [ ] finish lang-tiddlywiki package
 * [ ] highlight widget keyword https://github.com/Gk0Wk/TW5-CodeMirror-Enhanced/blob/main/src/cme/mode/parserules/blocks/heading.ts
