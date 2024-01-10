@@ -2,6 +2,8 @@ title: $:/plugins/oeyoews/tiddlywiki-codemirror-6/readme
 
 > Modified on BurningTreeC's codemirror-6 plugin
 
+<img alt="Dynamic JSON Badge" src="https://img.shields.io/badge/dynamic/json?url=https%3A%2F%2Fraw.githubusercontent.com%2Foeyoews%2Ftiddlywiki-codemirror6%2Fmain%2Fpackage.json&query=version&style=flat-square&logo=Codemirror&logoColor=white&label=codemirror&labelColor=black&color=black">
+
 !! This plugin adds the [ext[CodeMirror 6|https://codemirror.net]] editor to [ext[TiddlyWiki|https://tiddlywiki.com]]
 
 See the ''usage'' section for keyboard shortcuts
