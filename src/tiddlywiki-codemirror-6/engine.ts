@@ -227,7 +227,7 @@ class CodeMirrorEngine {
         state: this.state
       });
     } catch (e) {
-      console.log(e);
+      // console.log(e);
       if (this.widget.document.isTiddlyWikiFakeDom) {
         this.domNode = this.errorNode;
       }

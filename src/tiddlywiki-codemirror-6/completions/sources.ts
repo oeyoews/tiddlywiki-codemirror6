@@ -196,9 +196,9 @@ function getAllTiddlers(delimiters = delimiter.link) {
             titleNode.innerHTML = title;
             return titleNode;
           }
+          // NOTE: 如果需要解析为 inline 的话，会导致 !! 这种 wikitext 的语法 parse 错误
           const previewNode = $tw.wiki.renderTiddler('text/html', title, {
-            // 如果需要解析为 inline 的话，会导致 !! 这种 wikitext 的语法 parse 错误
-            // parseAsInline: true
+            // parseAsInline: false
           });
           const preview = document.createElement('div');
           preview.innerHTML = previewNode;
