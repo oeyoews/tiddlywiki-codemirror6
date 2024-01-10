@@ -1,5 +1,3 @@
-// import { inlineSuggestion } from 'codemirror-extension-inline-suggestion';
-
 import {
   indentUnit,
   defaultHighlightStyle,
@@ -29,8 +27,7 @@ import {
   drawSelection,
   rectangularSelection,
   crosshairCursor,
-  tooltips,
-  hoverTooltip
+  tooltips
 } from '@codemirror/view';
 
 import tabSizePlugin from './utils/tab-size';
