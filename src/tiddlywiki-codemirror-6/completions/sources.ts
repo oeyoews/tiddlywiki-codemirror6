@@ -25,9 +25,7 @@ function getImageSnippets() {
         info: () => {
           const imagePreview = document.createElement('div');
           imagePreview.className = 'cm-image-preview';
-          const imageHTML = $tw.wiki.renderTiddler('text/html', title, {
-            // parseAsInline: true
-          });
+          const imageHTML = $tw.wiki.renderTiddler('text/html', title);
           imagePreview.innerHTML = imageHTML;
           return imagePreview;
         }
@@ -197,12 +195,15 @@ function getAllTiddlers(delimiters = delimiter.link) {
             return titleNode;
           }
           // NOTE: 如果需要解析为 inline 的话，会导致 !! 这种 wikitext 的语法 parse 错误
-          const previewNode = $tw.wiki.renderTiddler('text/html', title, {
-            // parseAsInline: false
-          });
+          let previewHTML = '暂不支持预览';
           const preview = document.createElement('div');
-          preview.innerHTML = previewNode;
-          preview.className = 'cm-image-preview';
+          try {
+            previewHTML = $tw.wiki.renderTiddler('text/html', title, {
+              // parseAsInline: false
+            });
+            preview.className = 'cm-image-preview';
+          } catch (e) {}
+          preview.innerHTML = previewHTML;
           return preview;
         }
       }) as Completion
