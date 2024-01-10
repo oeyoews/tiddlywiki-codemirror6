@@ -56,7 +56,6 @@ class CodeMirrorEngine {
   private cm: EditorView = new EditorView();
   private state: EditorState;
   private dragCancel: boolean = false;
-  private errorNode: TW_Element;
 
   constructor(options = {} as IOptions) {
     const self = this;
@@ -212,13 +211,6 @@ class CodeMirrorEngine {
     configExtensions(this.cme, this.widget);
     miniMapExt(this.cme); // add minimap
     dynamicmode(options.type, this.cme); // update extensions
-
-    this.errorNode = this.widget.document.createElement('div');
-    this.errorNode.textContent =
-      'Virtual DOM detected, Skip rendering this widget !!!';
-    this.errorNode.style.fontSize = '0.8rem';
-    this.errorNode.style.color = 'red';
-    this.errorNode.style.fontWeight = 'bold';
 
     this.state = EditorState.create({
       doc: options.value,
