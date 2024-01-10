@@ -24,6 +24,7 @@ Widget base class
     Object.getPrototypeOf(Object.getPrototypeOf(this)).execute.call(this);
   };
 
+  // TODO: use https://codemirror.net/examples/config compartment or appendconfig
   exports.prototype.refresh = function (changedTiddlers) {
     var changedAttributes = this.computeAttributes();
     if (changedAttributes.type) {
