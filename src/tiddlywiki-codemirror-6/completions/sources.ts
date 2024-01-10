@@ -66,8 +66,8 @@ function getAllEmojiSnippets() {
     (item) =>
       snip(item.text, {
         label: delimiter.emoji + item.title,
-        displayLabel: item.title,
-        detail: item.text,
+        displayLabel: item.text,
+        detail: item.title,
         type: 'cm-emoji',
         section: 'Emojis'
       }) as Completion
