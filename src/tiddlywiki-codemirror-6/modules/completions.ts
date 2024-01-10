@@ -12,6 +12,7 @@ import sources from '../completions/sources';
 // https://codemirror.net/examples/autocompletion/
 // maybe help: https://github.com/Gk0Wk/TW5-CodeMirror-Enhanced/blob/811760507bfcd5493df4d5c117d33d7bfa076ab2/src/cme/addon/hint/hint-tw5-tiddler.ts#L58
 // IME: https://developer.mozilla.org/en-US/docs/Web/API/Element/compositionend_event
+//  https://codemirror.net/docs/migration/
 export default (context: CompletionContext) => {
   const cursorPos = context.state.selection.main.head;
   const doc = context.state.doc;
