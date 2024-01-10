@@ -17,15 +17,14 @@ export default (context: CompletionContext) => {
   const doc = context.state.doc;
   const offset = doc.length - cursorPos;
   let lastWord = doc.lineAt(cursorPos).text.trim().split(' ').pop()!;
-  lastWord = lastWord.slice(0, lastWord.length - offset);
+  if (offset) {
+    lastWord = lastWord.slice(0, lastWord.length - offset);
+  }
   const wordStart = cursorPos - lastWord.length;
   const validFor = /^[\w$]*$/;
 
-  if (wordStart === cursorPos && lastWord.length < 1) {
-    return;
-  }
-
-  if (lastWord.length < cmeConfig.minLength()) {
+  // 中文是一个汉字等于两个英文字符
+  if (lastWord.length < cmeConfig.minLength() || wordStart === cursorPos) {
     return;
   }
 
