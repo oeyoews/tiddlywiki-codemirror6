@@ -14,15 +14,22 @@ import sources from '../completions/sources';
 // IME: https://developer.mozilla.org/en-US/docs/Web/API/Element/compositionend_event
 //  https://codemirror.net/docs/migration/
 export default (context: CompletionContext) => {
+  const validFor = /^[\w$]*$/;
+
   const cursorPos = context.state.selection.main.head;
   const doc = context.state.doc;
-  const offset = doc.length - cursorPos;
-  let lastWord = doc.lineAt(cursorPos).text.trim().split(' ').pop()!;
-  if (offset) {
-    lastWord = lastWord.slice(0, lastWord.length - offset);
+
+  let wordStart = cursorPos;
+
+  while (
+    wordStart > 0 &&
+    /[^\s]/.test(doc.sliceString(wordStart - 1, wordStart)) // 使用 [^\s] 表示非空白字符
+  ) {
+    wordStart--;
   }
-  const wordStart = cursorPos - lastWord.length;
-  const validFor = /^[\w$]*$/;
+
+  // 获取光标位置前最后一个单词
+  let lastWord = doc.sliceString(wordStart, cursorPos);
 
   // 中文是一个汉字等于两个英文字符
   if (lastWord.length < cmeConfig.minLength() || wordStart === cursorPos) {
