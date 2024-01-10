@@ -35,11 +35,6 @@ export default function configExtensions(cme: Extension[], widget: IWidget) {
     cme.push(keymap.of([indentWithTab]));
   }
 
-  conf.completeAnyWord() &&
-    cme.push(
-      EditorState.languageData.of(() => [{ autocomplete: completeAnyWord }])
-    );
-
   if (widget.editTitle.startsWith('Draft of ')) {
     conf.enableWordCount() && cme.push(wordCountExt());
     conf.lineNumbers() && cme.push(lineNumbers());
@@ -55,16 +50,19 @@ export default function configExtensions(cme: Extension[], widget: IWidget) {
 
     conf.highlightActiveLine() &&
       cme.push(highlightActiveLineGutter(), highlightActiveLine());
+    cme.push(
+      placeholder(
+        conf.customPlaceholder() ? conf.placeholder() : widget.editPlaceholder
+      )
+    );
+    conf.completeAnyWord() &&
+      cme.push(
+        EditorState.languageData.of(() => [{ autocomplete: completeAnyWord }])
+      );
   }
 
   conf.highlightTrailingWhitespace() && cme.push(highlightTrailingWhitespace());
   conf.highlightWhitespace() && cme.push(highlightWhitespace());
   conf.closeBrackets() && cme.push(closeBrackets());
   conf.bracketMatching() && cme.push(bracketMatching());
-
-  cme.push(
-    placeholder(
-      conf.customPlaceholder() ? conf.placeholder() : widget.editPlaceholder
-    )
-  );
 }
