@@ -80,6 +80,9 @@ importers:
       codemirror-extension-inline-suggestion:
         specifier: ^0.0.1
         version: 0.0.1(@codemirror/state@6.4.0)(@codemirror/view@6.23.0)
+      ipad-cursor:
+        specifier: ^0.5.2
+        version: 0.5.2
       tiddlywiki:
         specifier: ^5.3.3
         version: 5.3.3
@@ -4641,6 +4644,10 @@ packages:
       side-channel: 1.0.4
     dev: true
 
+  /ipad-cursor@0.5.2:
+    resolution: {integrity: sha512-RC8ib+wtOzvi0gsuINYnn2lfALmLBsnrabyShyTSaaPupzILLoDfVqowiWIajeiBdml8JC09C/V025pBH+FH2Q==}
+    dev: false
+
   /is-array-buffer@3.0.2:
     resolution: {integrity: sha512-y+FyyR/w8vfIRq4eQcM1EYgSTnmHXPqaF+IgzgraytCFq5Xh8lllDVmAZolPJiZttZLeFSINPYMaEJ7/vWUa1w==}
     dependencies:
@@ -6696,7 +6703,6 @@ packages:
     resolution: {tarball: https://codeload.github.com/codemirror/legacy-modes/tar.gz/48c56cf79a883068880ba24efc053c1413bb8df0}
     name: '@codemirror/legacy-modes'
     version: 6.3.3
-    prepare: true
     requiresBuild: true
     dependencies:
       '@codemirror/language': 6.10.0

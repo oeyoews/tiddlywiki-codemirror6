@@ -1,0 +1,9 @@
+{
+  "title": "$:/plugins/oeyoews/ipad-cursor",
+  "name": "ipad-cursor",
+  "author": "oeyoews",
+  "description": "",
+  "plugin-type": "plugin",
+  "version": "0.0.1",
+  "list": "readme"
+}
