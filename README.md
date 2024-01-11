@@ -35,3 +35,7 @@ https://user-images.githubusercontent.com/72405338/294956491-948b791f-04e1-4447-
 - https://tiddlywiki-codemirror6.vercel.app
 
 - https://oeyoews.github.io/tiddlywiki-codemirror6
+
+## Links
+
+https://thememirror.net/ (note: support latest cm6 for syntax highlight)
