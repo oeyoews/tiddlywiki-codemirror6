@@ -23,14 +23,18 @@ export const wordHover = hoverTooltip((view, pos, side) => {
   if (!$tw.wiki.tiddlerExists(title)) return null;
 
   const dom = document.createElement('div');
-  const innerHTML = $tw.wiki.renderTiddler('text/html', title);
-  dom.innerHTML = innerHTML;
-  dom.className = 'cm-image-preview';
-  dom.style.cssText = 'border: none !important';
-  dom.style.cursor = 'pointer';
-  dom.addEventListener('click', () => {
-    new $tw.Story().navigateTiddler(title);
-  });
+  try {
+    const innerHTML = $tw.wiki.renderTiddler('text/html', title);
+    dom.innerHTML = innerHTML;
+    dom.className = 'cm-image-preview';
+    dom.style.cssText = 'border: none !important';
+    dom.style.cursor = 'pointer';
+    dom.addEventListener('click', () => {
+      new $tw.Story().navigateTiddler(title);
+    });
+  } catch (e) {
+    return null;
+  }
 
   return {
     pos: start,
