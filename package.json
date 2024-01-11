@@ -7,7 +7,7 @@
     "registry": "https://registry.npmjs.org"
   },
   "license": "MIT",
-  "version": "0.5.12",
+  "version": "0.5.13",
   "packageManager": "pnpm@8.8.0",
   "scripts": {
     "bump": "node scripts/bump.js",
@@ -27,12 +27,12 @@
     "node": ">=16"
   },
   "devDependencies": {
-    "@modern-js/eslint-config": "^2.44.0",
-    "@modern-js/tsconfig": "^2.44.0",
+    "@modern-js/eslint-config": "^2.45.0",
+    "@modern-js/tsconfig": "^2.45.0",
     "@oeyoews/prettier-config": "^1.0.2",
     "@oeyoews/tw5-typed": "^0.4.4",
     "@replit/codemirror-minimap": "^0.5.2",
-    "@types/node": "^20.10.6",
+    "@types/node": "^20.11.0",
     "@uiw/codemirror-extensions-color": "^4.21.21",
     "@uiw/codemirror-theme-github": "^4.21.21",
     "@uiw/codemirror-theme-material": "^4.21.21",
@@ -43,7 +43,7 @@
     "typescript": "^5.3.3"
   },
   "dependencies": {
-    "@codemirror/autocomplete": "^6.11.1",
+    "@codemirror/autocomplete": "github:codemirror/autocomplete",
     "@codemirror/commands": "^6.3.3",
     "@codemirror/lang-css": "^6.2.1",
     "@codemirror/lang-html": "^6.4.7",
