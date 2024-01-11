@@ -30,6 +30,10 @@ https://user-images.githubusercontent.com/72405338/294956491-948b791f-04e1-4447-
 
 ![color](./assets/color.png)
 
+## Link 预览
+
+![linkpreview](./assets/link-preview.gif)
+
 ## Preview
 
 - https://tiddlywiki-codemirror6.vercel.app
