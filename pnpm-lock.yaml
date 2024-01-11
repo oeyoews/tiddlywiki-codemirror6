@@ -10,7 +10,7 @@ importers:
     dependencies:
       '@codemirror/autocomplete':
         specifier: github:codemirror/autocomplete
-        version: git@github.com+codemirror/autocomplete/0b6faf9c032f86b69e3110381aa23eafc845acc4(@codemirror/language@6.10.0)(@codemirror/state@6.4.0)(@codemirror/view@6.23.0)(@lezer/common@1.2.0)
+        version: github.com/codemirror/autocomplete/0b6faf9c032f86b69e3110381aa23eafc845acc4(@codemirror/language@6.10.0)(@codemirror/state@6.4.0)(@codemirror/view@6.23.0)(@lezer/common@1.2.0)
       '@codemirror/commands':
         specifier: ^6.3.3
         version: 6.3.3
@@ -2190,7 +2190,7 @@ packages:
       '@codemirror/state': ^6.0.1
       '@codemirror/view': ^6.3.0
     dependencies:
-      '@codemirror/autocomplete': git@github.com+codemirror/autocomplete/0b6faf9c032f86b69e3110381aa23eafc845acc4(@codemirror/language@6.10.0)(@codemirror/state@6.4.0)(@codemirror/view@6.23.0)(@lezer/common@1.2.0)
+      '@codemirror/autocomplete': github.com/codemirror/autocomplete/0b6faf9c032f86b69e3110381aa23eafc845acc4(@codemirror/language@6.10.0)(@codemirror/state@6.4.0)(@codemirror/view@6.23.0)(@lezer/common@1.2.0)
       '@codemirror/commands': 6.3.3
       '@codemirror/search': 6.5.5
       '@codemirror/state': 6.4.0
@@ -2265,7 +2265,7 @@ packages:
       '@codemirror/state': ^6.0.0
       '@codemirror/view': ^6.0.0
     dependencies:
-      '@codemirror/autocomplete': git@github.com+codemirror/autocomplete/0b6faf9c032f86b69e3110381aa23eafc845acc4(@codemirror/language@6.10.0)(@codemirror/state@6.4.0)(@codemirror/view@6.23.0)(@lezer/common@1.2.0)
+      '@codemirror/autocomplete': github.com/codemirror/autocomplete/0b6faf9c032f86b69e3110381aa23eafc845acc4(@codemirror/language@6.10.0)(@codemirror/state@6.4.0)(@codemirror/view@6.23.0)(@lezer/common@1.2.0)
       '@codemirror/commands': 6.3.3
       '@codemirror/language': 6.10.0
       '@codemirror/lint': 6.4.2
@@ -6934,9 +6934,9 @@ packages:
   /zod@3.22.4:
     resolution: {integrity: sha512-iC+8Io04lddc+mVqQ9AZ7OQ2MrUKGN+oIQyq1vemgt46jwCwLfhq7/pwnBnNXXXZb8VTVLKwp9EDkx+ryxIWmg==}
 
-  git@github.com+codemirror/autocomplete/0b6faf9c032f86b69e3110381aa23eafc845acc4(@codemirror/language@6.10.0)(@codemirror/state@6.4.0)(@codemirror/view@6.23.0)(@lezer/common@1.2.0):
-    resolution: {commit: 0b6faf9c032f86b69e3110381aa23eafc845acc4, repo: git@github.com:codemirror/autocomplete.git, type: git}
-    id: git@github.com+codemirror/autocomplete/0b6faf9c032f86b69e3110381aa23eafc845acc4
+  github.com/codemirror/autocomplete/0b6faf9c032f86b69e3110381aa23eafc845acc4(@codemirror/language@6.10.0)(@codemirror/state@6.4.0)(@codemirror/view@6.23.0)(@lezer/common@1.2.0):
+    resolution: {tarball: https://codeload.github.com/codemirror/autocomplete/tar.gz/0b6faf9c032f86b69e3110381aa23eafc845acc4}
+    id: github.com/codemirror/autocomplete/0b6faf9c032f86b69e3110381aa23eafc845acc4
     name: '@codemirror/autocomplete'
     version: 6.11.1
     prepare: true
