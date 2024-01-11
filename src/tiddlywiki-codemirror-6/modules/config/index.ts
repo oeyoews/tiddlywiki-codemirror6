@@ -1,11 +1,15 @@
 import { bracketMatching, foldGutter } from '@codemirror/language';
 import setVimKeymap from 'src/tiddlywiki-codemirror-6/utils/vimrc.js';
-import { EditorState, Extension } from '@codemirror/state';
+import { EditorState, Extension, Prec } from '@codemirror/state';
 import { githubLight } from '@uiw/codemirror-theme-github';
 
 import { completeAnyWord, closeBrackets } from '@codemirror/autocomplete';
 
-import { defaultKeymap, indentWithTab } from '@codemirror/commands';
+import {
+  defaultKeymap,
+  indentWithTab,
+  standardKeymap
+} from '@codemirror/commands';
 
 import {
   keymap,
@@ -44,7 +48,7 @@ export default function configExtensions(cme: Extension[], widget: IWidget) {
       setVimKeymap(widget);
       cme.push(vim()); // 不支持 new Comparement
     } else {
-      cme.push(keymap.of([...defaultKeymap]));
+      cme.push(Prec.highest(keymap.of([...defaultKeymap])));
     }
 
     conf.lineNumbers() && conf.foldGutter() && cme.push(foldGutter());
