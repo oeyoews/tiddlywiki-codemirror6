@@ -48,7 +48,6 @@ export default function configExtensions(cme: Extension[], widget: IWidget) {
     if (conf.vimmode()) {
       setVimKeymap(widget);
       cme.push(Prec.highest(vim())); // 不支持 new Comparement
-    } else {
     }
     cme.push(keymap.of([...defaultKeymap]));
 
