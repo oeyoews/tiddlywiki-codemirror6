@@ -1,0 +1,7 @@
+title: $:/plugins/oeyoews/tiddlywiki-snippets/generat/toc01
+caption: toc01
+tags: $:/tags/TextEditor/Snippet
+
+<div class="tc-table-of-contents">
+<<toc "${1:tag}">>${2}
+</div>

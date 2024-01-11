@@ -80,3 +80,11 @@ If you like the plugin, feel free to leave me a star on [ext[GitHub|https://gith
 * Emoji button plugin
 * Chars button plugin
 * ...
+
+!! Proposal
+
+> Zero Js, Pure Wikitext.
+
+Incorporating code snippets into plugins for widgets, macros, and templates can significantly enhance user convenience. For instance, the kookma plugin showcases numerous example codes, encompassing macros, styles, and frequently used snippets that can be transformed into code snippets.
+
+The codemirror6 plugin, in particular, could seamlessly load these code snippets while also accommodating placeholders. Additionally, users could share their frequently used code snippets, fostering a collaborative and supportive community. These snippets could even be packaged separately as plugins, such as zero-js or pure wikitext. This approach would undoubtedly streamline the coding process and contribute to a more efficient and user-friendly experience.
