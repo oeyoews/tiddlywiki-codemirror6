@@ -36,10 +36,6 @@ export default function configExtensions(cme: Extension[], widget: IWidget) {
   (conf.enableOneDarkTheme() && darkMode && cme.push(oneDark)) ||
     cme.push(githubLight);
 
-  if (conf.indentWithTab()) {
-    cme.push(keymap.of([indentWithTab]));
-  }
-
   // DEBUG
   if (widget?.editTitle?.startsWith('Draft of ')) {
     conf.enableWordCount() && cme.push(wordCountExt());
@@ -47,7 +43,7 @@ export default function configExtensions(cme: Extension[], widget: IWidget) {
 
     if (conf.vimmode()) {
       setVimKeymap(widget);
-      cme.push(Prec.highest(vim())); // 不支持 new Comparement
+      cme.push(Prec.high(vim())); // 不支持 new Comparement
     }
     cme.push(keymap.of([...defaultKeymap]));
 
@@ -66,7 +62,12 @@ export default function configExtensions(cme: Extension[], widget: IWidget) {
       );
   }
 
-  cme.push(cmkeymaps);
+  if (conf.indentWithTab()) {
+    cme.push(keymap.of([indentWithTab]));
+  }
+
+  // 优先级问题：最后放的 indent tab 优先级较低，需要使用 prec 提升
+  cme.push(Prec.highest(cmkeymaps));
 
   conf.highlightTrailingWhitespace() && cme.push(highlightTrailingWhitespace());
   conf.highlightWhitespace() && cme.push(highlightWhitespace());

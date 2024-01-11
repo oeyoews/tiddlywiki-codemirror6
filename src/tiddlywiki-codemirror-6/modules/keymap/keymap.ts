@@ -5,7 +5,6 @@ import {
 } from '@codemirror/autocomplete';
 import { underlineSelection } from '../../extensions/underlineSelection';
 import { KeyBinding } from '@codemirror/view';
-import { gotoLine } from '@codemirror/search';
 
 // add keymap, press ? to show a modal tip
 //  TODO: presnippetfield not work, snipkeymap
