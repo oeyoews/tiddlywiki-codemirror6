@@ -3,13 +3,13 @@ import setVimKeymap from 'src/tiddlywiki-codemirror-6/utils/vimrc.js';
 import { EditorState, Extension, Prec } from '@codemirror/state';
 import { githubLight } from '@uiw/codemirror-theme-github';
 
-import { completeAnyWord, closeBrackets } from '@codemirror/autocomplete';
-
 import {
-  defaultKeymap,
-  indentWithTab,
-  standardKeymap
-} from '@codemirror/commands';
+  completeAnyWord,
+  closeBrackets,
+  completionKeymap
+} from '@codemirror/autocomplete';
+
+import { defaultKeymap, indentWithTab } from '@codemirror/commands';
 
 import {
   keymap,
@@ -26,6 +26,7 @@ import { oneDark } from '@codemirror/theme-one-dark';
 import conf from 'src/tiddlywiki-codemirror-6/cmeConfig';
 import { wordCountExt } from 'src/tiddlywiki-codemirror-6/extensions/wordCountExt';
 import { type IWidget } from 'src/tiddlywiki-codemirror-6/types';
+import { cmkeymaps } from '../keymap';
 
 export default function configExtensions(cme: Extension[], widget: IWidget) {
   const fields = $tw.wiki.getTiddler($tw.wiki.getTiddlerText('$:/palette')!)
@@ -65,6 +66,8 @@ export default function configExtensions(cme: Extension[], widget: IWidget) {
         EditorState.languageData.of(() => [{ autocomplete: completeAnyWord }])
       );
   }
+
+  cme.push(cmkeymaps);
 
   conf.highlightTrailingWhitespace() && cme.push(highlightTrailingWhitespace());
   conf.highlightWhitespace() && cme.push(highlightWhitespace());

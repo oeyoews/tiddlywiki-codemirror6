@@ -38,7 +38,6 @@ import removeOutlineExt from './extensions/removeOutlineExt';
 import { miniMapExt } from './extensions/miniMapExt';
 import rainbowBrackets from './extensions/rainbowBrackets';
 import fontSizeExt from './extensions/fontSizeExt';
-import { cmkeymaps } from './modules/keymap';
 import configExtensions from './modules/config/index';
 import { IOperation, IOperationType, operationTypes } from './operationTypes';
 import type { TW_Element } from 'tiddlywiki';
@@ -177,7 +176,6 @@ class CodeMirrorEngine {
       crosshairCursor(),
       highlightSelectionMatches(),
       rainbowBrackets(),
-      cmkeymaps,
       EditorView.lineWrapping, // enable line wrap
       EditorView.contentAttributes.of({
         tabindex: this.widget.editTabIndex ? this.widget.editTabIndex : ''
