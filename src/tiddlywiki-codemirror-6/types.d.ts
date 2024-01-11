@@ -29,3 +29,11 @@ export type ISource = {
   desc?: string;
   caption?: string;
 };
+
+// 假设你正在使用 window 对象的某个属性，比如 document
+export declare global {
+  interface Window {
+    document: Document;
+    // 在这里添加你需要使用的其他属性
+  }
+}

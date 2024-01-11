@@ -69,6 +69,7 @@
     "codemirror-extension-inline-suggestion": "^0.0.1",
     "ipad-cursor": "^0.5.2",
     "tiddlywiki": "^5.3.3",
-    "tiddlywiki-plugin-dev": "^0.0.39"
+    "@oeyoews/tiddlywiki-plugin-dev": "^0.0.40",
+    "x-data-spreadsheet": "^1.1.9"
   }
 }

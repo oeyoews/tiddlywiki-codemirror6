@@ -6,6 +6,7 @@
   "version": "0.5.9",
   "description": "tiddlywiki language support for CodeMirror",
   "scripts": {
+    "prepack": "rollup -c",
     "test": "mocha test/test.js",
     "build": "rollup -c"
   },
