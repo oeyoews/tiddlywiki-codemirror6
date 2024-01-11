@@ -38,4 +38,6 @@ https://user-images.githubusercontent.com/72405338/294956491-948b791f-04e1-4447-
 
 ## Links
 
-https://thememirror.net/ (note: support latest cm6 for syntax highlight)
+- https://thememirror.net/ (note: support latest cm6 for syntax highlight)
+- https://github.com/craftzdog/cm6-themes
+- https://hjr265.me/blog/codemirror-lsp/

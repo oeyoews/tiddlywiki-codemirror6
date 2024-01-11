@@ -27,7 +27,8 @@ import {
   drawSelection,
   rectangularSelection,
   crosshairCursor,
-  tooltips
+  tooltips,
+  hoverTooltip
 } from '@codemirror/view';
 
 import tabSizePlugin from './utils/tab-size';
@@ -42,6 +43,7 @@ import configExtensions from './modules/config/index';
 import { IOperation, IOperationType, operationTypes } from './operationTypes';
 import type { TW_Element } from 'tiddlywiki';
 import type { IWidget, IOptions } from './types';
+import { wordHover } from './extensions/wordhover';
 
 class CodeMirrorEngine {
   widget: IWidget;
@@ -162,12 +164,15 @@ class CodeMirrorEngine {
       tooltips({
         parent: this.domNode.ownerDocument?.body // preview render bug: Cannot set property parentNode of #<Node> which has only a getter
       }),
-      // hoverTooltip(), // previe tiddler
+      // hoverTooltip((view, pos, side) => {
+      //   return null;
+      // }),
       highlightSpecialChars(), // TODO: 可以高亮 link
       history(),
       drawSelection({
         cursorBlinkRate: cmeConfig.cursorBlinkRate()
       }),
+      wordHover,
       EditorState.allowMultipleSelections.of(true),
       indentOnInput(),
       syntaxHighlighting(defaultHighlightStyle, { fallback: true }),

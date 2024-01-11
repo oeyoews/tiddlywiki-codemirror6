@@ -498,7 +498,7 @@ color: #495057;
 	overflow: auto;
 	width: 400px;
 	max-height: 300px;
-	border-radius: 4px;
+	border-radius: 4px !important;
 	padding-right: 8px;
 }
 
