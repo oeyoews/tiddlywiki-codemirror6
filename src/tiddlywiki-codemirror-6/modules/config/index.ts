@@ -46,9 +46,9 @@ export default function configExtensions(cme: Extension[], widget: IWidget) {
 
     if (conf.vimmode()) {
       setVimKeymap(widget);
-      cme.push(vim()); // 不支持 new Comparement
+      cme.push(Prec.highest(vim())); // 不支持 new Comparement
     } else {
-      cme.push(Prec.highest(keymap.of([...defaultKeymap])));
+      cme.push(keymap.of([...defaultKeymap]));
     }
 
     conf.lineNumbers() && conf.foldGutter() && cme.push(foldGutter());
