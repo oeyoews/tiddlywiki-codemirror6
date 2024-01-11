@@ -27,8 +27,8 @@ import {
   drawSelection,
   rectangularSelection,
   crosshairCursor,
-  tooltips,
-  hoverTooltip
+  tooltips
+  // hoverTooltip
 } from '@codemirror/view';
 
 import tabSizePlugin from './utils/tab-size';
@@ -43,7 +43,6 @@ import configExtensions from './modules/config/index';
 import { IOperation, IOperationType, operationTypes } from './operationTypes';
 import type { TW_Element } from 'tiddlywiki';
 import type { IWidget, IOptions } from './types';
-import { wordHover } from './extensions/wordhover';
 
 class CodeMirrorEngine {
   widget: IWidget;
@@ -172,7 +171,6 @@ class CodeMirrorEngine {
       drawSelection({
         cursorBlinkRate: cmeConfig.cursorBlinkRate()
       }),
-      wordHover,
       EditorState.allowMultipleSelections.of(true),
       indentOnInput(),
       syntaxHighlighting(defaultHighlightStyle, { fallback: true }),
