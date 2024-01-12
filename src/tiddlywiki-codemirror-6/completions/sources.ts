@@ -153,6 +153,9 @@ function getAllWidgetSnippets() {
 
 function getAllMacros() {
   const macros = Object.entries($tw.macros);
+  // const usermacros = $tw.wiki.filterTiddlers(
+  //   '[all[tiddlers+shadows]tag[$:/tags/Macro]!is[draft]get[text]search:title[define]search-replace:g:regexp[\\defines+(.+?)((s|S)+?(?=\\define|$)],[~$1|]search-replace:g[|~],[~]search-replace:g:regexp[^(s|S)*?~||(s|S)*$],[]split[~]!match[]]'
+  // );
 
   return macros.map(([_, { name, params }]) => {
     const macro =

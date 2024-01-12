@@ -64,12 +64,12 @@ export default function configExtensions(cme: Extension[], widget: IWidget) {
       );
   }
 
+  // 优先级问题：最后放的 indent tab 优先级较低，需要使用 prec 提升
+  cme.push(Prec.high(cmkeymaps));
+
   if (conf.indentWithTab()) {
     cme.push(keymap.of([indentWithTab]));
   }
-
-  // 优先级问题：最后放的 indent tab 优先级较低，需要使用 prec 提升
-  cme.push(Prec.highest(cmkeymaps));
 
   conf.highlightTrailingWhitespace() && cme.push(highlightTrailingWhitespace());
   conf.highlightWhitespace() && cme.push(highlightWhitespace());

@@ -38,6 +38,7 @@ export const userKeymap: KeyBinding[] = [
   },
   {
     key: 'Tab',
-    run: acceptCompletion
+    run: acceptCompletion,
+    shift: nextSnippetField // shift tab not work
   }
 ];
