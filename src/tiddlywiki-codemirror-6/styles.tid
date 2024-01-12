@@ -128,13 +128,13 @@ body {
 	outline: 1px solid <<colour-extend cm-matching-bracket-outline>> !important;
 }
 
-.cm-tooltip {
+<!-- .cm-tooltip {
 	border: none !important;
 	background-color: <<colour-extend cm-tooltip-background>> !important;
 	color: <<colour-extend cm-tooltip-foreground>> !important;
 	font-size: {{$:/config/codemirror-6/fontsize}};
 	z-index: 9999 !important;
-}
+} -->
 
 .cm-tooltip-autocomplete > ul > li {
 	font-family: {{$:/themes/tiddlywiki/vanilla/settings/editorfontfamily}} !important;

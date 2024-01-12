@@ -2,8 +2,6 @@ import { type Extension } from '@codemirror/state';
 import { hoverTooltip, EditorView } from '@codemirror/view';
 
 // https://codepen.io/okikio/pen/NWjzyRG?editors=0010
-// WIP
-// 匹配特殊格式
 export const wordHover: Extension = hoverTooltip(
   (view, pos, side) => {
     let { from, to, text } = view.state.doc.lineAt(pos);
@@ -73,14 +71,11 @@ const linkpreviewStyle = EditorView.baseTheme({
     overflow: 'auto',
     maxWidth: '400px',
     maxHeight: '400px',
-    padding: '8px',
+    padding: '6px',
     borderRadius: '8px'
   },
-  '& .cm-link-preview:before': {
-    borderTopColor: '#66b'
-  },
-  '& .cm-link-preview:after': {
-    borderTopColor: 'transparent'
+  '.cm-tooltip': {
+    border: 'none !important'
   }
 });
 

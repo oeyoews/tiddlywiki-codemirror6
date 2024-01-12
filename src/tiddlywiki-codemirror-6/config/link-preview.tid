@@ -1,5 +1,5 @@
 title: $:/config/codemirror-6/linkPreview
-caption: link preview(WIP)
+caption: link preview
 description: linkPreview
 settings-template: $:/plugins/oeyoews/tiddlywiki-codemirror-6/ui/templates/settings/input-switch
 

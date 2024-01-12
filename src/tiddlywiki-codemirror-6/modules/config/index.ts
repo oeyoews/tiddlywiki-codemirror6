@@ -28,12 +28,14 @@ import { wordCountExt } from 'src/tiddlywiki-codemirror-6/extensions/wordCountEx
 import { type IWidget } from 'src/tiddlywiki-codemirror-6/types';
 import { cmkeymaps } from '../keymap';
 import { linkHoverPreview } from 'src/tiddlywiki-codemirror-6/extensions/wordhover';
+import { cursorTooltip } from 'src/tiddlywiki-codemirror-6/extensions/cursorPositionExt';
 
 export default function configExtensions(cme: Extension[], widget: IWidget) {
   const fields = $tw.wiki.getTiddler($tw.wiki.getTiddlerText('$:/palette')!)
     ?.fields;
   const darkMode = fields?.['color-scheme'] === 'dark';
 
+  // cme.push(cursorTooltip());
   (conf.enableOneDarkTheme() && darkMode && cme.push(oneDark)) ||
     cme.push(githubLight);
 
