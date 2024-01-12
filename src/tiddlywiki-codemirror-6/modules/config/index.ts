@@ -27,7 +27,7 @@ import conf from 'src/tiddlywiki-codemirror-6/cmeConfig';
 import { wordCountExt } from 'src/tiddlywiki-codemirror-6/extensions/wordCountExt';
 import { type IWidget } from 'src/tiddlywiki-codemirror-6/types';
 import { cmkeymaps } from '../keymap';
-import { wordHover } from 'src/tiddlywiki-codemirror-6/extensions/wordhover';
+import { linkHoverPreview } from 'src/tiddlywiki-codemirror-6/extensions/wordhover';
 
 export default function configExtensions(cme: Extension[], widget: IWidget) {
   const fields = $tw.wiki.getTiddler($tw.wiki.getTiddlerText('$:/palette')!)
@@ -39,7 +39,7 @@ export default function configExtensions(cme: Extension[], widget: IWidget) {
 
   // DEBUG
   if (widget?.editTitle?.startsWith('Draft of ')) {
-    conf.linkPreview() && cme.push(wordHover);
+    conf.linkPreview() && cme.push(linkHoverPreview);
     conf.enableWordCount() && cme.push(wordCountExt());
     conf.lineNumbers() && cme.push(lineNumbers());
 
