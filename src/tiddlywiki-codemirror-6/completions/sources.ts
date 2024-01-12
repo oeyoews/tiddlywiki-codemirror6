@@ -74,7 +74,7 @@ function getAllEmojiSnippets() {
 
 function getAllUserSnippets() {
   const userSnippetTiddlers = $tw.wiki.filterTiddlers(
-    '[all[shadows+system+tiddlers]tag[$:/tags/TextEditor/Snippet]!has[draft.of]]'
+    '[all[shadows+tiddlers]tag[$:/tags/TextEditor/Snippet]] [all[shadows+tiddlers]tag[$:/tags/KaTeX/Snippet]] -[is[draft]]'
   );
 
   const source: ISource[] = userSnippetTiddlers.map((title) => {
