@@ -2,7 +2,7 @@ https://user-images.githubusercontent.com/72405338/294956491-948b791f-04e1-4447-
 
 <img alt="Dynamic JSON Badge" src="https://img.shields.io/badge/dynamic/json?url=https%3A%2F%2Fraw.githubusercontent.com%2Foeyoews%2Ftiddlywiki-codemirror6%2Fmain%2Fpackage.json&query=version&style=flat-square&logo=Codemirror&logoColor=white&label=codemirror&labelColor=black&color=black">
 
-
+> [!NOTE]
 > The basic branch will remove all unnecessary extensions and only support text/vnd.tiddlywiki, nearly doubling the size of the original plug-in, which is now about 560kb (although this is still twice the size of cm5). [link](./index.html)
 
 > basic 分支将 移除了所有不必要的扩展，仅仅支持 text/vnd.tiddlywiki, 将原有的插件缩小了将近一倍，现在是 560kb 左右 (虽然这仍然比 cm5 大了一倍)。[link](./index.html)
