@@ -1,3 +1,6 @@
+> [!IMPORTANT]
+> tiddlywiki-codemirror-6 插件进入维护状态，接下来主要修复 BUG, 提升插件的兼容性，整体上不会再进行大的改动 (2024-01-24). 如果你想要查看最小版本的 tiddlywiki-codemirror-6 插件，请查看 `basic` 分支。
+
 https://user-images.githubusercontent.com/72405338/294956491-948b791f-04e1-4447-a5d3-81ebb13619de.mp4
 
 <img alt="Dynamic JSON Badge" src="https://img.shields.io/badge/dynamic/json?url=https%3A%2F%2Fraw.githubusercontent.com%2Foeyoews%2Ftiddlywiki-codemirror6%2Fmain%2Fpackage.json&query=version&style=flat-square&logo=Codemirror&logoColor=white&label=codemirror&labelColor=black&color=black">
