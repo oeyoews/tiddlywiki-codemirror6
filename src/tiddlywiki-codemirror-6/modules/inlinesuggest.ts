@@ -5,6 +5,7 @@ import { completionStatus, selectedCompletion } from '@codemirror/autocomplete';
 import cmeConfig from '../cmeConfig';
 import { EditorView } from '@codemirror/view';
 
+// @see-also: https://github.com/ChromeDevTools/devtools-frontend/blob/main/front_end/ui/components/text_editor/config.ts#L370
 // TODO: inline suggestion is conflict for autocompletion
 export default function inlineSuggestionExt(self: {
   cme: Extension[];
