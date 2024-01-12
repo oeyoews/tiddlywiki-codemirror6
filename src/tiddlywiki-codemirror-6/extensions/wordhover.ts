@@ -12,7 +12,7 @@ export const wordHover: Extension = hoverTooltip(
 
     while (
       start > from &&
-      /[\w:$.\-/\s\u4e00-\u9fa5]/.test(text[start - from - 1])
+      /[\w:$.\-/\s\/\u4e00-\u9fa5]/.test(text[start - from - 1])
     ) {
       console.log(text[start - from - 1]);
       start--;
@@ -23,7 +23,7 @@ export const wordHover: Extension = hoverTooltip(
       return null;
     }
 
-    while (end < to && /[\w:$.\-/\s\u4e00-\u9fa5]/.test(text[end - from])) {
+    while (end < to && /[\w:$.\-\//\s\u4e00-\u9fa5]/.test(text[end - from])) {
       console.log(text[end - from]);
       end++;
     }
