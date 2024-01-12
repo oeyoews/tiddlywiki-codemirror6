@@ -1,7 +1,7 @@
-import cmeConfig from '../cmeConfig';
+import cmeConfig from '../../cmeConfig';
 import { autocompletion } from '@codemirror/autocomplete';
 
-// addToOption 可以生成一个节点，preview tiddler
+// @see-also https://codemirror.net/docs/ref/#autocomplete.CompletionSection
 export default () =>
   autocompletion({
     aboveCursor: false,
@@ -11,5 +11,9 @@ export default () =>
     icons: cmeConfig.autocompleteIcons(),
     closeOnBlur: cmeConfig.closeOnBlur(), // 焦点改变时关闭
     activateOnTyping: cmeConfig.activateOnTyping(), // 输入时是否显示补全框。
-    maxRenderedOptions: cmeConfig.maxRenderedOptions()
+    updateSyncTime: 100,
+    interactionDelay: 75,
+    // compareCompletions
+    maxRenderedOptions: cmeConfig.maxRenderedOptions(),
+    defaultKeymap: true
   });

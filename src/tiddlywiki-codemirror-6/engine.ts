@@ -16,7 +16,11 @@ import {
   closeSearchPanel
 } from '@codemirror/search';
 
-import { completionStatus } from '@codemirror/autocomplete';
+import {
+  completionStatus,
+  currentCompletions,
+  selectedCompletion
+} from '@codemirror/autocomplete';
 import { indentationMarkers } from '@replit/codemirror-indentation-markers';
 import { history, undo, redo } from '@codemirror/commands';
 
@@ -32,7 +36,7 @@ import {
 
 import tabSizePlugin from './utils/tab-size';
 import cmeConfig from './cmeConfig';
-import autocompletionConfig from './modules/autocompletion-config';
+import autocompletionConfig from './modules/config/autocomplete';
 import dynamicmode from './modules/mode';
 import removeOutlineExt from './extensions/removeOutlineExt';
 import { miniMapExt } from './extensions/miniMapExt';
@@ -42,6 +46,7 @@ import configExtensions from './modules/config/extensions';
 import { IOperation, IOperationType, operationTypes } from './operationTypes';
 import type { TW_Element } from 'tiddlywiki';
 import type { IWidget, IOptions } from './types';
+import inlineSuggestionExt from './modules/inlinesuggest';
 
 class CodeMirrorEngine {
   widget: IWidget;
@@ -74,6 +79,7 @@ class CodeMirrorEngine {
         hideFirstIndent: false,
         markerType: 'codeOnly'
       }),
+      // WIP
       dropCursor(),
       tabSizePlugin(),
       removeOutlineExt,
@@ -198,7 +204,8 @@ class CodeMirrorEngine {
       })
     ];
 
-    configExtensions(this.cme, this.widget);
+    inlineSuggestionExt(this.cm.state, this.cme);
+    configExtensions(this.cm.state, this.cme, this.widget);
     miniMapExt(this.cme);
     dynamicmode(options.type, this.cme);
 
