@@ -129,7 +129,7 @@ body {
 }
 
 .cm-tooltip {
-	border: none;
+	border: none !important;
 	background-color: <<colour-extend cm-tooltip-background>> !important;
 	color: <<colour-extend cm-tooltip-foreground>> !important;
 	font-size: {{$:/config/codemirror-6/fontsize}};
@@ -146,15 +146,15 @@ body {
 	color: <<colour-extend cm-tooltip-selected-foreground>> !important;
 }
 
-.cm-tooltip .cm-tooltip-arrow:before {
+<!-- .cm-tooltip .cm-tooltip-arrow:before {
 	border-top-color: transparent !important;
 	border-bottom-color: transparent !important;
-}
+} -->
 
-.cm-tooltip .cm-tooltip-arrow:after {
+<!-- .cm-tooltip .cm-tooltip-arrow:after {
 	border-top-color: <<colour-extend cm-tooltip-background>> !important;
 	border-bottom-color: <<colour-extend cm-tooltip-background>> !important;
-}
+} -->
 
 .cm-foldPlaceholder {
 	background-color: transparent !important;

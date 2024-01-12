@@ -9,33 +9,32 @@ export const wordHover: Extension = hoverTooltip(
     let { from, to, text } = view.state.doc.lineAt(pos);
     let start = pos;
     let end = pos;
+    const validLink = /[\w:$.\-\/\s\u4e00-\u9fa5]/;
 
-    while (
-      start > from &&
-      /[\w:$.\-/\s\/\u4e00-\u9fa5]/.test(text[start - from - 1])
-    ) {
-      console.log(text[start - from - 1]);
+    while (start > from && validLink.test(text[start - from - 1])) {
+      // console.log(text[start - from - 1]);
       start--;
     }
 
     if (text[start - from - 1] !== '[' && text[end - from + 1] !== ']') {
-      console.log('not a link');
+      // console.log('not a link');
       return null;
     }
 
-    while (end < to && /[\w:$.\-\//\s\u4e00-\u9fa5]/.test(text[end - from])) {
-      console.log(text[end - from]);
+    while (end < to && validLink.test(text[end - from])) {
+      // console.log(text[end - from]);
       end++;
     }
 
     if ((start == pos && side < 0) || (end == pos && side > 0)) return null;
 
     const title = text.slice(start - from, end - from);
-    console.log(title);
+    // console.log(title);
     if (!$tw.wiki.tiddlerExists(title)) return null;
     if (title.startsWith('$:/')) return null;
 
     let previewNode = document.createElement('div');
+    previewNode.className = 'cm-link-preview';
     try {
       if (!$tw.wiki.getTiddlerText(title)) {
         previewNode.textContent = 'Nothing ...';
@@ -46,7 +45,6 @@ export const wordHover: Extension = hoverTooltip(
       previewNode.addEventListener('click', () => {
         new $tw.Story().navigateTiddler(title);
       });
-      previewNode.className = 'cm-link-preview';
     } catch (e) {
       return null;
     }
@@ -54,6 +52,8 @@ export const wordHover: Extension = hoverTooltip(
     return {
       pos: start,
       end,
+      strictSide: true,
+      // arrow: true,
       above: true,
       create(view: EditorView) {
         return { dom: previewNode };
@@ -61,22 +61,26 @@ export const wordHover: Extension = hoverTooltip(
     };
   },
   {
-    hideOnChange: false, // 'touch' option seems not work
+    hideOnChange: true, // 'touch' option seems not work
     hoverTime: 300
   }
 );
 
-// 最外层有个 wrapper, 无法修改
 const linkpreviewStyle = EditorView.baseTheme({
   '.cm-link-preview': {
-    border: '1px dash gray',
     boxShadow: '0 4px 6px rgba(0, 0, 0, 0.1), 0 1px 3px rgba(0, 0, 0, 0.08)',
     cursor: 'pointer',
     overflow: 'auto',
-    // width: '300px',
     maxWidth: '400px',
     maxHeight: '400px',
-    padding: '8px'
+    padding: '8px',
+    borderRadius: '8px'
+  },
+  '& .cm-link-preview:before': {
+    borderTopColor: '#66b'
+  },
+  '& .cm-link-preview:after': {
+    borderTopColor: 'transparent'
   }
 });
 
