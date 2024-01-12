@@ -37,8 +37,12 @@ export const wordHover: Extension = hoverTooltip(
 
     let previewNode = document.createElement('div');
     try {
-      const innerHTML = $tw.wiki.renderTiddler('text/html', title);
-      previewNode.innerHTML = innerHTML;
+      if (!$tw.wiki.getTiddlerText(title)) {
+        previewNode.textContent = 'Nothing ...';
+      } else {
+        const innerHTML = $tw.wiki.renderTiddler('text/html', title);
+        previewNode.innerHTML = innerHTML;
+      }
       previewNode.addEventListener('click', () => {
         new $tw.Story().navigateTiddler(title);
       });
@@ -70,8 +74,8 @@ const linkpreviewStyle = EditorView.baseTheme({
     cursor: 'pointer',
     overflow: 'auto',
     // width: '300px',
-    maxWidth: '600px',
-    maxheight: '200px',
+    maxWidth: '400px',
+    maxHeight: '400px',
     padding: '8px'
   }
 });
