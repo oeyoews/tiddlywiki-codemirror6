@@ -17,7 +17,8 @@ function countWords(doc: Text) {
     }
   }
 
-  return `单词数量：${count} (字符数：${doc.length})`;
+  // TODO: check user language
+  return `Words：${count} (Chars：${doc.length})`;
 }
 
 function charCountPanel(view: EditorView): Panel {
