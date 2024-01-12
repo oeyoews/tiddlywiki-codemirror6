@@ -10,20 +10,30 @@ export const wordHover: Extension = hoverTooltip(
     let start = pos;
     let end = pos;
 
-    while (start > from && /\w/.test(text[start - from - 1])) {
+    while (
+      start > from &&
+      /[\w:$.\-/\s\u4e00-\u9fa5]/.test(text[start - from - 1])
+    ) {
+      console.log(text[start - from - 1]);
       start--;
     }
 
-    if (text[start - 2] !== '[') return null; // cm6 是从 1 开始计算的
+    if (text[start - from - 1] !== '[' && text[end - from + 1] !== ']') {
+      console.log('not a link');
+      return null;
+    }
 
-    while (end < to && /\w/.test(text[end - from])) {
+    while (end < to && /[\w:$.\-/\s\u4e00-\u9fa5]/.test(text[end - from])) {
+      console.log(text[end - from]);
       end++;
     }
 
     if ((start == pos && side < 0) || (end == pos && side > 0)) return null;
 
     const title = text.slice(start - from, end - from);
+    console.log(title);
     if (!$tw.wiki.tiddlerExists(title)) return null;
+    if (title.startsWith('$:/')) return null;
 
     let previewNode = document.createElement('div');
     try {
@@ -59,7 +69,8 @@ const linkpreviewStyle = EditorView.baseTheme({
     boxShadow: '0 4px 6px rgba(0, 0, 0, 0.1), 0 1px 3px rgba(0, 0, 0, 0.08)',
     cursor: 'pointer',
     overflow: 'auto',
-    width: '600px',
+    // width: '300px',
+    maxWidth: '600px',
     maxheight: '200px',
     padding: '8px'
   }
