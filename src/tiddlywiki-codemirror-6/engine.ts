@@ -16,11 +16,7 @@ import {
   closeSearchPanel
 } from '@codemirror/search';
 
-import {
-  completionStatus,
-  currentCompletions,
-  selectedCompletion
-} from '@codemirror/autocomplete';
+import { completionStatus } from '@codemirror/autocomplete';
 import { indentationMarkers } from '@replit/codemirror-indentation-markers';
 import { history, undo, redo } from '@codemirror/commands';
 
@@ -54,7 +50,7 @@ class CodeMirrorEngine {
   domNode: TW_Element;
   parentNode: Node;
   nextSibling: Node;
-  private cm: EditorView = new EditorView();
+  private cm: EditorView;
   private state: EditorState;
   private dragCancel: boolean = false;
 
@@ -204,8 +200,8 @@ class CodeMirrorEngine {
       })
     ];
 
-    inlineSuggestionExt(this.cm.state, this.cme);
-    configExtensions(this.cm.state, this.cme, this.widget);
+    inlineSuggestionExt(this as any);
+    configExtensions(this.cme, this.widget);
     miniMapExt(this.cme);
     dynamicmode(options.type, this.cme);
 

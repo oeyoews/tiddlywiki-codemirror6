@@ -25,11 +25,7 @@ import { type IWidget } from 'src/tiddlywiki-codemirror-6/types';
 import { cmkeymaps } from '../keymap';
 import { linkHoverPreview } from 'src/tiddlywiki-codemirror-6/extensions/wordhover';
 
-export default function configExtensions(
-  state: EditorState,
-  cme: Extension[],
-  widget: IWidget
-) {
+export default function configExtensions(cme: Extension[], widget: IWidget) {
   const fields = $tw.wiki.getTiddler($tw.wiki.getTiddlerText('$:/palette')!)
     ?.fields;
   const darkMode = fields?.['color-scheme'] === 'dark';

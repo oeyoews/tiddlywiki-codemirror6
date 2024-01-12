@@ -1,24 +1,30 @@
-import { EditorState, Extension, Prec } from '@codemirror/state';
+import { Extension } from '@codemirror/state';
 import { inlineSuggestion } from 'codemirror-extension-inline-suggestion';
 
 import { completionStatus, selectedCompletion } from '@codemirror/autocomplete';
 import cmeConfig from '../cmeConfig';
+import { EditorView } from '@codemirror/view';
 
 // TODO: inline suggestion is conflict for autocompletion
-export default function inlineSuggestionExt(
-  state: EditorState,
-  cme: Extension[]
-) {
+export default function inlineSuggestionExt(self: {
+  cme: Extension[];
+  cm: EditorView;
+}) {
   // TODO: how to refresh
+  // status wrong
   const fetchSuggestion = () => {
-    if (completionStatus(state) === 'active') {
-      return selectedCompletion(state)?.label;
+    const state = self.cm.state;
+    const status = completionStatus(state) === 'active';
+    if (!status) {
+      return;
     }
-    return ' hhh';
+
+    // TODO: 需要细化逻辑
+    return selectedCompletion(state)?.label;
   };
 
   if (cmeConfig.inlineSuggestion()) {
-    cme.push(
+    self.cme.push(
       inlineSuggestion({
         // @ts-expect-error
         fetchFn: fetchSuggestion,
