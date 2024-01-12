@@ -45,10 +45,10 @@ export default function configExtensions(cme: Extension[], widget: IWidget) {
     conf.enableWordCount() && cme.push(wordCountExt());
     conf.lineNumbers() && cme.push(lineNumbers());
 
-    if (conf.vimmode()) {
-      setVimKeymap(widget);
-      cme.push(Prec.high(vim())); // 不支持 new Comparement
-    }
+    // if (conf.vimmode()) {
+    //   setVimKeymap(widget);
+    //   cme.push(Prec.high(vim())); // 不支持 new Comparement
+    // }
     cme.push(keymap.of([...defaultKeymap]));
 
     conf.lineNumbers() && conf.foldGutter() && cme.push(foldGutter());

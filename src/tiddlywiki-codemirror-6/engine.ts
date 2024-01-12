@@ -202,7 +202,7 @@ class CodeMirrorEngine {
     ];
 
     configExtensions(this.cme, this.widget);
-    miniMapExt(this.cme); // add minimap
+    // miniMapExt(this.cme); // add minimap
     dynamicmode(options.type, this.cme); // update extensions
 
     this.state = EditorState.create({

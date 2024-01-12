@@ -35,76 +35,77 @@ const dynamicmode = (mode: string, cme: Extension[]) => {
         autocomplete: completions
       });
 
-      cmeConfig.clickable() && cme.push(linkExt, tidExt, imgExt);
+      // cmeConfig.clickable() && cme.push(linkExt, tidExt, imgExt);
       cme.push(Prec.high(actionCompletions));
       break;
-    case 'text/markdown':
-    case 'text/x-markdown':
-      // NOTE: 目前 tiddlywikiLanguage 还没有完成，所以目前仅仅支持 markdown 代码块
-      cme.push(
-        markdown({
-          base: markdownLanguage,
-          completeHTMLTags: true,
-          // defaultCodeLanguage: markdownLanguage,
-          // defaultCodeLanguage: cmeConfig.enableMarkdownJsHighlight()
-          //   ? javascriptLanguage : '', // 默认为 js
-          // NOTE: use language-data's languages 高亮 markdown 代码，但是插件大小会增加 1M, 这里仅仅加上常用的高亮
-          // codeLanguages: languages
-          // @ts-expect-error
-          codeLanguages: (info) => {
-            switch (info) {
-              case 'javascript':
-              case 'js':
-                return javascriptLanguage;
-              case 'css':
-                return cssLanguage;
-              case 'html':
-                return htmlLanguage;
-              case 'json':
-                return jsonLanguage;
-              case 'markdown':
-              case 'md':
-                return markdownLanguage;
-              case 'tiddlywiki':
-              case 'tw':
-              case 'wiki':
-                return tiddlywikiLanguage;
-              default:
-            }
-          }
-        })
-      );
+    // case 'text/markdown':
+    // case 'text/x-markdown':
+    //   // NOTE: 目前 tiddlywikiLanguage 还没有完成，所以目前仅仅支持 markdown 代码块
+    //   cme.push(
+    //     markdown({
+    //       base: markdownLanguage,
+    //       completeHTMLTags: true,
+    //       // defaultCodeLanguage: markdownLanguage,
+    //       // defaultCodeLanguage: cmeConfig.enableMarkdownJsHighlight()
+    //       //   ? javascriptLanguage : '', // 默认为 js
+    //       // NOTE: use language-data's languages 高亮 markdown 代码，但是插件大小会增加 1M, 这里仅仅加上常用的高亮
+    //       // codeLanguages: languages
+    //       // @ts-expect-error
+    //       codeLanguages: (info) => {
+    //         switch (info) {
+    //           // case 'javascript':
+    //           // case 'js':
+    //           //   return javascriptLanguage;
+    //           // case 'css':
+    //           //   return cssLanguage;
+    //           // case 'html':
+    //           //   return htmlLanguage;
+    //           // case 'json':
+    //           //   return jsonLanguage;
+    //           case 'markdown':
+    //           case 'md':
+    //             return markdownLanguage;
+    //           case 'tiddlywiki':
+    //           case 'tw':
+    //           case 'wiki':
+    //             return tiddlywikiLanguage;
+    //           default:
+    //         }
+    //       }
+    //     })
+    //   );
 
-      actionCompletions = markdownLanguage.data.of({
-        autocomplete: completions
-      });
+    //   actionCompletions = markdownLanguage.data.of({
+    //     autocomplete: completions
+    //   });
 
-      cmeConfig.clickable() && cme.push(linkExt, tidExt, imgExt);
-      cme.push(Prec.high(actionCompletions));
-      cme.push(Prec.high(keymap.of(markdownKeymap)));
-      break;
-    case 'text/html':
-      cme.push(html({ selfClosingTags: true }));
-      actionCompletions = htmlLanguage.data.of({});
-      cme.push(Prec.high(actionCompletions));
-      break;
+    //   cmeConfig.clickable() && cme.push(linkExt, tidExt, imgExt);
+    //   cme.push(Prec.high(actionCompletions));
+    //   cme.push(Prec.high(keymap.of(markdownKeymap)));
+    //   break;
+    // case 'text/html':
+    //   cme.push(html({ selfClosingTags: true }));
+    //   actionCompletions = htmlLanguage.data.of({});
+    //   cme.push(Prec.high(actionCompletions));
+    //   break;
 
-    case 'application/javascript':
-      cme.push(javascript());
-      actionCompletions = javascriptLanguage.data.of({});
-      cme.push(Prec.high(actionCompletions));
-      break;
-    case 'application/json':
-      cme.push(json());
-      actionCompletions = jsonLanguage.data.of({});
-      cme.push(Prec.high(actionCompletions));
-      break;
-    case 'text/css':
-      cme.push(css());
-      actionCompletions = cssLanguage.data.of({});
-      cme.push(Prec.high(actionCompletions), color);
-      break;
+    // case 'application/javascript':
+    //   cme.push(javascript());
+    //   actionCompletions = javascriptLanguage.data.of({});
+    //   cme.push(Prec.high(actionCompletions));
+    //   break;
+    // case 'application/json':
+    //   cme.push(json());
+    //   actionCompletions = jsonLanguage.data.of({});
+    //   cme.push(Prec.high(actionCompletions));
+    //   break;
+    // case 'text/css':
+    //   cme.push(css());
+    //   actionCompletions = cssLanguage.data.of({});
+    //   // cme.push(Prec.high(actionCompletions), color);
+    //   break;
     default:
+      break;
   }
 };
 
