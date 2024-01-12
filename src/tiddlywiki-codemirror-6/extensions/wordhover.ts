@@ -72,7 +72,8 @@ const linkpreviewStyle = EditorView.baseTheme({
     maxWidth: '400px',
     maxHeight: '400px',
     padding: '6px',
-    borderRadius: '8px'
+    borderRadius: '8px',
+    zIndex: '1001 !important' // not work
   },
   '.cm-tooltip': {
     border: 'none !important'

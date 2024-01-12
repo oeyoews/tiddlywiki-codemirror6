@@ -36,8 +36,6 @@ export default function inlineSuggestionExt(self: {
       return;
     }
 
-    console.log(lastWord);
-
     const status = completionStatus(state) === 'active';
     if (!status) {
       return;

@@ -13,7 +13,8 @@ body {
 	left: 0;
 	height: 100vh;
 	width: 100vw;
-	z-index: 1000;
+	<!-- z-index: 1000; -->
+	z-index: 1;
 }
 
 .tc-tiddler-edit-frame[data-tiddler-title="$(cssEscapedTitle)$"] .tc-dropzone-editor {
@@ -476,12 +477,14 @@ color: #495057;
 	border: none !important;
 	box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1), 0 1px 3px rgba(0, 0, 0, 0.08);
 	padding-top: 4px;
+	z-index: 10001 !important;
 	<!-- margin: 4px; -->
 }
 
 .cm-autocomplete-option {
 	border-radius: 4px !important;
 	margin: 2px 4px;
+	z-index: 10001 !important;
 }
 
 <!-- .cm-autocomplete-option:hover { } -->
@@ -491,6 +494,7 @@ color: #495057;
 	box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1), 0 1px 3px rgba(0, 0, 0, 0.08);
 	border-radius: 4px;
 	margin-left: 2px;
+	z-index: 10001 !important;
 }
 
 <!-- 有个max-width 400.xxxpx -->
@@ -500,6 +504,7 @@ color: #495057;
 	max-height: 300px;
 	border-radius: 4px !important;
 	padding-right: 8px;
+	z-index: 10001;
 }
 
 <!-- https://github.com/Jermolene/TiddlyWiki5/pull/7787 -->
