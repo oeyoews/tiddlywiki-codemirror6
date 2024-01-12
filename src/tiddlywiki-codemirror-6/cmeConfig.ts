@@ -5,7 +5,7 @@ function isNumeric(str: string) {
 }
 
 // https://github.com/Jermolene/TiddlyWiki5/blob/master/plugins/tiddlywiki/codemirror/engine.js
-// cm5 是手动加了一个 type，判断类型
+// cm5 plugin use config's type field
 function getConfig(title: string) {
   const config = $tw.wiki.getTiddlerText(baseTitle + title)?.trim();
   if (config === 'yes') {

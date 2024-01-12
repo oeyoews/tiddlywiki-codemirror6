@@ -60,14 +60,13 @@ class CodeMirrorEngine {
     this.parentNode = options.parentNode;
     this.nextSibling = options.nextSibling;
 
-    // Must use this.widget.document.createElement('div'), try catch works ???
-    this.domNode = this.widget.document.createElement('div'); // Create the wrapper DIV
+    this.domNode = this.widget.document.createElement('div');
 
     // modunt to tiddlywiki editor widget
-    this.parentNode.insertBefore(this.domNode, this.nextSibling); // mount
+    this.parentNode.insertBefore(this.domNode, this.nextSibling);
     this.widget.domNodes.push(this.domNode);
 
-    this.domNode.className = this.widget.editClass || ''; // style
+    this.domNode.className = this.widget.editClass || '';
     this.domNode.style.display = 'inline-block';
 
     this.cme = [
@@ -81,7 +80,7 @@ class CodeMirrorEngine {
       removeOutlineExt,
       fontSizeExt(),
       indentUnit.of('	'),
-      // EditorState.readOnly.of(true),
+      // EditorState.readOnly.of(true), // lastest vim-mode extension has fix that bug
 
       Prec.high(
         EditorView.domEventHandlers({
@@ -162,7 +161,7 @@ class CodeMirrorEngine {
       tooltips({
         parent: this.domNode.ownerDocument?.body // preview render bug: Cannot set property parentNode of #<Node> which has only a getter
       }),
-      highlightSpecialChars(), // TODO: 可以高亮 link
+      highlightSpecialChars(),
       history(),
       drawSelection({
         cursorBlinkRate: cmeConfig.cursorBlinkRate()
