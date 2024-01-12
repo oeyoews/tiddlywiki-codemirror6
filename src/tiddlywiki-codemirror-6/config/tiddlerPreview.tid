@@ -1,0 +1,6 @@
+title: $:/config/codemirror-6/tiddlerPreview
+caption: tiddler preview
+description: tiddler preview
+settings-template: $:/plugins/oeyoews/tiddlywiki-codemirror-6/ui/templates/settings/input-switch
+
+no

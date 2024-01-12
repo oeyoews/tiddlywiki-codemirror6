@@ -114,7 +114,7 @@ function getAllUserSnippets() {
       label: conf.delimiter() + (info.caption || info.title),
       displayLabel: info.caption || info.title,
       type: 'cm-snippet', // class: cm-completionIcon-cm-snippets
-      info: info.desc || info.text,
+      info: conf.snippetPreview() ? info.desc || info.text : '',
       section: 'Snippets'
       // section: () =>
       //   ({
@@ -194,6 +194,7 @@ function getAllTiddlers(delimiters = delimiter.link) {
         section: 'Tiddlers',
         // NOTE: TypeError: Cannot set property parentNode of #<Node> which has only a getter, 部分 widget 使用到$tw 的 fakedom api, 会导致报错。
         info: () => {
+          if (!conf.tiddlerPreview()) return;
           if (!$tw.wiki.getTiddlerText(title)) {
             const titleNode = document.createElement('h2');
             titleNode.innerHTML = title;

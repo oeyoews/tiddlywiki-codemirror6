@@ -1,0 +1,6 @@
+title: $:/config/codemirror-6/snippetPreview
+caption: preview snippet code
+description: preview snippet code
+settings-template: $:/plugins/oeyoews/tiddlywiki-codemirror-6/ui/templates/settings/input-switch
+
+no
