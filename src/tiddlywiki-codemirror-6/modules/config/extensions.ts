@@ -3,11 +3,7 @@ import setVimKeymap from 'src/tiddlywiki-codemirror-6/utils/vimrc.js';
 import { EditorState, Extension, Prec } from '@codemirror/state';
 import { githubLight } from '@uiw/codemirror-theme-github';
 
-import {
-  completeAnyWord,
-  closeBrackets
-  // completionKeymap
-} from '@codemirror/autocomplete';
+import { completeAnyWord, closeBrackets } from '@codemirror/autocomplete';
 
 import { defaultKeymap, indentWithTab } from '@codemirror/commands';
 
@@ -28,18 +24,15 @@ import { wordCountExt } from 'src/tiddlywiki-codemirror-6/extensions/wordCountEx
 import { type IWidget } from 'src/tiddlywiki-codemirror-6/types';
 import { cmkeymaps } from '../keymap';
 import { linkHoverPreview } from 'src/tiddlywiki-codemirror-6/extensions/wordhover';
-import { cursorTooltip } from 'src/tiddlywiki-codemirror-6/extensions/cursorPositionExt';
 
 export default function configExtensions(cme: Extension[], widget: IWidget) {
   const fields = $tw.wiki.getTiddler($tw.wiki.getTiddlerText('$:/palette')!)
     ?.fields;
   const darkMode = fields?.['color-scheme'] === 'dark';
 
-  // cme.push(cursorTooltip());
   (conf.enableOneDarkTheme() && darkMode && cme.push(oneDark)) ||
     cme.push(githubLight);
 
-  // DEBUG
   if (widget?.editTitle?.startsWith('Draft of ')) {
     conf.linkPreview() && cme.push(linkHoverPreview);
     conf.enableWordCount() && cme.push(wordCountExt());
@@ -47,7 +40,7 @@ export default function configExtensions(cme: Extension[], widget: IWidget) {
 
     if (conf.vimmode()) {
       setVimKeymap(widget);
-      cme.push(Prec.high(vim())); // 不支持 new Comparement
+      cme.push(Prec.high(vim())); // NOTE: not support new Comparement usage
     }
     cme.push(keymap.of([...defaultKeymap]));
 
@@ -66,7 +59,7 @@ export default function configExtensions(cme: Extension[], widget: IWidget) {
       );
   }
 
-  // 优先级问题：最后放的 indent tab 优先级较低，需要使用 prec 提升
+  // NOTE: 优先级问题：最后放的 indent tab 优先级较低，需要使用 prec 提升
   cme.push(Prec.high(cmkeymaps));
 
   if (conf.indentWithTab()) {

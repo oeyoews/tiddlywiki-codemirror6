@@ -6,7 +6,7 @@ import {
 import delimiter from '../utils/triggerType';
 import conf from '../cmeConfig';
 import type { ISource } from '../types';
-// import { CompletionSection } from '@codemirror/autocomplete';
+import { menu } from '../modules/config/menu';
 
 // TODO: add /settings to jump setup tiddler
 // 如果不对 label 进行特殊处理，就要处理光标位置，自定义 app function, 灵活性较差 https://github.com/BurningTreeC/tiddlywiki-codemirror-6/blob/6ed53e8624b12cf2c09187f4f5fdcdd5960889c3/plugins/tiddlywiki-codemirror-6/engine.js#L327-L346C3
@@ -21,7 +21,7 @@ function getImageSnippets() {
         label: `[img[${title}`,
         displayLabel: title,
         type: 'cm-image',
-        section: 'Images',
+        section: menu.images,
         info: () => {
           const imagePreview = document.createElement('div');
           imagePreview.className = 'cm-image-preview';
@@ -67,7 +67,7 @@ function getAllEmojiSnippets() {
         displayLabel: item.text,
         detail: item.title,
         type: 'cm-emoji',
-        section: 'Emojis'
+        section: menu.emojis
       }) as Completion
   );
 }
@@ -115,19 +115,13 @@ function getAllUserSnippets() {
       displayLabel: info.caption || info.title,
       type: 'cm-snippet', // class: cm-completionIcon-cm-snippets
       info: conf.snippetPreview() ? info.desc || info.text : '',
-      section: 'Snippets'
-      // section: () =>
-      //   ({
-      //     name: 'Snippets',
-      //     header: () => document.createElement('h2').textxxxx
-      //   }) as CompletionSection
+      section: menu.snippets
     })
   );
 }
 
 function getAllWidgetSnippets() {
-  // $tw.modules.types 获取不到 widget name, 除非根据文件名
-  const modules = $tw.modules.titles;
+  const modules = $tw.modules.titles; // $tw.modules.types 获取不到 widget name, 除非根据文件名
   if (!modules) return [];
   const allwidgets = Object.entries(modules)
     .filter(
@@ -146,7 +140,7 @@ function getAllWidgetSnippets() {
       label: delimiter.widget + widget,
       displayLabel: widget,
       type: 'cm-widget',
-      section: 'Widgets' // 分组，类似 selection option group
+      section: menu.widgets
     } as Completion)
   );
 }
@@ -172,7 +166,7 @@ function getAllMacros() {
       displayLabel: name,
       type: 'cm-macro',
       info: paramList,
-      section: 'Macros'
+      section: menu.macros
     });
   });
 }

@@ -38,7 +38,7 @@ import removeOutlineExt from './extensions/removeOutlineExt';
 import { miniMapExt } from './extensions/miniMapExt';
 import rainbowBrackets from './extensions/rainbowBrackets';
 import fontSizeExt from './extensions/fontSizeExt';
-import configExtensions from './modules/config/index';
+import configExtensions from './modules/config/extensions';
 import { IOperation, IOperationType, operationTypes } from './operationTypes';
 import type { TW_Element } from 'tiddlywiki';
 import type { IWidget, IOptions } from './types';
@@ -62,7 +62,6 @@ class CodeMirrorEngine {
 
     this.domNode = this.widget.document.createElement('div');
 
-    // modunt to tiddlywiki editor widget
     this.parentNode.insertBefore(this.domNode, this.nextSibling);
     this.widget.domNodes.push(this.domNode);
 
@@ -80,7 +79,7 @@ class CodeMirrorEngine {
       removeOutlineExt,
       fontSizeExt(),
       indentUnit.of('	'),
-      // EditorState.readOnly.of(true), // lastest vim-mode extension has fix that bug
+      // EditorState.readOnly.of(true), // NOTE: lastest vim-mode extension has fix that bug
 
       Prec.high(
         EditorView.domEventHandlers({
@@ -132,14 +131,12 @@ class CodeMirrorEngine {
             }
             return false;
           },
-          paste(event) {
+          paste(event: any) {
             if (self.widget.isFileDropEnabled) {
-              // @ts-ignore
-              event['twEditor'] = true;
+              event.twEditor = true;
               return self.widget.handlePasteEvent.call(self.widget, event);
             } else {
-              // @ts-ignore
-              event['twEditor'] = true;
+              event.twEditor = true;
             }
             return false;
           },
@@ -159,7 +156,7 @@ class CodeMirrorEngine {
         })
       ),
       tooltips({
-        parent: this.domNode.ownerDocument?.body // preview render bug: Cannot set property parentNode of #<Node> which has only a getter
+        parent: this.domNode.ownerDocument?.body // NOTE: preview render bug: Cannot set property parentNode of #<Node> which has only a getter
       }),
       highlightSpecialChars(),
       history(),
@@ -174,7 +171,7 @@ class CodeMirrorEngine {
       crosshairCursor(),
       highlightSelectionMatches(),
       rainbowBrackets(),
-      EditorView.lineWrapping, // enable line wrap
+      EditorView.lineWrapping,
       EditorView.contentAttributes.of({
         tabindex: this.widget.editTabIndex ? this.widget.editTabIndex : ''
       }),
@@ -202,17 +199,17 @@ class CodeMirrorEngine {
     ];
 
     configExtensions(this.cme, this.widget);
-    miniMapExt(this.cme); // add minimap
-    dynamicmode(options.type, this.cme); // update extensions
+    miniMapExt(this.cme);
+    dynamicmode(options.type, this.cme);
 
     this.state = EditorState.create({
       doc: options.value,
       extensions: this.cme
     });
 
-    // entry
+    // create a codemirror6 instance
     this.cm = new EditorView({
-      parent: this.domNode, // editor mount
+      parent: this.domNode,
       state: this.state
     });
   }
@@ -299,16 +296,14 @@ class CodeMirrorEngine {
     return this.widget.handleKeydownEvent.call(this.widget, e);
   }
 
-  /*
-  Set the text of the engine if it doesn't currently have focus
-  */
+  /** @description Set the text of the engine if it doesn't currently have focus */
   setText(text: string) {
     if (!this.cm.hasFocus) {
       this.updateDomNodeText(text);
     }
   }
 
-  /* Update the DomNode with the new text */
+  /** @description Update the DomNode with the new text */
   updateDomNodeText(text: string) {
     const selections = this.cm.state.selection;
     this.cm.dispatch(
@@ -325,7 +320,7 @@ class CodeMirrorEngine {
     );
   }
 
-  /* Get the text of the engine */
+  /** @description Get the text of the engine */
   getText() {
     return this.cm.state.doc.toString();
   }
@@ -340,7 +335,7 @@ class CodeMirrorEngine {
     this.cm.focus();
   }
 
-  /* Create a blank structure representing a text operation */
+  /** @description Create a blank structure representing a text operation */
   createTextOperation(type: IOperationType) {
     const selections = this.cm.state.selection.ranges;
     let operations;
