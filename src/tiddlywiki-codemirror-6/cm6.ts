@@ -185,14 +185,14 @@ export const tiddlers = {
   }
 };
 
-type IOptions = keyof typeof tiddlers;
+type IConfigOptions = keyof typeof tiddlers;
 
-type IConfig = Record<IOptions, () => any>;
+type IConfig = Record<IConfigOptions, () => any>;
 
 const cm6 = {} as IConfig;
-const options = Object.keys(tiddlers) as IOptions[];
+const options = Object.keys(tiddlers) as IConfigOptions[];
 
-options.forEach((key: IOptions) => {
+options.forEach((key: IConfigOptions) => {
   cm6[key] = () => getConfig(key) as any;
 });
 
