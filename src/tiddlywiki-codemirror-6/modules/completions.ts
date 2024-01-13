@@ -1,8 +1,4 @@
-import {
-  // insertCompletionText,
-  // Completion,
-  CompletionContext
-} from '@codemirror/autocomplete';
+import { CompletionContext } from '@codemirror/autocomplete';
 import cmeConfig from '../cmeConfig';
 import triggerType from '../utils/triggerType';
 import sources from '../completions/sources';

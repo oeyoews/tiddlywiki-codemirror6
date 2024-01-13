@@ -55,6 +55,7 @@ const dynamicmode = (mode: string, cme: Extension[]) => {
             switch (info) {
               case 'javascript':
               case 'js':
+              case 'ts':
                 return javascriptLanguage;
               case 'css':
                 return cssLanguage;
