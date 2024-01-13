@@ -1,6 +1,5 @@
 title: $:/config/codemirror-6/closeOnBlur
-caption: automatic close popup onblur
-description: 自动关闭补全框
+caption: {{$:/language/codemirror6/closeOnBlur/caption}}
 settings-template: $:/plugins/oeyoews/tiddlywiki-codemirror-6/ui/templates/settings/input-switch
 
 yes

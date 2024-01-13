@@ -1,0 +1,5 @@
+title: $:/language/codemirror6/
+
+activateOnTyping/caption: show completion
+inlineSuggestion/caption: inline suggestion(experimental)
+closeOnBlur/caption: automatic close popup onblur
