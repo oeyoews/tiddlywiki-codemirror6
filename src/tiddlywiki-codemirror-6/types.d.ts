@@ -24,6 +24,7 @@ export interface IOptions {
 }
 
 export type ISource = {
+  vanillaTitle?: string;
   title: string;
   text: string;
   desc?: string;

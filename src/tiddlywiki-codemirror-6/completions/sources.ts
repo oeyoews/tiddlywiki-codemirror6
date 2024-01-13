@@ -7,6 +7,7 @@ import delimiter from '../utils/triggerType';
 import conf from '../cmeConfig';
 import type { ISource } from '../types';
 import { menu } from '../modules/config/menu';
+import { renderTid } from '../utils/renderTiddler';
 
 // TODO: add /settings to jump setup tiddler
 // 如果不对 label 进行特殊处理，就要处理光标位置，自定义 app function, 灵活性较差 https://github.com/BurningTreeC/tiddlywiki-codemirror-6/blob/6ed53e8624b12cf2c09187f4f5fdcdd5960889c3/plugins/tiddlywiki-codemirror-6/engine.js#L327-L346C3
@@ -81,6 +82,7 @@ function getAllUserSnippets() {
     const { caption, text = '' } = $tw.wiki.getTiddler(title)?.fields!;
 
     return {
+      vanillaTitle: title,
       title: title.split('/').pop()!,
       text: text.trim(),
       caption: (caption || title) as ISource['caption']
@@ -105,7 +107,7 @@ function getAllUserSnippets() {
     }
   }
 
-  // 加载内置代码片段
+  // load builtin snippets
   source.push(...usersnippets);
   const filteredSource = source.filter((item) => item.title && item.text);
 
@@ -113,8 +115,8 @@ function getAllUserSnippets() {
     snip(info.text, {
       label: conf.delimiter() + (info.caption || info.title),
       displayLabel: info.caption || info.title,
-      type: 'cm-snippet', // class: cm-completionIcon-cm-snippets
-      info: conf.snippetPreview() ? info.desc || info.text : '',
+      type: 'cm-snippet', // real added class is cm-completionIcon-cm-snippets
+      info: conf.snippetPreview() ? () => renderTid(info.vanillaTitle) : '',
       section: menu.snippets
     })
   );
@@ -136,7 +138,7 @@ function getAllWidgetSnippets() {
   // https://github.com/codemirror/website/tree/master/site/examples/autocompletion
   // https://codemirror.net/docs/ref/#autocomplete
   return allwidgets.map((widget) =>
-    snip(delimiter.widget + `${widget} \$\{0\}/>\$\{1\}`, {
+    snip(delimiter.widget + widget + ' ' + '#{0}/>#{1}', {
       label: delimiter.widget + widget,
       displayLabel: widget,
       type: 'cm-widget',
@@ -187,25 +189,7 @@ function getAllTiddlers(delimiters = delimiter.link) {
         type: 'cm-tiddler',
         section: 'Tiddlers',
         // NOTE: TypeError: Cannot set property parentNode of #<Node> which has only a getter, 部分 widget 使用到$tw 的 fakedom api, 会导致报错。
-        info: () => {
-          if (!conf.tiddlerPreview()) return;
-          if (!$tw.wiki.getTiddlerText(title)) {
-            const titleNode = document.createElement('h2');
-            titleNode.innerHTML = title;
-            return titleNode;
-          }
-          // NOTE: 如果需要解析为 inline 的话，会导致 !! 这种 wikitext 的语法 parse 错误
-          let previewHTML = '暂不支持预览';
-          const preview = document.createElement('div');
-          try {
-            previewHTML = $tw.wiki.renderTiddler('text/html', title, {
-              // parseAsInline: false
-            });
-            preview.className = 'cm-image-preview';
-          } catch (e) {}
-          preview.innerHTML = previewHTML;
-          return preview;
-        }
+        info: () => renderTid(title)
       }) as Completion
   );
 }

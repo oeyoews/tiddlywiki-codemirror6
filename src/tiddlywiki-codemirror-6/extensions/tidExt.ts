@@ -45,6 +45,7 @@ const customLinkDecorator = new MatchDecorator({
   decorate: (add, from, to, match, view) => {
     const title = match[1] || match[2];
     // NOTE: 不会检查 system tiddler.
+    // TODO: use gettiddlertext instead of tiddlerexist
 
     if (!$tw.wiki.tiddlerExists(title)) return;
     const start = to;

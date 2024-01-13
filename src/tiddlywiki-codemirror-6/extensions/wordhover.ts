@@ -10,24 +10,20 @@ export const wordHover: Extension = hoverTooltip(
     const validLink = /[\w:$.\-\/\s\u4e00-\u9fa5]/;
 
     while (start > from && validLink.test(text[start - from - 1])) {
-      // console.log(text[start - from - 1]);
       start--;
     }
 
     if (text[start - from - 1] !== '[' && text[end - from + 1] !== ']') {
-      // console.log('not a link');
       return null;
     }
 
     while (end < to && validLink.test(text[end - from])) {
-      // console.log(text[end - from]);
       end++;
     }
 
     if ((start == pos && side < 0) || (end == pos && side > 0)) return null;
 
     const title = text.slice(start - from, end - from);
-    // console.log(title);
     if (!$tw.wiki.tiddlerExists(title)) return null;
     if (title.startsWith('$:/')) return null;
 
