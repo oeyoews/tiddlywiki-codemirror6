@@ -6,7 +6,7 @@ import { menu } from 'src/tiddlywiki-codemirror-6/modules/config/menu';
 
 export function getAllTiddlers(delimiters = delimiter.link) {
   const systemFilter =
-    '[all[tiddlers+shadows]!has[draft.of]!prefix[$:/status]!preifx[$:/temp]!prefix[$:/state]!tag[$:/tags/TextEditor/Snippet]!prefix[$:/language]!prefix[$:/config/Server/]]';
+    '[all[tiddlers+shadows]!has[draft.of]!prefix[$:/status]!preifx[$:/temp]!prefix[$:/state]!tag[$:/tags/TextEditor/Snippet]!prefix[$:/language]!prefix[$:/config/Server/]!prefix[Draft of]]';
   const filter = conf.enableSystemTiddlersCompletion()
     ? systemFilter
     : '[!is[system]!has[draft.of]]';
