@@ -1,5 +1,5 @@
 import { CompletionContext } from '@codemirror/autocomplete';
-import cmeConfig from '../cmeConfig';
+import cm6 from '../cm6';
 import triggerType from '../utils/triggerType';
 import sources from '../completions/sources';
 
@@ -28,7 +28,7 @@ export default (context: CompletionContext) => {
   let lastWord = doc.sliceString(wordStart, cursorPos);
 
   // 中文是一个汉字等于两个英文字符
-  if (lastWord.length < cmeConfig.minLength() || wordStart === cursorPos) {
+  if (lastWord.length < cm6.minLength() || wordStart === cursorPos) {
     return;
   }
 
@@ -58,7 +58,7 @@ export default (context: CompletionContext) => {
     case lastWord.startsWith(triggerType.emoji):
       options = sources.emojiSnippets();
       break;
-    case lastWord.startsWith(cmeConfig.delimiter()):
+    case lastWord.startsWith(cm6.delimiter()):
       // @see-also https://discuss.codemirror.net/t/mid-word-completion-that-replaces-the-rest-of-the-word/7262
       options = sources.userSnippets();
       // options.forEach((option) => {

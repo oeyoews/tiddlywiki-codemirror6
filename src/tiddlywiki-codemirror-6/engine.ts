@@ -31,7 +31,7 @@ import {
 } from '@codemirror/view';
 
 import tabSizePlugin from './utils/tab-size';
-import cmeConfig from './cmeConfig';
+import cm6 from './cm6';
 import autocompletionConfig from './modules/config/autocomplete';
 import dynamicmode from './modules/mode';
 import removeOutlineExt from './extensions/removeOutlineExt';
@@ -163,7 +163,7 @@ class CodeMirrorEngine {
       highlightSpecialChars(),
       history(),
       drawSelection({
-        cursorBlinkRate: cmeConfig.cursorBlinkRate()
+        cursorBlinkRate: cm6.cursorBlinkRate()
       }),
       EditorState.allowMultipleSelections.of(true),
       indentOnInput(),
@@ -178,10 +178,10 @@ class CodeMirrorEngine {
         tabindex: this.widget.editTabIndex ? this.widget.editTabIndex : ''
       }),
       EditorView.contentAttributes.of({
-        spellcheck: cmeConfig.spellcheck()
+        spellcheck: cm6.spellcheck()
       }),
       EditorView.contentAttributes.of({
-        autocorrect: cmeConfig.autocorrect()
+        autocorrect: cm6.autocorrect()
       }),
       EditorView.contentAttributes.of({
         translate:

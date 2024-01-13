@@ -1,4 +1,4 @@
-import cmeConfig from '../cmeConfig.js';
+import cm6 from '../cm6.js';
 import { linkExt } from '../extensions/linkExt.js';
 import { tidExt } from '../extensions/tidExt.js';
 import { imgExt } from '../extensions/imgExt.js';
@@ -35,7 +35,7 @@ const dynamicmode = (mode: string, cme: Extension[]) => {
         autocomplete: completions
       });
 
-      cmeConfig.clickable() && cme.push(linkExt, tidExt, imgExt);
+      cm6.clickable() && cme.push(linkExt, tidExt, imgExt);
       cme.push(Prec.high(actionCompletions));
       break;
     case 'text/markdown':
@@ -80,7 +80,7 @@ const dynamicmode = (mode: string, cme: Extension[]) => {
         autocomplete: completions
       });
 
-      cmeConfig.clickable() && cme.push(linkExt, tidExt, imgExt);
+      cm6.clickable() && cme.push(linkExt, tidExt, imgExt);
       cme.push(Prec.high(actionCompletions));
       cme.push(Prec.high(keymap.of(markdownKeymap)));
       break;

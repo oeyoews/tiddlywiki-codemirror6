@@ -5,7 +5,7 @@ import {
   MatchDecorator,
   WidgetType
 } from '@codemirror/view';
-import cmeConfig from '../cmeConfig';
+import cm6 from '../cm6';
 import createViewPlugin from '../utils/createViewPlugin';
 
 class CustomLink extends WidgetType {
@@ -24,7 +24,7 @@ class CustomLink extends WidgetType {
   toDOM() {
     const wrapper = document.createElement('a');
     const title = this.state.title;
-    wrapper.textContent = cmeConfig['clickable-icon']() || ' 🔗';
+    wrapper.textContent = cm6['clickable-icon']() || ' 🔗';
     wrapper.className = 'cm-link';
     wrapper.style.cursor = 'pointer';
     wrapper.style.userSelect = 'none';

@@ -3,7 +3,7 @@ import { Extension } from '@codemirror/state';
 import { inlineSuggestion } from '../extensions/inlineSuggestion';
 
 import { completionStatus, selectedCompletion } from '@codemirror/autocomplete';
-import cmeConfig from '../cmeConfig';
+import cm6 from '../cm6';
 import { EditorView } from '@codemirror/view';
 
 // @see-also: https://github.com/ChromeDevTools/devtools-frontend/blob/main/front_end/ui/components/text_editor/config.ts#L370
@@ -37,7 +37,7 @@ export default function inlineSuggestionExt(self: {
     let lastWord = doc.sliceString(wordStart, cursorPos);
 
     // 中文是一个汉字等于两个英文字符
-    if (lastWord.length < cmeConfig.minLength() || wordStart === cursorPos) {
+    if (lastWord.length < cm6.minLength() || wordStart === cursorPos) {
       return;
     }
 
@@ -50,7 +50,7 @@ export default function inlineSuggestionExt(self: {
     return '';
   };
 
-  if (cmeConfig.inlineSuggestion()) {
+  if (cm6.inlineSuggestion()) {
     self.cme.push(
       inlineSuggestion({
         // @ts-expect-error

@@ -1,5 +1,5 @@
 import { CompletionInfo } from '@codemirror/autocomplete';
-import conf from '../cmeConfig';
+import conf from '../cm6';
 export function renderTid(title: string | undefined): CompletionInfo | null {
   if (!title) return null;
   if ($tw.wiki.getTiddler(title)?.fields.render === 'false') return null;

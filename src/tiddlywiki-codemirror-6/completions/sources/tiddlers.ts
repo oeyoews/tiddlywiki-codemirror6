@@ -1,6 +1,6 @@
 import { Completion } from '@codemirror/autocomplete';
 import delimiter from 'src/tiddlywiki-codemirror-6/utils/triggerType';
-import conf from 'src/tiddlywiki-codemirror-6/cmeConfig';
+import conf from 'src/tiddlywiki-codemirror-6/cm6';
 import { renderTid } from 'src/tiddlywiki-codemirror-6/utils/renderTiddler';
 import { menu } from 'src/tiddlywiki-codemirror-6/modules/config/menu';
 

@@ -2,7 +2,7 @@ import { renderTid } from 'src/tiddlywiki-codemirror-6/utils/renderTiddler';
 import { snippetCompletion as snip } from '@codemirror/autocomplete';
 import { ISource } from 'src/tiddlywiki-codemirror-6/types';
 import { menu } from 'src/tiddlywiki-codemirror-6/modules/config/menu';
-import conf from 'src/tiddlywiki-codemirror-6/cmeConfig';
+import conf from 'src/tiddlywiki-codemirror-6/cm6';
 import { usersnippets } from '../snippets';
 
 export function userSnippets() {
