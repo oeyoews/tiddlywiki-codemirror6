@@ -90,3 +90,10 @@ Incorporating code snippets into plugins for widgets, macros, and templates can 
 The codemirror6 plugin, in particular, could seamlessly load these code snippets while also accommodating placeholders. Additionally, users could share their frequently used code snippets, fostering a collaborative and supportive community. These snippets could even be packaged separately as plugins, such as zero-js or pure wikitext. This approach would undoubtedly streamline the coding process and contribute to a more efficient and user-friendly experience.
 
 [[example|https://github.com/oeyoews/tiddlywiki-codemirror6/blob/main/src/tiddlywiki-snippets/tiddlers/general/toc01.tid]]
+
+!! Motivation
+
+* Hope to unify codemirror plugins, without having to install more than a dozen codemirror plug-ins, or interface errors caused by the lack of certain plug-ins.
+* The completion of the codemirror enhancement plug-in sometimes causes the interface to freeze.
+* Better support for code snippets
+* Better markdown editing experience
