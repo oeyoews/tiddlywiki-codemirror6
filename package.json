@@ -66,7 +66,6 @@
     "@replit/codemirror-interact": "^6.3.0",
     "@replit/codemirror-vim": "^6.1.0",
     "@replit/codemirror-vscode-keymap": "^6.0.2",
-    "codemirror-extension-inline-suggestion": "^0.0.1",
     "ipad-cursor": "^0.5.2",
     "thememirror": "^2.0.1",
     "tiddlywiki": "^5.3.3",

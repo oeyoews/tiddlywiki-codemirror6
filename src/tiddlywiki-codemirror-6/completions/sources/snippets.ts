@@ -7,7 +7,7 @@ import { usersnippets } from '../snippets';
 
 export function userSnippets() {
   const userSnippetTiddlers = $tw.wiki.filterTiddlers(
-    '[all[shadows+tiddlers]tag[$:/tags/TextEditor/Snippet]] [all[shadows+tiddlers]tag[$:/tags/KaTeX/Snippet]] -[is[draft]]'
+    '[all[shadows+tiddlers]tag[$:/tags/TextEditor/Snippet]] [all[tiddlers+shadows]prefix[$:/snippets/]] [all[shadows+tiddlers]tag[$:/tags/KaTeX/Snippet]] -[is[draft]]'
   );
 
   const source: ISource[] = userSnippetTiddlers.map((title) => {

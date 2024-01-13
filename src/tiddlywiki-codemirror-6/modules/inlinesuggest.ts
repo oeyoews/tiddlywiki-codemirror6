@@ -1,5 +1,6 @@
 import { Extension } from '@codemirror/state';
-import { inlineSuggestion } from 'codemirror-extension-inline-suggestion';
+
+import { inlineSuggestion } from '../extensions/inlineSuggestion';
 
 import { completionStatus, selectedCompletion } from '@codemirror/autocomplete';
 import cmeConfig from '../cmeConfig';
@@ -15,6 +16,10 @@ export default function inlineSuggestionExt(self: {
   // status wrong
   const fetchSuggestion = () => {
     const state = self.cm.state;
+    const status = completionStatus(state) === 'active';
+    if (!status) {
+      return;
+    }
 
     const cursorPos = state.selection.main.head;
     const doc = state.doc;
@@ -36,14 +41,13 @@ export default function inlineSuggestionExt(self: {
       return;
     }
 
-    const status = completionStatus(state) === 'active';
-    if (!status) {
-      return;
+    // 如果不开启 show completion, 就获取不到列表
+    if (status) {
+      // TODO: 需要细化逻辑
+      // return selectedCompletion(state)?.label.slice(0, lastWord.length);
+      return ' ' + selectedCompletion(state)?.displayLabel;
     }
-
-    // TODO: 需要细化逻辑
-    // return selectedCompletion(state)?.label.slice(0, lastWord.length);
-    return selectedCompletion(state)?.displayLabel;
+    return '';
   };
 
   if (cmeConfig.inlineSuggestion()) {
