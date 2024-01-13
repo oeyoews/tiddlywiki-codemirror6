@@ -8,7 +8,7 @@
   },
   "license": "MIT",
   "version": "0.7.0",
-  "packageManager": "pnpm@8.8.0",
+  "packageManager": "pnpm@8.14.1",
   "scripts": {
     "update:config": " pnpm ts-node scripts/generateConfig.ts",
     "bump": "node scripts/bump.js",
