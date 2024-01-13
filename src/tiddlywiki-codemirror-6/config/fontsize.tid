@@ -1,6 +1,6 @@
 title: $:/config/codemirror-6/fontsize
-caption: font size
-description: The fontsize of the text within the editor
+caption: {{$:/language/codemirror6/fontsize/caption}}
+description: {{$:/language/codemirror6/fontsize/description}}
 settings-template: $:/plugins/oeyoews/tiddlywiki-codemirror-6/ui/templates/settings/input
 
 16px

@@ -31,12 +31,11 @@ export default function configExtensions(cme: Extension[], widget: IWidget) {
   )?.fields;
   const darkMode = fields?.['color-scheme'] === 'dark';
 
-  (conf.enableOneDarkTheme() && darkMode && cme.push(oneDark)) ||
-    cme.push(githubLight);
+  (conf.onedark() && darkMode && cme.push(oneDark)) || cme.push(githubLight);
 
   if (widget?.editTitle?.startsWith('Draft of ')) {
     conf.linkPreview() && cme.push(linkHoverPreview);
-    conf.enableWordCount() && cme.push(wordCountExt());
+    conf.wordCount() && cme.push(wordCountExt());
     conf.lineNumbers() && cme.push(lineNumbers());
 
     if (conf.vimmode()) {
@@ -68,7 +67,7 @@ export default function configExtensions(cme: Extension[], widget: IWidget) {
   }
 
   conf.highlightTrailingWhitespace() && cme.push(highlightTrailingWhitespace());
-  conf.highlightWhitespace() && cme.push(highlightWhitespace());
+  conf.whitespace() && cme.push(highlightWhitespace());
   conf.closeBrackets() && cme.push(closeBrackets());
   conf.bracketMatching() && cme.push(bracketMatching());
 }

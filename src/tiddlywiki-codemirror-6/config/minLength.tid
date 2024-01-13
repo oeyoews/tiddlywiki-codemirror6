@@ -1,6 +1,6 @@
 title: $:/config/codemirror-6/minLength
-caption: min completion length
-description: min completion length
+caption: {{$:/language/codemirror6/minLength/caption}}
+description: {{$:/language/codemirror6/minLength/description}}
 settings-template: $:/plugins/oeyoews/tiddlywiki-codemirror-6/ui/templates/settings/input
 
 3

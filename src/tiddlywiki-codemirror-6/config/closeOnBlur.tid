@@ -1,5 +1,6 @@
 title: $:/config/codemirror-6/closeOnBlur
 caption: {{$:/language/codemirror6/closeOnBlur/caption}}
+description: {{$:/language/codemirror6/closeOnBlur/description}}
 settings-template: $:/plugins/oeyoews/tiddlywiki-codemirror-6/ui/templates/settings/input-switch
 
 yes

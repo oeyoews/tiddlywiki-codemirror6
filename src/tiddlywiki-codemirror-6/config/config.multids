@@ -1,0 +1,76 @@
+title: $:/language/codemirror6/
+
+activateOnTyping/caption: Activate on typing
+activateOnTyping/description: activating on typing
+inlineSuggestion/caption: Inline suggestion(experimental)
+inlineSuggestion/description: inline suggestion(experimental)
+tiddlerPreview/caption: Tiddler preview
+tiddlerPreview/description: tiddler preview
+snippetPreview/caption: Snippet preview
+snippetPreview/description: snippet preview
+linkPreview/caption: Link preview
+linkPreview/description: link preview
+fontsize/caption: Font size
+fontsize/description: font size
+wordCount/caption: Enable word count
+wordCount/description: enabling word count
+whitespace/caption: Highlight whitespace
+whitespace/description: highlighting whitespace
+highlightTrailingWhitespace/caption: Highlight trailing whitespace
+highlightTrailingWhitespace/description: highlighting trailing whitespace
+enableSystemTiddlersCompletion/caption: Enable system tiddlers completion
+enableSystemTiddlersCompletion/description: enabling system tiddlers completion
+closeOnBlur/caption: Close on blur
+closeOnBlur/description: closing on blur
+foldGutter/caption: Fold gutter
+foldGutter/description: fold gutter
+translate/caption: Translate
+translate/description: translate
+rtl/caption: RTL
+rtl/description: RTL
+cursor-thickness/caption: Cursor thickness
+cursor-thickness/description: cursor thickness
+onedark/caption: Enable One Dark theme
+onedark/description: enabling One Dark theme
+clickable-icon/caption: Clickable icon
+clickable-icon/description: clickable icon
+clickable/caption: Clickable
+clickable/description: clickable
+customPlaceholder/caption: Custom placeholder
+customPlaceholder/description: custom placeholder
+placeholder/caption: Placeholder
+placeholder/description: placeholder
+cursorBlinkRate/caption: Cursor blink rate
+cursorBlinkRate/description: cursor blink rate
+minLength/caption: Min length
+minLength/description: min length
+delimiter/caption: Delimiter
+delimiter/description: delimiter
+minimap/caption: Minimap
+minimap/description: minimap
+closeBrackets/caption: Close brackets
+closeBrackets/description: closing brackets
+selectOnOpen/caption: Select on open
+selectOnOpen/description: selecting on open
+autocompleteIcons/caption: Autocomplete icons
+autocompleteIcons/description: autocomplete icons
+maxRenderedOptions/caption: Max rendered options
+maxRenderedOptions/description: max rendered options
+spellcheck/caption: Spellcheck
+spellcheck/description: spellcheck
+autocorrect/caption: Autocorrect
+autocorrect/description: autocorrect
+indentWithTab/caption: Indent with tab
+indentWithTab/description: indenting with tab
+bracketMatching/caption: Bracket matching
+bracketMatching/description: bracket matching
+vimmode/caption: Vim mode
+vimmode/description: Vim mode
+completeAnyWord/caption: Complete any word
+completeAnyWord/description: completing any word
+lineNumbers/caption: Line numbers
+lineNumbers/description: line numbers
+highlightActiveLine/caption: Highlight active line
+highlightActiveLine/description: highlighting active line
+tabSize/caption: Tab size
+tabSize/description: tab size

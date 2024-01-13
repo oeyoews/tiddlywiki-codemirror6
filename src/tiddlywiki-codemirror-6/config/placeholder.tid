@@ -1,6 +1,6 @@
 title: $:/config/codemirror-6/placeholder
-caption: placeholder
-description: placeholder
+caption: {{$:/language/codemirror6/placeholder/caption}}
+description: {{$:/language/codemirror6/placeholder/description}}
 settings-template: $:/plugins/oeyoews/tiddlywiki-codemirror-6/ui/templates/settings/input
 
 Write something ✒️ ...

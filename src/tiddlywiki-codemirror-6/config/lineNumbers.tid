@@ -1,6 +1,6 @@
 title: $:/config/codemirror-6/lineNumbers
-caption: Line numbers
-description: whether or not the line numbers should be shown
+caption: {{$:/language/codemirror6/lineNumbers/caption}}
+description: {{$:/language/codemirror6/lineNumbers/description}}
 settings-template: $:/plugins/oeyoews/tiddlywiki-codemirror-6/ui/templates/settings/input-switch
 
 yes

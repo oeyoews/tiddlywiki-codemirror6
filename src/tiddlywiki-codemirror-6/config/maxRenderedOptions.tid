@@ -1,6 +1,6 @@
 title: $:/config/codemirror-6/maxRenderedOptions
-caption: Max rendered autocomplete options
-description: The maximum amount of rendered options in the autocompletion tooltip
+caption: {{$:/language/codemirror6/maxRenderedOptions/caption}}
+description: {{$:/language/codemirror6/maxRenderedOptions/description}}
 settings-template: $:/plugins/oeyoews/tiddlywiki-codemirror-6/ui/templates/settings/input
 
 20

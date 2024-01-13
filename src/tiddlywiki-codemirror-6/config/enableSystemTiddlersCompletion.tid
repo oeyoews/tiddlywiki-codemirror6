@@ -1,6 +1,6 @@
 title: $:/config/codemirror-6/enableSystemTiddlersCompletion
-caption: Autocompletion with all tiddlers
-description: Autocompletion with all tiddlers
+caption: {{$:/language/codemirror6/enableSystemTiddlersCompletion/caption}}
+description: {{$:/language/codemirror6/enableSystemTiddlersCompletion/description}}
 settings-template: $:/plugins/oeyoews/tiddlywiki-codemirror-6/ui/templates/settings/input-switch
 
 no

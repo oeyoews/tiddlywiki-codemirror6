@@ -1,6 +1,6 @@
-title: $:/config/codemirror-6/enableWordCount
-caption: word count
-description: word count
+title: $:/config/codemirror-6/wordCount
+caption: {{$:/language/codemirror6/wordCount/caption}}
+description: {{$:/language/codemirror6/wordCount/description}}
 settings-template: $:/plugins/oeyoews/tiddlywiki-codemirror-6/ui/templates/settings/input-switch
 
 no

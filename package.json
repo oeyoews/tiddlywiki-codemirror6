@@ -7,9 +7,10 @@
     "registry": "https://registry.npmjs.org"
   },
   "license": "MIT",
-  "version": "0.6.3",
+  "version": "0.7.0",
   "packageManager": "pnpm@8.8.0",
   "scripts": {
+    "update:config": " pnpm ts-node scripts/generateConfig.ts",
     "bump": "node scripts/bump.js",
     "dev": "tiddlywiki-plugin-dev dev",
     "build": "npm run clean && tiddlywiki-plugin-dev build",

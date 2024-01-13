@@ -1,6 +1,6 @@
 title: $:/config/codemirror-6/translate
-caption: Translating
-description: whether or not the "translate" attribute should be set within the editor
+caption: {{$:/language/codemirror6/translate/caption}}
+description: {{$:/language/codemirror6/translate/description}}
 settings-template: $:/plugins/oeyoews/tiddlywiki-codemirror-6/ui/templates/settings/input-switch
 
 no

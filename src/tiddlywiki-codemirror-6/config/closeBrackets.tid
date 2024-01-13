@@ -1,6 +1,6 @@
 title: $:/config/codemirror-6/closeBrackets
-caption: Close brackets
-description: whether or not brackets should be closed automatically
+caption: {{$:/language/codemirror6/closeBrackets/caption}}
+description: {{$:/language/codemirror6/closeBrackets/description}}
 settings-template: $:/plugins/oeyoews/tiddlywiki-codemirror-6/ui/templates/settings/input-switch
 
 yes
