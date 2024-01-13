@@ -1,3 +1,5 @@
+import { capitalize } from 'src/tiddlywiki-codemirror-6/utils/capitalize';
+
 const menuItems = [
   'snippets',
   'images',
@@ -12,5 +14,5 @@ type MenuType = (typeof menuItems)[number];
 export const menu = {} as Record<MenuType, string>;
 
 menuItems.forEach((item: MenuType) => {
-  menu[item] = `(${item})` as const;
+  menu[item] = `(${capitalize(item)})`;
 });
