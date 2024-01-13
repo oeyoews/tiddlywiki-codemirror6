@@ -20,7 +20,7 @@ jobs:
         with:
           version: 8
       - name: Setup Node.js and Pnpm
-        uses: actions/setup-node@v4
+        uses: actions/setup-node@v3
         with:
           node-version: latest
           cache: "pnpm"
@@ -31,7 +31,7 @@ jobs:
         run: pnpm minify && pnpm run publish
 
       - name: Upload artifact
-        uses: actions/upload-pages-artifact@v3
+        uses: actions/upload-pages-artifact@v1
         with:
           # Upload entire repository
           path: ./dist
