@@ -35,9 +35,6 @@ importers:
       '@codemirror/language-data':
         specifier: ^6.3.1
         version: 6.3.1(@codemirror/state@6.4.0)(@codemirror/view@6.23.0)(@lezer/common@1.2.0)
-      '@codemirror/legacy-modes':
-        specifier: github:codemirror/legacy-modes
-        version: git@github.com+codemirror/legacy-modes/48c56cf79a883068880ba24efc053c1413bb8df0
       '@codemirror/lint':
         specifier: ^6.4.2
         version: 6.4.2
@@ -6970,12 +6967,3 @@ packages:
 
   /zod@3.22.4:
     resolution: {integrity: sha512-iC+8Io04lddc+mVqQ9AZ7OQ2MrUKGN+oIQyq1vemgt46jwCwLfhq7/pwnBnNXXXZb8VTVLKwp9EDkx+ryxIWmg==}
-
-  git@github.com+codemirror/legacy-modes/48c56cf79a883068880ba24efc053c1413bb8df0:
-    resolution: {commit: 48c56cf79a883068880ba24efc053c1413bb8df0, repo: git@github.com:codemirror/legacy-modes.git, type: git}
-    name: '@codemirror/legacy-modes'
-    version: 6.3.3
-    requiresBuild: true
-    dependencies:
-      '@codemirror/language': 6.10.0
-    dev: false
