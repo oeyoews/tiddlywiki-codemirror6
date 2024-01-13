@@ -21,54 +21,42 @@ function getConfig(title: string) {
 export const tiddlers = {
   activateOnTyping: {
     caption: 'activate on typing',
-    description: 'activating on typing',
     text: 'yes'
   },
   inlineSuggestion: {
-    caption: 'inline suggestion(experimental)',
-    description: 'inline suggestion(experimental)'
+    caption: 'inline suggestion(experimental)'
   },
   tiddlerPreview: {
-    caption: 'tiddler preview',
-    description: 'tiddler preview'
+    caption: 'tiddler preview'
   },
   snippetPreview: {
-    caption: 'snippet preview',
-    description: 'snippet preview'
+    caption: 'snippet preview'
   },
   linkPreview: {
-    caption: 'link preview',
-    description: 'link preview'
+    caption: 'link preview'
   },
   fontsize: {
     caption: 'font size',
-    description: 'font size',
     text: '16px'
   },
   wordCount: {
-    caption: 'enable word count',
-    description: 'enabling word count'
+    caption: 'enable word count'
   },
   whitespace: {
-    caption: 'highlight whitespace',
-    description: 'highlighting whitespace'
+    caption: 'highlight whitespace'
   },
   highlightTrailingWhitespace: {
-    caption: 'highlight trailing whitespace',
-    description: 'highlighting trailing whitespace'
+    caption: 'highlight trailing whitespace'
   },
   enableSystemTiddlersCompletion: {
-    caption: 'enable system tiddlers completion',
-    description: 'enabling system tiddlers completion'
+    caption: 'enable system tiddlers completion'
   },
   closeOnBlur: {
     caption: 'close on blur',
-    description: 'closing on blur',
     text: 'yes'
   },
   foldGutter: {
-    caption: 'fold gutter',
-    description: 'fold gutter'
+    caption: 'fold gutter'
   },
   translate: {
     caption: 'translate'
@@ -82,105 +70,83 @@ export const tiddlers = {
   },
   onedark: {
     caption: 'enable One Dark theme',
-    description: 'enabling One Dark theme',
     text: 'yes'
   },
   'clickable-icon': {
     caption: 'clickable icon',
-    description: 'clickable icon',
     text: '🐟'
   },
   clickable: {
-    caption: 'clickable',
-    description: 'clickable'
+    caption: 'clickable'
   },
   customPlaceholder: {
-    caption: 'custom placeholder',
-    description: 'custom placeholder'
+    caption: 'custom placeholder'
   },
   placeholder: {
     caption: 'placeholder',
-    description: 'placeholder',
     text: 'Write something ✒️ ...'
   },
   cursorBlinkRate: {
     caption: 'cursor blink rate',
-    description: 'cursor blink rate',
     text: 1000
   },
   minLength: {
     caption: 'min length',
-    description: 'min length',
     text: 3
   },
   delimiter: {
     caption: 'delimiter',
-    description: 'delimiter',
     text: '/'
   },
   minimap: {
-    caption: 'minimap',
-    description: 'minimap'
+    caption: 'minimap'
   },
   closeBrackets: {
     caption: 'close brackets',
-    description: 'closing brackets',
     text: 'yes'
   },
   selectOnOpen: {
     caption: 'select on open',
-    description: 'selecting on open',
     text: 'yes'
   },
   autocompleteIcons: {
     caption: 'autocomplete icons',
-    description: 'autocomplete icons',
     text: 'yes'
   },
   maxRenderedOptions: {
     caption: 'max rendered options',
-    description: 'max rendered options',
     text: 20
   },
   spellcheck: {
-    caption: 'spellcheck',
-    description: 'spellcheck'
+    caption: 'spellcheck'
   },
   autocorrect: {
-    caption: 'autocorrect',
-    description: 'autocorrect'
+    caption: 'autocorrect'
   },
   indentWithTab: {
     caption: 'indent with tab',
-    description: 'indenting with tab',
     text: 'yes'
   },
   bracketMatching: {
     caption: 'bracket matching',
-    description: 'bracket matching',
     text: 'yes'
   },
   vimmode: {
-    caption: 'Vim mode',
-    description: 'Vim mode'
+    caption: 'Vim mode'
   },
   completeAnyWord: {
-    caption: 'complete any word',
-    description: 'completing any word'
+    caption: 'complete any word'
   },
   lineNumbers: {
     caption: 'line numbers',
-    description: 'line numbers',
     text: 'yes'
   },
   highlightActiveLine: {
     caption: 'highlight active line',
-    description: 'highlighting active line',
     text: 'yes'
   },
   tabSize: {
     caption: 'tab size',
-    description: 'tab size',
     text: 2
   }
 };
