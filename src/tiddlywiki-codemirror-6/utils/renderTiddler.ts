@@ -18,7 +18,8 @@ export function renderTid(title: string | undefined): CompletionInfo | null {
     previewHTML = $tw.wiki.renderText(
       'text/html',
       'text/vnd.tiddlywiki', // 是 textType, 不是渲染 type. 使用 transclude 自然选择 text/vnd.tiddlywiki,
-      `!! ${title} \n <$transclude $tiddler='${title}' $mode='block' />`
+      // !! ${title} \n
+      `<$transclude $tiddler='${title}' $mode='block' />`
     );
     if (!previewHTML || previewHTML === '<p></p>') return null;
     preview.innerHTML = previewHTML;
