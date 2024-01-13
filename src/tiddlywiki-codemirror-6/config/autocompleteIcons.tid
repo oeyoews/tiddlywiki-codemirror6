@@ -1,5 +1,5 @@
 title: $:/config/codemirror-6/autocompleteIcons
-caption: Autocompletion icons
+caption: {{$:/language/codemirror6/autocompleteIcons/caption}}
 description: whether or not the autocompletion icons should be shown
 settings-template: $:/plugins/oeyoews/tiddlywiki-codemirror-6/ui/templates/settings/input-switch
 

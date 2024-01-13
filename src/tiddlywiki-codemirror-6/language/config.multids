@@ -3,3 +3,6 @@ title: $:/language/codemirror6/
 activateOnTyping/caption: show completion
 inlineSuggestion/caption: inline suggestion(experimental)
 closeOnBlur/caption: automatic close popup onblur
+autocompleteIcons/caption: Autocompletion icons
+clickable/caption: show link icon
+rtl/caption: Right to left view
