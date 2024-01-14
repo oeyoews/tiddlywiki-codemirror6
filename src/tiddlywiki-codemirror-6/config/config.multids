@@ -20,7 +20,7 @@ highlightTrailingWhitespace/caption: 🔍 Highlight Trailing Whitespace
 highlightTrailingWhitespace/description: Enable highlighting of trailing whitespace.
 enableSystemTiddlersCompletion/caption: 🔄 Enable System Tiddlers Completion
 enableSystemTiddlersCompletion/description: Enable completion for system tiddlers.
-closeOnBlur/caption: 🔄 Close on Blur
+closeOnBlur/caption: 🔒 Close on Blur
 closeOnBlur/description: Automatically close on blur.
 foldGutter/caption: 📂 Fold Gutter
 foldGutter/description: Enable folding gutter for code.
@@ -38,7 +38,7 @@ clickable/caption: 🖱️ Clickable
 clickable/description: Enable clickability.
 customPlaceholder/caption: 🖊️ Custom Placeholder
 customPlaceholder/description: Set a custom placeholder.
-placeholder/caption: 🖊️ Placeholder
+placeholder/caption: ✏️️ Placeholder
 placeholder/description: Set the default placeholder text.
 cursorBlinkRate/caption: ⚡ Cursor Blink Rate
 cursorBlinkRate/description: Set the rate at which the cursor blinks (in milliseconds).

@@ -13,15 +13,15 @@
     "update:config": " pnpm ts-node scripts/generateConfig.ts",
     "bump": "node scripts/bump.js",
     "dev": "tiddlywiki-plugin-dev dev",
-    "build": "npm run clean && tiddlywiki-plugin-dev build",
-    "publish": "npm run clean && tiddlywiki-plugin-dev publish",
+    "build": "pnpm update:config && pnpm run clean && tiddlywiki-plugin-dev build",
+    "publish": "pnpm run clean && tiddlywiki-plugin-dev publish",
     "clean": "rimraf dist",
     "format": "prettier . --write",
     "minify": "node scripts/minify.js",
     "update": "pnpm update --lastet",
     "new": "tiddlywiki-plugin-dev new",
-    "build:library": "npm run clean && tiddlywiki-plugin-dev build --library --output dist/library",
-    "publish:offline": "npm run clean && tiddlywiki-plugin-dev publish --offline"
+    "build:library": "pnpm run clean && tiddlywiki-plugin-dev build --library --output dist/library",
+    "publish:offline": "pnpm run clean && tiddlywiki-plugin-dev publish --offline"
   },
   "prettier": "@oeyoews/prettier-config",
   "engines": {

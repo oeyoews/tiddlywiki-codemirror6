@@ -74,7 +74,7 @@ export const tiddlers = {
   closeOnBlur: {
     caption: 'Close on Blur',
     text: 'yes',
-    icon: '🔄',
+    icon: '🔒',
     description: 'Automatically close on blur.'
   },
   foldGutter: {
@@ -123,7 +123,7 @@ export const tiddlers = {
   placeholder: {
     caption: 'Placeholder',
     text: 'Write something ✒️ ...',
-    icon: '🖊️',
+    icon: '✏️️',
     description: 'Set the default placeholder text.'
   },
   cursorBlinkRate: {
