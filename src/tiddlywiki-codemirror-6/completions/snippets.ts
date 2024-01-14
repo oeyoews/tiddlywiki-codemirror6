@@ -2,11 +2,6 @@
 
 import type { ISource } from '../types';
 //  NOTE: Moving to the last field or moving the cursor out of the current field deactivates the fields.
-// markdown
-
-// js
-
-// TODO: 单独成插件。
 
 export const usersnippets: ISource[] = [
   {

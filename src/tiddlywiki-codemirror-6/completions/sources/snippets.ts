@@ -17,7 +17,7 @@ export function userSnippets() {
       vanillaTitle: title,
       title: title.split('/').pop()!,
       text: text.trim(),
-      caption: (caption || title) as ISource['caption']
+      caption: caption as ISource['caption']
     };
   });
 
@@ -41,15 +41,16 @@ export function userSnippets() {
 
   // load builtin snippets
   source.push(...usersnippets);
+  // 重复的会被覆盖？??
   const filteredSource = source.filter((item) => item.title && item.text);
 
-  return filteredSource.map((info) =>
-    snip(info.text, {
-      label: conf.delimiter() + (info.caption || info.title),
-      displayLabel: info.caption || info.title,
+  return filteredSource.map((info) => {
+    return snip(info.text, {
+      label: conf.delimiter() + (info.caption ? info.caption : info.title),
+      displayLabel: info.caption ? info.caption : info.title,
       type: 'cm-snippet', // real added class is cm-completionIcon-cm-snippets
       info: conf.snippetPreview() ? () => renderTid(info.vanillaTitle) : '',
       section: menu.snippets
-    })
-  );
+    });
+  });
 }
