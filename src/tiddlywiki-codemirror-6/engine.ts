@@ -160,7 +160,21 @@ class CodeMirrorEngine {
       tooltips({
         parent: this.domNode.ownerDocument?.body // NOTE: preview render bug: Cannot set property parentNode of #<Node> which has only a getter
       }),
-      highlightSpecialChars(),
+      // TODO
+      // highlightSpecialChars({
+      // render: () => {
+      //   const spanElement = document.createElement('span');
+      //   spanElement.style.cursor = 'pointer';
+      //   spanElement.addEventListener('click', (e: MouseEvent) => {
+      //     if (e.ctrlKey) {
+      //       console.log('hhh');
+      //     }
+      //   });
+      //   spanElement.textContent = 'hhh';
+      //   return spanElement;
+      // },
+      // addSpecialChars: /hhh/
+      // }),
       history(),
       drawSelection({
         cursorBlinkRate: cm6.cursorBlinkRate()

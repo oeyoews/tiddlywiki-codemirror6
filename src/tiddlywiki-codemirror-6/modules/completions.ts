@@ -58,7 +58,8 @@ export default (context: CompletionContext) => {
     case lastWord.startsWith(triggerType.emoji):
       options = sources.emojiSnippets();
       break;
-    case lastWord.startsWith(cm6.delimiter()):
+    case lastWord.startsWith(cm6.delimiter()) &&
+      lastWord.charAt(1) !== cm6.delimiter():
       // @see-also https://discuss.codemirror.net/t/mid-word-completion-that-replaces-the-rest-of-the-word/7262
       options = sources.userSnippets();
       // options.forEach((option) => {
