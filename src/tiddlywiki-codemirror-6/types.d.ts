@@ -32,6 +32,7 @@ export type ISource = {
 };
 
 export interface IConfigFields {
+  icon: string;
   caption: string;
   description: string;
   template: 'input-switch' | 'input';

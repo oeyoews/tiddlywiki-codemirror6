@@ -20,134 +20,208 @@ function getConfig(title: string) {
 // NOTE: 对应配置的 caption 不要写成 TxxxBxxx 格式。
 export const tiddlers = {
   activateOnTyping: {
-    caption: 'activate on typing',
-    text: 'yes'
+    caption: 'Activate on Typing',
+    text: 'yes',
+    icon: '🚀',
+    description: 'Enable activation on typing for enhanced functionality.'
   },
   inlineSuggestion: {
-    caption: 'inline suggestion(experimental)'
+    caption: 'Inline Suggestion (Experimental)',
+    icon: '🔍',
+    description: 'Experimental feature for inline suggestions.'
   },
   tiddlerPreview: {
-    caption: 'tiddler preview'
+    caption: 'Tiddler Preview',
+    icon: '📑',
+    description: 'Enable preview for tiddlers.'
   },
   snippetPreview: {
-    caption: 'snippet preview'
+    caption: 'Snippet Preview',
+    icon: '📝',
+    description: 'Enable preview for code snippets.'
   },
   linkPreview: {
-    caption: 'link preview'
+    caption: 'Link Preview',
+    icon: '🔗',
+    description: 'Enable preview for hyperlinks.'
   },
   fontsize: {
-    caption: 'font size',
-    text: '16px'
+    caption: 'Font Size',
+    text: '16px',
+    icon: '📏',
+    description: 'Set the font size for better readability.'
   },
   wordCount: {
-    caption: 'enable word count'
+    caption: 'Enable Word Count',
+    icon: '📊',
+    description: 'Display the word count for the content.'
   },
   whitespace: {
-    caption: 'highlight whitespace'
+    caption: 'Highlight Whitespace',
+    icon: '🔍',
+    description: 'Enable highlighting of whitespace.'
   },
   highlightTrailingWhitespace: {
-    caption: 'highlight trailing whitespace'
+    caption: 'Highlight Trailing Whitespace',
+    icon: '🔍',
+    description: 'Enable highlighting of trailing whitespace.'
   },
   enableSystemTiddlersCompletion: {
-    caption: 'enable system tiddlers completion'
+    caption: 'Enable System Tiddlers Completion',
+    icon: '🔄',
+    description: 'Enable completion for system tiddlers.'
   },
   closeOnBlur: {
-    caption: 'close on blur',
-    text: 'yes'
+    caption: 'Close on Blur',
+    text: 'yes',
+    icon: '🔄',
+    description: 'Automatically close on blur.'
   },
   foldGutter: {
-    caption: 'fold gutter'
+    caption: 'Fold Gutter',
+    icon: '📂',
+    description: 'Enable folding gutter for code.'
   },
   translate: {
-    caption: 'translate'
+    caption: 'Translate',
+    icon: '🌐',
+    description: 'Enable translation.'
   },
   rtl: {
-    caption: 'RTL'
+    caption: 'RTL',
+    icon: '↔️',
+    description: 'Enable Right-to-Left text direction.'
   },
   'cursor-thickness': {
-    caption: 'cursor thickness',
-    text: '1px'
+    caption: 'Cursor Thickness',
+    text: '1px',
+    icon: '🚸',
+    description: 'Set the thickness of the cursor.'
   },
   onedark: {
-    caption: 'enable One Dark theme',
-    text: 'yes'
+    caption: 'Enable One Dark Theme',
+    text: 'yes',
+    icon: '🌒',
+    description: 'Enable the One Dark theme.'
   },
   'clickable-icon': {
-    caption: 'clickable icon',
-    text: '🐟'
+    caption: 'Clickable Icon',
+    text: '🐟',
+    icon: '🖱️',
+    description: 'Set a clickable icon.'
   },
   clickable: {
-    caption: 'clickable'
+    caption: 'Clickable',
+    icon: '🖱️',
+    description: 'Enable clickability.'
   },
   customPlaceholder: {
-    caption: 'custom placeholder'
+    caption: 'Custom Placeholder',
+    icon: '🖊️',
+    description: 'Set a custom placeholder.'
   },
   placeholder: {
-    caption: 'placeholder',
-    text: 'Write something ✒️ ...'
+    caption: 'Placeholder',
+    text: 'Write something ✒️ ...',
+    icon: '🖊️',
+    description: 'Set the default placeholder text.'
   },
   cursorBlinkRate: {
-    caption: 'cursor blink rate',
-    text: 1000
+    caption: 'Cursor Blink Rate',
+    text: 1000,
+    icon: '⚡',
+    description: 'Set the rate at which the cursor blinks (in milliseconds).'
   },
   minLength: {
-    caption: 'min length',
-    text: 3
+    caption: 'Min Length',
+    text: 3,
+    icon: '📏',
+    description: 'Set the minimum length for input.'
   },
   delimiter: {
-    caption: 'delimiter',
-    text: '/'
+    caption: 'Delimiter',
+    text: '/',
+    icon: '🔍',
+    description: 'Set the delimiter for certain operations.'
   },
   minimap: {
-    caption: 'minimap'
+    caption: 'Minimap',
+    icon: '🗺️',
+    description: 'Enable a minimap for navigation.'
   },
   closeBrackets: {
-    caption: 'close brackets',
-    text: 'yes'
+    caption: 'Close Brackets',
+    text: 'yes',
+    icon: '🔄',
+    description: 'Automatically close brackets.'
   },
   selectOnOpen: {
-    caption: 'select on open',
-    text: 'yes'
+    caption: 'Select on Open',
+    text: 'yes',
+    icon: '🔄',
+    description: 'Automatically select on open.'
   },
   autocompleteIcons: {
-    caption: 'autocomplete icons',
-    text: 'yes'
+    caption: 'Autocomplete Icons',
+    text: 'yes',
+    icon: '🎨',
+    description: 'Enable icons in autocomplete suggestions.'
   },
   maxRenderedOptions: {
-    caption: 'max rendered options',
-    text: 20
+    caption: 'Max Rendered Options',
+    text: 20,
+    icon: '🔍',
+    description: 'Set the maximum number of rendered options in autocomplete.'
   },
   spellcheck: {
-    caption: 'spellcheck'
+    caption: 'Spellcheck',
+    icon: '📝',
+    description: 'Enable spellchecking.'
   },
   autocorrect: {
-    caption: 'autocorrect'
+    caption: 'Autocorrect',
+    icon: '🔄',
+    description: 'Enable autocorrection.'
   },
   indentWithTab: {
-    caption: 'indent with tab',
-    text: 'yes'
+    caption: 'Indent with Tab',
+    text: 'yes',
+    icon: '🔄',
+    description: 'Indent with tab instead of spaces.'
   },
   bracketMatching: {
-    caption: 'bracket matching',
-    text: 'yes'
+    caption: 'Bracket Matching',
+    text: 'yes',
+    icon: '🔄',
+    description: 'Enable matching of brackets.'
   },
   vimmode: {
-    caption: 'Vim mode'
+    caption: 'Vim Mode',
+    icon: '🎮',
+    description: 'Enable Vim mode for text editing.'
   },
   completeAnyWord: {
-    caption: 'complete any word'
+    caption: 'Complete Any Word',
+    icon: '🔄',
+    description: 'Enable completion for any word.'
   },
   lineNumbers: {
-    caption: 'line numbers',
-    text: 'yes'
+    caption: 'Line Numbers',
+    text: 'yes',
+    icon: '🔢',
+    description: 'Show line numbers for better code navigation.'
   },
   highlightActiveLine: {
-    caption: 'highlight active line',
-    text: 'yes'
+    caption: 'Highlight Active Line',
+    text: 'yes',
+    icon: '🔍',
+    description: 'Highlight the active line for better visibility.'
   },
   tabSize: {
-    caption: 'tab size',
-    text: 2
+    caption: 'Tab Size',
+    text: 2,
+    icon: '🔍',
+    description: 'Set the tab size for code indentation.'
   }
 };
 

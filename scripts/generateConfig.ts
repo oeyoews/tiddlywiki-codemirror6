@@ -19,9 +19,9 @@ let multidcontent = 'title: $:/language/codemirror6/\n\n';
 
 tiddlersInfo.forEach(([title, fields]) => {
   // TODO: update caption
-  let { caption, description = caption, template, text = 'no' } = fields;
+  let { caption, icon, description = caption, template, text = 'no' } = fields;
 
-  caption = caption.replace(/^\w/, (match) => match.toUpperCase());
+  caption = icon + ' ' + caption.replace(/^\w/, (match) => match.toUpperCase());
 
   if (text === 'no' || text == 'yes') {
     template = 'input-switch';
