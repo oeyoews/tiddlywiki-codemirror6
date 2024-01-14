@@ -15,7 +15,7 @@ export const usersnippets: ISource[] = [
     desc: 'Current date'
   },
   {
-    title: 'time',
+    title: '$:/snippets/oeyoews/time',
     text: `${new Date().toLocaleString()}`,
     desc: 'insert current time'
   },

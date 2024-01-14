@@ -1,9 +1,19 @@
 import { CompletionInfo } from '@codemirror/autocomplete';
 import conf from '../cm6';
 export function renderTid(title: string | undefined): CompletionInfo | null {
-  if (!title) return null;
-  if ($tw.wiki.getTiddler(title)?.fields.render === 'false') return null;
-  if (!conf.tiddlerPreview()) return null;
+  if (!conf.tiddlerPreview()) {
+    console.log('tiddlerPreview is false');
+    return null;
+  }
+
+  if (!title) {
+    console.info('title not exist');
+    return null;
+  }
+  if ($tw.wiki.getTiddler(title)?.fields.render === 'false') {
+    console.warn(title, ' disabling render');
+    return null;
+  }
 
   if (!$tw.wiki.getTiddlerText(title)) {
     const titleNode = document.createElement('h2');
@@ -19,9 +29,10 @@ export function renderTid(title: string | undefined): CompletionInfo | null {
       'text/html',
       'text/vnd.tiddlywiki', // 是 textType, 不是渲染 type. 使用 transclude 自然选择 text/vnd.tiddlywiki,
       // !! ${title} \n
-      `<$transclude $tiddler='${title}' $mode='block' />`
+      `<$transclude $tiddler='${title}' $mode='block' />\n<footer style="text-align: right;margin-right: 10px">Snippet Tiddler Is: ${title}</footer>`
     );
-    if (!previewHTML || previewHTML === '<p></p>') return null;
+    // || previewHTML === '<p></p>'
+    if (!previewHTML) return null;
     preview.innerHTML = previewHTML;
     preview.className = 'cm-image-preview';
   } catch (e) {

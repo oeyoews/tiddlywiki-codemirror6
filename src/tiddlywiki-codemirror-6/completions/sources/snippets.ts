@@ -49,7 +49,10 @@ export function userSnippets() {
       label: conf.delimiter() + (info.caption ? info.caption : info.title),
       displayLabel: info.caption ? info.caption : info.title,
       type: 'cm-snippet', // real added class is cm-completionIcon-cm-snippets
-      info: conf.snippetPreview() ? () => renderTid(info.vanillaTitle) : '',
+      // detail: info.vanillaTitle ? info.vanillaTitle : info.title,
+      info: conf.snippetPreview()
+        ? () => renderTid(info.vanillaTitle || info.title)
+        : '',
       section: menu.snippets
     });
   });
