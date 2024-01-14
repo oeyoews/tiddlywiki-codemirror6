@@ -29,10 +29,11 @@ class CustomLink extends WidgetType {
     wrapper.style.cursor = 'pointer';
     wrapper.style.userSelect = 'none';
     wrapper.title = title;
-    wrapper.onclick = (e) => {
+    wrapper.onclick = (e: MouseEvent) => {
       e.preventDefault();
-      const goto = new $tw.Story();
-      goto.navigateTiddler(title);
+      if (e.ctrlKey) {
+        new $tw.Story().navigateTiddler(title);
+      }
     };
 
     return wrapper;

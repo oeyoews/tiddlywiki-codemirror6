@@ -15,16 +15,16 @@ class HyperLink extends WidgetType {
     );
   }
   toDOM() {
-    const wrapper = document.createElement('a');
-    const goto = new $tw.Story();
+    const wrapper = document.createElement('span');
     const title = this.state.title;
-    wrapper.href = title;
     wrapper.title = title;
     wrapper.innerHTML = ' 🖼️';
-    wrapper.className = 'cm-link';
-    wrapper.onclick = (e) => {
+    wrapper.style.cursor = 'pointer';
+    wrapper.onclick = (e: MouseEvent) => {
       e.preventDefault();
-      goto.navigateTiddler(title);
+      if (e.ctrlKey) {
+        new $tw.Story().navigateTiddler(title);
+      }
     };
     return wrapper;
   }

@@ -24,6 +24,9 @@ import { wordCountExt } from 'src/tiddlywiki-codemirror-6/extensions/wordCountEx
 import { type IWidget } from 'src/tiddlywiki-codemirror-6/types';
 import { cmkeymaps } from '../keymap';
 import { linkHoverPreview } from 'src/tiddlywiki-codemirror-6/extensions/wordhover';
+import { linkExt } from 'src/tiddlywiki-codemirror-6/extensions/linkExt';
+import { tidExt } from 'src/tiddlywiki-codemirror-6/extensions/tidExt';
+import { imgExt } from 'src/tiddlywiki-codemirror-6/extensions/imgExt';
 
 export default function configExtensions(cme: Extension[], widget: IWidget) {
   const fields = $tw.wiki.getTiddler(
@@ -37,6 +40,8 @@ export default function configExtensions(cme: Extension[], widget: IWidget) {
     conf.linkPreview() && cme.push(linkHoverPreview);
     conf.wordCount() && cme.push(wordCountExt());
     conf.lineNumbers() && cme.push(lineNumbers());
+
+    conf.clickable() && cme.push(linkExt, tidExt, imgExt);
 
     if (conf.vimmode()) {
       setVimKeymap(widget);

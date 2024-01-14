@@ -7,6 +7,7 @@ export default () =>
     aboveCursor: false,
     tooltipClass: () => 'cm-autocomplete-tooltip',
     optionClass: () => 'cm-autocomplete-option',
+    // TODO add tab node
     selectOnOpen: cm6.selectOnOpen(),
     icons: cm6.autocompleteIcons(),
     closeOnBlur: cm6.closeOnBlur(), // 焦点改变时关闭

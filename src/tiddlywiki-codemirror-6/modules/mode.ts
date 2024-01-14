@@ -1,7 +1,3 @@
-import cm6 from '../cm6.js';
-import { linkExt } from '../extensions/linkExt.js';
-import { tidExt } from '../extensions/tidExt.js';
-import { imgExt } from '../extensions/imgExt.js';
 import { color } from '@uiw/codemirror-extensions-color';
 import { keymap } from '@codemirror/view';
 import { tiddlywiki, tiddlywikiLanguage } from 'codemirror-lang-tiddlywiki';
@@ -26,16 +22,17 @@ const dynamicmode = (mode: string, cme: Extension[]) => {
     mode = 'text/vnd.tiddlywiki';
   }
 
+  const options = {
+    autocomplete: completions
+  };
+
   switch (mode) {
     case 'text/vnd.tiddlywiki':
       // @ts-expect-error
       cme.push(tiddlywiki({ base: tiddlywikiLanguage }));
 
-      actionCompletions = tiddlywikiLanguage.data.of({
-        autocomplete: completions
-      });
+      actionCompletions = tiddlywikiLanguage.data.of(options);
 
-      cm6.clickable() && cme.push(linkExt, tidExt, imgExt);
       cme.push(Prec.high(actionCompletions));
       break;
     case 'text/markdown':
@@ -76,11 +73,8 @@ const dynamicmode = (mode: string, cme: Extension[]) => {
         })
       );
 
-      actionCompletions = markdownLanguage.data.of({
-        autocomplete: completions
-      });
+      actionCompletions = markdownLanguage.data.of(options);
 
-      cm6.clickable() && cme.push(linkExt, tidExt, imgExt);
       cme.push(Prec.high(actionCompletions));
       cme.push(Prec.high(keymap.of(markdownKeymap)));
       break;
