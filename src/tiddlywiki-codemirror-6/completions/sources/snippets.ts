@@ -51,7 +51,7 @@ export function userSnippets() {
       type: 'cm-snippet', // real added class is cm-completionIcon-cm-snippets
       // detail: info.vanillaTitle ? info.vanillaTitle : info.title,
       info: conf.snippetPreview()
-        ? () => renderTid(info.vanillaTitle || info.title)
+        ? () => renderTid(info.vanillaTitle || info.title, conf.footer())
         : '',
       section: menu.snippets
     });

@@ -167,7 +167,6 @@ class CodeMirrorEngine {
       //   spanElement.style.cursor = 'pointer';
       //   spanElement.addEventListener('click', (e: MouseEvent) => {
       //     if (e.ctrlKey) {
-      //       console.log('hhh');
       //     }
       //   });
       //   spanElement.textContent = 'hhh';

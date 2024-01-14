@@ -1,8 +1,11 @@
 import { CompletionInfo } from '@codemirror/autocomplete';
 import conf from '../cm6';
-export function renderTid(title: string | undefined): CompletionInfo | null {
+export function renderTid(
+  title: string | undefined,
+  footer = false
+): CompletionInfo | null {
   if (!conf.tiddlerPreview()) {
-    console.log('tiddlerPreview is false');
+    conf.debug() && console.warn('tiddlerPreview is false');
     return null;
   }
 
@@ -11,7 +14,7 @@ export function renderTid(title: string | undefined): CompletionInfo | null {
     return null;
   }
   if ($tw.wiki.getTiddler(title)?.fields.render === 'false') {
-    console.warn(title, ' disabling render');
+    conf.debug() && console.warn(title, ' disabling render');
     return null;
   }
 
@@ -24,19 +27,21 @@ export function renderTid(title: string | undefined): CompletionInfo | null {
   let previewHTML = '暂不支持预览';
   // 这里没有传入 this, 不能判断 fakedom
   const preview = document.createElement('div');
+  let renderedText = `<$transclude $tiddler='${title}' $mode='block' />`;
+  if (footer) {
+    renderedText += `\n<footer style="text-align: right;margin-right: 10px">Snippet Tiddler Is: ${title}</footer>`;
+  }
+
   try {
     previewHTML = $tw.wiki.renderText(
       'text/html',
       'text/vnd.tiddlywiki', // 是 textType, 不是渲染 type. 使用 transclude 自然选择 text/vnd.tiddlywiki,
-      // !! ${title} \n
-      `<$transclude $tiddler='${title}' $mode='block' />\n<footer style="text-align: right;margin-right: 10px">Snippet Tiddler Is: ${title}</footer>`
+      renderedText
     );
     // || previewHTML === '<p></p>'
     if (!previewHTML) return null;
     preview.innerHTML = previewHTML;
     preview.className = 'cm-image-preview';
-  } catch (e) {
-    // console.log(e);
-  }
+  } catch (e) {}
   return preview;
 }

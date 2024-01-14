@@ -1,5 +1,9 @@
 title: $:/language/codemirror6/
 
+footer/caption: 📝 Footer
+footer/description: Show snippets footer
+debug/caption: 🐞 Debug
+debug/description: Sebug for codemirror on console
 activateOnTyping/caption: 🚀 Activate on Typing
 activateOnTyping/description: Enable activation on typing for enhanced functionality.
 inlineSuggestion/caption: 🔍 Inline Suggestion (Experimental)

@@ -19,11 +19,15 @@ function getConfig(title: string) {
 // TODO: 这些配置如果写成常量，tiddlywiki 将会缓存？??，不会每次重新计算 (不知道为什么), 实例仅仅创建了一次？??，但是为什么做成 function, 重新在实例里面计算又可以了？??
 // NOTE: 对应配置的 caption 不要写成 TxxxBxxx 格式。
 export const tiddlers = {
+  footer: {
+    caption: 'Footer',
+    icon: '📝',
+    description: 'Show snippets footer'
+  },
   debug: {
     caption: 'Debug',
-    text: 'no', // yes or no
     icon: '🐞',
-    description: 'debug for codemirror on console'
+    description: 'Sebug for codemirror on console'
   },
   activateOnTyping: {
     caption: 'Activate on Typing',
