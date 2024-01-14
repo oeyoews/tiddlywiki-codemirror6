@@ -1,12 +1,13 @@
 import {
   Completion,
   CompletionContext,
-  CompletionResult
+  CompletionResult,
+  ifIn,
+  ifNotIn
 } from '@codemirror/autocomplete';
 import cm6 from '../cm6';
 import triggerType from '../utils/triggerType';
 import sources from '../completions/sources';
-import { CompleterResult } from 'readline';
 
 // TODO: use ifIn to better completion.
 // @see-also: https://github.com/codemirror/lang-javascript/blob/4dcee95aee9386fd2c8ad55f93e587b39d968489/src/complete.ts
@@ -17,6 +18,7 @@ import { CompleterResult } from 'readline';
 export default (context: CompletionContext): CompletionResult | undefined => {
   const validFor: RegExp = /^[\w$]*$/;
 
+  // ifNotIn(context ); // TODO: disable completion in comment node
   const cursorPos = context.state.selection.main.head;
   const doc = context.state.doc;
 
