@@ -20,7 +20,7 @@ export function renderTid(
 
   if (!$tw.wiki.getTiddlerText(title)) {
     const titleNode = document.createElement('h2');
-    titleNode.innerHTML = title;
+    titleNode.innerHTML = title + '(builtin snippet)';
     return titleNode;
   }
   // NOTE: 如果需要解析为 inline 的话，会导致 !! 这种 wikitext 的语法 parse 错误
