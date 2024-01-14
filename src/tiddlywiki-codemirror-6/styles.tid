@@ -511,3 +511,9 @@ color: #495057;
 .tc-tiddler-preview {
 	grid-template-columns: repeat(2, minmax(0px, 1fr)) !important;
 }
+
+.cm-completionMatchedText {
+	<!-- if include emoji, emoji will broken -->
+	font-weight: bold;
+	text-decoration: none !important;
+}

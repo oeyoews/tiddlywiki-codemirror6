@@ -1,7 +1,12 @@
-import { CompletionContext } from '@codemirror/autocomplete';
+import {
+  Completion,
+  CompletionContext,
+  CompletionResult
+} from '@codemirror/autocomplete';
 import cm6 from '../cm6';
 import triggerType from '../utils/triggerType';
 import sources from '../completions/sources';
+import { CompleterResult } from 'readline';
 
 // TODO: use ifIn to better completion.
 // @see-also: https://github.com/codemirror/lang-javascript/blob/4dcee95aee9386fd2c8ad55f93e587b39d968489/src/complete.ts
@@ -9,13 +14,13 @@ import sources from '../completions/sources';
 // maybe help: https://github.com/Gk0Wk/TW5-CodeMirror-Enhanced/blob/811760507bfcd5493df4d5c117d33d7bfa076ab2/src/cme/addon/hint/hint-tw5-tiddler.ts#L58
 // IME: https://developer.mozilla.org/en-US/docs/Web/API/Element/compositionend_event
 //  https://codemirror.net/docs/migration/
-export default (context: CompletionContext) => {
-  const validFor = /^[\w$]*$/;
+export default (context: CompletionContext): CompletionResult | undefined => {
+  const validFor: RegExp = /^[\w$]*$/;
 
   const cursorPos = context.state.selection.main.head;
   const doc = context.state.doc;
 
-  let wordStart = cursorPos;
+  let wordStart: number = cursorPos;
 
   while (
     wordStart > 0 &&
@@ -33,7 +38,7 @@ export default (context: CompletionContext) => {
   }
 
   // NOTE: 一定要保证是数组
-  let options: any[] = sources.wordsSnippets();
+  let options: Completion[] = sources.wordsSnippets();
 
   switch (true) {
     case lastWord.startsWith(triggerType.link):
@@ -79,6 +84,10 @@ export default (context: CompletionContext) => {
   return {
     from: wordStart,
     options,
+    // filter: false,
+    getMatch: (compltion, matched) => {
+      return matched as [];
+    },
     validFor
   };
 };

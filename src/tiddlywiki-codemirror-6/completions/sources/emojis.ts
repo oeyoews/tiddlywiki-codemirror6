@@ -1,12 +1,16 @@
 import { Completion } from '@codemirror/autocomplete';
 import { snippetCompletion as snip } from '@codemirror/autocomplete';
-import { ISource } from 'src/tiddlywiki-codemirror-6/types';
 import delimiter from 'src/tiddlywiki-codemirror-6/utils/triggerType';
 import { menu } from 'src/tiddlywiki-codemirror-6/modules/config/menu';
 
 export function emojiSnippets() {
   const snippetModules = $tw.modules.types['emoji-snippets'];
-  const sources: ISource[] = [];
+  const sources: {
+    /** emoji text */
+    title: string;
+    /** emoji unicode */
+    text: string;
+  }[] = [];
 
   if (snippetModules) {
     const req = Object.getOwnPropertyNames(snippetModules);
@@ -27,8 +31,8 @@ export function emojiSnippets() {
     (item) =>
       snip(item.text, {
         label: delimiter.emoji + item.title,
-        displayLabel: item.text,
-        detail: item.title,
+        displayLabel: item.title,
+        detail: item.text,
         type: 'cm-emoji',
         section: menu.emojis
       }) as Completion
