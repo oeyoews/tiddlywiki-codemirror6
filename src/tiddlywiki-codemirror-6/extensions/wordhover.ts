@@ -7,25 +7,31 @@ export const wordHover: Extension = hoverTooltip(
     let { from, to, text } = view.state.doc.lineAt(pos);
     let start = pos;
     let end = pos;
-    const validLink = /[\w:$.\-\/\s\u4e00-\u9fa5]/;
 
-    while (start > from && validLink.test(text[start - from - 1])) {
+    while (start > from && text[start - from - 1] !== '[') {
       start--;
     }
 
-    if (text[start - from - 1] !== '[' && text[end - from + 1] !== ']') {
-      return null;
-    }
-
-    while (end < to && validLink.test(text[end - from])) {
+    while (end < to && text[end - from] !== ']') {
       end++;
     }
 
-    if ((start == pos && side < 0) || (end == pos && side > 0)) return null;
+    if (
+      text[start - from - 3] === '[' ||
+      text[start - from - 3] === '{' ||
+      text[start - from - 2] !== '[' ||
+      text[end - from + 1] !== ']' ||
+      text[end - from + 2] === ']'
+    ) {
+      return null;
+    }
+
+    // if ((start == pos && side < 0) || (end == pos && side > 0)) return null;
 
     const title = text.slice(start - from, end - from);
-    if (!$tw.wiki.tiddlerExists(title)) return null;
-    if (title.startsWith('$:/')) return null;
+    // if (!$tw.wiki.tiddlerExists(title)) return null;
+    if (!$tw.wiki.getTiddlerText(title)) return null;
+    // if (title.startsWith('$:/')) return null;
 
     let previewNode = document.createElement('div');
     previewNode.className = 'cm-link-preview';

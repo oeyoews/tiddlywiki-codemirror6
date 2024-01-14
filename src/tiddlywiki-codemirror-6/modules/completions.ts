@@ -86,6 +86,7 @@ export default (context: CompletionContext): CompletionResult | undefined => {
     options,
     // filter: false,
     getMatch: (compltion, matched) => {
+      /** @deprecated: class: cm-completionMatchedText */
       return matched as [];
     },
     validFor
