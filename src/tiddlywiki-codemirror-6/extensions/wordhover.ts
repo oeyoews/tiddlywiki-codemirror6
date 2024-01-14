@@ -42,8 +42,21 @@ export const wordHover: Extension = hoverTooltip(
         const innerHTML = $tw.wiki.renderTiddler('text/html', title);
         previewNode.innerHTML = innerHTML;
       }
-      previewNode.addEventListener('click', () => {
-        new $tw.Story().navigateTiddler(title);
+      previewNode.addEventListener('pointermove', (e: PointerEvent) => {
+        let setCursor = false;
+        if (e.ctrlKey && !setCursor) {
+          previewNode.style.cursor = 'pointer';
+          setCursor = true;
+        } else if (!e.ctrlKey) {
+          previewNode.style.cursor = 'text';
+          setCursor = false;
+        }
+      });
+      previewNode.addEventListener('click', (e: MouseEvent) => {
+        e.preventDefault();
+        if (e.ctrlKey) {
+          new $tw.Story().navigateTiddler(title);
+        }
       });
     } catch (e) {
       return null;
@@ -69,7 +82,7 @@ export const wordHover: Extension = hoverTooltip(
 const linkpreviewStyle = EditorView.baseTheme({
   '.cm-link-preview': {
     boxShadow: '0 4px 6px rgba(0, 0, 0, 0.1), 0 1px 3px rgba(0, 0, 0, 0.08)',
-    cursor: 'pointer',
+    // cursor: 'pointer',
     overflow: 'auto',
     maxWidth: '400px',
     maxHeight: '400px',

@@ -1,9 +1,7 @@
 import {
   Completion,
   CompletionContext,
-  CompletionResult,
-  ifIn,
-  ifNotIn
+  CompletionResult
 } from '@codemirror/autocomplete';
 import cm6 from '../cm6';
 import triggerType from '../utils/triggerType';
