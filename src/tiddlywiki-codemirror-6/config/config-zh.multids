@@ -1,11 +1,11 @@
 title: $:/language/codemirror6/zh/
 
 footer/caption: 📝 页脚
-footer/description: 显示代码片段页脚
+footer/description: 显示代码片段来源
 debug/caption: 🐞 调试
-debug/description: 在控制台上为 codemirror 进行调试
+debug/description: 在控制台上显示 codemirror6 的日志
 activateOnTyping/caption: 🚀 打字激活
-activateOnTyping/description: 启用打字激活以增强功能。
+activateOnTyping/description: 启用打字激活弹出补全框，关闭后，可以 ctrl+space 手动触发
 inlineSuggestion/caption: 🔍 内联建议（实验性）
 inlineSuggestion/description: 内联建议的实验性功能。
 tiddlerPreview/caption: 📑 Tiddler 预览
@@ -26,14 +26,14 @@ enableSystemTiddlersCompletion/caption: 🔄 启用系统 Tiddlers 完成
 enableSystemTiddlersCompletion/description: 启用系统 Tiddlers 的自动完成。
 closeOnBlur/caption: 🔒 失焦关闭
 closeOnBlur/description: 失焦时自动关闭。
-foldGutter/caption: 📂 折叠边框
-foldGutter/description: 为代码启用折叠边框。
+foldGutter/caption: 📂 折叠
+foldGutter/description: 为代码启用折叠。
 translate/caption: 🌐 翻译
-translate/description: 启用翻译。
+translate/description: 启用翻译
 rtl/caption: ↔️ RTL
 rtl/description: 启用从右到左的文本方向。
 cursor-thickness/caption: 🚸 光标厚度
-cursor-thickness/description: 设置光标的厚度。
+cursor-thickness/description: 设置光标的宽度
 onedark/caption: 🌒 启用 One Dark 主题
 onedark/description: 启用 One Dark 主题。
 clickable-icon/caption: 🖱️ 可点击图标
@@ -45,17 +45,17 @@ customPlaceholder/description: 设置自定义占位符。
 placeholder/caption: ✏️️ 占位符
 placeholder/description: 设置默认的占位符文本。
 cursorBlinkRate/caption: ⚡ 光标闪烁速率
-cursorBlinkRate/description: 设置光标闪烁的速率（以毫秒为单位）。
+cursorBlinkRate/description: 设置光标闪烁的速率（以毫秒为单位）,设置为 0 禁用闪烁
 minLength/caption: 📏 最小长度
-minLength/description: 设置输入的最小长度。
+minLength/description: 设置自动补全最小长度。
 delimiter/caption: 🔍 分隔符
 delimiter/description: 设置某些操作的分隔符。
 minimap/caption: 🗺️ 小地图
 minimap/description: 启用导航的小地图。
 closeBrackets/caption: 🔄 自动关闭括号
 closeBrackets/description: 自动关闭括号。
-selectOnOpen/caption: 🔄 打开时选择
-selectOnOpen/description: 打开时自动选择。
+selectOnOpen/caption: 🔄 自动选择补全项
+selectOnOpen/description: 自动选择补全项
 autocompleteIcons/caption: 🎨 自动完成图标
 autocompleteIcons/description: 在自动完成建议中启用图标。
 maxRenderedOptions/caption: 🔍 最大渲染选项

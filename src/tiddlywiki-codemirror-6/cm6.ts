@@ -27,7 +27,7 @@ export const tiddlers = {
     },
     icon: '📝',
     description: {
-      zh: '显示代码片段页脚',
+      zh: '显示代码片段来源',
       en: 'Show snippets footer'
     }
   },
@@ -38,7 +38,7 @@ export const tiddlers = {
     },
     icon: '🐞',
     description: {
-      zh: '在控制台上为 codemirror 进行调试',
+      zh: '在控制台上显示 codemirror6 的日志',
       en: 'Sebug for codemirror on console'
     }
   },
@@ -50,7 +50,7 @@ export const tiddlers = {
     text: 'yes',
     icon: '🚀',
     description: {
-      zh: '启用打字激活以增强功能。',
+      zh: '启用打字激活弹出补全框，关闭后，可以 ctrl+space 手动触发',
       en: 'Enable activation on typing for enhanced functionality.'
     }
   },
@@ -168,12 +168,12 @@ export const tiddlers = {
   },
   foldGutter: {
     caption: {
-      zh: '折叠边框',
+      zh: '折叠',
       en: 'Fold Gutter'
     },
     icon: '📂',
     description: {
-      zh: '为代码启用折叠边框。',
+      zh: '为代码启用折叠。',
       en: 'Enable folding gutter for code.'
     }
   },
@@ -184,7 +184,7 @@ export const tiddlers = {
     },
     icon: '🌐',
     description: {
-      zh: '启用翻译。',
+      zh: '启用翻译',
       en: 'Enable translation.'
     }
   },
@@ -207,7 +207,7 @@ export const tiddlers = {
     text: '1px',
     icon: '🚸',
     description: {
-      zh: '设置光标的厚度。',
+      zh: '设置光标的宽度',
       en: 'Set the thickness of the cursor.'
     }
   },
@@ -277,7 +277,7 @@ export const tiddlers = {
     text: 1000,
     icon: '⚡',
     description: {
-      zh: '设置光标闪烁的速率（以毫秒为单位）。',
+      zh: '设置光标闪烁的速率（以毫秒为单位）,设置为 0 禁用闪烁',
       en: 'Set the rate at which the cursor blinks (in milliseconds).'
     }
   },
@@ -289,7 +289,7 @@ export const tiddlers = {
     text: 3,
     icon: '📏',
     description: {
-      zh: '设置输入的最小长度。',
+      zh: '设置自动补全最小长度。',
       en: 'Set the minimum length for input.'
     }
   },
@@ -330,13 +330,13 @@ export const tiddlers = {
   },
   selectOnOpen: {
     caption: {
-      zh: '打开时选择',
+      zh: '自动选择补全项',
       en: 'Select on Open'
     },
     text: 'yes',
     icon: '🔄',
     description: {
-      zh: '打开时自动选择。',
+      zh: '自动选择补全项',
       en: 'Automatically select on open.'
     }
   },
