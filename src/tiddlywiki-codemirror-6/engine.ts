@@ -1,52 +1,23 @@
-import {
-  indentUnit,
-  defaultHighlightStyle,
-  syntaxHighlighting,
-  indentOnInput
-} from '@codemirror/language';
-import {
-  EditorState,
-  EditorSelection,
-  Prec,
-  Extension
-} from '@codemirror/state';
-import {
-  highlightSelectionMatches,
-  openSearchPanel,
-  closeSearchPanel
-} from '@codemirror/search';
+import { EditorState, EditorSelection, Extension } from '@codemirror/state';
+import { openSearchPanel, closeSearchPanel } from '@codemirror/search';
 
 import { completionStatus } from '@codemirror/autocomplete';
-import { indentationMarkers } from '@replit/codemirror-indentation-markers';
-import { history, undo, redo } from '@codemirror/commands';
+import { undo, redo } from '@codemirror/commands';
 
-import {
-  EditorView,
-  dropCursor,
-  highlightSpecialChars,
-  drawSelection,
-  rectangularSelection,
-  crosshairCursor,
-  tooltips
-} from '@codemirror/view';
+import { EditorView } from '@codemirror/view';
 
-import tabSizePlugin from './utils/tab-size';
-import cm6 from './cm6';
-import autocompletionConfig from './modules/config/autocomplete';
 import dynamicmode from './modules/mode';
-import removeOutlineExt from './extensions/removeOutlineExt';
 import { miniMapExt } from './extensions/miniMapExt';
-import rainbowBrackets from './extensions/rainbowBrackets';
-import fontSizeExt from './extensions/fontSizeExt';
 import updateExtensions from './modules/config/extensions';
 import { IOperation, IOperationType, operationTypes } from './operationTypes';
 import type { TW_Element } from 'tiddlywiki';
 import type { IWidget, IOptions } from './types';
 import inlineSuggestionExt from './modules/inlinesuggest';
+import { cme } from './extensions/basic';
 
 class CodeMirrorEngine {
   widget: IWidget;
-  cme: Extension[];
+  cme: Extension[] = [];
   domNode: TW_Element;
   parentNode: Node;
   nextSibling: Node;
@@ -55,8 +26,6 @@ class CodeMirrorEngine {
   private dragCancel: boolean = false;
 
   constructor(options = {} as IOptions) {
-    const self = this;
-
     this.widget = options.widget;
     this.parentNode = options.parentNode;
     this.nextSibling = options.nextSibling;
@@ -66,152 +35,10 @@ class CodeMirrorEngine {
     this.parentNode.insertBefore(this.domNode, this.nextSibling);
     this.widget.domNodes.push(this.domNode);
 
-    this.domNode.className = this.widget.editClass || '';
+    this.domNode.className = this.widget.editClass ? this.widget.editClass : '';
     this.domNode.style.display = 'inline-block';
 
-    this.cme = [
-      indentationMarkers({
-        thickness: 2,
-        hideFirstIndent: false,
-        markerType: 'codeOnly'
-      }),
-      // WIP
-      dropCursor(),
-      tabSizePlugin(),
-      removeOutlineExt,
-      fontSizeExt(),
-      indentUnit.of('	'),
-      // EditorState.readOnly.of(true), // NOTE: lastest vim-mode extension has fix that bug
-
-      Prec.high(
-        EditorView.domEventHandlers({
-          drop(event, view) {
-            self.dragCancel = false;
-            return self.handleDropEvent(event, view);
-          },
-          dragstart(event, view) {
-            self.dragCancel = true;
-            return false;
-          },
-          dragenter(event: DragEvent, view) {
-            self.dragCancel = true;
-            if (
-              self.widget.isFileDropEnabled &&
-              ($tw.utils.dragEventContainsFiles(event) ||
-                event.dataTransfer?.files.length)
-            ) {
-              event.preventDefault();
-              return true;
-            }
-            return false;
-          },
-          dragover(event: DragEvent, view) {
-            self.dragCancel = true;
-            if (
-              self.widget.isFileDropEnabled &&
-              ($tw.utils.dragEventContainsFiles(event) ||
-                event.dataTransfer?.files.length)
-            ) {
-              event.preventDefault();
-              return true;
-            }
-            return false;
-          },
-          dragleave(event, view) {
-            self.dragCancel = false;
-            if (self.widget.isFileDropEnabled) {
-              event.preventDefault();
-              return true;
-            }
-            return false;
-          },
-          dragend(event, view) {
-            self.dragCancel = true;
-            if (self.widget.isFileDropEnabled) {
-              //event.preventDefault();
-              //return true;
-            }
-            return false;
-          },
-          paste(event: any) {
-            if (self.widget.isFileDropEnabled) {
-              event.twEditor = true;
-              return self.widget.handlePasteEvent.call(self.widget, event);
-            } else {
-              event.twEditor = true;
-            }
-            return false;
-          },
-          keydown(event, view) {
-            return self.handleKeydownEvent(event, view);
-          },
-          focus(event, view) {
-            if (self.widget.editCancelPopups) {
-              // @ts-ignore
-              $tw.popup.cancel(0);
-            }
-            return false;
-          },
-          blur() {
-            return false;
-          }
-        })
-      ),
-      tooltips({
-        parent: this.domNode.ownerDocument?.body // NOTE: preview render bug: Cannot set property parentNode of #<Node> which has only a getter
-      }),
-      // TODO
-      // highlightSpecialChars({
-      // render: () => {
-      //   const spanElement = document.createElement('span');
-      //   spanElement.style.cursor = 'pointer';
-      //   spanElement.addEventListener('click', (e: MouseEvent) => {
-      //     if (e.ctrlKey) {
-      //     }
-      //   });
-      //   spanElement.textContent = 'hhh';
-      //   return spanElement;
-      // },
-      // addSpecialChars: /hhh/
-      // }),
-      history(),
-      drawSelection({
-        cursorBlinkRate: cm6.cursorBlinkRate()
-      }),
-      EditorState.allowMultipleSelections.of(true),
-      indentOnInput(),
-      syntaxHighlighting(defaultHighlightStyle, { fallback: true }),
-      autocompletionConfig(),
-      rectangularSelection(),
-      crosshairCursor(),
-      highlightSelectionMatches(),
-      rainbowBrackets(),
-      EditorView.lineWrapping,
-      EditorView.contentAttributes.of({
-        tabindex: this.widget.editTabIndex ? this.widget.editTabIndex : ''
-      }),
-      EditorView.contentAttributes.of({
-        spellcheck: cm6.spellcheck()
-      }),
-      EditorView.contentAttributes.of({
-        autocorrect: cm6.autocorrect()
-      }),
-      EditorView.contentAttributes.of({
-        translate:
-          $tw.wiki.getTiddlerText(
-            '$:/state/codemirror-6/translate/' + self.widget.editTitle
-          ) === 'yes'
-            ? 'yes'
-            : 'no'
-      }),
-      EditorView.perLineTextDirection.of(true),
-      EditorView.updateListener.of(function (v) {
-        if (v.docChanged) {
-          const text = self.cm.state.doc.toString();
-          self.widget.saveChanges(text);
-        }
-      })
-    ];
+    this.cme = cme(this);
 
     inlineSuggestionExt(this as any);
     updateExtensions(this.cme, this.widget);
