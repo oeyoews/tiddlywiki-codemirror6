@@ -25,7 +25,8 @@ export function renderTid(
   }
   // NOTE: 如果需要解析为 inline 的话，会导致 !! 这种 wikitext 的语法 parse 错误
   let previewHTML = '暂不支持预览';
-  // 这里没有传入 this, 不能判断 fakedom
+  // @see-also: https://github.com/Jermolene/TiddlyWiki5/discussions/7923
+  // NOTE: 这里没有传入 this, 不能判断 fakedom
   const preview = document.createElement('div');
   let renderedText = `<$transclude $tiddler='${title}' $mode='block' />`;
   if (footer) {
