@@ -38,7 +38,7 @@ import removeOutlineExt from './extensions/removeOutlineExt';
 import { miniMapExt } from './extensions/miniMapExt';
 import rainbowBrackets from './extensions/rainbowBrackets';
 import fontSizeExt from './extensions/fontSizeExt';
-import configExtensions from './modules/config/extensions';
+import updateExtensions from './modules/config/extensions';
 import { IOperation, IOperationType, operationTypes } from './operationTypes';
 import type { TW_Element } from 'tiddlywiki';
 import type { IWidget, IOptions } from './types';
@@ -214,7 +214,7 @@ class CodeMirrorEngine {
     ];
 
     inlineSuggestionExt(this as any);
-    configExtensions(this.cme, this.widget);
+    updateExtensions(this.cme, this.widget);
     miniMapExt(this.cme);
     dynamicmode(options.type, this.cme);
 

@@ -27,8 +27,12 @@ import { linkHoverPreview } from 'src/tiddlywiki-codemirror-6/extensions/wordhov
 import { linkExt } from 'src/tiddlywiki-codemirror-6/extensions/linkExt';
 import { tidExt } from 'src/tiddlywiki-codemirror-6/extensions/tidExt';
 import { imgExt } from 'src/tiddlywiki-codemirror-6/extensions/imgExt';
+import {
+  contentIncludingHint,
+  showCompletionHint
+} from 'src/tiddlywiki-codemirror-6/extensions/showCompletionHint';
 
-export default function configExtensions(cme: Extension[], widget: IWidget) {
+export default function updateExtensions(cme: Extension[], widget: IWidget) {
   const fields = $tw.wiki.getTiddler(
     $tw.wiki.getTiddlerText('$:/palette')!
   )?.fields;
@@ -40,6 +44,8 @@ export default function configExtensions(cme: Extension[], widget: IWidget) {
     conf.linkPreview() && cme.push(linkHoverPreview);
     conf.wordCount() && cme.push(wordCountExt());
     conf.lineNumbers() && cme.push(lineNumbers());
+
+    // cme.push(contentIncludingHint());
 
     conf.clickable() && cme.push(linkExt, tidExt, imgExt);
 

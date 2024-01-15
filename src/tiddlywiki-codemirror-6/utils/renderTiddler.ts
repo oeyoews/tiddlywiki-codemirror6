@@ -19,8 +19,8 @@ export function renderTid(
   }
 
   if (!$tw.wiki.getTiddlerText(title)) {
-    const titleNode = document.createElement('h2');
-    titleNode.innerHTML = title + '(builtin snippet)';
+    const titleNode = document.createElement('h3');
+    titleNode.innerHTML = title + '(builtin)';
     return titleNode;
   }
   // NOTE: 如果需要解析为 inline 的话，会导致 !! 这种 wikitext 的语法 parse 错误
