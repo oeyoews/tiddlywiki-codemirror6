@@ -15,13 +15,18 @@ const dir = path.join('src', 'tiddlywiki-codemirror-6', 'config');
 fs.rmdirSync(dir, { recursive: true });
 fs.mkdirSync(dir, { recursive: true });
 
-let multidcontent = 'title: $:/language/codemirror6/\n\n';
+// default is en
+let multidcontentEn = 'title: $:/language/codemirror6/\n\n';
+// zh
+let multidcontentZH = 'title: $:/language/codemirror6/zh/\n\n';
 
 tiddlersInfo.forEach(([title, fields]) => {
   // TODO: update caption
-  let { caption, icon, description = caption, template, text = 'no' } = fields;
+  let { caption, icon, description, template, text = 'no' } = fields;
 
-  caption = icon + ' ' + caption.replace(/^\w/, (match) => match.toUpperCase());
+  const captionEn =
+    icon + ' ' + caption.en.replace(/^\w/, (match) => match.toUpperCase());
+  const captionZh = icon + ' ' + caption.zh;
 
   if (text === 'no' || text == 'yes') {
     template = 'input-switch';
@@ -29,7 +34,8 @@ tiddlersInfo.forEach(([title, fields]) => {
     template = 'input';
   }
 
-  multidcontent += `${title}/caption: ${caption}\n${title}/description: ${description}\n`;
+  multidcontentEn += `${title}/caption: ${captionEn}\n${title}/description: ${description.en}\n`;
+  multidcontentZH += `${title}/caption: ${captionZh}\n${title}/description: ${description.zh}\n`;
 
   const content = `title: ${configBaseTitle}${title}
 caption: {{$:/language/codemirror6/${title}/caption}}
@@ -42,6 +48,7 @@ ${text}`;
   fs.writeFileSync(filepath, content);
 });
 
-fs.writeFileSync(path.join(dir, 'config.multids'), multidcontent);
+fs.writeFileSync(path.join(dir, 'config-en.multids'), multidcontentEn);
+fs.writeFileSync(path.join(dir, 'config-zh.multids'), multidcontentZH);
 
 console.log('配置更新完成');

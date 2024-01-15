@@ -31,10 +31,14 @@ export type ISource = {
   caption?: string;
 };
 
+interface I18n {
+  zh: string;
+  en: string;
+}
 export interface IConfigFields {
   icon: string;
-  caption: string;
-  description: string;
+  caption: I18n;
+  description: I18n;
   template: 'input-switch' | 'input';
   text: string;
 }

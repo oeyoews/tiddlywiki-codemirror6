@@ -1,0 +1,80 @@
+title: $:/language/codemirror6/zh/
+
+footer/caption: 📝 页脚
+footer/description: 显示代码片段页脚
+debug/caption: 🐞 调试
+debug/description: 在控制台上为 codemirror 进行调试
+activateOnTyping/caption: 🚀 打字激活
+activateOnTyping/description: 启用打字激活以增强功能。
+inlineSuggestion/caption: 🔍 内联建议（实验性）
+inlineSuggestion/description: 内联建议的实验性功能。
+tiddlerPreview/caption: 📑 Tiddler 预览
+tiddlerPreview/description: 启用 tiddlers 的预览。
+snippetPreview/caption: 📝 代码片段预览
+snippetPreview/description: 启用代码片段的预览。
+linkPreview/caption: 🔗 链接预览
+linkPreview/description: 启用超链接的预览。
+fontsize/caption: 📏 字体大小
+fontsize/description: 设置字体大小以提高可读性。
+wordCount/caption: 📊 启用字数统计
+wordCount/description: 显示内容的字数统计。
+whitespace/caption: 🔍 高亮空格
+whitespace/description: 启用空格的高亮显示。
+highlightTrailingWhitespace/caption: 🔍 高亮尾随空格
+highlightTrailingWhitespace/description: 启用尾随空格的高亮显示。
+enableSystemTiddlersCompletion/caption: 🔄 启用系统 Tiddlers 完成
+enableSystemTiddlersCompletion/description: 启用系统 Tiddlers 的自动完成。
+closeOnBlur/caption: 🔒 失焦关闭
+closeOnBlur/description: 失焦时自动关闭。
+foldGutter/caption: 📂 折叠边框
+foldGutter/description: 为代码启用折叠边框。
+translate/caption: 🌐 翻译
+translate/description: 启用翻译。
+rtl/caption: ↔️ RTL
+rtl/description: 启用从右到左的文本方向。
+cursor-thickness/caption: 🚸 光标厚度
+cursor-thickness/description: 设置光标的厚度。
+onedark/caption: 🌒 启用 One Dark 主题
+onedark/description: 启用 One Dark 主题。
+clickable-icon/caption: 🖱️ 可点击图标
+clickable-icon/description: 设置一个可点击的图标。
+clickable/caption: 🖱️ 可点击
+clickable/description: 启用可点击性。
+customPlaceholder/caption: 🖊️ 自定义占位符
+customPlaceholder/description: 设置自定义占位符。
+placeholder/caption: ✏️️ 占位符
+placeholder/description: 设置默认的占位符文本。
+cursorBlinkRate/caption: ⚡ 光标闪烁速率
+cursorBlinkRate/description: 设置光标闪烁的速率（以毫秒为单位）。
+minLength/caption: 📏 最小长度
+minLength/description: 设置输入的最小长度。
+delimiter/caption: 🔍 分隔符
+delimiter/description: 设置某些操作的分隔符。
+minimap/caption: 🗺️ 小地图
+minimap/description: 启用导航的小地图。
+closeBrackets/caption: 🔄 自动关闭括号
+closeBrackets/description: 自动关闭括号。
+selectOnOpen/caption: 🔄 打开时选择
+selectOnOpen/description: 打开时自动选择。
+autocompleteIcons/caption: 🎨 自动完成图标
+autocompleteIcons/description: 在自动完成建议中启用图标。
+maxRenderedOptions/caption: 🔍 最大渲染选项
+maxRenderedOptions/description: 设置自动完成中渲染的选项的最大数量。
+spellcheck/caption: 📝 拼写检查
+spellcheck/description: 启用拼写检查。
+autocorrect/caption: 🔄 自动纠正
+autocorrect/description: 启用自动纠正。
+indentWithTab/caption: 🔄 制表符缩进
+indentWithTab/description: 使用制表符进行缩进，而不是空格。
+bracketMatching/caption: 🔄 括号匹配
+bracketMatching/description: 启用括号匹配。
+vimmode/caption: 🎮 Vim 模式
+vimmode/description: 启用文本编辑的 Vim 模式。
+completeAnyWord/caption: 🔄 完成任意单词
+completeAnyWord/description: 启用对任意单词的完成。
+lineNumbers/caption: 🔢 行号
+lineNumbers/description: 显示行号以便更好地导航代码。
+highlightActiveLine/caption: 🔍 高亮活动行
+highlightActiveLine/description: 高亮活动行以便更好地可见。
+tabSize/caption: 🔍 制表符大小
+tabSize/description: 设置制表符的大小。

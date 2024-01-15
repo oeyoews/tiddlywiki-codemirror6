@@ -77,4 +77,4 @@ lineNumbers/description: Show line numbers for better code navigation.
 highlightActiveLine/caption: 🔍 Highlight Active Line
 highlightActiveLine/description: Highlight the active line for better visibility.
 tabSize/caption: 🔍 Tab Size
-tabSize/description: Set the tab size for code indentation.
+tabSize/description: Set the size of tabs.
