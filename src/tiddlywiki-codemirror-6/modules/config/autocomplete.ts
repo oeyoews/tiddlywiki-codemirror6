@@ -1,6 +1,10 @@
 import { EditorState } from '@codemirror/state';
 import cm6 from '../../cm6';
-import { autocompletion, Completion } from '@codemirror/autocomplete';
+import {
+  autocompletion,
+  Completion,
+  selectedCompletion
+} from '@codemirror/autocomplete';
 
 // @see-also https://codemirror.net/docs/ref/#autocomplete.CompletionSection
 export default () =>
@@ -12,7 +16,21 @@ export default () =>
     optionClass: (option: Completion): string => {
       return 'cm-autocomplete-option';
     },
-    // TODO add tab node use addtooption
+
+    // https://github.com/codemirror/dev/issues/1293
+    /*     addToOptions: [
+      {
+        render: (completion: Completion, state: EditorState) => {
+          const caret = document.createElement('span');
+          if (selectedCompletion(state) !== completion) return caret;
+          caret.style.backgroundColor = 'red';
+          caret.textContent = 'tab';
+          return caret;
+        },
+        position: 81
+      }
+    ], */
+    // positionInfo
     selectOnOpen: cm6.selectOnOpen(),
     icons: cm6.autocompleteIcons(),
     closeOnBlur: cm6.closeOnBlur(), // 焦点改变时关闭
