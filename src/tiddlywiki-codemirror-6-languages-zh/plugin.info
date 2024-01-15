@@ -1,0 +1,9 @@
+{
+  "title": "$:/plugins/oeyoews/tiddlywiki-codemirror-6-languages-zh",
+  "name": "tiddlywiki-codemirror-6-languages-zh",
+  "author": "oeyoews",
+  "description": "chinese for tiddlywiki-codemirror-6",
+  "plugin-type": "plugin",
+  "version": "0.0.1",
+  "list": "readme"
+}
