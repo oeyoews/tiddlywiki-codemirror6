@@ -26,7 +26,6 @@ import cm6 from '../cm6';
 import rainbowBrackets from './rainbowBrackets';
 
 export function cme(self: any): Extension[] {
-  console.log(self);
   return [
     indentationMarkers({
       thickness: 2,
