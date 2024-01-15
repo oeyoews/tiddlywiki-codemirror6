@@ -1,6 +1,8 @@
 title: $:/config/codemirror-6/clickable
 caption: {{$:/language/codemirror6/clickable/caption}}
+caption-zh: {{$:/language/codemirror6/zh/clickable/caption}}
 description: {{$:/language/codemirror6/clickable/description}}
+description-zh: {{$:/language/codemirror6/zh/clickable/description}}
 settings-template: $:/plugins/oeyoews/tiddlywiki-codemirror-6/ui/templates/settings/input-switch
 
 no

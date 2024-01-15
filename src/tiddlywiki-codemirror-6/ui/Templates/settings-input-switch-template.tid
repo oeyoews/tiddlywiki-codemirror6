@@ -2,6 +2,15 @@ title: $:/plugins/oeyoews/tiddlywiki-codemirror-6/ui/templates/settings/input-sw
 
 <!-- NOTE: check 不会即使更新shadow tiddler -->
 <label class="btcui-form-label">
+
+<$reveal type="match" state="$:/config/codemirror6/language" text="en">
 <$link tooltip={{!!description}}>{{!!caption}}</$link>
+</$reveal>
+
+<$reveal type="match" state="$:/config/codemirror6/language" text="zh">
+<$link tooltip={{!!description-zh}}>{{!!caption-zh}}</$link>
+</$reveal>
+
 </label>
+
 <$checkbox field="text" checked="yes" unchecked="no" class="btcui-form-switch"/>

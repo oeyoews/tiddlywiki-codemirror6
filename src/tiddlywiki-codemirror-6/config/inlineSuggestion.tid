@@ -1,6 +1,8 @@
 title: $:/config/codemirror-6/inlineSuggestion
 caption: {{$:/language/codemirror6/inlineSuggestion/caption}}
+caption-zh: {{$:/language/codemirror6/zh/inlineSuggestion/caption}}
 description: {{$:/language/codemirror6/inlineSuggestion/description}}
+description-zh: {{$:/language/codemirror6/zh/inlineSuggestion/description}}
 settings-template: $:/plugins/oeyoews/tiddlywiki-codemirror-6/ui/templates/settings/input-switch
 
 no

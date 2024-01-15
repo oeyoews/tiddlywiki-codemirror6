@@ -1,6 +1,7 @@
 title: $:/plugins/oeyoews/tiddlywiki-codemirror-6/ui/templates/settings/select
 
-<label class="btcui-form-label"><$link tooltip={{!!description}}>{{!!caption}}</$link></label>
+<label class="btcui-form-label">
+<$link tooltip={{!!description}}>{{!!caption}}</$link></label>
 <$vars cnt={{{[enlist{!!option-names}count[]]}}}>
 <$select class="btcui-form-select">
 <$list filter="[range<cnt>]" variable="index">

@@ -1,6 +1,8 @@
 title: $:/config/codemirror-6/fontsize
 caption: {{$:/language/codemirror6/fontsize/caption}}
+caption-zh: {{$:/language/codemirror6/zh/fontsize/caption}}
 description: {{$:/language/codemirror6/fontsize/description}}
+description-zh: {{$:/language/codemirror6/zh/fontsize/description}}
 settings-template: $:/plugins/oeyoews/tiddlywiki-codemirror-6/ui/templates/settings/input
 
 16px

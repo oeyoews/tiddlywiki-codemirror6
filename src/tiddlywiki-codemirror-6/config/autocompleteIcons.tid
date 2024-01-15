@@ -1,6 +1,8 @@
 title: $:/config/codemirror-6/autocompleteIcons
 caption: {{$:/language/codemirror6/autocompleteIcons/caption}}
+caption-zh: {{$:/language/codemirror6/zh/autocompleteIcons/caption}}
 description: {{$:/language/codemirror6/autocompleteIcons/description}}
+description-zh: {{$:/language/codemirror6/zh/autocompleteIcons/description}}
 settings-template: $:/plugins/oeyoews/tiddlywiki-codemirror-6/ui/templates/settings/input-switch
 
 yes

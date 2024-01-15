@@ -39,7 +39,9 @@ tiddlersInfo.forEach(([title, fields]) => {
 
   const content = `title: ${configBaseTitle}${title}
 caption: {{$:/language/codemirror6/${title}/caption}}
+caption-zh: {{$:/language/codemirror6/zh/${title}/caption}}
 description: {{$:/language/codemirror6/${title}/description}}
+description-zh: {{$:/language/codemirror6/zh/${title}/description}}
 settings-template: ${templatePrefix}${template}
 
 ${text}`;
@@ -51,4 +53,4 @@ ${text}`;
 fs.writeFileSync(path.join(dir, 'config-en.multids'), multidcontentEn);
 fs.writeFileSync(path.join(dir, 'config-zh.multids'), multidcontentZH);
 
-console.log('配置更新完成');
+console.log('tiddlywiki codemirror6 插件 配置更新完成 !!!');

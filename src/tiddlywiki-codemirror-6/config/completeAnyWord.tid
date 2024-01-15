@@ -1,6 +1,8 @@
 title: $:/config/codemirror-6/completeAnyWord
 caption: {{$:/language/codemirror6/completeAnyWord/caption}}
+caption-zh: {{$:/language/codemirror6/zh/completeAnyWord/caption}}
 description: {{$:/language/codemirror6/completeAnyWord/description}}
+description-zh: {{$:/language/codemirror6/zh/completeAnyWord/description}}
 settings-template: $:/plugins/oeyoews/tiddlywiki-codemirror-6/ui/templates/settings/input-switch
 
 no

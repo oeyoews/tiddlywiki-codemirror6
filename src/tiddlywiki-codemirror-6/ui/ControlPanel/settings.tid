@@ -6,7 +6,13 @@ tags: $:/tags/ControlPanel
 [get[settings-group]!is[blank]else[!general]] [get[settings-group-header]!is[blank]else[99]] +[join[]]
 \end
 
+<!-- toggle i18n -->
 Your codemirror6 config tiddlers: <$count filter="[prefix[$:/config/codemirror-6]] "/> (<$count filter="[all[tiddlers+shadows]prefix[$:/config/codemirror-6]]"/>)
+
+Config Language: <$select tiddler="$:/config/codemirror6/language" tooltip='change codemirror6 config language'>
+<option value=en>En</option>
+<option value=zh>中文</option>
+</$select>
 
 <$edit-text tiddler="$:/state/codemirror-6/settings/search" class="btc-search-input" default="" tag="input" type="search" placeholder="search..." focus="yes"/>
 

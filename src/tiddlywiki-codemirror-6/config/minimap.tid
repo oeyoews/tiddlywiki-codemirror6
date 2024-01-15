@@ -1,6 +1,8 @@
 title: $:/config/codemirror-6/minimap
 caption: {{$:/language/codemirror6/minimap/caption}}
+caption-zh: {{$:/language/codemirror6/zh/minimap/caption}}
 description: {{$:/language/codemirror6/minimap/description}}
+description-zh: {{$:/language/codemirror6/zh/minimap/description}}
 settings-template: $:/plugins/oeyoews/tiddlywiki-codemirror-6/ui/templates/settings/input-switch
 
 no

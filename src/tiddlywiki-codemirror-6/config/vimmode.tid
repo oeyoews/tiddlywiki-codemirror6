@@ -1,6 +1,8 @@
 title: $:/config/codemirror-6/vimmode
 caption: {{$:/language/codemirror6/vimmode/caption}}
+caption-zh: {{$:/language/codemirror6/zh/vimmode/caption}}
 description: {{$:/language/codemirror6/vimmode/description}}
+description-zh: {{$:/language/codemirror6/zh/vimmode/description}}
 settings-template: $:/plugins/oeyoews/tiddlywiki-codemirror-6/ui/templates/settings/input-switch
 
 no

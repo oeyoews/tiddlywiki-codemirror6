@@ -1,4 +1,15 @@
 title: $:/plugins/oeyoews/tiddlywiki-codemirror-6/ui/templates/settings/input
 
-<label class="btcui-form-label"><$link tooltip={{!!description}}>{{!!caption}}</$link></label>
+<label class="btcui-form-label">
+
+<$reveal type="match" state="$:/config/codemirror6/language" text="en">
+<$link tooltip={{!!description}}>{{!!caption}}</$link>
+</$reveal>
+
+<$reveal type="match" state="$:/config/codemirror6/language" text="zh">
+<$link tooltip={{!!description-zh}}>{{!!caption-zh}}</$link>
+</$reveal>
+
+</label>
+
 <$edit-text tag="input" class="btcui-form-input"/>
