@@ -54,6 +54,8 @@ delimiter/caption: 🔍 Delimiter
 delimiter/description: Set the delimiter for certain operations.
 minimap/caption: 🗺️ Minimap
 minimap/description: Enable a minimap for navigation.
+minimapAudoHide/caption: 🗺️ Minimap autohide
+minimapAudoHide/description: Automatically hide minimap
 closeBrackets/caption: 🔄 Close Brackets
 closeBrackets/description: Automatically close brackets.
 selectOnOpen/caption: 🔄 Select on Open

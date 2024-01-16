@@ -54,6 +54,8 @@ delimiter/caption: 🔍 分隔符
 delimiter/description: 设置某些操作的分隔符。
 minimap/caption: 🗺️ 小地图
 minimap/description: 启用导航的小地图。
+minimapAudoHide/caption: 🗺️ 小地图自动隐藏
+minimapAudoHide/description: 自动隐藏小地图
 closeBrackets/caption: 🔄 自动关闭括号
 closeBrackets/description: 自动关闭括号。
 selectOnOpen/caption: 🔄 自动选择补全项

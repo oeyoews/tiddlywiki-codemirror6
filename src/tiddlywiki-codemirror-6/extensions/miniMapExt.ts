@@ -1,6 +1,6 @@
 import { EditorView } from '@codemirror/view';
 import cm6 from '../cm6';
-import { showMinimap } from '@replit/codemirror-minimap';
+import { showMinimap } from '@oeyoews/codemirror-minimap';
 import type { Extension } from '@codemirror/state';
 
 export function miniMapExt(cme: Extension[]) {
@@ -16,7 +16,8 @@ export function miniMapExt(cme: Extension[]) {
       showMinimap.compute(['doc'], (state) => {
         return {
           create: miniMapNode,
-          showOverlay: 'mouse-over'
+          showOverlay: 'mouse-over',
+          autohide: cm6.minimapAudoHide()
         };
       })
     );

@@ -326,6 +326,17 @@ export const tiddlers = {
       en: 'Enable a minimap for navigation.'
     }
   },
+  minimapAudoHide: {
+    caption: {
+      zh: '小地图自动隐藏',
+      en: 'Minimap autohide'
+    },
+    icon: '🗺️',
+    description: {
+      zh: '自动隐藏小地图',
+      en: 'Automatically hide minimap'
+    }
+  },
   closeBrackets: {
     caption: {
       zh: '自动关闭括号',
