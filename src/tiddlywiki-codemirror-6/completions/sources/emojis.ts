@@ -35,10 +35,10 @@ export function emojiSnippets() {
         type: 'cm-emoji',
         section: menu.emojis,
         apply: (view, completion, from, to) => {
-          const cursorEndPosition = from + item.text.length;
+          // const cursorEndPosition = from + item.text.length;
           view.dispatch({
-            changes: { from, to, insert: item.text },
-            selection: { anchor: cursorEndPosition, head: cursorEndPosition }
+            changes: { from, to, insert: item.text }
+            // selection: { anchor: cursorEndPosition, head: cursorEndPosition }
           });
         }
       }) as Completion

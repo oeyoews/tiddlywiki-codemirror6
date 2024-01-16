@@ -22,6 +22,13 @@ export function imageSnippets() {
           const imageHTML = $tw.wiki.renderTiddler('text/html', title);
           imagePreview.innerHTML = imageHTML;
           return imagePreview;
+        },
+        apply: (view, completion, from, to) => {
+          const cursorEndPosition = from + (triggerType.img + title).length + 2;
+          view.dispatch({
+            changes: { from, to, insert: triggerType.img + title },
+            selection: { anchor: cursorEndPosition, head: cursorEndPosition }
+          });
         }
       }) as Completion
   );
