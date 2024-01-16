@@ -1,5 +1,4 @@
 import { Completion } from '@codemirror/autocomplete';
-import { snippetCompletion as snip } from '@codemirror/autocomplete';
 import delimiter from 'src/tiddlywiki-codemirror-6/utils/triggerType';
 import { menu } from 'src/tiddlywiki-codemirror-6/modules/config/menu';
 
@@ -29,12 +28,19 @@ export function emojiSnippets() {
 
   return sources.map(
     (item) =>
-      snip(item.text, {
+      ({
         label: delimiter.emoji + item.title,
         displayLabel: item.title,
         detail: item.text,
         type: 'cm-emoji',
-        section: menu.emojis
+        section: menu.emojis,
+        apply: (view, completion, from, to) => {
+          const cursorEndPosition = from + item.text.length;
+          view.dispatch({
+            changes: { from, to, insert: item.text },
+            selection: { anchor: cursorEndPosition, head: cursorEndPosition }
+          });
+        }
       }) as Completion
   );
 }
