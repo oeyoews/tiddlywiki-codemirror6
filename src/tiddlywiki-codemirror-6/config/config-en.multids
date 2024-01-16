@@ -1,5 +1,7 @@
 title: $:/language/codemirror6/
 
+commentComplete/caption: 📝 Comment Complete
+commentComplete/description: Comment Complete
 footer/caption: 📝 Footer
 footer/description: Show snippets footer
 debug/caption: 🐞 Debug

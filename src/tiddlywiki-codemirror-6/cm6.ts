@@ -20,6 +20,16 @@ function getConfig(title: string) {
 // NOTE: 对应配置的 caption 不要写成 TxxxBxxx 格式。
 
 export const tiddlers = {
+  commentComplete: {
+    caption: {
+      zh: '注释中开启补全',
+      en: 'Comment Complete'
+    },
+    description: {
+      zh: '注释中开启补全',
+      en: 'Comment Complete'
+    }
+  },
   footer: {
     caption: {
       zh: '页脚',

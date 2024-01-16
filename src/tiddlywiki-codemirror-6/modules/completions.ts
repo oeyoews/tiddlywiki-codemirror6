@@ -3,6 +3,7 @@ import {
   CompletionContext,
   CompletionResult
 } from '@codemirror/autocomplete';
+import { syntaxTree } from '@codemirror/language';
 import cm6 from '../cm6';
 import triggerType from '../utils/triggerType';
 import sources from '../completions/sources';
@@ -14,6 +15,15 @@ import sources from '../completions/sources';
 // IME: https://developer.mozilla.org/en-US/docs/Web/API/Element/compositionend_event
 //  https://codemirror.net/docs/migration/
 export default (context: CompletionContext): CompletionResult | undefined => {
+  const nodeBefore = syntaxTree(context.state).resolveInner(context.pos);
+  if (!cm6.commentComplete()) {
+    if (
+      nodeBefore.name === 'LineComment' ||
+      nodeBefore.name === 'CommentBlock'
+    ) {
+      return;
+    }
+  }
   const validFor: RegExp = /^[\w$]*$/;
 
   // ifNotIn(context ); // TODO: disable completion in comment node

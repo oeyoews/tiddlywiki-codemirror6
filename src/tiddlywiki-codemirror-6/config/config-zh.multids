@@ -1,5 +1,7 @@
 title: $:/language/codemirror6/zh/
 
+commentComplete/caption: 📝 注释中开启补全
+commentComplete/description: 注释中开启补全
 footer/caption: 📝 页脚
 footer/description: 显示代码片段来源
 debug/caption: 🐞 调试
