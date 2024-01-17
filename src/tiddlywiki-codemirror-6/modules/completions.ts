@@ -24,7 +24,7 @@ export default (context: CompletionContext): CompletionResult | undefined => {
       return;
     }
   }
-  const validFor: RegExp = /^[\w$]*$/;
+  let validFor: RegExp = /^[\w$]*$/;
 
   // ifNotIn(context ); // TODO: disable completion in comment node
   const cursorPos = context.state.selection.main.head;
@@ -53,10 +53,12 @@ export default (context: CompletionContext): CompletionResult | undefined => {
   switch (true) {
     case lastWord.startsWith(triggerType.link):
       options = sources.linkSnippets();
+      // validFor = new RegExp(/\[\[([^\]]*)\]\]/);
       break;
 
     case lastWord.startsWith(triggerType.img):
       options = sources.imageSnippets();
+      // validFor = new RegExp(/(\[img\[)([.?+])(\]\])?/);
       break;
 
     case lastWord.startsWith(triggerType.embed):
