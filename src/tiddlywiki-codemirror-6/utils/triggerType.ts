@@ -6,5 +6,6 @@ export default {
   widget: '<$',
   emoji: ':',
   tag: '#',
-  filetype: '//'
+  filetype: '//',
+  setup: '@#'
 };

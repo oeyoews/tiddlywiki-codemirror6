@@ -53,6 +53,9 @@ export default (context: CompletionContext): CompletionResult | undefined => {
 
   // TODO: 每次都要计算 ???
   switch (true) {
+    case lastWord.startsWith(triggerType.setup):
+      options = sources.setupSnippets();
+      break;
     case lastWord.startsWith(triggerType.filetype):
       options = sources.filetypeSnippets();
       break;
