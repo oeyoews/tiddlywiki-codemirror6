@@ -5,7 +5,7 @@ import type { ISource } from '../types';
 
 export const usersnippets: ISource[] = [
   {
-    title: 'codeblcok',
+    title: 'codeblock',
     text: '```${1:lang}\n${2:code}\n```',
     desc: ''
   },
