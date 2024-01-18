@@ -517,8 +517,8 @@ color: #495057;
 	grid-template-columns: repeat(2, minmax(0px, 1fr)) !important;
 }
 
-.cm-completionMatchedText {
-	<!-- if include emoji, emoji will broken -->
+<!-- NOTE: if include emoji, emoji will broken use font-bold, emoji was split two chars because of dymamic matchedtext -->
+<!-- .cm-completionMatchedText {
 	font-weight: bold;
 	text-decoration: none !important;
-}
+} -->
