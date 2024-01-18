@@ -35,7 +35,10 @@ export function setupSnippets() {
                 configBaseTitle + 'vimmode',
                 'text',
                 '',
-                nextValue
+                nextValue,
+                {
+                  suppressTimestamp: true
+                }
               );
               break;
             case item.title === 'setupCM6':
