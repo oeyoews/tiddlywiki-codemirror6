@@ -7,7 +7,11 @@ export function filetypeSnippets() {
   const filetypes = $tw.wiki
     .filterTiddlers('[all[tiddlers+shadows]prefix[$:/language/Docs/Types/]]')
     .map((item) => ({
-      title: item.split('/').pop()!,
+      title: item
+        .split('/')
+        .pop()!
+        .replace('vnd.', '')
+        .replace('x-tiddlywiki', 'tiddlywiki2'),
       text: item.replace('$:/language/Docs/Types/', '')
     }));
 
@@ -18,6 +22,10 @@ export function filetypeSnippets() {
         displayLabel: capitalize(item.title),
         type: 'keyword',
         section: menu.filetypes,
+        boost:
+          item.text === 'text/markdown' || item.text === 'text/vnd.tiddlywiki'
+            ? 1
+            : 0,
         apply: (view, completion, from, to) => {
           view.dispatch({
             changes: { from, to, insert: '' }
