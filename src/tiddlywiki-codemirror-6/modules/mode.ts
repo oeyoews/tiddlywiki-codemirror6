@@ -15,9 +15,8 @@ import {
 import { javascript, javascriptLanguage } from '@codemirror/lang-javascript';
 
 import { Extension, Prec } from '@codemirror/state';
-import { IWidget } from '../types';
 
-const dynamicmode = (mode: string, cme: Extension[], widget: IWidget) => {
+const dynamicmode = (mode: string, cme: Extension[]) => {
   let actionCompletions;
   if (mode === '') {
     mode = 'text/vnd.tiddlywiki';
