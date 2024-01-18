@@ -5,5 +5,6 @@ export default {
   img: '[img[',
   widget: '<$',
   emoji: ':',
-  tag: '#'
+  tag: '#',
+  filetype: '//'
 };

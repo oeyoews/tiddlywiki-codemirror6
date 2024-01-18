@@ -7,7 +7,8 @@ const menuItems = [
   'widgets',
   'tiddlers',
   'macros',
-  'tags'
+  'tags',
+  'filetypes'
 ] as const;
 
 type MenuType = (typeof menuItems)[number];

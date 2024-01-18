@@ -1,3 +1,4 @@
+// import { closeCompletion } from '@codemirror/autocomplete';
 import {
   Completion,
   CompletionContext,
@@ -43,6 +44,7 @@ export default (context: CompletionContext): CompletionResult | undefined => {
   let lastWord = doc.sliceString(wordStart, cursorPos);
 
   if (lastWord.length < cm6.minLength() || wordStart === cursorPos) {
+    //  closeCompletion(context);
     return;
   }
 
@@ -51,6 +53,9 @@ export default (context: CompletionContext): CompletionResult | undefined => {
 
   // TODO: 每次都要计算 ???
   switch (true) {
+    case lastWord.startsWith(triggerType.filetype):
+      options = sources.filetypeSnippets();
+      break;
     case lastWord.startsWith(triggerType.tag):
       options = sources.tagSnippets();
       break;
@@ -100,8 +105,7 @@ export default (context: CompletionContext): CompletionResult | undefined => {
     from: wordStart,
     options,
     // filter: false,
-    getMatch: (compltion, matched) => {
-      /** @deprecated: class: cm-completionMatchedText */
+    getMatch: (compltion: Completion, matched) => {
       return matched as [];
     },
     validFor

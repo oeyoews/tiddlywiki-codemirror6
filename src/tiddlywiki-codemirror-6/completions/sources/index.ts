@@ -7,6 +7,7 @@ import { macroSnippets } from './macros';
 import { wordsSnippets } from './words';
 import { emojiSnippets } from './emojis';
 import { tagSnippets } from './tags';
+import { filetypeSnippets } from './filetype';
 
 export default {
   imageSnippets,
@@ -17,5 +18,6 @@ export default {
   embedSnippets: () => getAllTiddlers(delimiter.embed),
   wordsSnippets,
   emojiSnippets,
-  tagSnippets
+  tagSnippets,
+  filetypeSnippets
 };
