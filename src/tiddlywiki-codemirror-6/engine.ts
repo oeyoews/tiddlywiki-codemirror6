@@ -43,7 +43,7 @@ class CodeMirrorEngine {
     inlineSuggestionExt(this as any);
     updateExtensions(this.cme, this.widget);
     miniMapExt(this.cme);
-    dynamicmode(options.type, this.cme);
+    dynamicmode(options.type, this.cme, this.widget);
 
     this.state = EditorState.create({
       doc: options.value,

@@ -1,8 +1,9 @@
 import { Completion } from '@codemirror/autocomplete';
 import { menu } from 'src/tiddlywiki-codemirror-6/modules/config/menu';
+import { IWidget } from 'src/tiddlywiki-codemirror-6/types';
 import triggerType from 'src/tiddlywiki-codemirror-6/utils/triggerType';
 
-export function tagSnippets() {
+export function tagSnippets(widget: IWidget) {
   // @ts-ignore
   //   const tags = Object.keys($tw.wiki.getTagMap()).map((tag) => ({
   //     title: tag
@@ -25,18 +26,10 @@ export function tagSnippets() {
             changes: { from, to, insert: '' }
             // selection: { anchor: cursorEndPosition, head: cursorEndPosition }
           });
-          // TODO: 或者使用 widget.editTitle 替换 title
-          const draftTitle = $tw.wiki.filterTiddlers(
-            '[is[draft]sort[modified]]'
-          );
-          // TODO: 传入 widget
-          if (draftTitle.length > 1) {
-            return;
-          }
-          const tags = $tw.wiki.getTiddler(draftTitle[0])?.fields?.tags;
+          const tags = $tw.wiki.getTiddler(widget.editTitle)?.fields?.tags;
           if (!tags?.includes(item.title)) {
             $tw.wiki.setText(
-              draftTitle[0],
+              widget.editTitle,
               'tags',
               '',
               tags ? tags.join(' ') + ` ${item.title}` : ` ${item.title}`,

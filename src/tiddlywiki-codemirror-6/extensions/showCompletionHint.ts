@@ -21,7 +21,6 @@ class CompletionHint extends WidgetType {
   }
 
   toDOM(): HTMLElement {
-    console.log('hhhhhhhhhhhhhhhhhh');
     const span = document.createElement('span');
     span.className = 'cm-completionHint';
     span.textContent = this.text;

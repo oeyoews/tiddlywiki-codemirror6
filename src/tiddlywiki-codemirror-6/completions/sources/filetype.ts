@@ -1,9 +1,10 @@
 import { Completion } from '@codemirror/autocomplete';
 import { menu } from 'src/tiddlywiki-codemirror-6/modules/config/menu';
+import { IWidget } from 'src/tiddlywiki-codemirror-6/types';
 import { capitalize } from 'src/tiddlywiki-codemirror-6/utils/capitalize';
 import triggerType from 'src/tiddlywiki-codemirror-6/utils/triggerType';
 
-export function filetypeSnippets() {
+export function filetypeSnippets(widget: IWidget) {
   const filetypes = $tw.wiki
     .filterTiddlers('[all[tiddlers+shadows]prefix[$:/language/Docs/Types/]]')
     .map((item) => ({
@@ -32,14 +33,8 @@ export function filetypeSnippets() {
             // selection: { anchor: cursorEndPosition, head: cursorEndPosition }
           });
           // TODO: 或者使用 widget.editTitle 替换 title
-          const draftTitle = $tw.wiki.filterTiddlers(
-            '[is[draft]sort[modified]]'
-          );
           // TODO: 传入 widget
-          if (draftTitle.length > 1) {
-            return;
-          }
-          $tw.wiki.setText(draftTitle[0], 'type', '', item.text, {
+          $tw.wiki.setText(widget.editTitle, 'type', '', item.text, {
             suppressTimestamp: false
           });
         }

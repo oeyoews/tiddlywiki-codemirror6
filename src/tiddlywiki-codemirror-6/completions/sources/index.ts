@@ -9,6 +9,7 @@ import { emojiSnippets } from './emojis';
 import { tagSnippets } from './tags';
 import { filetypeSnippets } from './filetype';
 import { setupSnippets } from './setup';
+import { IWidget } from 'src/tiddlywiki-codemirror-6/types';
 
 export default {
   imageSnippets,
