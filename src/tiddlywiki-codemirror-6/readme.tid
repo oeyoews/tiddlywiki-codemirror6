@@ -24,14 +24,19 @@ If you like the plugin, feel free to leave me a star on [ext[GitHub|https://gith
 
 * Autocomplete preview(include image)
 * Support load snippet module
-* Emoji complete, user snippets
-* Tiddler completion: `[[xxx]]`, `{{xxx}}`
-* Image completion: `[img[xxx]]`
-* Widget completion: `<$xxx />`
 * Minmap, vimmode, word count, rainbow brackets, codeblock highlight
 * Custom placeholder, tabsize, mincompletion length
+
+!! Completions
+
+* `/` to get snippets
+* `[[` or `{{` to get tiddlers
+* `:` to get emojis
+* `[img[` to get images
+* `<$` to get widgets
 * `//` to change tiddler type
 * `#` to insert tags
+* `@#` to setup codemirror6
 
 <!-- * ~~split to vim plugin: 由于使用到了 cm6的包作为依赖, 因此将其单独打包出去, 作为模块的形式加载不太可能~~
 * ~~Uncaught RangeError: A document must have at least one line~~
