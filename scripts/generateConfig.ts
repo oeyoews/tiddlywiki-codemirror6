@@ -22,7 +22,13 @@ let multidcontentZH = 'title: $:/language/codemirror6/zh/\n\n';
 
 tiddlersInfo.forEach(([title, fields]) => {
   // TODO: update caption
-  let { caption, icon = '📝', description, template, text = 'no' } = fields;
+  let {
+    caption,
+    icon = '📝',
+    description = caption,
+    template,
+    text = 'no'
+  } = fields;
 
   const captionEn =
     icon + ' ' + caption.en.replace(/^\w/, (match) => match.toUpperCase());

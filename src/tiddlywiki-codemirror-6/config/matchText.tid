@@ -1,0 +1,8 @@
+title: $:/config/codemirror-6/matchText
+caption: {{$:/language/codemirror6/matchText/caption}}
+caption-zh: {{$:/language/codemirror6/zh/matchText/caption}}
+description: {{$:/language/codemirror6/matchText/description}}
+description-zh: {{$:/language/codemirror6/zh/matchText/description}}
+settings-template: $:/plugins/oeyoews/tiddlywiki-codemirror-6/ui/templates/settings/input-switch
+
+no

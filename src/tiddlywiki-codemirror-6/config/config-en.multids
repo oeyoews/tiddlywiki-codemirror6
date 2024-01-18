@@ -1,5 +1,7 @@
 title: $:/language/codemirror6/
 
+matchText/caption: 📝 Match Text
+matchText/description: Match Text
 commentComplete/caption: 📝 Comment Complete
 commentComplete/description: Comment Complete
 footer/caption: 📝 Footer

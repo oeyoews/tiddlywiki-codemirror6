@@ -1,5 +1,7 @@
 title: $:/language/codemirror6/zh/
 
+matchText/caption: 📝 匹配文本
+matchText/description: 匹配文本
 commentComplete/caption: 📝 注释中开启补全
 commentComplete/description: 注释中开启补全
 footer/caption: 📝 页脚

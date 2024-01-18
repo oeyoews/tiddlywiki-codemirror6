@@ -105,8 +105,8 @@ export default (context: CompletionContext): CompletionResult | undefined => {
     from: wordStart,
     options,
     // filter: false,
-    // TODO: add option config
     getMatch: (compltion: Completion, matched) => {
+      if (!cm6.matchText()) return [];
       return matched as [];
     },
     validFor
