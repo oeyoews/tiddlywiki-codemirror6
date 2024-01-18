@@ -23,9 +23,13 @@ export function setupSnippets() {
             changes: { from, to, insert: '' }
             // selection: { anchor: cursorEndPosition, head: cursorEndPosition }
           });
-          new $tw.Story().navigateTiddler(
+          $tw.wiki.setText(
+            '$:/state/tab-1749438307',
+            'text',
+            '',
             '$:/plugins/oeyoews/tiddlywiki-codemirror-6/ui/ControlPanel/settings'
           );
+          new $tw.Story().navigateTiddler('$:/ControlPanel');
         }
       }) as Completion
   );
