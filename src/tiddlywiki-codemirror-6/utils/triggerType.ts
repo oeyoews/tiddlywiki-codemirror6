@@ -4,5 +4,6 @@ export default {
   macro: '<<',
   img: '[img[',
   widget: '<$',
-  emoji: ':'
+  emoji: ':',
+  tag: '#'
 };

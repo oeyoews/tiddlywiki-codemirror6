@@ -42,7 +42,6 @@ export default (context: CompletionContext): CompletionResult | undefined => {
   // 获取光标位置前最后一个单词
   let lastWord = doc.sliceString(wordStart, cursorPos);
 
-  // 中文是一个汉字等于两个英文字符
   if (lastWord.length < cm6.minLength() || wordStart === cursorPos) {
     return;
   }
@@ -50,7 +49,11 @@ export default (context: CompletionContext): CompletionResult | undefined => {
   // NOTE: 一定要保证是数组
   let options: Completion[] = sources.wordsSnippets();
 
+  // TODO: 每次都要计算 ???
   switch (true) {
+    case lastWord.startsWith(triggerType.tag):
+      options = sources.tagSnippets();
+      break;
     case lastWord.startsWith(triggerType.link):
       options = sources.linkSnippets();
       // validFor = new RegExp(/\[\[([^\]]*)\]\]/);

@@ -296,10 +296,10 @@ export const tiddlers = {
       zh: '最小长度',
       en: 'Min Length'
     },
-    text: 3,
+    text: 1,
     icon: '📏',
     description: {
-      zh: '设置自动补全最小长度。',
+      zh: '设置自动补全最小长度。1 为立刻触发',
       en: 'Set the minimum length for input.'
     }
   },

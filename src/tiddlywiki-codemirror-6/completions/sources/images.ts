@@ -16,6 +16,7 @@ export function imageSnippets() {
         displayLabel: title,
         type: 'cm-image',
         section: menu.images,
+        boost: title.startsWith('$') ? 0 : 1,
         info: () => {
           const imagePreview = document.createElement('div');
           imagePreview.className = 'cm-image-preview';
