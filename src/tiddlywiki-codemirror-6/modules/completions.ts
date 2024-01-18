@@ -105,6 +105,7 @@ export default (context: CompletionContext): CompletionResult | undefined => {
     from: wordStart,
     options,
     // filter: false,
+    // TODO: add option config
     getMatch: (compltion: Completion, matched) => {
       return matched as [];
     },
