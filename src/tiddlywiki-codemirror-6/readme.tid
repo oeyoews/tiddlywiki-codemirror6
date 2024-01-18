@@ -30,6 +30,8 @@ If you like the plugin, feel free to leave me a star on [ext[GitHub|https://gith
 * Widget completion: `<$xxx />`
 * Minmap, vimmode, word count, rainbow brackets, codeblock highlight
 * Custom placeholder, tabsize, mincompletion length
+* `//` to change tiddler type
+* `#` to insert tags
 
 <!-- * ~~split to vim plugin: 由于使用到了 cm6的包作为依赖, 因此将其单独打包出去, 作为模块的形式加载不太可能~~
 * ~~Uncaught RangeError: A document must have at least one line~~
