@@ -1,10 +1,11 @@
 import { Vim } from '@replit/codemirror-vim';
 import { IWidget } from '../types';
+import cm6 from '../cm6';
 
 // TODO: support navigator clipboard
 // https://github.com/replit/codemirror-vim
 export default function setVimKeymap(widget?: IWidget) {
-  Vim.map('jk', '<Esc>', 'insert'); // in insert mode
+  cm6.vimJK() && Vim.map('jk', '<Esc>', 'insert'); // in insert mode
   Vim.map('H', '0', 'normal');
   Vim.map('L', '$', 'normal');
   Vim.defineEx('write', 'w', () => {

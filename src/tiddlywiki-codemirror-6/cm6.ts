@@ -20,6 +20,12 @@ function getConfig(title: string) {
 // NOTE: 对应配置的 caption 不要写成 TxxxBxxx 格式。
 
 export const tiddlers = {
+  vimJK: {
+    caption: {
+      zh: 'vim 键盘映射 JK(你知道我在说什么.)',
+      en: "vim keyboard mapping JK(You know what I'm saying.)"
+    }
+  },
   matchText: {
     caption: {
       zh: '匹配文本',

@@ -1,5 +1,7 @@
 title: $:/language/codemirror6/zh/
 
+vimJK/caption: 📝 vim 键盘映射 JK(你知道我在说什么.)
+vimJK/description: vim 键盘映射 JK(你知道我在说什么.)
 matchText/caption: 📝 匹配文本
 matchText/description: 匹配文本
 commentComplete/caption: 📝 注释中开启补全

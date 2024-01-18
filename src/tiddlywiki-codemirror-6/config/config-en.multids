@@ -1,5 +1,7 @@
 title: $:/language/codemirror6/
 
+vimJK/caption: 📝 Vim keyboard mapping JK(You know what I'm saying.)
+vimJK/description: vim keyboard mapping JK(You know what I'm saying.)
 matchText/caption: 📝 Match Text
 matchText/description: Match Text
 commentComplete/caption: 📝 Comment Complete
