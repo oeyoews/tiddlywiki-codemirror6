@@ -1,53 +1,49 @@
-import { color } from '@uiw/codemirror-extensions-color';
-import { keymap } from '@codemirror/view';
+// import { color } from '@uiw/codemirror-extensions-color';
 import { tiddlywiki, tiddlywikiLanguage } from 'codemirror-lang-tiddlywiki';
 import completions from './completions';
 import { html, htmlLanguage } from '@codemirror/lang-html';
 import { json, jsonLanguage } from '@codemirror/lang-json';
 import { css, cssLanguage } from '@codemirror/lang-css';
+import { modes } from '@/cm6/cm6';
 
-import {
-  markdown,
-  markdownLanguage,
-  markdownKeymap
-} from '@codemirror/lang-markdown';
+import { markdown, markdownLanguage } from '@codemirror/lang-markdown';
 
 import { javascript, javascriptLanguage } from '@codemirror/lang-javascript';
 
 import { Extension, Prec } from '@codemirror/state';
-import { IWidget } from '../types';
+import { IWidget } from '@/cm6/types';
 
-const dynamicmode = (mode: string, cme: Extension[], widget: IWidget) => {
+const dynamicmode = (
+  mode: string = modes.tiddlywiki,
+  cme: Extension[],
+  widget: IWidget
+) => {
   let actionCompletions;
-  if (mode === '') {
-    mode = 'text/vnd.tiddlywiki';
-  }
 
   const options = {
     autocomplete: completions(widget)
   };
 
+  // defaultCodeLanguage: markdownLanguage,
+  // defaultCodeLanguage: cmeConfig.enableMarkdownJsHighlight()
+  //   ? javascriptLanguage : '', // 默认为 js
+  // NOTE: use language-data's languages 高亮 markdown 代码，但是插件大小会增加 1M, 这里仅仅加上常用的高亮
+  // codeLanguages: languages
   switch (mode) {
-    case 'text/vnd.tiddlywiki':
+    case modes.tiddlywiki:
       // @ts-expect-error
       cme.push(tiddlywiki({ base: tiddlywikiLanguage }));
 
       actionCompletions = tiddlywikiLanguage.data.of(options);
 
-      cme.push(Prec.high(actionCompletions));
       break;
-    case 'text/markdown':
-    case 'text/x-markdown':
+    case modes.markdown[0]:
+    case modes.markdown[1]:
       // NOTE: 目前 tiddlywikiLanguage 还没有完成，所以目前仅仅支持 markdown 代码块
       cme.push(
         markdown({
           base: markdownLanguage,
           completeHTMLTags: true,
-          // defaultCodeLanguage: markdownLanguage,
-          // defaultCodeLanguage: cmeConfig.enableMarkdownJsHighlight()
-          //   ? javascriptLanguage : '', // 默认为 js
-          // NOTE: use language-data's languages 高亮 markdown 代码，但是插件大小会增加 1M, 这里仅仅加上常用的高亮
-          // codeLanguages: languages
           // @ts-expect-error
           codeLanguages: (info) => {
             switch (info) {
@@ -69,6 +65,7 @@ const dynamicmode = (mode: string, cme: Extension[], widget: IWidget) => {
               case 'wiki':
                 return tiddlywikiLanguage;
               default:
+                break;
             }
           }
         })
@@ -76,32 +73,24 @@ const dynamicmode = (mode: string, cme: Extension[], widget: IWidget) => {
 
       actionCompletions = markdownLanguage.data.of(options);
 
-      cme.push(Prec.high(actionCompletions));
-      cme.push(Prec.high(keymap.of(markdownKeymap)));
       break;
-    case 'text/html':
+    case modes.html:
       cme.push(html({ selfClosingTags: true }));
-      actionCompletions = htmlLanguage.data.of({});
-      cme.push(Prec.high(actionCompletions));
       break;
 
-    case 'application/javascript':
+    case modes.javascript:
       cme.push(javascript());
-      actionCompletions = javascriptLanguage.data.of({});
-      cme.push(Prec.high(actionCompletions));
       break;
-    case 'application/json':
+    case modes.json:
       cme.push(json());
-      actionCompletions = jsonLanguage.data.of({});
-      cme.push(Prec.high(actionCompletions));
       break;
-    case 'text/css':
+    case modes.css:
       cme.push(css());
-      actionCompletions = cssLanguage.data.of({});
-      cme.push(Prec.high(actionCompletions), color);
       break;
     default:
   }
+
+  actionCompletions && cme.push(Prec.high(actionCompletions));
 };
 
 export default dynamicmode;

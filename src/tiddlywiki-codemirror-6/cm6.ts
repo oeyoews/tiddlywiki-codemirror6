@@ -515,3 +515,13 @@ options.forEach((key: IConfigOptions) => {
 });
 
 export default cm6;
+
+export const modes = {
+  tiddlywiki: 'text/vnd.tiddlywiki',
+  markdown: ['text/markdown', 'text/x-markdown'],
+  json: 'application/json',
+  javascript: 'application/javascript',
+  css: 'text/css',
+  plain: 'text/plain',
+  html: 'text/html'
+};
