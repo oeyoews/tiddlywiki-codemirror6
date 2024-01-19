@@ -42,13 +42,16 @@ export function setupSnippets() {
               );
               break;
             case item.title === 'setupCM6':
-              $tw.wiki.setText(
+              /*               $tw.wiki.setText(
                 '$:/state/tab-1749438307',
                 'text',
                 '',
                 '$:/plugins/oeyoews/tiddlywiki-codemirror-6/ui/ControlPanel/settings'
               );
-              new $tw.Story().navigateTiddler('$:/ControlPanel');
+              new $tw.Story().navigateTiddler('$:/ControlPanel'); */
+              $tw.modal.display(
+                '$:/plugins/oeyoews/tiddlywiki-codemirror-6/ui/ControlPanel/settings'
+              );
               break;
             default:
               break;
