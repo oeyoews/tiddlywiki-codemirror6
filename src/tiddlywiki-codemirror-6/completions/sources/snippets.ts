@@ -1,8 +1,8 @@
-import { renderTid } from 'src/tiddlywiki-codemirror-6/utils/renderTiddler';
+import { renderTid } from '@/cm6/utils/renderTiddler';
 import { snippetCompletion as snip } from '@codemirror/autocomplete';
-import { ISource } from 'src/tiddlywiki-codemirror-6/types';
-import { menu } from 'src/tiddlywiki-codemirror-6/modules/config/menu';
-import conf from 'src/tiddlywiki-codemirror-6/cm6';
+import { ISource } from '@/cm6/types';
+import { menu } from '@/cm6/modules/config/menu';
+import conf from '@/cm6/cm6';
 import { usersnippets } from '@/cm6/completions/snippets';
 
 export function userSnippets() {

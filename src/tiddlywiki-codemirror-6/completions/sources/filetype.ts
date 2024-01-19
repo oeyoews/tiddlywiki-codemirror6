@@ -1,8 +1,8 @@
 import { Completion } from '@codemirror/autocomplete';
-import { menu } from 'src/tiddlywiki-codemirror-6/modules/config/menu';
-import { IWidget } from 'src/tiddlywiki-codemirror-6/types';
-import { capitalize } from 'src/tiddlywiki-codemirror-6/utils/capitalize';
-import triggerType from 'src/tiddlywiki-codemirror-6/utils/triggerType';
+import { menu } from '@/cm6/modules/config/menu';
+import { IWidget } from '@/cm6/types';
+import { capitalize } from '@/cm6/utils/capitalize';
+import triggerType from '@/cm6/utils/triggerType';
 
 export function filetypeSnippets(widget: IWidget) {
   const filetypes = $tw.wiki

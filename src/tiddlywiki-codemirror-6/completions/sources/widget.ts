@@ -2,8 +2,8 @@ import {
   Completion,
   snippetCompletion as snip
 } from '@codemirror/autocomplete';
-import delimiter from 'src/tiddlywiki-codemirror-6/utils/triggerType';
-import { menu } from 'src/tiddlywiki-codemirror-6/modules/config/menu';
+import delimiter from '@/cm6/utils/triggerType';
+import { menu } from '@/cm6/modules/config/menu';
 
 export function widgetSnippets() {
   const modules = $tw.modules.titles; // $tw.modules.types 获取不到 widget name, 除非根据文件名

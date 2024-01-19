@@ -1,4 +1,4 @@
-import { capitalize } from 'src/tiddlywiki-codemirror-6/utils/capitalize';
+import { capitalize } from '@/cm6/utils/capitalize';
 
 const menuItems = [
   'snippets',

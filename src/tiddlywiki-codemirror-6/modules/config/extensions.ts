@@ -1,5 +1,5 @@
 import { bracketMatching, foldGutter } from '@codemirror/language';
-import setVimKeymap from 'src/tiddlywiki-codemirror-6/utils/vimrc.js';
+import setVimKeymap from '@/cm6/utils/vimrc.js';
 import { EditorState, Extension, Prec } from '@codemirror/state';
 import { githubLight } from '@uiw/codemirror-theme-github';
 
@@ -19,18 +19,18 @@ import {
 
 import { vim } from '@replit/codemirror-vim';
 import { oneDark } from '@codemirror/theme-one-dark';
-import conf from 'src/tiddlywiki-codemirror-6/cm6';
-import { wordCountExt } from 'src/tiddlywiki-codemirror-6/extensions/wordCountExt';
-import { type IWidget } from 'src/tiddlywiki-codemirror-6/types';
+import conf from '@/cm6/cm6';
+import { wordCountExt } from '@/cm6/extensions/wordCountExt';
+import { type IWidget } from '@/cm6/types';
 import { cmkeymaps } from '@/cm6/modules/keymap';
-import { linkHoverPreview } from 'src/tiddlywiki-codemirror-6/extensions/wordhover';
-import { linkExt } from 'src/tiddlywiki-codemirror-6/extensions/linkExt';
-import { tidExt } from 'src/tiddlywiki-codemirror-6/extensions/tidExt';
-import { imgExt } from 'src/tiddlywiki-codemirror-6/extensions/imgExt';
+import { linkHoverPreview } from '@/cm6/extensions/wordhover';
+import { linkExt } from '@/cm6/extensions/linkExt';
+import { tidExt } from '@/cm6/extensions/tidExt';
+import { imgExt } from '@/cm6/extensions/imgExt';
 import {
   contentIncludingHint,
   showCompletionHint
-} from 'src/tiddlywiki-codemirror-6/extensions/showCompletionHint';
+} from '@/cm6/extensions/showCompletionHint';
 
 export default function updateExtensions(cme: Extension[], widget: IWidget) {
   const fields = $tw.wiki.getTiddler(
