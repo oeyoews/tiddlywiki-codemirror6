@@ -8,6 +8,11 @@ import { IWidget } from '@/cm6/types';
 export function setupSnippets(widget: IWidget) {
   const filetypes = [
     {
+      title: 'update-codemirror6-plugin',
+      description: 'update codemirror6 plugin'
+    },
+
+    {
       title: 'setupCM6',
       description: 'Setup Codemirror6'
     },
@@ -63,6 +68,17 @@ export function setupSnippets(widget: IWidget) {
               $tw.modal.display(
                 '$:/plugins/oeyoews/tiddlywiki-codemirror-6/ui/ControlPanel/settings'
               );
+              break;
+            case item.title === 'update-codemirror6-plugin':
+              const pluginPageTiddler =
+                '$:/core/ui/ControlPanel/Modals/AddPlugins';
+              $tw.wiki.setText(
+                '$:/state/addplugins/tab-1342078386',
+                'text',
+                '',
+                '$:/Library/Codemirror6'
+              );
+              $tw.modal.display(pluginPageTiddler);
               break;
             case item.title === 'toggleFullscreen':
               const stateTitle = `$:/state/codemirror-6/fullscreen/${widget.editTitle}`;
