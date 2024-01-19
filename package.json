@@ -14,7 +14,7 @@
     "bump": "node scripts/bump.js",
     "dev": "tiddlywiki-plugin-dev dev",
     "build": "pnpm update:config && pnpm run clean && tiddlywiki-plugin-dev build",
-    "publish": "pnpm run clean && tiddlywiki-plugin-dev publish",
+    "publish": "pnpm update:config && pnpm run clean && tiddlywiki-plugin-dev publish",
     "clean": "rimraf dist",
     "format": "prettier . --write",
     "minify": "node scripts/minify.js",
