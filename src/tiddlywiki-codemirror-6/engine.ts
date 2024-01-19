@@ -294,10 +294,10 @@ class CodeMirrorEngine {
       );
     }
     this.cm.focus();
-    return this.cm.state.doc.toString();
+    return this.getText();
   }
 }
 
-exports.CodeMirrorEngine = $tw.browser
-  ? CodeMirrorEngine
-  : require('$:/core/modules/editor/engines/simple.js').SimpleEngine;
+const { SimpleEngine } = require('$:/core/modules/editor/engines/simple.js');
+
+exports.CodeMirrorEngine = $tw.browser ? CodeMirrorEngine : SimpleEngine;
