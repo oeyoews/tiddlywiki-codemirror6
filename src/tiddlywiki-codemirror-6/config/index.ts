@@ -501,7 +501,7 @@ export const tiddlers = {
       en: 'Set the size of tabs.'
     }
   }
-};
+} as const;
 
 type IConfigOptions = keyof typeof tiddlers;
 

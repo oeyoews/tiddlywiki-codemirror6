@@ -3,8 +3,9 @@ import cm6, { configBaseTitle } from '@/cm6/config';
 import { menu } from '@/cm6/modules/constants/menu';
 import { capitalize } from '@/cm6/utils/capitalize';
 import triggerType from '@/cm6/modules/constants/triggerType';
+import { IWidget } from '@/cm6/types';
 
-export function setupSnippets() {
+export function setupSnippets(widget: IWidget) {
   const filetypes = [
     {
       title: 'setupCM6',
@@ -12,9 +13,19 @@ export function setupSnippets() {
     },
     {
       title: 'toggleMode',
-      description: 'toggle editor keymap mode'
+      description: 'Editor keymap mode'
+    },
+    {
+      title: 'toggleFullscreen',
+      description: 'Editor FullScreen'
+    },
+    {
+      title: 'toggleTiddlywikiFullscreen',
+      description: 'Tiddlywiki FullScreen'
     }
-  ];
+  ] as const;
+
+  // type IEventTypes = (typeof filetypes)[number]['title'];
 
   return filetypes.map(
     (item) =>
@@ -52,6 +63,23 @@ export function setupSnippets() {
               $tw.modal.display(
                 '$:/plugins/oeyoews/tiddlywiki-codemirror-6/ui/ControlPanel/settings'
               );
+              break;
+            case item.title === 'toggleFullscreen':
+              const stateTitle = `$:/state/codemirror-6/fullscreen/${widget.editTitle}`;
+              const oldFullscreenValue = $tw.wiki.getTiddlerText(stateTitle);
+              const newFullscreenValue =
+                oldFullscreenValue === 'yes' ? 'no' : 'yes';
+              $tw.wiki.setText(stateTitle, 'text', '', newFullscreenValue);
+              console.log(
+                widget.editTitle,
+                oldFullscreenValue,
+                newFullscreenValue
+              );
+              break;
+            case item.title === 'toggleTiddlywikiFullscreen':
+              $tw.rootWidget.dispatchEvent({
+                type: 'tm-full-screen'
+              });
               break;
             default:
               break;

@@ -56,7 +56,7 @@ export default (widget: IWidget) => {
     // TODO: 每次都要计算 ???
     switch (true) {
       case lastWord.startsWith(triggerType.setup):
-        options = sources.setupSnippets();
+        options = sources.setupSnippets(widget);
         break;
       case lastWord.startsWith(triggerType.filetype):
         options = sources.filetypeSnippets(widget);
