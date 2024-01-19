@@ -9,6 +9,18 @@ import { EditorView } from '@codemirror/view';
 export function setupSnippets(widget: IWidget) {
   const filetypes = [
     {
+      title: 'report-cm6-bug',
+      description: 'Report Codemirror6 Bug'
+    },
+    {
+      title: 'view-online-cm6-example',
+      description: 'view online cm6 example '
+    },
+    {
+      title: 'add-new-snippets',
+      description: 'Add New Snippet(WIP)'
+    },
+    {
       title: 'update-codemirror6-plugin',
       description: 'update codemirror6 plugin'
     },
@@ -92,6 +104,28 @@ export function setupSnippets(widget: IWidget) {
                 oldFullscreenValue,
                 newFullscreenValue
               );
+              break;
+            case item.title === 'report-cm6-bug':
+              const bugLink =
+                'https://github.com/oeyoews/tiddlywiki-codemirror6/issues/new';
+              $tw.rootWidget.dispatchEvent({
+                type: 'tm-open-external-window',
+                param: bugLink
+              });
+              break;
+            case item.title === 'view-online-cm6-example':
+              const demoLink =
+                'https://tiddlywiki-codemirror6.vercel.app/#%24%3A%2Fplugins%2Foeyoews%2Ftiddlywiki-codemirror-6';
+              $tw.rootWidget.dispatchEvent({
+                type: 'tm-open-external-window',
+                param: demoLink
+              });
+              break;
+            case item.title === 'add-new-snippets':
+              $tw.rootWidget.dispatchEvent({
+                type: 'tm-modal',
+                param: 'AddSnippets'
+              });
               break;
             case item.title === 'toggleTiddlywikiFullscreen':
               $tw.rootWidget.dispatchEvent({
