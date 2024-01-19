@@ -28,18 +28,18 @@
     "node": ">=16"
   },
   "devDependencies": {
-    "@modern-js/eslint-config": "^2.45.0",
-    "@modern-js/tsconfig": "^2.45.0",
+    "@modern-js/eslint-config": "2.46.1",
+    "@modern-js/tsconfig": "2.46.1",
     "@oeyoews/prettier-config": "^1.0.2",
     "@oeyoews/tw5-typed": "^0.4.4",
-    "@types/node": "^20.11.4",
+    "@types/node": "20.11.5",
     "@uiw/codemirror-theme-github": "^4.21.21",
     "@uiw/codemirror-theme-material": "^4.21.21",
     "codemirror-lang-tiddlywiki": "workspace:^",
     "rimraf": "^5.0.5",
-    "terser": "^5.26.0",
-    "ts-node": "^10.9.2",
-    "typescript": "^5.3.3"
+    "terser": "5.27.0",
+    "ts-node": "10.9.2",
+    "typescript": "5.3.3"
   },
   "dependencies": {
     "@codemirror/autocomplete": "^6.12.0",
@@ -67,6 +67,6 @@
     "@replit/codemirror-vim": "^6.1.0",
     "@uiw/codemirror-extensions-color": "^4.21.21",
     "thememirror": "^2.0.1",
-    "tiddlywiki": "^5.3.3"
+    "tiddlywiki": "5.3.3"
   }
 }
