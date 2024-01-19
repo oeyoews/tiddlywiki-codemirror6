@@ -6,7 +6,7 @@ import triggerType from '@/cm6/modules/constants/triggerType';
 import { IWidget } from '@/cm6/types';
 import { EditorView } from '@codemirror/view';
 
-export function setupSnippets(widget: IWidget) {
+export function commandSnippets(widget: IWidget) {
   const language = $tw.wiki.getTiddlerText('$:/config/codemirror6/language');
 
   const filetypes = [
@@ -86,7 +86,7 @@ export function setupSnippets(widget: IWidget) {
             ? item.description.zh
             : capitalize(item.description.en),
         type: 'cm-settings',
-        section: menu.settings,
+        section: menu.commands,
         apply: (view: EditorView, completion: Completion, from, to) => {
           view.dispatch({
             changes: { from, to, insert: '' }

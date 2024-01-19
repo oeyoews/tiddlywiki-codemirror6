@@ -8,7 +8,7 @@ import { wordsSnippets } from './words';
 import { emojiSnippets } from './emojis';
 import { tagSnippets } from './tags';
 import { filetypeSnippets } from './filetype';
-import { setupSnippets } from './setup';
+import { commandSnippets } from './commands';
 
 export default {
   imageSnippets,
@@ -21,5 +21,5 @@ export default {
   emojiSnippets,
   tagSnippets,
   filetypeSnippets,
-  setupSnippets
+  commandSnippets
 };
