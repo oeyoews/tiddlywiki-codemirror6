@@ -1,6 +1,6 @@
 import { Compartment } from '@codemirror/state';
 import { EditorState } from '@codemirror/state';
-import cm6 from '../cm6';
+import cm6 from '@/cm6/cm6';
 
 // https://codemirror.net/examples/config/
 const tabSizePlugin = () => {

@@ -1,5 +1,5 @@
 import { bracketMatching, foldGutter } from '@codemirror/language';
-import setVimKeymap from '@/cm6/utils/vimrc.js';
+import setVimKeymap from '@/cm6/modules/vimrc.js';
 import { EditorState, Extension, Prec } from '@codemirror/state';
 import { githubLight } from '@uiw/codemirror-theme-github';
 
@@ -27,10 +27,6 @@ import { linkHoverPreview } from '@/cm6/extensions/wordhover';
 import { linkExt } from '@/cm6/extensions/linkExt';
 import { tidExt } from '@/cm6/extensions/tidExt';
 import { imgExt } from '@/cm6/extensions/imgExt';
-import {
-  contentIncludingHint,
-  showCompletionHint
-} from '@/cm6/extensions/showCompletionHint';
 
 export default function updateExtensions(cme: Extension[], widget: IWidget) {
   const fields = $tw.wiki.getTiddler(
@@ -44,8 +40,6 @@ export default function updateExtensions(cme: Extension[], widget: IWidget) {
     conf.linkPreview() && cme.push(linkHoverPreview);
     conf.wordCount() && cme.push(wordCountExt());
     conf.lineNumbers() && cme.push(lineNumbers());
-
-    // cme.push(contentIncludingHint());
 
     conf.clickable() && cme.push(linkExt, tidExt, imgExt);
 

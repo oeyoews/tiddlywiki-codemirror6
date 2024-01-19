@@ -17,7 +17,7 @@ import {
 
 import { indentationMarkers } from '@replit/codemirror-indentation-markers';
 import { EditorView, dropCursor, tooltips } from '@codemirror/view';
-import tabSizePlugin from '@/cm6/utils/tab-size';
+import tabSizePlugin from '@/cm6/extensions/tab-size';
 import removeOutlineExt from './removeOutlineExt';
 import fontSizeExt from './fontSizeExt';
 import { indentUnit } from '@codemirror/language';

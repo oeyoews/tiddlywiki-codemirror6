@@ -5,7 +5,7 @@ import {
 } from '@codemirror/autocomplete';
 import { syntaxTree } from '@codemirror/language';
 import cm6 from '@/cm6/cm6';
-import triggerType from '@/cm6/utils/triggerType';
+import triggerType from '@/cm6/modules/triggerType';
 import sources from '@/cm6/completions/sources';
 import { IWidget } from '@/cm6/types';
 

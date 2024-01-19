@@ -1,6 +1,6 @@
 import { Vim } from '@replit/codemirror-vim';
-import { IWidget } from '../types';
-import cm6 from '../cm6';
+import { IWidget } from '@/cm6/types';
+import cm6 from '@/cm6/cm6';
 
 // TODO: support navigator clipboard
 // https://github.com/replit/codemirror-vim

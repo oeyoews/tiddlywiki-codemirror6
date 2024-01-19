@@ -1,6 +1,6 @@
 // import { color } from '@uiw/codemirror-extensions-color';
 import { tiddlywiki, tiddlywikiLanguage } from 'codemirror-lang-tiddlywiki';
-import completions from './completions';
+import completions from '../completions';
 import { html, htmlLanguage } from '@codemirror/lang-html';
 import { json, jsonLanguage } from '@codemirror/lang-json';
 import { css, cssLanguage } from '@codemirror/lang-css';

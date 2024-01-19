@@ -1,7 +1,7 @@
 import { Completion } from '@codemirror/autocomplete';
 import { menu } from '@/cm6/modules/config/menu';
 import { IWidget } from '@/cm6/types';
-import triggerType from '@/cm6/utils/triggerType';
+import triggerType from '@/cm6/modules/triggerType';
 
 export function tagSnippets(widget: IWidget) {
   // @ts-ignore

@@ -1,5 +1,5 @@
 import { Completion } from '@codemirror/autocomplete';
-import delimiter from '@/cm6/utils/triggerType';
+import delimiter from '@/cm6/modules/triggerType';
 import conf from '@/cm6/cm6';
 import { renderTid } from '@/cm6/utils/renderTiddler';
 import { menu } from '@/cm6/modules/config/menu';

@@ -8,11 +8,11 @@ import { EditorView } from '@codemirror/view';
 
 import dynamicmode from '@/cm6/modules/mode';
 import { miniMapExt } from '@/cm6/extensions/miniMapExt';
-import updateExtensions from './modules/config/extensions';
+import updateExtensions from '@/cm6/extensions';
 import { IOperation, IOperationType, operationTypes } from './operationTypes';
 import type { TW_Element } from 'tiddlywiki';
 import type { IWidget, IOptions } from './types';
-import inlineSuggestionExt from './modules/inlinesuggest';
+import inlineSuggestionExt from './extensions/inlinesuggest';
 import { cme } from './extensions/basic';
 
 class CodeMirrorEngine {

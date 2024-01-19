@@ -2,7 +2,7 @@ import { Completion } from '@codemirror/autocomplete';
 import cm6, { configBaseTitle } from '@/cm6/cm6';
 import { menu } from '@/cm6/modules/config/menu';
 import { capitalize } from '@/cm6/utils/capitalize';
-import triggerType from '@/cm6/utils/triggerType';
+import triggerType from '@/cm6/modules/triggerType';
 
 export function setupSnippets() {
   const filetypes = [
