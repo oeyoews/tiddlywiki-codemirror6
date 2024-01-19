@@ -13,6 +13,10 @@ export function setupSnippets(widget: IWidget) {
       description: 'Report Codemirror6 Bug'
     },
     {
+      title: 'view-source-code',
+      description: 'View Source Code'
+    },
+    {
       title: 'view-online-cm6-example',
       description: 'view online cm6 example '
     },
@@ -130,6 +134,14 @@ export function setupSnippets(widget: IWidget) {
             case item.title === 'toggleTiddlywikiFullscreen':
               $tw.rootWidget.dispatchEvent({
                 type: 'tm-full-screen'
+              });
+              break;
+            case item.title === 'view-source-code':
+              const repoLink =
+                'https://github.com/oeyoews/tiddlywiki-codemirror6';
+              $tw.rootWidget.dispatchEvent({
+                type: 'tm-open-external-window',
+                param: repoLink
               });
               break;
             default:
