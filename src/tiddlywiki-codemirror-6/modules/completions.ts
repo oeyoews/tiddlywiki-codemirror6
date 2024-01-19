@@ -1,14 +1,13 @@
-// import { closeCompletion } from '@codemirror/autocomplete';
 import {
   Completion,
   CompletionContext,
   CompletionResult
 } from '@codemirror/autocomplete';
 import { syntaxTree } from '@codemirror/language';
-import cm6 from '../cm6';
-import triggerType from '../utils/triggerType';
-import sources from '../completions/sources';
-import { IWidget } from '../types';
+import cm6 from '@/cm6/cm6';
+import triggerType from '@/cm6/utils/triggerType';
+import sources from '@/cm6/completions/sources';
+import { IWidget } from '@/cm6/types';
 
 // TODO: use ifIn to better completion.
 // @see-also: https://github.com/codemirror/lang-javascript/blob/4dcee95aee9386fd2c8ad55f93e587b39d968489/src/complete.ts

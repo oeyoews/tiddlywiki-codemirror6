@@ -5,8 +5,8 @@ import {
   MatchDecorator,
   WidgetType
 } from '@codemirror/view';
-import cm6 from '../cm6';
-import createViewPlugin from '../utils/createViewPlugin';
+import cm6 from '@/cm6/cm6';
+import createViewPlugin from '@/cm6/utils/createViewPlugin';
 
 class CustomLink extends WidgetType {
   constructor(state) {

@@ -1,6 +1,6 @@
 import { Extension } from '@codemirror/state';
 
-import { inlineSuggestion } from '../extensions/inlineSuggestion';
+import { inlineSuggestion } from '@/cm6/extensions/inlineSuggestion';
 
 import { completionStatus, selectedCompletion } from '@codemirror/autocomplete';
 import cm6 from '../cm6';

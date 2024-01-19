@@ -3,7 +3,7 @@ import { snippetCompletion as snip } from '@codemirror/autocomplete';
 import { ISource } from 'src/tiddlywiki-codemirror-6/types';
 import { menu } from 'src/tiddlywiki-codemirror-6/modules/config/menu';
 import conf from 'src/tiddlywiki-codemirror-6/cm6';
-import { usersnippets } from '../snippets';
+import { usersnippets } from '@/cm6/completions/snippets';
 
 export function userSnippets() {
   const userSnippetTiddlers = $tw.wiki.filterTiddlers(
@@ -41,7 +41,6 @@ export function userSnippets() {
 
   // load builtin snippets
   source.push(...usersnippets);
-  // 重复的会被覆盖？??
   const filteredSource = source.filter((item) => item.title && item.text);
 
   return filteredSource.map((info) => {

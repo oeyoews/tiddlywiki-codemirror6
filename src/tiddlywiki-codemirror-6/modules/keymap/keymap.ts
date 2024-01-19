@@ -3,15 +3,9 @@ import {
   moveCompletionSelection,
   nextSnippetField
 } from '@codemirror/autocomplete';
-import { underlineSelection } from '../../extensions/underlineSelection';
+import { underlineSelection } from '@/cm6/extensions/underlineSelection';
 import { KeyBinding } from '@codemirror/view';
-import {
-  cursorMatchingBracket,
-  cursorCharRight,
-  cursorSyntaxLeft,
-  cursorSyntaxRight,
-  selectMatchingBracket
-} from '@codemirror/commands';
+import { cursorSyntaxLeft, cursorSyntaxRight } from '@codemirror/commands';
 
 // add keymap, press ? to show a modal tip
 //  TODO: presnippetfield not work, snipkeymap

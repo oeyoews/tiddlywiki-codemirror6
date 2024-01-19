@@ -6,8 +6,8 @@ import { undo, redo } from '@codemirror/commands';
 
 import { EditorView } from '@codemirror/view';
 
-import dynamicmode from './modules/mode';
-import { miniMapExt } from './extensions/miniMapExt';
+import dynamicmode from '@/cm6/modules/mode';
+import { miniMapExt } from '@/cm6/extensions/miniMapExt';
 import updateExtensions from './modules/config/extensions';
 import { IOperation, IOperationType, operationTypes } from './operationTypes';
 import type { TW_Element } from 'tiddlywiki';

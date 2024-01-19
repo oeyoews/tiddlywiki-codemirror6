@@ -1,8 +1,8 @@
 import { Completion } from '@codemirror/autocomplete';
-import delimiter from 'src/tiddlywiki-codemirror-6/utils/triggerType';
-import conf from 'src/tiddlywiki-codemirror-6/cm6';
-import { renderTid } from 'src/tiddlywiki-codemirror-6/utils/renderTiddler';
-import { menu } from 'src/tiddlywiki-codemirror-6/modules/config/menu';
+import delimiter from '@/cm6/utils/triggerType';
+import conf from '@/cm6/cm6';
+import { renderTid } from '@/cm6/utils/renderTiddler';
+import { menu } from '@/cm6/modules/config/menu';
 
 export function getAllTiddlers(delimiters = delimiter.link) {
   const systemFilter =

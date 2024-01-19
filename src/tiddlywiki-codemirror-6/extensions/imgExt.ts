@@ -1,7 +1,7 @@
 // @ts-nocheck
 
 import { Decoration, MatchDecorator, WidgetType } from '@codemirror/view';
-import createViewPlugin from '../utils/createViewPlugin';
+import createViewPlugin from '@/cm6/utils/createViewPlugin';
 
 // https://discuss.codemirror.net/t/avoid-replacing-match-in-matchdecorator-decorator-to-add-link-icon-after-urls/4719/3
 class HyperLink extends WidgetType {

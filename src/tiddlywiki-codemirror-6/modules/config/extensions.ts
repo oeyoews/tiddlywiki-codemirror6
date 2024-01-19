@@ -22,7 +22,7 @@ import { oneDark } from '@codemirror/theme-one-dark';
 import conf from 'src/tiddlywiki-codemirror-6/cm6';
 import { wordCountExt } from 'src/tiddlywiki-codemirror-6/extensions/wordCountExt';
 import { type IWidget } from 'src/tiddlywiki-codemirror-6/types';
-import { cmkeymaps } from '../keymap';
+import { cmkeymaps } from '@/cm6/modules/keymap';
 import { linkHoverPreview } from 'src/tiddlywiki-codemirror-6/extensions/wordhover';
 import { linkExt } from 'src/tiddlywiki-codemirror-6/extensions/linkExt';
 import { tidExt } from 'src/tiddlywiki-codemirror-6/extensions/tidExt';

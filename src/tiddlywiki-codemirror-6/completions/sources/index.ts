@@ -1,4 +1,4 @@
-import delimiter from '../../utils/triggerType';
+import delimiter from '@/cm6/utils/triggerType';
 import { imageSnippets } from './images';
 import { userSnippets } from './snippets';
 import { widgetSnippets } from './widget';
@@ -9,7 +9,6 @@ import { emojiSnippets } from './emojis';
 import { tagSnippets } from './tags';
 import { filetypeSnippets } from './filetype';
 import { setupSnippets } from './setup';
-import { IWidget } from 'src/tiddlywiki-codemirror-6/types';
 
 export default {
   imageSnippets,

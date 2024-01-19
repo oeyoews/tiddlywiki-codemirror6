@@ -1,4 +1,4 @@
-import autocomplete from '../modules/config/autocomplete';
+import autocomplete from '@/cm6/modules/config/autocomplete';
 import {
   defaultHighlightStyle,
   syntaxHighlighting,
@@ -17,12 +17,12 @@ import {
 
 import { indentationMarkers } from '@replit/codemirror-indentation-markers';
 import { EditorView, dropCursor, tooltips } from '@codemirror/view';
-import tabSizePlugin from '../utils/tab-size';
+import tabSizePlugin from '@/cm6/utils/tab-size';
 import removeOutlineExt from './removeOutlineExt';
 import fontSizeExt from './fontSizeExt';
 import { indentUnit } from '@codemirror/language';
 import { Prec } from '@codemirror/state';
-import cm6 from '../cm6';
+import cm6 from '@/cm6/cm6';
 import rainbowBrackets from './rainbowBrackets';
 
 export function cme(self: any): Extension[] {

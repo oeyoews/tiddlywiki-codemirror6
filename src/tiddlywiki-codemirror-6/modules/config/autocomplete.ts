@@ -1,5 +1,5 @@
 import { EditorState } from '@codemirror/state';
-import cm6 from '../../cm6';
+import cm6 from '@/cm6/cm6';
 import { autocompletion, Completion } from '@codemirror/autocomplete';
 
 // @see-also https://codemirror.net/docs/ref/#autocomplete.CompletionSection

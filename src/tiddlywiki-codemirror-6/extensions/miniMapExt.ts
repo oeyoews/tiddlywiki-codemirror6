@@ -1,5 +1,5 @@
 import { EditorView } from '@codemirror/view';
-import cm6 from '../cm6';
+import cm6 from '@/cm6/cm6';
 import { showMinimap } from '@oeyoews/codemirror-minimap';
 import type { Extension } from '@codemirror/state';
 
