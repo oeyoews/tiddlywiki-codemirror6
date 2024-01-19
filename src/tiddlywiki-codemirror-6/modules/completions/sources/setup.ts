@@ -7,43 +7,71 @@ import { IWidget } from '@/cm6/types';
 import { EditorView } from '@codemirror/view';
 
 export function setupSnippets(widget: IWidget) {
+  const language = $tw.wiki.getTiddlerText('$:/config/codemirror6/language');
+
   const filetypes = [
     {
       title: 'report-cm6-bug',
-      description: 'Report Codemirror6 Bug'
+      description: {
+        zh: '提交 Codemirror6 插件 BUG',
+        en: 'Report Codemirror6 Bug'
+      }
     },
     {
       title: 'view-source-code',
-      description: 'View Source Code'
+      description: {
+        zh: '查看插件源码',
+        en: 'View Source Code'
+      }
     },
     {
       title: 'view-online-cm6-example',
-      description: 'view online cm6 example '
+      description: {
+        zh: '在线查看 Codemirror6 示例',
+        en: 'view online cm6 example'
+      }
     },
     {
       title: 'add-new-snippets',
-      description: 'Add New Snippet(WIP)'
+      description: {
+        zh: '添加新的 模板片段（WIP）',
+        en: 'Add New Snippet(WIP)'
+      }
     },
     {
       title: 'update-codemirror6-plugin',
-      description: 'update codemirror6 plugin'
+      description: {
+        zh: '更新 Codemirror6 插件',
+        en: 'update codemirror6 plugin'
+      }
     },
-
     {
       title: 'setupCM6',
-      description: 'Setup Codemirror6'
+      description: {
+        zh: '设置',
+        en: 'Setup Codemirror6'
+      }
     },
     {
       title: 'toggleMode',
-      description: 'Editor keymap mode'
+      description: {
+        zh: '编辑器键盘映射模式',
+        en: 'Editor keymap mode'
+      }
     },
     {
       title: 'toggleFullscreen',
-      description: 'Editor FullScreen'
+      description: {
+        zh: '编辑器全屏',
+        en: 'Editor FullScreen'
+      }
     },
     {
       title: 'toggleTiddlywikiFullscreen',
-      description: 'Tiddlywiki FullScreen'
+      description: {
+        zh: '太微全屏',
+        en: 'Tiddlywiki FullScreen'
+      }
     }
   ] as const;
 
@@ -53,7 +81,10 @@ export function setupSnippets(widget: IWidget) {
     (item) =>
       ({
         label: triggerType.setup + item.title,
-        displayLabel: capitalize(item.description),
+        displayLabel:
+          language === 'zh'
+            ? item.description.zh
+            : capitalize(item.description.en),
         type: 'cm-settings',
         section: menu.settings,
         apply: (view: EditorView, completion: Completion, from, to) => {
