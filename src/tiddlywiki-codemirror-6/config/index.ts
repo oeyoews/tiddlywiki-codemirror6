@@ -284,7 +284,7 @@ export const tiddlers = {
       zh: '占位符',
       en: 'Placeholder'
     },
-    text: 'Write something ✒️ ...',
+    text: '✨ Write something ✒️ ...',
     icon: '✏️️',
     description: {
       zh: '设置默认的占位符文本。',
