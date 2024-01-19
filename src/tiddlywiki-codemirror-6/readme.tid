@@ -1,23 +1,16 @@
 title: $:/plugins/oeyoews/tiddlywiki-codemirror-6/readme
 
-> Modified on BurningTreeC's codemirror-6 plugin
 
-<img alt="Dynamic JSON Badge" src="https://img.shields.io/badge/dynamic/json?url=https%3A%2F%2Fraw.githubusercontent.com%2Foeyoews%2Ftiddlywiki-codemirror6%2Fmain%2Fpackage.json&query=version&style=flat-square&logo=Codemirror&logoColor=white&label=codemirror&labelColor=black&color=black">
+<img alt="version" src="https://img.shields.io/badge/dynamic/json?url=https%3A%2F%2Fraw.githubusercontent.com%2Foeyoews%2Ftiddlywiki-codemirror6%2Fmain%2Fpackage.json&query=version&style=flat-square&logo=Codemirror&logoColor=white&label=codemirror&labelColor=black&color=black">
 
-!! This plugin adds the [ext[CodeMirror 6|https://codemirror.net]] editor to [ext[TiddlyWiki|https://tiddlywiki.com]]
-
-See the ''usage'' section for keyboard shortcuts
-
-If you like the plugin, feel free to leave me a star on [ext[GitHub|https://github.com/oeyoews/tiddlywiki-codemirror6]]
-
-[[Codemirror6 Plugin Demo|https://oeyoews.github.io/tiddlywiki-codemirror6/#%24%3A%2Fplugins%2Foeyoews%2Ftiddlywiki-codemirror-6]]
 
 <center>
-<video width="500" height="400" controls style="border-radius:8px;">
+<video width="300" controls style="border-radius:8px;">
   <source src="https://user-images.githubusercontent.com/72405338/294956491-948b791f-04e1-4447-a5d3-81ebb13619de.mp4" type="video/mp4">
-  Your browser does not support the video tag.
 </video>
 </center>
+
+[[Demo|https://oeyoews.github.io/tiddlywiki-codemirror6/#%24%3A%2Fplugins%2Foeyoews%2Ftiddlywiki-codemirror-6]]
 
 
 !! Features
@@ -37,37 +30,6 @@ If you like the plugin, feel free to leave me a star on [ext[GitHub|https://gith
 * `//` to change tiddler type
 * `#` to insert tags
 * `@#` to setup codemirror6
-
-<!-- * ~~split to vim plugin: 由于使用到了 cm6的包作为依赖, 因此将其单独打包出去, 作为模块的形式加载不太可能~~
-* ~~Uncaught RangeError: A document must have at least one line~~
-* ~~support emacs keymap https://www.npmjs.com/package/@replit/codemirror-emacs~~
-* ~~support vim snippets(vim-snippets repo)~~
-* ~~custom preview(render to dom)~~
-* ~~subplugin for different language~~
-* ~~lsp: https://github.com/FurqanSoftware/codemirror-languageserver~~
-* https://codesandbox.io/p/sandbox/codesandbox-next-363-forked-734jrl?file=%2Fsrc%2Findex.js%3A4%2C1 -->
-
-<!-- !! Next TODO(Roadmap)
-
-* [ ] plugin i18n
-* [ ] 补全 validFor 优化
-* [ ] 配置使用单一json(需要重新做配置UI, 可以模仿codemirror 5)
-* [ ] ctrl + r(u) to undo
-* [ ] finish lang-tiddlywiki package
-* [ ] highlight widget keyword https://github.com/Gk0Wk/TW5-CodeMirror-Enhanced/blob/main/src/cme/mode/parserules/blocks/heading.ts
-* [ ] 保存每个tiddler 的最后一次编辑的光标位置. https://discuss.codemirror.net/t/storing-restoring-treecursor-location-efficiently/7227 https://discuss.codemirror.net/t/set-cursor-position-in-v6/4476
-* [ ] support codemirror-themes-all(70kb) https://uiwjs.github.io/react-codemirror/#/theme/data/material/dark
-* [ ] remove codemirror highlight utils
-* [ ] 模仿 rainbow 高亮 [[xxx]] 里面的tiddler, 或许可以直接加上点击事件
-* [ ] inline hint complete https://github.com/ChromeDevTools/devtools-frontend/blob/main/front_end/ui/components/text_editor/config.ts#L370
-* [ ] 切换全屏如何刷新预览 -->
-
-<!-- !! Links
-
-* https://discuss.codemirror.net
-* https://github.com/BurningTreeC/tiddlywiki-codemirror-6/blob/main/plugins/tiddlywiki-codemirror-6/engine.js
-* https://burningtreec.github.io/tiddlywiki-codemirror-6/
-* https://github.com/val-town/codemirror-ts/blob/main/src/hover/getHover.ts -->
 
 !! Tips
 
@@ -104,3 +66,10 @@ The codemirror6 plugin, in particular, could seamlessly load these code snippets
 * The completion of the codemirror enhancement plug-in sometimes causes the interface to freeze.
 * Better support for code snippets
 * Better markdown editing experience
+
+If you like the plugin, feel free to leave me a star on [ext[GitHub|https://github.com/oeyoews/tiddlywiki-codemirror6]]
+
+
+!! Credits
+
+> BurningTreeC's tiddlywiki codemirror-6 plugin
