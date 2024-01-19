@@ -10,9 +10,16 @@ const tiddlersInfo = Object.entries(tiddlers) as unknown as Array<
   [string, IConfigFields]
 >;
 
-const dir = path.join('src', 'tiddlywiki-codemirror-6', 'config');
+const dir = path.join(
+  'src',
+  'tiddlywiki-codemirror-6',
+  'tiddlers',
+  'auto-generated-config'
+);
 
-fs.rmdirSync(dir, { recursive: true });
+if (fs.existsSync(dir)) {
+  fs.rmdirSync(dir, { recursive: true });
+}
 fs.mkdirSync(dir, { recursive: true });
 
 // default is en
