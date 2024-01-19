@@ -4,6 +4,7 @@ import { menu } from '@/cm6/modules/constants/menu';
 import { capitalize } from '@/cm6/utils/capitalize';
 import triggerType from '@/cm6/modules/constants/triggerType';
 import { IWidget } from '@/cm6/types';
+import { EditorView } from '@codemirror/view';
 
 export function setupSnippets(widget: IWidget) {
   const filetypes = [
@@ -37,9 +38,9 @@ export function setupSnippets(widget: IWidget) {
       ({
         label: triggerType.setup + item.title,
         displayLabel: capitalize(item.description),
-        type: 'keyword',
-        section: menu.filetypes,
-        apply: (view, completion, from, to) => {
+        type: 'cm-settings',
+        section: menu.settings,
+        apply: (view: EditorView, completion: Completion, from, to) => {
           view.dispatch({
             changes: { from, to, insert: '' }
             // selection: { anchor: cursorEndPosition, head: cursorEndPosition }

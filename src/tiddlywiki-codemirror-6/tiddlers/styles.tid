@@ -522,3 +522,7 @@ color: #495057;
 	font-weight: bold;
 	text-decoration: none !important;
 } -->
+
+.cm-completionIcon-cm-settings:after {
+	content: '𝒔';
+}
