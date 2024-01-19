@@ -6,7 +6,7 @@ import {
 import { syntaxTree } from '@codemirror/language';
 import cm6 from '@/cm6/config';
 import triggerType from '@/cm6/modules/constants/triggerType';
-import sources from '@/cm6/completions/sources';
+import sources from '@/cm6/modules/completions/sources';
 import { IWidget } from '@/cm6/types';
 
 // TODO: use ifIn to better completion.

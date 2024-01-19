@@ -3,7 +3,7 @@ import {
   moveCompletionSelection,
   nextSnippetField
 } from '@codemirror/autocomplete';
-import { underlineSelection } from '@/cm6/extensions/underlineSelection';
+import { underlineSelection } from '@/cm6/modules/extensions/underlineSelection';
 import { KeyBinding } from '@codemirror/view';
 import { cursorSyntaxLeft, cursorSyntaxRight } from '@codemirror/commands';
 

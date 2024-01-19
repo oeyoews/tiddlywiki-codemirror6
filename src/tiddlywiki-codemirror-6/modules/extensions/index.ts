@@ -20,13 +20,13 @@ import {
 import { vim } from '@replit/codemirror-vim';
 import { oneDark } from '@codemirror/theme-one-dark';
 import conf from '@/cm6/config';
-import { wordCountExt } from '@/cm6/extensions/wordCountExt';
+import { wordCountExt } from '@/cm6/modules/extensions/wordCountExt';
 import { type IWidget } from '@/cm6/types';
 import { cmkeymaps } from '@/cm6/modules/keymap';
-import { linkHoverPreview } from '@/cm6/extensions/wordhover';
-import { linkExt } from '@/cm6/extensions/linkExt';
-import { tidExt } from '@/cm6/extensions/tidExt';
-import { imgExt } from '@/cm6/extensions/imgExt';
+import { linkHoverPreview } from '@/cm6/modules/extensions/wordhover';
+import { linkExt } from '@/cm6/modules/extensions/linkExt';
+import { tidExt } from '@/cm6/modules/extensions/tidExt';
+import { imgExt } from '@/cm6/modules/extensions/imgExt';
 
 export default function updateExtensions(cme: Extension[], widget: IWidget) {
   const fields = $tw.wiki.getTiddler(

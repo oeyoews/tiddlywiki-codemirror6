@@ -3,7 +3,7 @@ import { snippetCompletion as snip } from '@codemirror/autocomplete';
 import { ISource } from '@/cm6/types';
 import { menu } from '@/cm6/modules/constants/menu';
 import conf from '@/cm6/config';
-import { usersnippets } from '@/cm6/completions/snippets';
+import { usersnippets } from '@/cm6/modules/completions/snippets';
 
 export function userSnippets() {
   const userSnippetTiddlers = $tw.wiki.filterTiddlers(
