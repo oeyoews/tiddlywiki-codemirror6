@@ -9,8 +9,12 @@ import { EditorView } from '@codemirror/view';
 import dynamicmode from '@/cm6/modules/mode';
 import { miniMapExt } from '@/cm6/modules/extensions/miniMapExt';
 import updateExtensions from '@/cm6/modules/extensions';
-import { IOperation, IOperationType, operationTypes } from './operationTypes';
-import type { TW_Element } from 'tiddlywiki';
+import {
+  type IOperation,
+  type IOperationType,
+  operationTypes
+} from '@/cm6/modules/constants/operationTypes';
+import { type TW_Element } from 'tiddlywiki';
 import type { IWidget, IOptions } from './types';
 import inlineSuggestionExt from '@/cm6/modules//extensions/inlinesuggest';
 import { cme } from '@/cm6/modules/extensions/basic';
