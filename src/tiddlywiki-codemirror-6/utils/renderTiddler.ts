@@ -1,5 +1,5 @@
 import { CompletionInfo } from '@codemirror/autocomplete';
-import conf from '../cm6';
+import conf from '../config';
 export function renderTid(
   title: string | undefined,
   footer = false

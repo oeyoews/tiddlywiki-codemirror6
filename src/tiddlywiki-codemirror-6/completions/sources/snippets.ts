@@ -1,8 +1,8 @@
 import { renderTid } from '@/cm6/utils/renderTiddler';
 import { snippetCompletion as snip } from '@codemirror/autocomplete';
 import { ISource } from '@/cm6/types';
-import { menu } from '@/cm6/modules/config/menu';
-import conf from '@/cm6/cm6';
+import { menu } from '@/cm6/modules/constants/menu';
+import conf from '@/cm6/config';
 import { usersnippets } from '@/cm6/completions/snippets';
 
 export function userSnippets() {

@@ -1,8 +1,8 @@
 import { Completion } from '@codemirror/autocomplete';
-import delimiter from '@/cm6/modules/triggerType';
-import conf from '@/cm6/cm6';
+import delimiter from '@/cm6/modules/constants/triggerType';
+import conf from '@/cm6/config';
 import { renderTid } from '@/cm6/utils/renderTiddler';
-import { menu } from '@/cm6/modules/config/menu';
+import { menu } from '@/cm6/modules/constants/menu';
 
 export function getAllTiddlers(delimiters = delimiter.link) {
   const systemFilter =

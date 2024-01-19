@@ -3,7 +3,7 @@ import { Extension } from '@codemirror/state';
 import { inlineSuggestion } from '@/cm6/extensions/inlineSuggestion';
 
 import { completionStatus, selectedCompletion } from '@codemirror/autocomplete';
-import cm6 from '@/cm6/cm6';
+import cm6 from '@/cm6/config';
 import { EditorView } from '@codemirror/view';
 
 // @see-also: https://github.com/ChromeDevTools/devtools-frontend/blob/main/front_end/ui/components/text_editor/config.ts#L370

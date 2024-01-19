@@ -2,8 +2,8 @@ import {
   Completion,
   snippetCompletion as snip
 } from '@codemirror/autocomplete';
-import delimiter from '@/cm6/modules/triggerType';
-import { menu } from '@/cm6/modules/config/menu';
+import delimiter from '@/cm6/modules/constants/triggerType';
+import { menu } from '@/cm6/modules/constants/menu';
 
 export function widgetSnippets() {
   const modules = $tw.modules.titles; // $tw.modules.types 获取不到 widget name, 除非根据文件名

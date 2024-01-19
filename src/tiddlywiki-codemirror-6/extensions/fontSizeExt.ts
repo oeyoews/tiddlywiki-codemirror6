@@ -1,5 +1,5 @@
 import { EditorView } from '@codemirror/view';
-import cm6 from '@/cm6/cm6';
+import cm6 from '@/cm6/config';
 
 /** @see-also https://codemirror.net/examples/styling */
 export default function () {

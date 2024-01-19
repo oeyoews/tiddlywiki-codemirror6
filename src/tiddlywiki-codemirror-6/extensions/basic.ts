@@ -1,4 +1,4 @@
-import autocomplete from '@/cm6/modules/config/autocomplete';
+import autocomplete from '@/cm6/config/autocomplete';
 import {
   defaultHighlightStyle,
   syntaxHighlighting,
@@ -22,7 +22,7 @@ import removeOutlineExt from './removeOutlineExt';
 import fontSizeExt from './fontSizeExt';
 import { indentUnit } from '@codemirror/language';
 import { Prec } from '@codemirror/state';
-import cm6 from '@/cm6/cm6';
+import cm6 from '@/cm6/config';
 import rainbowBrackets from './rainbowBrackets';
 
 export function cme(self: any): Extension[] {

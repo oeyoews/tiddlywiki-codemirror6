@@ -4,7 +4,7 @@ import completions from '../completions';
 import { html, htmlLanguage } from '@codemirror/lang-html';
 import { json, jsonLanguage } from '@codemirror/lang-json';
 import { css, cssLanguage } from '@codemirror/lang-css';
-import { modes } from '@/cm6/cm6';
+import { modes } from '@/cm6/config';
 
 import { markdown, markdownLanguage } from '@codemirror/lang-markdown';
 

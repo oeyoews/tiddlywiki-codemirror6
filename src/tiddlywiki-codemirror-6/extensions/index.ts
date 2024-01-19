@@ -19,7 +19,7 @@ import {
 
 import { vim } from '@replit/codemirror-vim';
 import { oneDark } from '@codemirror/theme-one-dark';
-import conf from '@/cm6/cm6';
+import conf from '@/cm6/config';
 import { wordCountExt } from '@/cm6/extensions/wordCountExt';
 import { type IWidget } from '@/cm6/types';
 import { cmkeymaps } from '@/cm6/modules/keymap';

@@ -1,4 +1,4 @@
-import delimiter from '@/cm6/modules/triggerType';
+import delimiter from '@/cm6/modules/constants/triggerType';
 import { imageSnippets } from './images';
 import { userSnippets } from './snippets';
 import { widgetSnippets } from './widget';

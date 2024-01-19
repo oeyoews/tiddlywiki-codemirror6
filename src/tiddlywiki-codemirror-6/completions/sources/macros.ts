@@ -1,6 +1,6 @@
 import { snippetCompletion as snip } from '@codemirror/autocomplete';
-import delimiter from '@/cm6/modules/triggerType';
-import { menu } from '@/cm6/modules/config/menu';
+import delimiter from '@/cm6/modules/constants/triggerType';
+import { menu } from '@/cm6/modules/constants/menu';
 
 export function macroSnippets() {
   const macros = Object.entries($tw.macros);

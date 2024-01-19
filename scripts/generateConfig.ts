@@ -1,5 +1,8 @@
 import { IConfigFields } from '../src/tiddlywiki-codemirror-6/types';
-import { configBaseTitle, tiddlers } from '../src/tiddlywiki-codemirror-6/cm6';
+import {
+  configBaseTitle,
+  tiddlers
+} from '../src/tiddlywiki-codemirror-6/config';
 import fs from 'fs';
 import path from 'path';
 

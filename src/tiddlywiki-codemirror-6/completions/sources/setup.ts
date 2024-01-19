@@ -1,8 +1,8 @@
 import { Completion } from '@codemirror/autocomplete';
-import cm6, { configBaseTitle } from '@/cm6/cm6';
-import { menu } from '@/cm6/modules/config/menu';
+import cm6, { configBaseTitle } from '@/cm6/config';
+import { menu } from '@/cm6/modules/constants/menu';
 import { capitalize } from '@/cm6/utils/capitalize';
-import triggerType from '@/cm6/modules/triggerType';
+import triggerType from '@/cm6/modules/constants/triggerType';
 
 export function setupSnippets() {
   const filetypes = [

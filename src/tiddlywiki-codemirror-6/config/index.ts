@@ -1,4 +1,4 @@
-import { isNumeric } from './utils/numeric';
+import { isNumeric } from '../utils/numeric';
 
 export const configBaseTitle = '$:/config/codemirror-6/';
 

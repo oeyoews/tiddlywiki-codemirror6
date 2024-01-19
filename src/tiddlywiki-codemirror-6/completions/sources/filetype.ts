@@ -1,8 +1,8 @@
 import { Completion } from '@codemirror/autocomplete';
-import { menu } from '@/cm6/modules/config/menu';
+import { menu } from '@/cm6/modules/constants/menu';
 import { IWidget } from '@/cm6/types';
 import { capitalize } from '@/cm6/utils/capitalize';
-import triggerType from '@/cm6/modules/triggerType';
+import triggerType from '@/cm6/modules/constants/triggerType';
 
 export function filetypeSnippets(widget: IWidget) {
   const filetypes = $tw.wiki

@@ -4,8 +4,8 @@ import {
   CompletionResult
 } from '@codemirror/autocomplete';
 import { syntaxTree } from '@codemirror/language';
-import cm6 from '@/cm6/cm6';
-import triggerType from '@/cm6/modules/triggerType';
+import cm6 from '@/cm6/config';
+import triggerType from '@/cm6/modules/constants/triggerType';
 import sources from '@/cm6/completions/sources';
 import { IWidget } from '@/cm6/types';
 
