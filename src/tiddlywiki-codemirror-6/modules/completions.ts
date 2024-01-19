@@ -52,6 +52,7 @@ export default (widget: IWidget) => {
     // NOTE: 一定要保证是数组
     let options: Completion[] = sources.wordsSnippets();
 
+    // 不适合使用map, 需要动态生成列表
     // TODO: 每次都要计算 ???
     switch (true) {
       case lastWord.startsWith(triggerType.setup):
