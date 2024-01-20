@@ -27,6 +27,7 @@ export function tagSnippets(widget: IWidget) {
             // selection: { anchor: cursorEndPosition, head: cursorEndPosition }
           });
           const tags = $tw.wiki.getTiddler(widget.editTitle)?.fields?.tags;
+          // use tm-add-tag is better.
           if (!tags?.includes(item.title)) {
             $tw.wiki.setText(
               widget.editTitle,

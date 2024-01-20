@@ -93,6 +93,11 @@ export function commandSnippets(widget: IWidget) {
             // selection: { anchor: cursorEndPosition, head: cursorEndPosition }
           });
           switch (true) {
+            /*             case item.title === 'add-new-snippets':
+              const title = $tw.wiki.generateNewTitle('new-snippet', {
+                // prefix: ''
+              });
+              break; */
             case item.title === 'toggleMode':
               const nextValue = cm6.vimmode() ? 'no' : 'yes';
               $tw.wiki.setText(
