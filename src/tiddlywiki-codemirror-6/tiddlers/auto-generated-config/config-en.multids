@@ -1,5 +1,7 @@
 title: $:/language/codemirror6/
 
+disableCM6/caption: 📝 Use simeple editor
+disableCM6/description: use simeple editor
 vimJK/caption: 📝 Vim keyboard mapping JK(You know what I'm saying.)
 vimJK/description: vim keyboard mapping JK(You know what I'm saying.)
 matchText/caption: 📝 Match Text

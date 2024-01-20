@@ -20,6 +20,12 @@ function getConfig(title: string) {
 // NOTE: 对应配置的 caption 不要写成 TxxxBxxx 格式。
 
 export const tiddlers = {
+  disableCM6: {
+    caption: {
+      en: 'use simeple editor(Need Restart)',
+      zh: '使用简单编辑器 (需要重启)'
+    }
+  },
   vimJK: {
     caption: {
       zh: 'vim 键盘映射 JK(你知道我在说什么.)',

@@ -1,5 +1,7 @@
 title: $:/language/codemirror6/zh/
 
+disableCM6/caption: 📝 使用简单编辑器
+disableCM6/description: 使用简单编辑器
 vimJK/caption: 📝 vim 键盘映射 JK(你知道我在说什么.)
 vimJK/description: vim 键盘映射 JK(你知道我在说什么.)
 matchText/caption: 📝 匹配文本

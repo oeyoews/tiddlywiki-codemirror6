@@ -18,6 +18,7 @@ import { type TW_Element } from 'tiddlywiki';
 import type { IWidget, IOptions } from './types';
 import inlineSuggestionExt from '@/cm6/modules//extensions/inlinesuggest';
 import { cme } from '@/cm6/modules/extensions/basic';
+import cm6 from '@/cm6/config';
 
 class CodeMirrorEngine {
   widget: IWidget;
@@ -300,4 +301,5 @@ class CodeMirrorEngine {
 
 const { SimpleEngine } = require('$:/core/modules/editor/engines/simple.js');
 
-exports.CodeMirrorEngine = $tw.browser ? CodeMirrorEngine : SimpleEngine;
+exports.CodeMirrorEngine =
+  $tw.browser && !cm6.disableCM6() ? CodeMirrorEngine : SimpleEngine;

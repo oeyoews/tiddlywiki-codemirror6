@@ -1,0 +1,8 @@
+title: $:/config/codemirror-6/disableCM6
+caption: {{$:/language/codemirror6/disableCM6/caption}}
+caption-zh: {{$:/language/codemirror6/zh/disableCM6/caption}}
+description: {{$:/language/codemirror6/disableCM6/description}}
+description-zh: {{$:/language/codemirror6/zh/disableCM6/description}}
+settings-template: $:/plugins/oeyoews/tiddlywiki-codemirror-6/ui/templates/settings/input-switch
+
+no
