@@ -1,3 +1,4 @@
+// TODO: support chinese fullwidth characters ???
 export default {
   link: '[[',
   embed: '{{',
