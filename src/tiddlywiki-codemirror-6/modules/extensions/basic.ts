@@ -162,9 +162,13 @@ export function cme(self: any): Extension[] {
     }),
     EditorView.perLineTextDirection.of(true),
     EditorView.updateListener.of((v) => {
+      const cm: EditorView = self.cm; // 这是动态计算出来的 cm, 这也就是为什么在初始化前就可以拿到了 this.cm。如果直接在箭头函数的外面写死 cm, 那么 this.cm 就拿不到了
+      if (cm.composing) {
+        return;
+      }
       if (v.docChanged) {
-        const text = self.cm.state.doc.toString();
-        self.widget.saveChanges(text);
+        const text = cm.state.doc.toString();
+        self.widget.saveChanges(text); // update text with tiddlywiki api
       }
     })
   ];

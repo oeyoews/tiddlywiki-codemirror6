@@ -1,6 +1,4 @@
-// wikitext
-
-import type { ISource } from '../types';
+import { type ISource } from '@/cm6/types';
 //  NOTE: Moving to the last field or moving the cursor out of the current field deactivates the fields.
 
 export const usersnippets: ISource[] = [

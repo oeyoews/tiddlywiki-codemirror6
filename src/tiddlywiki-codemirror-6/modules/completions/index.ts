@@ -8,6 +8,7 @@ import cm6 from '@/cm6/config';
 import triggerType from '@/cm6/modules/constants/triggerType';
 import sources from '@/cm6/modules/completions/sources';
 import { IWidget } from '@/cm6/types';
+import { EditorView } from '@codemirror/view';
 
 // TODO: use ifIn to better completion.
 // @see-also: https://github.com/codemirror/lang-javascript/blob/4dcee95aee9386fd2c8ad55f93e587b39d968489/src/complete.ts
@@ -15,8 +16,12 @@ import { IWidget } from '@/cm6/types';
 // maybe help: https://github.com/Gk0Wk/TW5-CodeMirror-Enhanced/blob/811760507bfcd5493df4d5c117d33d7bfa076ab2/src/cme/addon/hint/hint-tw5-tiddler.ts#L58
 // IME: https://developer.mozilla.org/en-US/docs/Web/API/Element/compositionend_event
 //  https://codemirror.net/docs/migration/
-export default (widget: IWidget) => {
+export default (widget: IWidget, self: any) => {
   return (context: CompletionContext): CompletionResult | undefined => {
+    const cm: EditorView = self.cm;
+
+    if (cm.composing) return;
+
     const nodeBefore = syntaxTree(context.state).resolveInner(context.pos);
     if (!cm6.commentComplete()) {
       if (

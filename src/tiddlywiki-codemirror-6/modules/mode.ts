@@ -11,16 +11,18 @@ import { javascript, javascriptLanguage } from '@codemirror/lang-javascript';
 
 import { Extension, Prec } from '@codemirror/state';
 import { IWidget } from '@/cm6/types';
+import { type EditorView } from '@codemirror/view';
 
 const dynamicmode = (
   mode: string = modes.tiddlywiki,
   cme: Extension[],
-  widget: IWidget
+  widget: IWidget,
+  self: any
 ) => {
   let actionCompletions;
 
   const options = {
-    autocomplete: completions(widget)
+    autocomplete: completions(widget, self)
   };
 
   // defaultCodeLanguage: markdownLanguage,
