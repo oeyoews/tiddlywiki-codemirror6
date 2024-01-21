@@ -139,11 +139,6 @@ export function commandSnippets(widget: IWidget) {
               const newFullscreenValue =
                 oldFullscreenValue === 'yes' ? 'no' : 'yes';
               $tw.wiki.setText(stateTitle, 'text', '', newFullscreenValue);
-              console.log(
-                widget.editTitle,
-                oldFullscreenValue,
-                newFullscreenValue
-              );
               break;
             case item.title === 'report-cm6-bug':
               const bugLink =
