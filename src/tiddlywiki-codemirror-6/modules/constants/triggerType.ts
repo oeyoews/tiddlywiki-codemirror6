@@ -1,5 +1,5 @@
 // TODO: support chinese fullwidth characters ???
-export default {
+const triggerType = {
   link: '[[',
   embed: '{{',
   macro: '<<',
@@ -8,6 +8,12 @@ export default {
   emoji: ':',
   tag: '#',
   filetype: '//',
-  setup: '@#',
+  command: '@#',
   md: ':::'
-};
+} as const;
+
+export default triggerType;
+
+type ITriggerType = keyof typeof triggerType;
+
+export type ITriggerTypeChar = (typeof triggerType)[ITriggerType];

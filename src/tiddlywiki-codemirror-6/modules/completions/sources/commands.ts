@@ -80,7 +80,7 @@ export function commandSnippets(widget: IWidget) {
   return filetypes.map(
     (item) =>
       ({
-        label: triggerType.setup + item.title,
+        label: triggerType.command + item.title,
         displayLabel:
           language === 'zh'
             ? item.description.zh

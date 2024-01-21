@@ -9,6 +9,7 @@ import triggerType from '@/cm6/modules/constants/triggerType';
 import sources from '@/cm6/modules/completions/sources';
 import { IWidget } from '@/cm6/types';
 import { EditorView } from '@codemirror/view';
+import { isTrigger } from '@/cm6/utils/isTrigger';
 
 // TODO: use ifIn to better completion.
 // @see-also: https://github.com/codemirror/lang-javascript/blob/4dcee95aee9386fd2c8ad55f93e587b39d968489/src/complete.ts
@@ -60,40 +61,42 @@ export default (widget: IWidget, self: any) => {
     // 不适合使用map, 需要动态生成列表
     // TODO: 每次都要计算 ???
     switch (true) {
-      case lastWord.startsWith(triggerType.md):
-        options = sources.mdSnippets();
+      case isTrigger(lastWord, triggerType.md):
+        if ($tw.modules.titles['$:/plugins/cdr/markdown-more/startup.js']) {
+          options = sources.mdSnippets();
+        }
         break;
-      case lastWord.startsWith(triggerType.setup):
+      case isTrigger(lastWord, triggerType.command):
         options = sources.commandSnippets(widget);
         break;
-      case lastWord.startsWith(triggerType.filetype):
+      case isTrigger(lastWord, triggerType.filetype):
         options = sources.filetypeSnippets(widget);
         break;
-      case lastWord.startsWith(triggerType.tag):
+      case isTrigger(lastWord, triggerType.tag):
         options = sources.tagSnippets(widget);
         break;
-      case lastWord.startsWith(triggerType.link):
+      case isTrigger(lastWord, triggerType.link):
         options = sources.linkSnippets();
         // validFor = new RegExp(/\[\[([^\]]*)\]\]/);
         break;
 
-      case lastWord.startsWith(triggerType.img):
+      case isTrigger(lastWord, triggerType.img):
         options = sources.imageSnippets();
         // validFor = new RegExp(/(\[img\[)([.?+])(\]\])?/);
         break;
 
-      case lastWord.startsWith(triggerType.embed):
+      case isTrigger(lastWord, triggerType.embed):
         options = sources.embedSnippets();
         break;
 
-      case lastWord.startsWith(triggerType.widget):
+      case isTrigger(lastWord, triggerType.widget):
         options = sources.widgetSnippets();
         break;
 
-      case lastWord.startsWith(triggerType.macro):
+      case isTrigger(lastWord, triggerType.macro):
         options = sources.macroSnippets();
         break;
-      case lastWord.startsWith(triggerType.emoji):
+      case isTrigger(lastWord, triggerType.emoji):
         options = sources.emojiSnippets();
         break;
       case lastWord.startsWith(cm6.delimiter()) &&
