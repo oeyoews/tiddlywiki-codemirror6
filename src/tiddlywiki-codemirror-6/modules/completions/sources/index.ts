@@ -9,6 +9,7 @@ import { emojiSnippets } from './emojis';
 import { tagSnippets } from './tags';
 import { filetypeSnippets } from './filetype';
 import { commandSnippets } from './commands';
+import { mdSnippets } from './markdown';
 
 export default {
   imageSnippets,
@@ -21,5 +22,6 @@ export default {
   emojiSnippets,
   tagSnippets,
   filetypeSnippets,
-  commandSnippets
+  commandSnippets,
+  mdSnippets
 };

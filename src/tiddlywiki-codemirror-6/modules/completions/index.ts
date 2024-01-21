@@ -60,6 +60,9 @@ export default (widget: IWidget, self: any) => {
     // 不适合使用map, 需要动态生成列表
     // TODO: 每次都要计算 ???
     switch (true) {
+      case lastWord.startsWith(triggerType.md):
+        options = sources.mdSnippets();
+        break;
       case lastWord.startsWith(triggerType.setup):
         options = sources.commandSnippets(widget);
         break;

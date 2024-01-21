@@ -9,7 +9,8 @@ const menuItems = [
   'macros',
   'tags',
   'filetypes',
-  'commands'
+  'commands',
+  'md'
 ] as const;
 
 type MenuType = (typeof menuItems)[number];

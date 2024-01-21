@@ -8,5 +8,6 @@ export default {
   emoji: ':',
   tag: '#',
   filetype: '//',
-  setup: '@#'
+  setup: '@#',
+  md: ':::'
 };
