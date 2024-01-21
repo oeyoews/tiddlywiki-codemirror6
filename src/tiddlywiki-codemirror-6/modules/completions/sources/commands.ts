@@ -3,7 +3,7 @@ import cm6, { configBaseTitle } from '@/cm6/config';
 import { menu } from '@/cm6/modules/constants/menu';
 import { capitalize } from '@/cm6/utils/capitalize';
 import triggerType from '@/cm6/modules/constants/triggerType';
-import { IWidget } from '@/cm6/types';
+import { IWidget } from '@/cm6/types/IWidget';
 import { EditorView } from '@codemirror/view';
 
 export function commandSnippets(widget: IWidget) {

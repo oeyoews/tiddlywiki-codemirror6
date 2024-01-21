@@ -7,7 +7,7 @@ import { syntaxTree } from '@codemirror/language';
 import cm6 from '@/cm6/config';
 import triggerType from '@/cm6/modules/constants/triggerType';
 import sources from '@/cm6/modules/completions/sources';
-import { IWidget } from '@/cm6/types';
+import { IWidget } from '@/cm6/types/IWidget';
 import { EditorView } from '@codemirror/view';
 import { isTrigger } from '@/cm6/utils/isTrigger';
 

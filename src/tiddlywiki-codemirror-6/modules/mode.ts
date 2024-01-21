@@ -10,7 +10,7 @@ import { markdown, markdownLanguage } from '@codemirror/lang-markdown';
 import { javascript, javascriptLanguage } from '@codemirror/lang-javascript';
 
 import { Extension, Prec } from '@codemirror/state';
-import { IWidget } from '@/cm6/types';
+import { IWidget } from '../types/IWidget';
 
 const dynamicmode = (
   mode: string = modes.tiddlywiki,

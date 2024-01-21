@@ -21,7 +21,7 @@ import { vim } from '@replit/codemirror-vim';
 import { oneDark } from '@codemirror/theme-one-dark';
 import conf from '@/cm6/config';
 import { wordCountExt } from '@/cm6/modules/extensions/wordCountExt';
-import { type IWidget } from '@/cm6/types';
+import { type IWidget } from '@/cm6/types/IWidget';
 import { cmkeymaps } from '@/cm6/modules/keymap';
 import { linkHoverPreview } from '@/cm6/modules/extensions/wordhover';
 import { linkExt } from '@/cm6/modules/extensions/linkExt';

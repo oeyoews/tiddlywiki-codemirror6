@@ -15,7 +15,7 @@ import {
   operationTypes
 } from '@/cm6/modules/constants/operationTypes';
 import { type TW_Element } from 'tiddlywiki';
-import type { IWidget, IOptions } from './types';
+import type { IWidget } from './types/IWidget';
 import inlineSuggestionExt from '@/cm6/modules//extensions/inlinesuggest';
 import { cme } from '@/cm6/modules/extensions/basic';
 import cm6 from '@/cm6/config';

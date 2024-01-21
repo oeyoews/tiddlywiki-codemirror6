@@ -1,4 +1,3 @@
-import { IConfigFields } from '../src/tiddlywiki-codemirror-6/types';
 import {
   configBaseTitle,
   tiddlers

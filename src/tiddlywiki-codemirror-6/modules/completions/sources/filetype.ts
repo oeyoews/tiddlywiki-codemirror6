@@ -1,6 +1,6 @@
 import { Completion } from '@codemirror/autocomplete';
 import { menu } from '@/cm6/modules/constants/menu';
-import { IWidget } from '@/cm6/types';
+import { IWidget } from '@/cm6/types/IWidget';
 import { capitalize } from '@/cm6/utils/capitalize';
 import triggerType from '@/cm6/modules/constants/triggerType';
 
