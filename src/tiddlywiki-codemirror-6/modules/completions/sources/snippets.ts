@@ -45,8 +45,8 @@ export function userSnippets() {
 
   return filteredSource.map((info) => {
     return snip(info.text, {
-      label: conf.delimiter() + (info.caption ? info.caption : info.title),
-      displayLabel: info.caption ? info.caption : info.title,
+      label: conf.delimiter() + (info.caption || info.title),
+      displayLabel: info.caption || info.title,
       type: 'cm-snippet', // real added class is cm-completionIcon-cm-snippets
       boost:
         info.caption?.startsWith('$') ||
