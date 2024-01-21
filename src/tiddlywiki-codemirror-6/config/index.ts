@@ -524,7 +524,7 @@ export default cm6;
 
 export const modes = {
   tiddlywiki: 'text/vnd.tiddlywiki',
-  markdown: ['text/markdown', 'text/x-markdown'],
+  markdown: ['text/markdown', 'text/x-markdown'] as const,
   json: 'application/json',
   javascript: 'application/javascript',
   css: 'text/css',

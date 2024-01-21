@@ -11,7 +11,6 @@ import { javascript, javascriptLanguage } from '@codemirror/lang-javascript';
 
 import { Extension, Prec } from '@codemirror/state';
 import { IWidget } from '@/cm6/types';
-import { type EditorView } from '@codemirror/view';
 
 const dynamicmode = (
   mode: string = modes.tiddlywiki,
@@ -46,7 +45,7 @@ const dynamicmode = (
           base: markdownLanguage,
           completeHTMLTags: true,
           // @ts-expect-error
-          codeLanguages: (info) => {
+          codeLanguages: (info: string) => {
             switch (info) {
               case 'javascript':
               case 'js':
