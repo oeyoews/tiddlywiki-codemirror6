@@ -1,3 +1,4 @@
+// ts-node not support alias ???
 import {
   configBaseTitle,
   tiddlers
