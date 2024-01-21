@@ -15,17 +15,18 @@ import {
   operationTypes
 } from '@/cm6/modules/constants/operationTypes';
 import { type TW_Element } from 'tiddlywiki';
-import type { IWidget } from './types/IWidget';
+import type { IWidget } from '@/cm6/types/IWidget';
 import inlineSuggestionExt from '@/cm6/modules//extensions/inlinesuggest';
 import { cme } from '@/cm6/modules/extensions/basic';
 import cm6 from '@/cm6/config';
 
 class CodeMirrorEngine {
-  widget: IWidget;
-  cme: Extension[] = [];
   domNode: TW_Element;
   parentNode: Node;
   nextSibling: Node;
+
+  private widget: IWidget;
+  private cme: Extension[] = [];
   private cm: EditorView;
   private state: EditorState;
   private dragCancel: boolean = false;

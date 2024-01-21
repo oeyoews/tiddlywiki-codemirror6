@@ -1,6 +1,7 @@
 interface IOptions {
   widget: IWidget;
-  value: any;
+  value: string;
+
   /** tiddler type */
   type: string;
   parentNode: any;
