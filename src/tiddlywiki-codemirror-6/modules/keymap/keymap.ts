@@ -1,7 +1,8 @@
 import {
   acceptCompletion,
   moveCompletionSelection,
-  nextSnippetField
+  nextSnippetField,
+  startCompletion
 } from '@codemirror/autocomplete';
 import { underlineSelection } from '@/cm6/modules/extensions/underlineSelection';
 import { KeyBinding } from '@codemirror/view';
@@ -57,5 +58,12 @@ export const userKeymap: KeyBinding[] = [
     key: 'Tab',
     run: acceptCompletion,
     shift: nextSnippetField // shift tab not work
+  },
+  // NOTE: need disable your ime `ctrl+space` to toggle method
+  {
+    key: 'Ctrl-Space',
+    scope: 'editor',
+    preventDefault: true,
+    run: startCompletion
   }
 ];

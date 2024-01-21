@@ -144,7 +144,7 @@ const renderInlineSuggestionPlugin = ViewPlugin.fromClass(
   }
 );
 
-const inlineSuggestionKeymap = Prec.highest(
+const inlineSuggestionKeymap = Prec.high(
   keymap.of([
     {
       key: 'Tab',
