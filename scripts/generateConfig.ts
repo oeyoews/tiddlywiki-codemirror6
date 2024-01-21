@@ -5,6 +5,19 @@ import {
 import fs from 'fs';
 import path from 'path';
 
+interface I18n {
+  zh: string;
+  en: string;
+}
+
+interface IConfigFields {
+  icon: string;
+  caption: I18n;
+  description: I18n;
+  template: 'input-switch' | 'input';
+  text: string;
+}
+
 const templatePrefix =
   '$:/plugins/oeyoews/tiddlywiki-codemirror-6/ui/templates/settings/';
 
