@@ -50,6 +50,10 @@ const dynamicmode = (
               case 'javascript':
               case 'js':
               case 'ts':
+              case 'typescript':
+              case 'tsx':
+              case 'jsx':
+              case 'ts':
                 return javascriptLanguage;
               case 'css':
                 return cssLanguage;
