@@ -19,4 +19,9 @@ icon: $:/plugins/oeyoews/tiddlywiki-codemirror-6/icon
     unknown
 <% endif %>
 
-<$action-listops $tiddler={{{ [<currentTiddler>get[type]else<defaultType>addprefix<prefix>] }}} $field="text" $subfilter="+[toggle[codemirror-6],[text]]" />
+<% if [<currentTiddler>count[]match[0]] %>
+<$action-listops $tiddler={{{ [<defaultType>addprefix<prefix>] }}} $field="text" $subfilter="+[toggle[codemirror-6],[text]]" />
+<% else %>
+<$action-listops $tiddler={{{ [<targetTiddler>get[type]addprefix<prefix>] }}} $field="text" $subfilter="+[toggle[codemirror-6],[text]]" />
+<% endif %>
+
