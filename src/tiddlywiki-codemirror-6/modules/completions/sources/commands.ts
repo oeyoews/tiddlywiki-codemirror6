@@ -114,7 +114,10 @@ export function commandSnippets(widget: IWidget) {
                 EDITOR_MAPPING_PREFIX + type,
                 'text',
                 '',
-                'text'
+                'text',
+                {
+                  suppressTimestamp: true
+                }
               );
 
               break;
