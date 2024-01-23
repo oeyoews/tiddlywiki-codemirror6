@@ -14,7 +14,7 @@ icon: $:/plugins/oeyoews/tiddlywiki-codemirror-6/icon
 <% if  [<currentTiddler>get[type]else<defaultType>addprefix<prefix>get[text]match[codemirror-6]]  %>
 [img width=16 [$:/plugins/oeyoews/tiddlywiki-codemirror-6/icon]]
 <% elseif [<currentTiddler>get[type]else<defaultType>addprefix<prefix>get[text]match[text]] %>
-[img width=16 [$:/plugins/oeyoews/tiddlywiki-codemirror-6/icon]]
+[img width=16 [$:/plugins/oeyoews/tiddlywiki-codemirror-6/icons/editor]]
 <% else %>
     unknown
 <% endif %>
