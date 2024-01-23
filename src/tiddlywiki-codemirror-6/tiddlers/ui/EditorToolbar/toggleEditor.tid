@@ -1,0 +1,27 @@
+title: $:/core/ui/EditorToolbar/toggleEditor
+tags: $:/tags/EditorToolbar
+custom-icon: yes
+caption: Toggle Editor
+icon: $:/plugins/oeyoews/tiddlywiki-codemirror-6/icon
+description: toggle editor
+condition: [<targetTiddler>]
+button-classes: tc-text-editor-toolbar-item-start-group
+
+\whitespace trim
+\define prefix() $:/config/EditorTypeMappings/
+
+\define defaultType() text/vnd.tiddlywiki
+
+<<type>>
+
+<$button>
+<% if  [<currentTiddler>get[type]else<defaultType>addprefix<prefix>get[text]match[codemirror-6]]  %>
+[img width=16 [$:/plugins/oeyoews/tiddlywiki-codemirror-6/icon]]
+<% elseif [<currentTiddler>get[type]else<defaultType>addprefix<prefix>get[text]match[text]] %>
+[img width=16 [$:/plugins/oeyoews/tiddlywiki-codemirror-6/icon]]
+<% else %>
+    unknown
+<% endif %>
+
+<$action-listops $tiddler={{{ [<currentTiddler>get[type]else<defaultType>addprefix<prefix>] }}} $field="text" $subfilter="+[toggle[codemirror-6],[text]]" />
+</$button>
