@@ -7,15 +7,13 @@ condition: [<targetTiddler>!has[type]] [<targetTiddler>get[type]!prefix[image/]]
 icon: $:/plugins/oeyoews/tiddlywiki-codemirror-6/icon
 
 \whitespace trim
-\define prefix() $:/config/EditorTypeMappings/
 
-\define defaultType() text/vnd.tiddlywiki
+[img width=18 [$:/plugins/oeyoews/tiddlywiki-codemirror-6/icon]]
 
-[img width=16 [$:/plugins/oeyoews/tiddlywiki-codemirror-6/icon]]
-
-<% if [<targetTiddler>get[type]count[]match[0]] %>
-<$action-listops $tiddler={{{ [<defaultType>addprefix<prefix>] }}} $field="text" $subfilter="+[toggle[codemirror-6],[text]]" />
-<% else %>
-<$action-listops $tiddler={{{ [<targetTiddler>get[type]addprefix<prefix>] }}} $field="text" $subfilter="+[toggle[codemirror-6],[text]]" />
-<% endif %>
-
+<$let
+	type={{{ [<targetTiddler>get[type]else[text/vnd.tiddlywiki]] }}}
+	configTitle=`$:/config/EditorTypeMappings/$(type)$`
+	currentEditor={{{ [<configTitle>get[text]] }}}
+>
+	<$action-setfield $tiddler=<<configTitle>> text={{{ [<currentEditor>match[codemirror-6]] :then[[text]] :else[[codemirror-6]] }}} />
+</$let>
