@@ -11,6 +11,13 @@ export function commandSnippets(widget: IWidget) {
 
   const filetypes = [
     {
+      title: 'use-simple-editor',
+      description: {
+        zh: '使用普通编辑器',
+        en: 'use simple editor'
+      }
+    },
+    {
       title: 'report-cm6-bug',
       description: {
         zh: '提交 Codemirror6 插件 BUG',
@@ -98,6 +105,19 @@ export function commandSnippets(widget: IWidget) {
                 // prefix: ''
               });
               break; */
+            case item.title === 'use-simple-editor':
+              const type = widget.editType || 'text/vnd.tiddlywiki';
+              const EDITOR_MAPPING_PREFIX = '$:/config/EditorTypeMappings/';
+              cm6.debug() &&
+                new $tw.Story().navigateTiddler(EDITOR_MAPPING_PREFIX + type);
+              $tw.wiki.setText(
+                EDITOR_MAPPING_PREFIX + type,
+                'text',
+                '',
+                'text'
+              );
+
+              break;
             case item.title === 'toggleMode':
               const nextValue = cm6.vimmode() ? 'no' : 'yes';
               $tw.wiki.setText(
