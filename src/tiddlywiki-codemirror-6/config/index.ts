@@ -20,6 +20,12 @@ function getConfig(title: string) {
 // NOTE: 对应配置的 caption 不要写成 TxxxBxxx 格式。
 
 export const tiddlers = {
+  removeOutline: {
+    caption: {
+      en: 'remove editor outline',
+      zh: '移除编辑器边框'
+    }
+  },
   disableCM6: {
     caption: {
       en: '@depreacted: use simeple editor(Need Restart, Experimental, Not Recommended)',

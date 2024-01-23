@@ -1,5 +1,7 @@
 title: $:/language/codemirror6/
 
+removeOutline/caption: 📝 Remove editor outline
+removeOutline/description: remove editor outline
 disableCM6/caption: 📝 @depreacted: use simeple editor(Need Restart, Experimental, Not Recommended)
 disableCM6/description: @depreacted: use simeple editor(Need Restart, Experimental, Not Recommended)
 vimJK/caption: 📝 Vim keyboard mapping JK(You know what I'm saying.)

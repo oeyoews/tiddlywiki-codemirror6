@@ -18,7 +18,6 @@ import {
 import { indentationMarkers } from '@replit/codemirror-indentation-markers';
 import { EditorView, dropCursor, tooltips } from '@codemirror/view';
 import tabSizePlugin from '@/cm6/modules/extensions/tab-size';
-import removeOutlineExt from './removeOutlineExt';
 import fontSizeExt from './fontSizeExt';
 import { indentUnit } from '@codemirror/language';
 import { Prec } from '@codemirror/state';
@@ -34,7 +33,6 @@ export function cme(self: any): Extension[] {
     }),
     dropCursor(),
     tabSizePlugin(),
-    removeOutlineExt,
     fontSizeExt(),
     indentUnit.of('	'),
     // EditorState.readOnly.of(true), // NOTE: lastest vim-mode extension has fix that bug

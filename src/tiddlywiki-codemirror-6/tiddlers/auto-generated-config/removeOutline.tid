@@ -1,0 +1,8 @@
+title: $:/config/codemirror-6/removeOutline
+caption: {{$:/language/codemirror6/removeOutline/caption}}
+caption-zh: {{$:/language/codemirror6/zh/removeOutline/caption}}
+description: {{$:/language/codemirror6/removeOutline/description}}
+description-zh: {{$:/language/codemirror6/zh/removeOutline/description}}
+settings-template: $:/plugins/oeyoews/tiddlywiki-codemirror-6/ui/templates/settings/input-switch
+
+no

@@ -27,6 +27,7 @@ import { linkHoverPreview } from '@/cm6/modules/extensions/wordhover';
 import { linkExt } from '@/cm6/modules/extensions/linkExt';
 import { tidExt } from '@/cm6/modules/extensions/tidExt';
 import { imgExt } from '@/cm6/modules/extensions/imgExt';
+import removeOutlineExt from './removeOutlineExt';
 
 export default function updateExtensions(cme: Extension[], widget: IWidget) {
   const fields = $tw.wiki.getTiddler(
@@ -35,6 +36,10 @@ export default function updateExtensions(cme: Extension[], widget: IWidget) {
   const darkMode = fields?.['color-scheme'] === 'dark';
 
   (conf.onedark() && darkMode && cme.push(oneDark)) || cme.push(githubLight);
+
+  if (conf.removeOutline()) {
+    cme.push(removeOutlineExt);
+  }
 
   if (widget?.editTitle?.startsWith('Draft of ')) {
     conf.linkPreview() && cme.push(linkHoverPreview);
