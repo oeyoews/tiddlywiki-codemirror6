@@ -23,3 +23,39 @@ https://user-images.githubusercontent.com/72405338/294956491-948b791f-04e1-4447-
 | 颜色修改                     | Link 预览                                 |
 | ---------------------------- | ----------------------------------------- |
 | ![color](./assets/color.png) | ![linkpreview](./assets/link-preview.gif) |
+
+## FileStruct
+
+```
+📦tiddlywiki-codemirror-6
+ ┣ 📂config
+ ┣ 📂modules
+ ┃ ┣ 📂completions
+ ┃ ┃ ┣ 📂sources
+ ┃ ┣ 📂constants
+ ┃ ┣ 📂extensions
+ ┃ ┃ ┣ 📂inlineSuggestion
+ ┃ ┣ 📂keymap
+ ┣ 📂tiddlers
+ ┃ ┣ 📂auto-generated-config
+ ┃ ┣ 📂icons
+ ┃ ┣ 📂lib
+ ┃ ┃ ┣ 📂editor
+ ┃ ┃ ┃ ┗ 📂operations
+ ┃ ┃ ┗ 📂subclasses
+ ┃ ┃ ┃ ┣ 📂editor
+ ┃ ┣ 📂macros
+ ┃ ┣ 📂palettes
+ ┃ ┣ 📂Shortcuts
+ ┃ ┃ ┗ 📂fullscreen
+ ┃ ┃ ┃ ┣ 📂ShortcutInfo
+ ┃ ┃ ┃ ┗ 📂shortcuts
+ ┃ ┣ 📂ui
+ ┃ ┃ ┣ 📂ControlPanel
+ ┃ ┃ ┣ 📂EditorToolbar
+ ┃ ┃ ┣ 📂EditorTools
+ ┃ ┃ ┣ 📂EditTemplate
+ ┃ ┃ ┗ 📂Templates
+ ┣ 📂types
+ ┣ 📂utils
+```
