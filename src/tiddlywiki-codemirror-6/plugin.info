@@ -2,7 +2,7 @@
   "title": "$:/plugins/oeyoews/tiddlywiki-codemirror-6",
   "name": "CodeMirror6",
   "description": "CodeMirror 6 editor",
-  "version": "1.2.2",
+  "version": "1.2.3",
   "core-version": ">=5.3.3",
   "list": "readme usage"
 }

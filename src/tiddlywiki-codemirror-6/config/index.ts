@@ -22,8 +22,8 @@ function getConfig(title: string) {
 export const tiddlers = {
   disableCM6: {
     caption: {
-      en: 'use simeple editor(Need Restart, Experimental, Not Recommended)',
-      zh: '使用简单编辑器 (需要重启，实验性，不建议使用)'
+      en: '@depreacted: use simeple editor(Need Restart, Experimental, Not Recommended)',
+      zh: '@弃用 使用简单编辑器 (需要重启，实验性，不建议使用)'
     }
   },
   vimJK: {

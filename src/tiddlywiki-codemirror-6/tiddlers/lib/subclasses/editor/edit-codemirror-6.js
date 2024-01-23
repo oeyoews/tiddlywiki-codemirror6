@@ -59,6 +59,10 @@ Handle an edit text operation message from the toolbar
   exports.prototype.refresh = function (changedTiddlers) {
     const changedAttributes = this.computeAttributes();
 
+    // 这里不会导致父 widget edit 刷新，只会刷新子组件
+    // Object.keys(changedTiddlers).some((tiddler) =>
+    //   tiddler.startsWith('$:/config/EditorTypeMappings')
+    // ) ||
     if (
       Object.keys(changedTiddlers).some((tiddler) =>
         tiddler.startsWith('$:/config/codemirror-6')

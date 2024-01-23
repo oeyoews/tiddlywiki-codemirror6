@@ -12,6 +12,7 @@ Widget base class
   'use strict';
 
   exports.baseClass = 'edit';
+  const EDITOR_MAPPING_PREFIX = '$:/config/EditorTypeMappings/';
 
   exports.constructor = function (parseTreeNode, options) {
     this.initialise(parseTreeNode, options);
@@ -24,11 +25,33 @@ Widget base class
     Object.getPrototypeOf(Object.getPrototypeOf(this)).execute.call(this);
   };
 
+  exports.prototype.getEditorType = function () {
+    // Get the content type of the thing we're editing
+    var type;
+    if (this.editField === 'text') {
+      var tiddler = this.wiki.getTiddler(this.editTitle);
+      if (tiddler) {
+        type = tiddler.fields.type;
+      }
+    }
+    type = type || 'text/vnd.tiddlywiki';
+    var editorType = this.wiki.getTiddlerText(EDITOR_MAPPING_PREFIX + type);
+    if (!editorType) {
+      var typeInfo = $tw.config.contentTypeInfo[type];
+      if (typeInfo && typeInfo.encoding === 'base64') {
+        editorType = 'binary';
+      } else {
+        editorType = 'text';
+      }
+    }
+    return editorType;
+  };
+
   // TODO: use https://codemirror.net/examples/config compartment or appendconfig
   // to support cm6 hmr config
   exports.prototype.refresh = function (changedTiddlers) {
     var changedAttributes = this.computeAttributes();
-    if (changedAttributes.type) {
+    if (changedAttributes.type || this.getEditorType() !== this.editorType) {
       this.refreshSelf();
       return true;
     }
