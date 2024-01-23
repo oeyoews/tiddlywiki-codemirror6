@@ -99,6 +99,7 @@ export default (widget: IWidget, self: any) => {
       case isTrigger(lastWord, triggerType.emoji):
         options = sources.emojiSnippets();
         break;
+      // TODO: 中文顿号不会被触发， 因为w会分割他？？？
       case lastWord.startsWith(cm6.delimiter()) &&
         lastWord.charAt(1) !== cm6.delimiter():
         // @see-also https://discuss.codemirror.net/t/mid-word-completion-that-replaces-the-rest-of-the-word/7262
