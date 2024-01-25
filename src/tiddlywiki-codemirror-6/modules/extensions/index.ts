@@ -28,6 +28,7 @@ import { linkExt } from '@/cm6/modules/extensions/linkExt';
 import { tidExt } from '@/cm6/modules/extensions/tidExt';
 import { imgExt } from '@/cm6/modules/extensions/imgExt';
 import removeOutlineExt from './removeOutlineExt';
+import rainbowBracketsWithText from './tiddlerMarkExt';
 
 export default function updateExtensions(cme: Extension[], widget: IWidget) {
   const fields = $tw.wiki.getTiddler(
@@ -47,6 +48,7 @@ export default function updateExtensions(cme: Extension[], widget: IWidget) {
     conf.lineNumbers() && cme.push(lineNumbers());
 
     conf.clickable() && cme.push(linkExt, tidExt, imgExt);
+    cme.push(rainbowBracketsWithText());
 
     if (conf.vimmode()) {
       setVimKeymap(widget);
