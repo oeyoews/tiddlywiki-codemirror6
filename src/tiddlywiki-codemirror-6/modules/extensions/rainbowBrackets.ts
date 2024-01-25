@@ -19,7 +19,7 @@ const rainbowBracketsPlugin = ViewPlugin.fromClass(
   class {
     decorations;
 
-    constructor(view) {
+    constructor(view: EditorView) {
       this.decorations = this.getBracketDecorations(view);
     }
 
@@ -29,7 +29,7 @@ const rainbowBracketsPlugin = ViewPlugin.fromClass(
       }
     }
 
-    getBracketDecorations(view) {
+    getBracketDecorations(view: EditorView) {
       const { doc } = view.state;
       const decorations = [];
       const stack = [];
