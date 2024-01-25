@@ -25,6 +25,7 @@ export function getAllTiddlers(delimiters: ITriggerTypeChar = delimiter.link) {
         boost: title.startsWith('$') ? 0 : 1,
         // NOTE: TypeError: Cannot set property parentNode of #<Node> which has only a getter, 部分 widget 使用到$tw 的 fakedom api, 会导致报错。
         info: () => renderTid(title),
+        // TODO: 自动补全右括号，if right brackets not exist
         apply: (view: EditorView, completion, from, to) => {
           const doc = view.state.doc;
           let cursorEndPosition: number = from;
