@@ -4,7 +4,15 @@
 import { EditorView, Decoration, ViewPlugin } from '@codemirror/view';
 
 function generateColors() {
-  return ['red', 'orange', 'yellow', 'green', 'blue', 'indigo', 'violet'];
+  return [
+    'red',
+    'orange',
+    // 'yellow',
+    'green',
+    'blue',
+    'indigo',
+    'violet'
+  ];
 }
 
 const rainbowBracketsPlugin = ViewPlugin.fromClass(
@@ -81,7 +89,7 @@ export default function rainbowBrackets() {
       '.rainbow-bracket-red > span': { color: 'red' },
       '.rainbow-bracket-orange': { color: 'orange' },
       '.rainbow-bracket-orange > span': { color: 'orange' },
-      '.rainbow-bracket-yellow': { color: 'yellow' },
+      // '.rainbow-bracket-yellow': { color: 'yellow' },
       '.rainbow-bracket-yellow > span': { color: 'yellow' },
       '.rainbow-bracket-green': { color: 'green' },
       '.rainbow-bracket-green > span': { color: 'green' },
