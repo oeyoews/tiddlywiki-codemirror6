@@ -25,7 +25,15 @@ export function imageSnippets() {
           return imagePreview;
         },
         apply: (view, completion, from, to) => {
-          const cursorEndPosition = from + (triggerType.img + title).length + 2;
+          const doc = view.state.doc;
+          let cursorEndPosition: number = from;
+          const cursorPos = view.state.selection.main.head;
+          if (cursorPos + triggerType.img.length / 2 <= doc.length) {
+            cursorEndPosition =
+              cursorEndPosition + title.length + triggerType.img.length + 2;
+          } else {
+            cursorEndPosition += (title + triggerType.img).length;
+          }
           view.dispatch({
             changes: { from, to, insert: triggerType.img + title },
             selection: { anchor: cursorEndPosition, head: cursorEndPosition }

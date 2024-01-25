@@ -24,7 +24,6 @@ export function tagSnippets(widget: IWidget) {
         apply: (view, completion, from, to) => {
           view.dispatch({
             changes: { from, to, insert: '' }
-            // selection: { anchor: cursorEndPosition, head: cursorEndPosition }
           });
           const tags = $tw.wiki.getTiddler(widget.editTitle)?.fields?.tags;
           // use tm-add-tag is better.

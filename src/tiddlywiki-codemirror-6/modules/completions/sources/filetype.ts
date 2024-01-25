@@ -30,7 +30,6 @@ export function filetypeSnippets(widget: IWidget) {
         apply: (view, completion, from, to) => {
           view.dispatch({
             changes: { from, to, insert: '' }
-            // selection: { anchor: cursorEndPosition, head: cursorEndPosition }
           });
           // TODO: 或者使用 widget.editTitle 替换 title
           // TODO: 传入 widget
