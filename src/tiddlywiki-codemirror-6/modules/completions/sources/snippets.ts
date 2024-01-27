@@ -6,7 +6,7 @@ import { usersnippets } from '@/cm6/modules/completions/snippets';
 
 export function userSnippets() {
   const userSnippetTiddlers = $tw.wiki.filterTiddlers(
-    '[all[shadows+tiddlers]tag[$:/tags/TextEditor/Snippet]] [all[tiddlers+shadows]prefix[$:/snippets/]] [all[shadows+tiddlers]tag[$:/tags/KaTeX/Snippet]] -[is[draft]]'
+    '[all[shadows+tiddlers]tag[$:/tags/TextEditor/Snippet]] [prefix[$:/snippets/]] [all[shadows+tiddlers]tag[$:/tags/KaTeX/Snippet]] -[is[draft]]'
   );
 
   const source: ISource[] = userSnippetTiddlers.map((title) => {
@@ -48,10 +48,10 @@ export function userSnippets() {
       displayLabel: info.caption || info.title,
       type: 'cm-snippet', // real added class is cm-completionIcon-cm-snippets
       boost:
-        info.caption?.startsWith('$') ||
-        info.title?.startsWith('$') ||
+        $tw.wiki.isSystemTiddler(info.title) ||
+        $tw.wiki.isShadowTiddler(info.title) ||
         info.caption?.startsWith('{')
-          ? 0
+          ? -1
           : 1,
       // detail: info.vanillaTitle ? info.vanillaTitle : info.title,
       info: conf.snippetPreview()
