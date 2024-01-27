@@ -190,7 +190,9 @@ body {
 
 <$let fullscreenTiddler={{{ [<fullscreenStateTiddler>removeprefix[$:/state/codemirror-6/fullscreen/]] }}} cssEscapedTitle={{{ [<fullscreenTiddler>escapecss[]] }}}>
 
-<<make-editor-fullscreen>>
+<% if [<fullscreenTiddler>!is[missing]] %>
+	<<make-editor-fullscreen>>
+<% endif %>
 
 </$let>
 
