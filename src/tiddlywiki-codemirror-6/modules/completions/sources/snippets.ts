@@ -48,11 +48,11 @@ export function userSnippets() {
       displayLabel: info.caption || info.title,
       type: 'cm-snippet', // real added class is cm-completionIcon-cm-snippets
       boost:
-        $tw.wiki.isSystemTiddler(info.title) ||
-        $tw.wiki.isShadowTiddler(info.title) ||
+        $tw.wiki.isSystemTiddler(info.vanillaTitle!) ||
+        $tw.wiki.isShadowTiddler(info.vanillaTitle!) ||
         info.caption?.startsWith('{')
-          ? -1
-          : 1,
+          ? -99
+          : 99,
       // detail: info.vanillaTitle ? info.vanillaTitle : info.title,
       info: conf.snippetPreview()
         ? () => renderTid(info.vanillaTitle || info.title, conf.footer())
