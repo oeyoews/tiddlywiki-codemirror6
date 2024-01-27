@@ -11,3 +11,4 @@ text/x-tiddlywiki: codemirror-6
 text/markdown: codemirror-6
 text/x-markdown: codemirror-6
 text/vnd.tiddlywiki.mermaid: codemirror-6
+image/svg+xml: codemirror-6
