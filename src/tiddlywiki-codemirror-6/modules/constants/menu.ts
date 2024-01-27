@@ -10,7 +10,8 @@ const menuItems = [
   'tags',
   'filetypes',
   'commands',
-  'md'
+  'md',
+  'mermaid'
 ] as const;
 
 type MenuType = (typeof menuItems)[number];

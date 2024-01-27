@@ -9,7 +9,8 @@ const triggerType = {
   tag: '#',
   filetype: '//',
   command: '@#',
-  md: ':::'
+  md: ':::',
+  mermaid: '``'
 } as const;
 
 export default triggerType;

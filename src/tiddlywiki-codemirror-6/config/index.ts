@@ -535,5 +535,6 @@ export const modes = {
   javascript: 'application/javascript',
   css: 'text/css',
   plain: 'text/plain',
-  html: 'text/html'
+  html: 'text/html',
+  mermaid: 'text/vnd.tiddlywiki.mermaid'
 };

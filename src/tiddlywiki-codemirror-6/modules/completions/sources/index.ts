@@ -10,6 +10,7 @@ import { tagSnippets } from './tags';
 import { filetypeSnippets } from './filetype';
 import { commandSnippets } from './commands';
 import { mdSnippets } from './markdown';
+import { mermaidSnippets } from './mermaid';
 
 export default {
   imageSnippets,
@@ -23,5 +24,6 @@ export default {
   tagSnippets,
   filetypeSnippets,
   commandSnippets,
-  mdSnippets
+  mdSnippets,
+  mermaidSnippets
 };

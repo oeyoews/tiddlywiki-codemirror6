@@ -31,12 +31,18 @@ const dynamicmode = (
   // codeLanguages: languages
   switch (mode) {
     case modes.tiddlywiki:
+    case modes.mermaid:
       // @ts-expect-error
       cme.push(tiddlywiki({ base: tiddlywikiLanguage }));
 
       actionCompletions = tiddlywikiLanguage.data.of(options);
 
       break;
+    // case modes.mermaid:
+    /* cme.push(tiddlywiki({ base: tiddlywikiLanguage }));
+
+      actionCompletions = tiddlywikiLanguage.data.of(options); */
+    // break;
     case modes.markdown[0]:
     case modes.markdown[1]:
       // NOTE: 目前 tiddlywikiLanguage 还没有完成，所以目前仅仅支持 markdown 代码块
