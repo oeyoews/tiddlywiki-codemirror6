@@ -13,7 +13,7 @@ body {
 	left: 0;
 	height: 100vh;
 	width: 100vw;
-	<!-- z-index: 1000; -->
+	<!-- z-index: 1000; prevent autocomplete not visible -->
 	z-index: 1;
 }
 
@@ -189,6 +189,11 @@ body {
 <$list filter="[all[tiddlers]prefix[$:/state/codemirror-6/fullscreen]] :filter[get[text]match[yes]] +[limit[1]]" variable="fullscreenStateTiddler">
 
 <$let fullscreenTiddler={{{ [<fullscreenStateTiddler>removeprefix[$:/state/codemirror-6/fullscreen/]] }}} cssEscapedTitle={{{ [<fullscreenTiddler>escapecss[]] }}}>
+
+<!-- <%list filter="[<fullscreenTiddler>!is[missing]{$:/state/notebook-sidebar}!match[yes]]" >
+ <<make-editor-fullscreen>>
+ </$list>
+ -->
 
 <% if [<fullscreenTiddler>!is[missing]] %>
 	<<make-editor-fullscreen>>
