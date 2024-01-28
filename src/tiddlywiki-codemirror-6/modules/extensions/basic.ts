@@ -12,7 +12,8 @@ import { history } from '@codemirror/commands';
 import {
   drawSelection,
   rectangularSelection,
-  crosshairCursor
+  crosshairCursor,
+  type ViewUpdate
 } from '@codemirror/view';
 
 import { indentationMarkers } from '@replit/codemirror-indentation-markers';
@@ -159,7 +160,7 @@ export function cme(self: any): Extension[] {
           : 'no'
     }),
     EditorView.perLineTextDirection.of(true),
-    EditorView.updateListener.of((v) => {
+    EditorView.updateListener.of((v: ViewUpdate) => {
       const cm: EditorView = self.cm; // 这是动态计算出来的 cm, 这也就是为什么在初始化前就可以拿到了 this.cm。如果直接在箭头函数的外面写死 cm, 那么 this.cm 就拿不到了
       if (cm.composing) {
         return;

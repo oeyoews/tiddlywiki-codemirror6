@@ -58,7 +58,7 @@ export default (widget: IWidget, self: any) => {
     // NOTE: 一定要保证是数组
     let options: Completion[] = sources.wordsSnippets();
 
-    // 不适合使用map, 需要动态生成列表
+    // 不适合使用 map, 需要动态生成列表
     // TODO: 每次都要计算 ???
     switch (true) {
       case isTrigger(lastWord, triggerType.mermaid):
@@ -102,7 +102,7 @@ export default (widget: IWidget, self: any) => {
       case isTrigger(lastWord, triggerType.emoji):
         options = sources.emojiSnippets();
         break;
-      // TODO: 中文顿号不会被触发， 因为w会分割他？？？
+      // TODO: 中文顿号不会被触发，因为 w 会分割他？？？
       case lastWord.startsWith(cm6.delimiter()) &&
         lastWord.charAt(1) !== cm6.delimiter():
         // @see-also https://discuss.codemirror.net/t/mid-word-completion-that-replaces-the-rest-of-the-word/7262
