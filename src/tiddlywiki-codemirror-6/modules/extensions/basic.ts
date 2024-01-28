@@ -165,6 +165,7 @@ export function cme(self: any): Extension[] {
       if (cm.composing) {
         return;
       }
+      // NOTE: cm6 似乎自带 debounce, 这里使用 debounce 无效
       if (v.docChanged) {
         const text = cm.state.doc.toString();
         self.widget.saveChanges(text); // update text with tiddlywiki api
