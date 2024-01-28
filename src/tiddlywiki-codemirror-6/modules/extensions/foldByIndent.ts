@@ -1,5 +1,6 @@
 import { foldService } from '@codemirror/language';
 
+// copyed by codemirror-lang-mermaid extensions: foldbyindent
 const countLeadingSpaces = (str: string) => {
   let count = 0;
 
