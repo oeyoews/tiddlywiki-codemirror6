@@ -1,5 +1,7 @@
 title: $:/language/codemirror6/
 
+foldByIndent/caption: 📝 Fold By Indent
+foldByIndent/description: Fold By Indent
 removeOutline/caption: 📝 Remove editor outline
 removeOutline/description: remove editor outline
 disableCM6/caption: 📝 @depreacted: use simeple editor(Need Restart, Experimental, Not Recommended)

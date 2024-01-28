@@ -2,6 +2,7 @@ import { bracketMatching, foldGutter } from '@codemirror/language';
 import setVimKeymap from '@/cm6/modules/vimrc.js';
 import { EditorState, Extension, Prec } from '@codemirror/state';
 import { githubLight } from '@uiw/codemirror-theme-github';
+import { foldByIndent } from '@/cm6/modules/extensions/foldByIndent';
 
 import { completeAnyWord, closeBrackets } from '@codemirror/autocomplete';
 
@@ -78,6 +79,7 @@ export default function updateExtensions(cme: Extension[], widget: IWidget) {
     cme.push(keymap.of([indentWithTab]));
   }
 
+  conf.foldByIndent() && cme.push(foldByIndent());
   conf.highlightTrailingWhitespace() && cme.push(highlightTrailingWhitespace());
   conf.whitespace() && cme.push(highlightWhitespace());
   conf.closeBrackets() && cme.push(closeBrackets());

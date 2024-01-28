@@ -20,6 +20,12 @@ function getConfig(title: string) {
 // NOTE: 对应配置的 caption 不要写成 TxxxBxxx 格式。
 
 export const tiddlers = {
+  foldByIndent: {
+    caption: {
+      zh: '按缩进折叠',
+      en: 'Fold By Indent'
+    }
+  },
   removeOutline: {
     caption: {
       en: 'remove editor outline',
@@ -537,4 +543,4 @@ export const modes = {
   plain: 'text/plain',
   html: 'text/html',
   mermaid: 'text/vnd.tiddlywiki.mermaid'
-};
+} as const;
