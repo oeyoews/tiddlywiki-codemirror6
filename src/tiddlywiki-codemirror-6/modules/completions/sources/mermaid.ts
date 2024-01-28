@@ -19,14 +19,14 @@ export function mermaidSnippets(widget: IWidget) {
     'journey',
     'gantt',
     'pie',
-    'quadrantChart',
+    // 'quadrantChart',
     'requirementDiagram',
     'gitGraph',
     'C4Context',
     'timeline',
     'zenuml',
-    'xychart-beta',
-    'mindmap'
+    'xychart-beta'
+    // 'mindmap'
   ];
   const mermaidTypes = types.map((item) => ({
     title: item
