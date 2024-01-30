@@ -3,7 +3,7 @@ tags: $:/tags/EditorToolbar
 custom-icon: yes
 caption: Toggle Editor
 description: toggle editor
-condition: [<targetTiddler>!has[type]] [<targetTiddler>get[type]!prefix[image/]] [<targetTiddler>get[type]match[image/svg+xml]]
+condition: [<targetTiddler>]
 icon: $:/plugins/oeyoews/tiddlywiki-codemirror-6/icon
 
 \whitespace trim
