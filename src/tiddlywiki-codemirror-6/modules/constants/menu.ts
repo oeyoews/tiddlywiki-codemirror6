@@ -11,7 +11,8 @@ const menuItems = [
   'filetypes',
   'commands',
   'md',
-  'mermaid'
+  'mermaid',
+  'codeblocks'
 ] as const;
 
 type MenuType = (typeof menuItems)[number];

@@ -61,6 +61,9 @@ export default (widget: IWidget, self: any) => {
     // 不适合使用 map, 需要动态生成列表
     // TODO: 每次都要计算 ???
     switch (true) {
+      case isTrigger(lastWord, triggerType.codeblocks):
+        options = sources.codeblocksSnippets();
+        break;
       case isTrigger(lastWord, triggerType.mermaid):
         options = sources.mermaidSnippets(widget);
         break;

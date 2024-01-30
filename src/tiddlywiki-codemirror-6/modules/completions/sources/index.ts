@@ -11,6 +11,7 @@ import { filetypeSnippets } from './filetype';
 import { commandSnippets } from './commands';
 import { mdSnippets } from './markdown';
 import { mermaidSnippets } from './mermaid';
+import { codeblocksSnippets } from './codeblocks';
 
 export default {
   imageSnippets,
@@ -25,5 +26,6 @@ export default {
   filetypeSnippets,
   commandSnippets,
   mdSnippets,
-  mermaidSnippets
+  mermaidSnippets,
+  codeblocksSnippets
 };
