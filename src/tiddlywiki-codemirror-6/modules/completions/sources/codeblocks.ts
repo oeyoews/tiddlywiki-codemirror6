@@ -20,7 +20,7 @@ export function codeblocksSnippets() {
         {
           label: triggerType.codeblocks + item.title,
           displayLabel: item.title,
-          type: 'keyword',
+          type: 'cm-' + item.title,
           section: menu.codeblocks
         }
       ) as Completion
