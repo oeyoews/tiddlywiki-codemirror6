@@ -1,5 +1,7 @@
 title: $:/language/codemirror6/
 
+checkbox/caption: 📝 Checkbox
+checkbox/description: Checkbox
 foldByIndent/caption: 📝 Fold By Indent
 foldByIndent/description: Fold By Indent
 removeOutline/caption: 📝 Remove editor outline

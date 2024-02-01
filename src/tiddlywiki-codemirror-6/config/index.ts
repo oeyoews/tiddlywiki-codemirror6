@@ -20,6 +20,12 @@ function getConfig(title: string) {
 // NOTE: 对应配置的 caption 不要写成 TxxxBxxx 格式。
 
 export const tiddlers = {
+  checkbox: {
+    caption: {
+      zh: '复选框',
+      en: 'Checkbox'
+    }
+  },
   foldByIndent: {
     caption: {
       zh: '按缩进折叠',

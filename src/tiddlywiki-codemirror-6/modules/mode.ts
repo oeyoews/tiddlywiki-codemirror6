@@ -3,7 +3,7 @@ import completions from '@/cm6/modules/completions';
 import { html, htmlLanguage } from '@codemirror/lang-html';
 import { json, jsonLanguage } from '@codemirror/lang-json';
 import { css, cssLanguage } from '@codemirror/lang-css';
-import { modes } from '@/cm6/config';
+import cm6, { modes } from '@/cm6/config';
 
 import { markdown, markdownLanguage } from '@codemirror/lang-markdown';
 
@@ -11,6 +11,7 @@ import { javascript, javascriptLanguage } from '@codemirror/lang-javascript';
 
 import { Extension, Prec } from '@codemirror/state';
 import { IWidget } from '../types/IWidget';
+import { checkboxPlugin } from './extensions/toggleBoolean';
 
 const dynamicmode = (
   mode: string = modes.tiddlywiki,
@@ -89,6 +90,7 @@ const dynamicmode = (
 
     case modes.javascript:
       cme.push(javascript());
+      cm6.checkbox() && cme.push(checkboxPlugin);
       break;
     case modes.json:
       cme.push(json());

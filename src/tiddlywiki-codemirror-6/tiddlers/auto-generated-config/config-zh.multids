@@ -1,5 +1,7 @@
 title: $:/language/codemirror6/zh/
 
+checkbox/caption: 📝 复选框
+checkbox/description: 复选框
 foldByIndent/caption: 📝 按缩进折叠
 foldByIndent/description: 按缩进折叠
 removeOutline/caption: 📝 移除编辑器边框
