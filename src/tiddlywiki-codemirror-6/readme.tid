@@ -42,7 +42,7 @@ title: $:/plugins/oeyoews/tiddlywiki-codemirror-6/readme
 
 !! TODO
 
-* 图标支持单独做成一个模块插件
+* 图标如果过多就单独做成一个模块插件
 
 !! Can be removed plugins
 
