@@ -92,7 +92,7 @@ export function commandSnippets(widget: IWidget) {
           language === 'zh'
             ? item.description.zh
             : capitalize(item.description.en),
-        type: 'cm-settings',
+        type: 'cm-command',
         section: menu.commands,
         apply: (view: EditorView, completion: Completion, from, to) => {
           view.dispatch({

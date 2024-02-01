@@ -43,8 +43,8 @@ const dynamicmode = (
 
       actionCompletions = tiddlywikiLanguage.data.of(options); */
     // break;
-    case modes.markdown[0]:
-    case modes.markdown[1]:
+    case modes.markdown:
+    case modes.xmarkdown:
       // NOTE: 目前 tiddlywikiLanguage 还没有完成，所以目前仅仅支持 markdown 代码块
       cme.push(
         markdown({

@@ -536,11 +536,15 @@ export default cm6;
 
 export const modes = {
   tiddlywiki: 'text/vnd.tiddlywiki',
-  markdown: ['text/markdown', 'text/x-markdown'] as const,
+  markdown: 'text/markdown',
+  xmarkdown: 'text/x-markdown',
   json: 'application/json',
   javascript: 'application/javascript',
   css: 'text/css',
   plain: 'text/plain',
   html: 'text/html',
-  mermaid: 'text/vnd.tiddlywiki.mermaid'
+  mermaid: 'text/vnd.tiddlywiki.mermaid',
+  svg: 'image/svg+xml'
 } as const;
+
+export type IMode = (typeof modes)[keyof typeof modes];
