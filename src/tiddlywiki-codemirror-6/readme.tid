@@ -40,6 +40,10 @@ title: $:/plugins/oeyoews/tiddlywiki-codemirror-6/readme
 * vimmode: `"+y`(copy to system clipboard)
 * vimmode: `"+p`(paste system clipboard to editor)
 
+!! TODO
+
+* 图标支持单独做成一个模块插件
+
 !! Can be removed plugins
 
 * Cm5 series plugins
