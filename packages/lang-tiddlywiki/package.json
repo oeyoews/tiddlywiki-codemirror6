@@ -3,7 +3,7 @@
   "publishConfig": {
     "registry": "https://registry.npmjs.org"
   },
-  "version": "1.4.13",
+  "version": "1.4.14",
   "description": "tiddlywiki language support for CodeMirror",
   "scripts": {
     "prepack": "rollup -c",
