@@ -12,6 +12,7 @@ import { javascript, javascriptLanguage } from '@codemirror/lang-javascript';
 import { Extension, Prec } from '@codemirror/state';
 import { IWidget } from '../types/IWidget';
 import { checkboxPlugin } from './extensions/toggleBoolean';
+import { markdownCheckboxPlugin } from './extensions/checkTODO';
 
 const dynamicmode = (
   mode: string = modes.tiddlywiki,
@@ -46,6 +47,7 @@ const dynamicmode = (
     // break;
     case modes.markdown:
     case modes.xmarkdown:
+      cm6.todobox() && cme.push(markdownCheckboxPlugin);
       // NOTE: 目前 tiddlywikiLanguage 还没有完成，所以目前仅仅支持 markdown 代码块
       cme.push(
         markdown({

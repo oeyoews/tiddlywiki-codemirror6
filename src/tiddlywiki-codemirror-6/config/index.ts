@@ -20,6 +20,12 @@ function getConfig(title: string) {
 // NOTE: 对应配置的 caption 不要写成 TxxxBxxx 格式。
 
 export const tiddlers = {
+  todobox: {
+    caption: {
+      zh: '代办事项复选框',
+      en: 'Task checkbox'
+    }
+  },
   checkbox: {
     caption: {
       zh: '复选框',

@@ -1,5 +1,7 @@
 title: $:/language/codemirror6/zh/
 
+todobox/caption: 📝 代办事项复选框
+todobox/description: 代办事项复选框
 checkbox/caption: 📝 复选框
 checkbox/description: 复选框
 foldByIndent/caption: 📝 按缩进折叠
