@@ -35,6 +35,7 @@ function checkboxes(view: EditorView) {
       from,
       to,
       enter: (node) => {
+		// 所以这里只在编程语言里面有效，比如 js
         if (node.name == 'BooleanLiteral') {
           let isTrue = view.state.doc.sliceString(node.from, node.to) == 'true';
           let deco = Decoration.widget({
