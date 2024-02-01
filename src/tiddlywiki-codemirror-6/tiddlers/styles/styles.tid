@@ -1,0 +1,491 @@
+title: $:/plugins/oeyoews/tiddlywiki-codemirror-6/styles
+tags: $:/tags/Stylesheet
+
+\define make-editor-fullscreen()
+
+body {
+	overflow: hidden;
+}
+
+.tc-tiddler-edit-frame[data-tiddler-title="$(cssEscapedTitle)$"] {
+	position: fixed;
+	top: 0;
+	left: 0;
+	height: 100vh;
+	width: 100vw;
+	<!-- z-index: 1000; prevent autocomplete not visible -->
+	z-index: 1;
+}
+
+.tc-tiddler-edit-frame[data-tiddler-title="$(cssEscapedTitle)$"] .tc-dropzone-editor {
+	position: fixed;
+	top: 0;
+	left: 0;
+	height: 100vh;
+	width: 100vw;
+	z-index: 1000;
+	background-color: <<colour tiddler-background>>;
+}
+
+.tc-tiddler-edit-frame[data-tiddler-title="$(cssEscapedTitle)$"] .tc-dropzone-editor > div > div:not(.tc-tiddler-preview) > .tc-edit-texteditor {
+	overflow-y: auto;
+}
+
+.tc-tiddler-edit-frame[data-tiddler-title="$(cssEscapedTitle)$"] .tc-dropzone-editor > div > div.tc-tiddler-preview > .tc-edit-texteditor {
+	overflow-y: auto;
+}
+
+.tc-tiddler-edit-frame .tc-dropzone-editor > div > div.tc-tiddler-preview > .tc-tiddler-preview-preview {
+	overflow-y: auto;
+}
+
+.tc-tiddler-edit-frame[data-tiddler-title="$(cssEscapedTitle)$"] .tc-dropzone-editor > div, .tc-tiddler-edit-frame[data-tiddler-title="$(cssEscapedTitle)$"] .tc-dropzone-editor > div > div.tc-tiddler-preview,
+.tc-tiddler-edit-frame[data-tiddler-title="$(cssEscapedTitle)$"] .tc-dropzone-editor > div > div:not(.tc-tiddler-preview), .tc-tiddler-edit-frame[data-tiddler-title="$(cssEscapedTitle)$"] .tc-dropzone-editor > div > div > div .cm-editor {
+	height: 100%;
+}
+
+\end
+
+.cm-editor {
+	<!-- font-size: {{$:/config/codemirror-6/fontsize}}; -->
+	color-scheme: {{{ [[$:/palette]get[text]!is[blank]] ~[[$:/palettes/vanilla]] +[get[color-scheme]] ~light }}};
+}
+
+<!-- <$list filter="[{$:/config/codemirror-6/enableOneDarkTheme}match[no]]" variable="ignore">
+.cm-editor {
+	color-scheme: {{{ [[$:/palette]get[text]!is[blank]] ~[[$:/palettes/vanilla]] +[get[color-scheme]] ~light }}};
+	background-color: <<colour tiddler-background>> ;
+	color: <<colour foreground>>;
+}
+</$list> -->
+
+.cm-content {
+	caret-color: <<colour cm-caret-colour>> !important;
+}
+
+.cm-scroller {
+	font-family: {{$:/themes/tiddlywiki/vanilla/settings/editorfontfamily}} !important;
+}
+
+.cm-editor ::selection, .cm-editor.cm-focused .cm-selectionBackground, .cm-selectionBackground, .cm-content ::selection {
+	<!-- background: initial !important; -->
+	<!-- background-color: <<colour-extend cm-selection-background>> !important; -->
+	color: <<colour-extend cm-selection-foreground>> !important;
+}
+
+.cm-cursor, .cm-dropCursor {
+	border-left-color: <<colour cm-caret-colour>> !important;
+}
+
+.cm-cursor, .cm-dropCursor {
+	border-left: {{$:/config/codemirror-6/cursor-thickness}} solid !important;
+}
+
+.cm-activeLine, .cm-activeLineGutter {
+	background-color: <<colour-extend cm-active-line>> !important;
+	color: <<colour foreground>>;
+}
+
+.cm-gutters {
+	<!-- bug -->
+	background-color: <<colour-extend cm-gutter-background>> !important;
+	background-color: transparent !important;
+	color: <<colour-extend cm-gutter-foreground>> !important;
+	border: none !important;
+}
+
+.cm-panels {
+	background-color: <<colour tiddler-background>> !important;
+	color: <<colour foreground>> !important;
+}
+
+.cm-panels button[name="close"] {
+	font-size: 25px !important;
+	cursor: pointer !important;
+}
+
+.cm-panels.cm-panels-top: {
+	border-bottom: 2px solid <<colour foreground>>;
+}
+
+.cm-panels.cm-panels-bottom {
+	border-top: 0px solid <<colour foreground>> !important;
+}
+
+.cm-searchMatch {
+	background-color: <<colour-extend cm-search-match>> !important;
+	outline: 1px solid <<colour-extend cm-search-match-border>> !important;
+}
+
+.cm-searchMatch.cm-searchMatch-selected {
+	<!-- background-color: <<colour-extend cm-search-match-selected>> !important; -->
+}
+
+.cm-selectionMatch {
+	<!-- background-color: <<colour-extend cm-selection-match>> !important; -->
+}
+
+.cm-editor.cm-focused .cm-matchingBracket, .cm-editor.cm-focused .cm-nonmatchingBracket {
+	outline: 1px solid <<colour-extend cm-matching-bracket-outline>> !important;
+}
+
+<!-- .cm-tooltip {
+	border: none !important;
+	background-color: <<colour-extend cm-tooltip-background>> !important;
+	color: <<colour-extend cm-tooltip-foreground>> !important;
+	font-size: {{$:/config/codemirror-6/fontsize}};
+	z-index: 9999 !important;
+} -->
+
+.cm-tooltip-autocomplete > ul > li {
+	font-family: {{$:/themes/tiddlywiki/vanilla/settings/editorfontfamily}} !important;
+	overflow: hidden;
+}
+
+.cm-tooltip-autocomplete > ul > li[aria-selected], .cm-tooltip-autocomplete > ul > li:hover {
+	background-color: <<colour-extend cm-tooltip-selected-background>> !important;
+	color: <<colour-extend cm-tooltip-selected-foreground>> !important;
+}
+
+<!-- .cm-tooltip .cm-tooltip-arrow:before {
+	border-top-color: transparent !important;
+	border-bottom-color: transparent !important;
+} -->
+
+<!-- .cm-tooltip .cm-tooltip-arrow:after {
+	border-top-color: <<colour-extend cm-tooltip-background>> !important;
+	border-bottom-color: <<colour-extend cm-tooltip-background>> !important;
+} -->
+
+.cm-foldPlaceholder {
+	background-color: transparent !important;
+	border: none !important;
+	color: <<colour cm-fold-placeholder-foreground>> !important;
+}
+
+<$list filter="[{$:/config/TextEditor/EditorHeight/Mode}match[fixed]]" variable="ignore">
+
+.cm-editor {
+	height: {{$:/config/TextEditor/EditorHeight/Height}};
+}
+
+</$list>
+
+<$list filter="[{$:/config/codemirror-6/rtl}match[yes]]" variable="ignore">
+
+.cm-editor {
+	direction: rtl;
+}
+
+</$list>
+
+@media(max-width:800px) {
+	.tc-editor-toolbar button.tc-btn-invisible:not(.tc-text-editor-toolbar-item-adjunct) {
+		border-radius: 0px;
+		padding: 6px;
+	}
+}
+
+<$list filter="[all[tiddlers]prefix[$:/state/codemirror-6/fullscreen]] :filter[get[text]match[yes]] +[limit[1]]" variable="fullscreenStateTiddler">
+
+<$let fullscreenTiddler={{{ [<fullscreenStateTiddler>removeprefix[$:/state/codemirror-6/fullscreen/]] }}} cssEscapedTitle={{{ [<fullscreenTiddler>escapecss[]] }}}>
+
+<!-- <%list filter="[<fullscreenTiddler>!is[missing]{$:/state/notebook-sidebar}!match[yes]]" >
+ <<make-editor-fullscreen>>
+ </$list>
+ -->
+
+<% if [<fullscreenTiddler>!is[missing]] %>
+	<<make-editor-fullscreen>>
+<% endif %>
+
+</$let>
+
+</$list>
+
+.tc-tiddler-editor {
+	display: grid;
+}
+
+.tc-tiddler-frame .tc-tiddler-editor.tc-tiddler-preview {
+	grid-template-areas:
+		"toolbar toolbar"
+		"editor preview";
+	grid-template-columns: 1fr 1fr;
+	grid-template-rows: auto 1fr;
+}
+
+.tc-tiddler-frame .tc-tiddler-editor.tc-tiddler-preview-hidden {
+	grid-template-areas:
+		"toolbar"
+		"editor";
+	grid-template-columns: 1fr;
+	grid-template-rows: auto 1fr;
+}
+
+.tc-tiddler-frame .tc-tiddler-editor.tc-tiddler-preview .tc-tiddler-preview-preview {
+	grid-area: preview;
+	width: calc(100% - 3px);
+	overflow-wrap: anywhere;
+	word-break: normal;
+	border: 1px solid <<colour tiddler-editor-border>>;
+	margin: 4px 0 3px 3px;
+	padding: 3px 3px 3px 3px;
+}
+
+.tc-tiddler-frame .tc-tiddler-editor.tc-tiddler-preview .tc-edit-texteditor,
+.tc-tiddler-frame .tc-tiddler-editor.tc-tiddler-preview-hidden .tc-edit-texteditor {
+	grid-area: editor;
+	width: 100%;
+}
+
+.tc-tiddler-frame .tc-tiddler-editor.tc-tiddler-preview canvas.tc-edit-bitmapeditor,
+.tc-tiddler-frame .tc-tiddler-editor.tc-tiddler-preview-hidden canvas.tc-edit-bitmapeditor {
+	grid-area: editor;
+	max-width: 100%;
+}
+
+.tc-tiddler-frame .tc-tiddler-editor.tc-tiddler-preview .tc-editor-toolbar,
+.tc-tiddler-frame .tc-tiddler-editor.tc-tiddler-preview-hidden .tc-editor-toolbar {
+	grid-area: toolbar;
+}
+
+/** checkbox switches start **/
+/** https://www.w3schools.com/howto/howto_css_switch.asp **/
+/* The switch - the box around the slider */
+label.btcui-form-switch {
+	position: relative;
+	display: inline-block;
+	width: 36px;
+	height: 12px;
+}
+
+/* Hide default HTML checkbox */
+label.btcui-form-switch input {
+	opacity: 0;
+	width: 0;
+	height: 0;
+}
+
+/* The slider */
+label.btcui-form-switch span {
+	position: absolute;
+	cursor: pointer;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	background-color: <<color tiddler-controls-foreground>>;
+	-webkit-transition: .2s;
+	transition: .2s;
+}
+
+label.btcui-form-switch span:before {
+	position: absolute;
+	content: "";
+	height: 20px;
+	width: 20px;
+	left: -1px;
+	top: -4px;
+	bottom: 4px;
+	background-color: <<color background>>;
+	-webkit-transition: .2s;
+	transition: .2s;
+	box-shadow: 0 1px 3px 0 rgba(0,0,0,0.7);
+}
+
+label.btcui-form-switch input:checked + span {
+	background-color: rgba(26,115,232,0.5);
+}
+
+label.btcui-form-switch input:checked + span:before {
+	background-color: rgb(26,115,232);
+	opacity: 1;
+}
+
+label.btcui-form-switch input:focus + span {
+	box-shadow: 0 0 1px #2196F3;
+}
+
+label.btcui-form-switch input:checked + span:before {
+	-webkit-transform: translateX(17px);
+	-ms-transform: translateX(17px);
+	transform: translateX(17px);
+}
+
+label.btcui-form-switch span {
+	border-radius: 12px;
+}
+
+label.btcui-form-switch span:before {
+	border-radius: 50%;
+}
+
+div.btcui-form-label {
+
+}
+
+/*** checkbox switches end ***/
+
+/** form select elements **/
+.btcui-form-select {
+	appearance: none;
+	background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='12' fill='%235F6368'%3E%3Cpath d='M0 0h24L12 12z'/%3E%3C/svg%3E") calc(100% - 8px) center no-repeat;
+	background-color: rgb(241,243,244);
+	background-size: 10px;
+	border: none;
+	border-radius: 4px;
+	color: rgb(32,33,36);
+	cursor: pointer;
+	max-width: 100%;
+	outline: none;
+	padding: 6px 21px 6px 8px;
+/*	width: 200px;*/
+}
+
+input.btcui-form-input {
+	border: 1px solid <<color tiddler-controls-foreground>>;
+	border-radius: 3px;
+	background-color: <<colour background>>;
+	padding: 6px;
+	color: <<colour foreground>>;
+}
+
+input.btcui-form-input:focus {
+	outline-color: #ccc;
+}
+
+
+.btc-list-group {
+	display: flex;
+	flex-direction: column;
+	padding-left: 0;
+	margin-bottom: 0;
+	box-sizing: border-box;
+}
+
+.btc-list-group-box-shadow {
+	box-shadow:1px 1px 5px rgba(0, 0, 0, 0.3);
+	border-bottom-left-radius: .25rem;
+	border-bottom-right-radius: .25rem;
+	border-top-left-radius: .25rem;
+	border-top-right-radius: .25rem;
+}
+
+.btc-list-group-item {
+	position: relative;
+	display: block;
+	padding: 0.75rem 1.25rem;
+	background-color:  <<color background>>;
+	border: 1px solid rgba(0,0,0,.125);
+	width: 100%;
+	color: #495057;
+	text-align:	inherit;
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between!important;
+	align-items: center!important;
+	word-spacing: 0.1em;
+}
+
+
+.btc-list-group-item+.btc-list-group-item {
+	border-top-width: 0;
+}
+
+.btc-list-group-item:first-child {
+	border-top-left-radius: .25rem;
+	border-top-right-radius: .25rem;
+}
+
+.btc-list-group-item:last-child {
+	border-bottom-left-radius: .25rem;
+	border-bottom-right-radius: .25rem;
+}
+
+.btc-list-stream-settings {
+	font-size: 90%;
+}
+
+input.btc-search-input {
+    display: block;
+    width: 100%;
+    height: calc(1.5em + .75rem + 2px);
+    padding: .375rem .75rem;
+    font-size: 0.8rem;
+    font-weight: 400;
+    line-height: 1.5;
+    color: #495057;
+    background-color:  <<color background>>;
+    background-clip: padding-box;
+    border: 1px solid #ced4da;
+    border-radius: .25rem;
+    transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+    margin-bottom: 0.75em;
+}
+
+input.btc-search-input:focus {
+color: #495057;
+    background-color:  <<color background>>;
+    border-color: #80bdff;
+    outline: 0;
+    box-shadow: 0 0 0 0.2rem rgba(0,123,255,.25);
+}
+
+.cm-button {
+	background-image: none !important;
+	border-radius: 2px;
+	border: none !important;
+	user-select: none;
+	cursor: pointer;
+}
+
+.cm-completionDetail {
+	font-style: normal !important;
+}
+
+.cm-autocomplete-tooltip {
+	border-radius: 4px;
+	border: none !important;
+	box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1), 0 1px 3px rgba(0, 0, 0, 0.08);
+	padding-top: 4px;
+	z-index: 10001 !important;
+	<!-- margin: 4px; -->
+}
+
+.cm-autocomplete-option {
+	border-radius: 2px !important;
+	margin: 2px 4px;
+	z-index: 10001 !important;
+}
+
+<!-- .cm-autocomplete-option:hover { } -->
+
+.cm-completionInfo {
+	border: none !important;
+	box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1), 0 1px 3px rgba(0, 0, 0, 0.08);
+	border-radius: 4px;
+	margin-left: 2px;
+	z-index: 10001 !important;
+}
+
+<!-- 有个max-width 400.xxxpx -->
+.cm-image-preview {
+	overflow: auto;
+	width: 400px;
+	max-height: 300px;
+	border-radius: 4px !important;
+	padding-right: 8px;
+	z-index: 10001;
+}
+
+<!-- https://github.com/Jermolene/TiddlyWiki5/pull/7787 -->
+.tc-tiddler-preview {
+	grid-template-columns: repeat(2, minmax(0px, 1fr)) !important;
+}
+
+<!-- NOTE: if include emoji, emoji will broken use font-bold, emoji was split two chars because of dymamic matchedtext -->
+<!-- .cm-completionMatchedText {
+	font-weight: bold;
+	text-decoration: none !important;
+} -->

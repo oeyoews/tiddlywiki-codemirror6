@@ -43,7 +43,7 @@ const getIcontype = (text: IMode) => {
       type = 'cm-json';
       break;
     case 'text/html':
-      type = 'cm-json';
+      type = 'cm-html';
       break;
     default:
       break;
