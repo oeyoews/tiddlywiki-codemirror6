@@ -1,5 +1,10 @@
 // https://codemirror.net/examples/decoration/
-import { EditorView, Decoration, DecorationSet } from '@codemirror/view';
+import {
+  EditorView,
+  Decoration,
+  DecorationSet,
+  Command
+} from '@codemirror/view';
 import { StateField, StateEffect } from '@codemirror/state';
 
 const addUnderline = StateEffect.define<{ from: number; to: number }>({

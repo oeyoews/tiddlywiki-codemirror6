@@ -5,74 +5,84 @@ import {
   startCompletion
 } from '@codemirror/autocomplete';
 import { underlineSelection } from '@/cm6/modules/extensions/underlineSelection';
-import { KeyBinding } from '@codemirror/view';
+import { EditorView, KeyBinding } from '@codemirror/view';
 import { cursorSyntaxLeft, cursorSyntaxRight } from '@codemirror/commands';
+import { IWidget } from '@/cm6/types/IWidget';
 
-// add keymap, press ? to show a modal tip
-//  TODO: presnippetfield not work, snipkeymap
-export const userKeymap: KeyBinding[] = [
-  {
-    key: 'Ctrl-S',
-    preventDefault: true,
-    run: (view) => {
-      $tw.notifier.display('saved');
-      console.log(view);
-      return true;
+const saveTiddlerCmd = (widget: IWidget) => {
+  return (view: EditorView) => {
+    const title = $tw.wiki.getTiddler(widget?.editTitle!)?.fields[
+      'draft.title'
+    ] as string;
+    const text = view.state.doc.toString();
+    $tw.wiki.setText(title, 'text', '', text);
+    $tw.notifier.display('saved');
+    return true;
+  };
+};
+
+export const userKeymap = (widget: IWidget): KeyBinding[] => {
+  const keybinding = [
+    {
+      key: 'Ctrl-S',
+      preventDefault: true,
+      run: saveTiddlerCmd(widget)
+    },
+    {
+      key: 'Mod-h',
+      preventDefault: true,
+      run: underlineSelection
+    },
+    {
+      key: 'Ctrl-alt-r',
+      preventDefault: true,
+      scope: 'editor',
+      stopPropagation: true,
+      run: cursorSyntaxRight
+    },
+    {
+      key: 'Ctrl-alt-l',
+      preventDefault: true,
+      scope: 'editor',
+      stopPropagation: true,
+      run: cursorSyntaxLeft
+    },
+    {
+      key: 'Ctrl-i',
+      scope: 'editor',
+      run: acceptCompletion
+    },
+    // {
+    //   key: 'Ctrl-Shift-j',
+    //   scope: 'editor',
+    //   run: gotoLine
+    // },
+    {
+      key: 'Ctrl-j',
+      scope: 'editor',
+      // preventDefault: true,
+      // shift: moveCompletionSelection(true, 'page'),
+      run: moveCompletionSelection(true) // 占位符
+    },
+    {
+      key: 'Ctrl-k',
+      scope: 'editor',
+      preventDefault: true,
+      // shift: moveCompletionSelection(false, 'page'),
+      run: moveCompletionSelection(false) // 占位符
+    },
+    {
+      key: 'Tab',
+      run: acceptCompletion,
+      shift: nextSnippetField // shift tab not work
+    },
+    // NOTE: need disable your ime `ctrl+space` to toggle method
+    {
+      key: 'Ctrl-Space',
+      scope: 'editor',
+      preventDefault: true,
+      run: startCompletion
     }
-  },
-  {
-    key: 'Mod-h',
-    preventDefault: true,
-    run: underlineSelection
-  },
-  {
-    key: 'Ctrl-alt-r',
-    preventDefault: true,
-    scope: 'editor',
-    stopPropagation: true,
-    run: cursorSyntaxRight
-  },
-  {
-    key: 'Ctrl-alt-l',
-    preventDefault: true,
-    scope: 'editor',
-    stopPropagation: true,
-    run: cursorSyntaxLeft
-  },
-  {
-    key: 'Ctrl-i',
-    scope: 'editor',
-    run: acceptCompletion
-  },
-  // {
-  //   key: 'Ctrl-Shift-j',
-  //   scope: 'editor',
-  //   run: gotoLine
-  // },
-  {
-    key: 'Ctrl-j',
-    scope: 'editor',
-    // preventDefault: true,
-    // shift: moveCompletionSelection(true, 'page'),
-    run: moveCompletionSelection(true) // 占位符
-  },
-  {
-    key: 'Ctrl-k',
-    scope: 'editor',
-    preventDefault: true,
-    // shift: moveCompletionSelection(false, 'page'),
-    run: moveCompletionSelection(false) // 占位符
-  },
-  {
-    key: 'Tab',
-    run: acceptCompletion,
-    shift: nextSnippetField // shift tab not work
-  },
-  // NOTE: need disable your ime `ctrl+space` to toggle method
-  {
-    key: 'Ctrl-Space',
-    scope: 'editor',
-    preventDefault: true,
-    run: startCompletion
-  }
-];
+  ];
+  return keybinding;
+};

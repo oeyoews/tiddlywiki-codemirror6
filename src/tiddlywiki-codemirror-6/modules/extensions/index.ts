@@ -73,7 +73,7 @@ export default function updateExtensions(cme: Extension[], widget: IWidget) {
   }
 
   // NOTE: 优先级问题：最后放的 indent tab 优先级较低，需要使用 prec 提升
-  cme.push(Prec.high(cmkeymaps));
+  cme.push(Prec.high(cmkeymaps(widget)));
 
   if (conf.indentWithTab()) {
     cme.push(keymap.of([indentWithTab]));
