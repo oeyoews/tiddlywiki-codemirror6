@@ -12,6 +12,15 @@ import { cursorSyntaxLeft, cursorSyntaxRight } from '@codemirror/commands';
 //  TODO: presnippetfield not work, snipkeymap
 export const userKeymap: KeyBinding[] = [
   {
+    key: 'Ctrl-S',
+    preventDefault: true,
+    run: (view) => {
+      $tw.notifier.display('saved');
+      console.log(view);
+      return true;
+    }
+  },
+  {
     key: 'Mod-h',
     preventDefault: true,
     run: underlineSelection
