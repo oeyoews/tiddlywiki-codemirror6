@@ -24,9 +24,7 @@ Widget base class
     Object.getPrototypeOf(Object.getPrototypeOf(this)).execute.call(this);
   };
 
-  /*
-Handle an edit text operation message from the toolbar
-*/
+  /* Handle an edit text operation message from the toolbar */
   exports.prototype.handleEditTextOperationMessage = function (event) {
     // Prepare information about the operation
     var operation = this.engine.createTextOperation(event.param);

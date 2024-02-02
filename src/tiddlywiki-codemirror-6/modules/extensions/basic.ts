@@ -166,6 +166,17 @@ export function cme(self: any): Extension[] {
         return;
       }
       // NOTE: cm6 似乎自带 debounce, 这里使用 debounce 无效
+      // HACK: tiddlywiki 对于 markdown 的空双花括号会有递归 bug, 预览会导致页面卡死
+      const pos = v.state.selection.main.head;
+      if (
+        pos >= 2 &&
+        v.state.doc.length - pos >= 2 &&
+        v.state.sliceDoc(pos - 2, pos) === '{{' &&
+        v.state.sliceDoc(pos, pos + 2) === '}}'
+      ) {
+        return;
+      }
+
       if (v.docChanged) {
         const text = cm.state.doc.toString();
         self.widget.saveChanges(text); // update text with tiddlywiki api
