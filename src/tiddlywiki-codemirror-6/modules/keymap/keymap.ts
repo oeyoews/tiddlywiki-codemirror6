@@ -23,11 +23,14 @@ const saveTiddlerCmd = (widget: IWidget) => {
 };
 
 export const userKeymap = (widget: IWidget): KeyBinding[] => {
-  const keybinding = [
+  const keybinding: KeyBinding[] = [
     {
-      key: 'Ctrl-S',
+      key: 'Ctrl-s',
       preventDefault: true,
-      run: saveTiddlerCmd(widget)
+      run: saveTiddlerCmd(widget), // 有问题，浏览器优先级更高
+      // shift: saveTiddlerCmd(widget),
+      scope: 'editor',
+      stopPropagation: true
     },
     {
       key: 'Mod-h',

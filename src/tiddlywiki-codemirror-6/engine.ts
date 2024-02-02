@@ -105,6 +105,12 @@ class CodeMirrorEngine {
       return false;
     }
 
+    // NOTE: snippets use `ctrl-s`, now it is disabled, ctrn-n 仍然挡不住
+    if (e.ctrlKey && e.key === 's') {
+      e.stopPropagation();
+      return false;
+    }
+
     let widget = this.widget;
     const keyboardWidgets = [];
     while (widget) {
