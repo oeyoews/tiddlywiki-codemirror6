@@ -19,6 +19,6 @@ type MenuType = (typeof menuItems)[number];
 
 export const menu = {} as Record<MenuType, string>;
 
-menuItems.forEach((item: MenuType) => {
+menuItems.forEach((item) => {
   menu[item] = `(${capitalize(item)})`;
 });

@@ -560,3 +560,14 @@ export const modes = {
 } as const;
 
 export type IMode = (typeof modes)[keyof typeof modes];
+
+/** notify */
+const notifierPrefix = '$:/plugins/oeyoews/tiddlywiki-codemirror-6/notify';
+
+const notifier = ['save', 'copy'] as const;
+
+export const notify = {} as Record<(typeof notifier)[number], string>;
+
+notifier.forEach((key) => {
+  notify[key] = `${notifierPrefix}/${key}`;
+});

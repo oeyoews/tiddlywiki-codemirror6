@@ -8,6 +8,7 @@ import { underlineSelection } from '@/cm6/modules/extensions/underlineSelection'
 import { EditorView, KeyBinding } from '@codemirror/view';
 import { cursorSyntaxLeft, cursorSyntaxRight } from '@codemirror/commands';
 import { IWidget } from '@/cm6/types/IWidget';
+import { notify } from '@/cm6/config';
 
 const saveTiddlerCmd = (widget: IWidget) => {
   return (view: EditorView) => {
@@ -16,7 +17,7 @@ const saveTiddlerCmd = (widget: IWidget) => {
     ] as string;
     const text = view.state.doc.toString();
     $tw.wiki.setText(title, 'text', '', text);
-    $tw.notifier.display('saved');
+    $tw.notifier.display(notify.save);
     return true;
   };
 };
