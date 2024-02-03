@@ -4,7 +4,7 @@ import { html, htmlLanguage } from '@codemirror/lang-html';
 import { json, jsonLanguage } from '@codemirror/lang-json';
 import { css, cssLanguage } from '@codemirror/lang-css';
 import cm6, { modes } from '@/cm6/config';
-
+import { foldByIndent } from '@/cm6/modules/extensions/foldByIndent';
 import { markdown, markdownLanguage } from '@codemirror/lang-markdown';
 
 import { javascript, javascriptLanguage } from '@codemirror/lang-javascript';
@@ -37,6 +37,8 @@ const dynamicmode = (
     case modes.mermaid:
       // @ts-expect-error
       cme.push(tiddlywiki({ base: tiddlywikiLanguage }));
+
+      cm6.foldByIndent() && cme.push(foldByIndent());
 
       actionCompletions = tiddlywikiLanguage.data.of(options);
 
