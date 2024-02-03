@@ -160,18 +160,23 @@ class CodeMirrorEngine {
   /** @description Update the DomNode with the new text */
   updateDomNodeText(text: string) {
     const selections = this.cm.state.selection;
-    this.cm.dispatch(
-      this.cm.state.update({
-        changes: {
-          from: 0,
-          to: this.cm.state.doc.length,
-          insert: text
-        },
-        selection: selections,
-        // @ts-ignore
-        docChanged: true
-      })
-    );
+    // NOTE: prevent ranger error
+    try {
+      this.cm.dispatch(
+        this.cm.state.update({
+          changes: {
+            from: 0,
+            to: this.cm.state.doc.length,
+            insert: text
+          },
+          selection: selections,
+          // @ts-ignore
+          docChanged: true
+        })
+      );
+    } catch (e) {
+      // console.warn(e);
+    }
   }
 
   /** @description Get the text of the engine */
