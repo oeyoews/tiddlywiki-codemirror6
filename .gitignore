@@ -130,7 +130,7 @@ public-dist
 # for TiddlyWiki
 dist/
 output/
-wiki/tiddlers/
+!wiki/tiddlers/
 Draft**
 \$__StoryList.tid
 \$__palette.tid
