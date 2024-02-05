@@ -1,36 +1,26 @@
 {
-  "name": "codemirror-lang-tiddlywiki",
-  "publishConfig": {
-    "registry": "https://registry.npmjs.org"
-  },
-  "version": "1.5.4",
-  "description": "tiddlywiki language support for CodeMirror",
+  "name": "lang-tiddlywiki",
+  "version": "1.0.0",
+  "description": "",
   "scripts": {
-    "prepack": "rollup -c",
-    "test": "mocha test/test.js",
-    "build": "rollup -c"
+    "build": "cm-buildhelper src/tiddlywiki.ts"
   },
   "type": "module",
   "main": "dist/index.cjs",
-  "module": "dist/index.js",
   "exports": {
     "import": "./dist/index.js",
     "require": "./dist/index.cjs"
   },
   "types": "dist/index.d.ts",
-  "sideEffects": false,
+  "module": "dist/index.js",
+  "keywords": [],
+  "author": "",
+  "devDependencies": {
+    "@codemirror/buildhelper": "^1.0.0"
+  },
+  "license": "MIT",
   "dependencies": {
     "@codemirror/language": "^6.10.1",
-    "@lezer/highlight": "^1.2.0",
-    "@lezer/lr": "^1.4.0"
-  },
-  "devDependencies": {
-    "@lezer/generator": "^1.6.0",
-    "mocha": "^10.2.0",
-    "rollup": "^4.9.6",
-    "rollup-plugin-dts": "^6.1.0",
-    "rollup-plugin-ts": "^3.4.5",
-    "typescript": "^5.3.3"
-  },
-  "license": "MIT"
+    "@lezer/highlight": "^1.2.0"
+  }
 }

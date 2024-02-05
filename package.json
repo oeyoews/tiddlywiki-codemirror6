@@ -35,7 +35,6 @@
     "@types/node": "20.11.5",
     "@uiw/codemirror-theme-github": "^4.21.21",
     "@uiw/codemirror-theme-material": "^4.21.21",
-    "codemirror-lang-tiddlywiki": "workspace:^",
     "rimraf": "^5.0.5",
     "terser": "5.27.0",
     "ts-node": "10.9.2",
@@ -67,6 +66,7 @@
     "@replit/codemirror-vim": "^6.1.0",
     "@uiw/codemirror-extensions-color": "^4.21.21",
     "codemirror-lang-mermaid": "^0.5.0",
+    "lang-tiddlywiki": "workspace:^",
     "thememirror": "^2.0.1",
     "tiddlywiki": "5.3.3"
   }

@@ -1,4 +1,4 @@
-import { tiddlywiki, tiddlywikiLanguage } from 'codemirror-lang-tiddlywiki';
+import { tiddlywiki, tiddlywikiLanguage } from 'lang-tiddlywiki';
 import completions from '@/cm6/modules/completions';
 import { html, htmlLanguage } from '@codemirror/lang-html';
 import { json, jsonLanguage } from '@codemirror/lang-json';
@@ -13,7 +13,6 @@ import { Extension, Prec } from '@codemirror/state';
 import { IWidget } from '../types/IWidget';
 import { checkboxPlugin } from './extensions/toggleBoolean';
 import { markdownCheckboxPlugin } from './extensions/checkTODO';
-import { codeBlockTogglePlugin } from './extensions/codeblock';
 
 const dynamicmode = (
   mode: string = modes.tiddlywiki,

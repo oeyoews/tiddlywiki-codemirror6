@@ -38,3 +38,5 @@ expression {
 // @external propSource jsHighlight from "./highlight"
 
 @detectDelim
+
+@external propSource tiddlywikiHighlighting from "./highlight"
