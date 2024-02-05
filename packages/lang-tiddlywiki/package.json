@@ -21,6 +21,7 @@
   "license": "MIT",
   "dependencies": {
     "@codemirror/language": "^6.10.1",
-    "@lezer/highlight": "^1.2.0"
+    "@lezer/highlight": "^1.2.0",
+    "lezer-tiddlywiki": "workspace:^"
   }
 }

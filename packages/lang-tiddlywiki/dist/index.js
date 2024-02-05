@@ -1,4 +1,4 @@
-import { parser, tiddlywikiHighlighting } from 'lezer-tidlywiki';
+import { parser, tiddlywikiHighlighting } from 'lezer-tiddlywiki';
 import { LRLanguage, indentNodeProp, delimitedIndent, foldNodeProp, foldInside, LanguageSupport } from '@codemirror/language';
 
 const tiddlywikiLanguage = /*@__PURE__*/LRLanguage.define({

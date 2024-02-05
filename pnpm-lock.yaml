@@ -135,6 +135,9 @@ importers:
       '@lezer/highlight':
         specifier: ^1.2.0
         version: 1.2.0
+      lezer-tiddlywiki:
+        specifier: workspace:^
+        version: link:../lezer-tiddlywiki
     devDependencies:
       '@codemirror/buildhelper':
         specifier: ^1.0.0

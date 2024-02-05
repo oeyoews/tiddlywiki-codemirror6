@@ -1,5 +1,5 @@
 {
-  "name": "lezer-tidlywiki",
+  "name": "lezer-tiddlywiki",
   "publishConfig": {
     "registry": "https://registry.npmjs.org"
   },

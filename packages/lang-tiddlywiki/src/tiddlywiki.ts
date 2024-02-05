@@ -1,4 +1,4 @@
-import { tiddlywikiHighlighting, parser } from 'lezer-tidlywiki';
+import { tiddlywikiHighlighting, parser } from 'lezer-tiddlywiki';
 
 import {
   LRLanguage,

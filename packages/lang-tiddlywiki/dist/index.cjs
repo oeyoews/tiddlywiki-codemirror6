@@ -1,10 +1,10 @@
 'use strict';
 
-var lezerTidlywiki = require('lezer-tidlywiki');
+var lezerTiddlywiki = require('lezer-tiddlywiki');
 var language = require('@codemirror/language');
 
 const tiddlywikiLanguage = language.LRLanguage.define({
-    parser: lezerTidlywiki.parser.configure({
+    parser: lezerTiddlywiki.parser.configure({
         props: [
             language.indentNodeProp.add({
                 Application: language.delimitedIndent({ closing: ')', align: false })
@@ -12,7 +12,7 @@ const tiddlywikiLanguage = language.LRLanguage.define({
             language.foldNodeProp.add({
                 Application: language.foldInside
             }),
-            lezerTidlywiki.tiddlywikiHighlighting
+            lezerTiddlywiki.tiddlywikiHighlighting
         ]
     }),
     languageData: {
