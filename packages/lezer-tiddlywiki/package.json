@@ -29,7 +29,8 @@
     "minify": false,
     "dts": true,
     "format": [
-      "cjs"
+      "cjs",
+      "esm"
     ],
     "shims": true,
     "clean": true
