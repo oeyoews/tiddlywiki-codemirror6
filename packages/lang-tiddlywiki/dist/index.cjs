@@ -2,7 +2,6 @@
 
 var lezerTidlywiki = require('lezer-tidlywiki');
 var language = require('@codemirror/language');
-var highlight = require('@lezer/highlight');
 
 const tiddlywikiLanguage = language.LRLanguage.define({
     parser: lezerTidlywiki.parser.configure({
@@ -13,21 +12,7 @@ const tiddlywikiLanguage = language.LRLanguage.define({
             language.foldNodeProp.add({
                 Application: language.foldInside
             }),
-            highlight.styleTags({
-                Keyword: highlight.tags.keyword,
-                Image: highlight.tags.strong,
-                Heading: highlight.tags.heading,
-                Delete: highlight.tags.strikethrough,
-                Bold: highlight.tags.strong,
-                Underline: highlight.tags.strong,
-                Identifier: highlight.tags.strong,
-                Italic: highlight.tags.emphasis,
-                // TODO use list
-                List: highlight.tags.number,
-                Blockquote: highlight.tags.quote,
-                LineComment: highlight.tags.blockComment,
-                Definition: highlight.tags.strong
-            })
+            lezerTidlywiki.tiddlywikiHighlighting
         ]
     }),
     languageData: {

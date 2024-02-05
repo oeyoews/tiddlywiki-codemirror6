@@ -11,9 +11,10 @@ export default {
       format: 'es',
       file: './dist/index.js'
     }
-  ],
-  external(id) {
-    return !/^[\.\/]/.test(id);
-  },
-  plugins: [nodeResolve()]
+  ]
+  // external: ['@lezer/highlight', '@lezer/lr'],
+  // external(id) {
+  //   return !/^[\.\/]/.test(id);
+  // },
+  // plugins: [nodeResolve()]
 };
