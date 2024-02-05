@@ -35,7 +35,11 @@ export default function updateExtensions(cme: Extension[], widget: IWidget) {
   )?.fields;
   const darkMode = fields?.['color-scheme'] === 'dark';
 
-  (conf.onedark() && darkMode && cme.push(oneDark)) || cme.push(githubLight);
+  if (conf.onedark() && darkMode) {
+    cme.push(oneDark);
+  } else {
+    cme.push(githubLight);
+  }
 
   if (conf.removeOutline()) {
     cme.push(removeOutlineExt);
