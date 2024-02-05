@@ -6,6 +6,8 @@ import { css, cssLanguage } from '@codemirror/lang-css';
 import cm6, { modes } from '@/cm6/config';
 import { foldByIndent } from '@/cm6/modules/extensions/foldByIndent';
 import { markdown, markdownLanguage } from '@codemirror/lang-markdown';
+import { StreamLanguage } from '@codemirror/language';
+import { tiddlyWiki } from '@codemirror/legacy-modes/mode/tiddlywiki';
 
 import { javascript, javascriptLanguage } from '@codemirror/lang-javascript';
 
@@ -34,6 +36,8 @@ const dynamicmode = (
   switch (mode) {
     case modes.tiddlywiki:
     case modes.mermaid:
+      // NOTE: 不建议使用 legacymode, 和 cm6 部分功能有冲突
+      // cme.push(StreamLanguage.define(tiddlyWiki));
       // @ts-ignore
       cme.push(tiddlywiki({}));
 
