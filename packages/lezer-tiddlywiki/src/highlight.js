@@ -1,5 +1,4 @@
 import { styleTags, tags as t } from '@lezer/highlight';
-// import { NodePropSource } from '@lezer/common';
 
 export const tiddlywikiHighlighting = styleTags({
   Keyword: t.keyword,

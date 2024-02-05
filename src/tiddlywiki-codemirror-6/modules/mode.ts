@@ -1,4 +1,3 @@
-// @ts-ignore
 import { tiddlywiki, tiddlywikiLanguage } from 'lang-tiddlywiki';
 import completions from '@/cm6/modules/completions';
 import { html, htmlLanguage } from '@codemirror/lang-html';
@@ -35,6 +34,7 @@ const dynamicmode = (
   switch (mode) {
     case modes.tiddlywiki:
     case modes.mermaid:
+      // @ts-ignore
       cme.push(tiddlywiki({ base: tiddlywikiLanguage }));
 
       cm6.foldByIndent() && cme.push(foldByIndent());
@@ -56,6 +56,7 @@ const dynamicmode = (
         markdown({
           base: markdownLanguage,
           completeHTMLTags: true,
+          // @ts-expect-error
           codeLanguages: (info: string) => {
             switch (info) {
               case 'javascript':

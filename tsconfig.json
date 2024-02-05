@@ -27,6 +27,6 @@
   ],
   "exclude": [
     "./**/*.js",
-    "packages/**"
+    // "packages/**"
   ]
 }

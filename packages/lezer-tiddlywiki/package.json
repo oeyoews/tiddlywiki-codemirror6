@@ -7,28 +7,42 @@
   "description": "tiddlywiki language support for CodeMirror",
   "scripts": {
     "prepack": "pnpm build",
-    "build": "lezer-generator src/tiddlywiki.grammar -o src/parser && rollup -c",
+    "build": "lezer-generator src/tiddlywiki.grammar -o src/parser && tsup ",
     "test": "mocha test/test.js"
   },
-  "type": "module",
-  "main": "dist/index.cjs",
+  "main": "./dist/index.js",
+  "module": "./dist/index.mjs",
   "exports": {
-    "import": "./dist/index.js",
-    "require": "./dist/index.cjs"
+    ".": {
+      "require": "./dist/index.js",
+      "import": "./dist/index.mjs"
+    }
   },
-  "module": "dist/index.js",
-  "types": "dist/index.d.ts",
-  "sideEffects": false,
+  "types": "./dist/index.d.ts",
+  "tsup": {
+    "entry": [
+      "src/index.js"
+    ],
+    "splitting": false,
+    "sourcemap": false,
+    "treeshake": true,
+    "minify": false,
+    "dts": true,
+    "format": [
+      "cjs"
+    ],
+    "shims": true,
+    "clean": true
+  },
   "dependencies": {
     "@codemirror/language": "^6.10.1",
     "@lezer/highlight": "^1.2.0",
-    "@lezer/lr": "^1.4.0"
+    "@lezer/lr": "^1.4.0",
+    "tsup": "^8.0.1"
   },
   "devDependencies": {
     "@lezer/generator": "^1.6.0",
-    "@rollup/plugin-node-resolve": "^15.2.3",
-    "mocha": "^10.2.0",
-    "rollup": "^4.9.6"
+    "mocha": "^10.2.0"
   },
   "license": "MIT"
 }
