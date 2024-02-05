@@ -35,7 +35,7 @@ const dynamicmode = (
     case modes.tiddlywiki:
     case modes.mermaid:
       // @ts-ignore
-      cme.push(tiddlywiki({ base: tiddlywikiLanguage }));
+      cme.push(tiddlywiki({}));
 
       cm6.foldByIndent() && cme.push(foldByIndent());
 

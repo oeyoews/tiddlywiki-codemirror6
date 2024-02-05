@@ -10,6 +10,7 @@ import {
 } from '@codemirror/language';
 
 export const tiddlywikiLanguage = LRLanguage.define({
+  name: 'tiddlywiki',
   parser: parser.configure({
     props: [
       indentNodeProp.add({
@@ -27,7 +28,8 @@ export const tiddlywikiLanguage = LRLanguage.define({
         open: '<!--',
         close: '-->'
       }
-    }
+    },
+    indentOnInput: /^\s*<\/\w+\W$/
   }
 });
 
@@ -39,6 +41,6 @@ export const tiddlywikiLanguage = LRLanguage.define({
 // ])
 // });
 
-export function tiddlywiki() {
+export function tiddlywiki(config = {}) {
   return new LanguageSupport(tiddlywikiLanguage, []);
 }

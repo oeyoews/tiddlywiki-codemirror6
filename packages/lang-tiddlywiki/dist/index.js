@@ -2,6 +2,7 @@ import { parser, tiddlywikiHighlighting } from 'lezer-tiddlywiki';
 import { LRLanguage, indentNodeProp, delimitedIndent, foldNodeProp, foldInside, LanguageSupport } from '@codemirror/language';
 
 const tiddlywikiLanguage = /*@__PURE__*/LRLanguage.define({
+    name: 'tiddlywiki',
     parser: /*@__PURE__*/parser.configure({
         props: [
             /*@__PURE__*/indentNodeProp.add({
@@ -19,7 +20,8 @@ const tiddlywikiLanguage = /*@__PURE__*/LRLanguage.define({
                 open: '<!--',
                 close: '-->'
             }
-        }
+        },
+        indentOnInput: /^\s*<\/\w+\W$/
     }
 });
 // export const tiddlywikiCompletion = tiddlywikiLanguage.data.of({
@@ -29,7 +31,7 @@ const tiddlywikiLanguage = /*@__PURE__*/LRLanguage.define({
 //   { label: 'let', type: 'keyword' }
 // ])
 // });
-function tiddlywiki() {
+function tiddlywiki(config = {}) {
     return new LanguageSupport(tiddlywikiLanguage, []);
 }
 

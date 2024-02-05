@@ -4,6 +4,7 @@ var lezerTiddlywiki = require('lezer-tiddlywiki');
 var language = require('@codemirror/language');
 
 const tiddlywikiLanguage = language.LRLanguage.define({
+    name: 'tiddlywiki',
     parser: lezerTiddlywiki.parser.configure({
         props: [
             language.indentNodeProp.add({
@@ -21,7 +22,8 @@ const tiddlywikiLanguage = language.LRLanguage.define({
                 open: '<!--',
                 close: '-->'
             }
-        }
+        },
+        indentOnInput: /^\s*<\/\w+\W$/
     }
 });
 // export const tiddlywikiCompletion = tiddlywikiLanguage.data.of({
@@ -31,7 +33,7 @@ const tiddlywikiLanguage = language.LRLanguage.define({
 //   { label: 'let', type: 'keyword' }
 // ])
 // });
-function tiddlywiki() {
+function tiddlywiki(config = {}) {
     return new language.LanguageSupport(tiddlywikiLanguage, []);
 }
 
