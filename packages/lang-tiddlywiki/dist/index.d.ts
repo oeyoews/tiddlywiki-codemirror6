@@ -1,6 +1,11 @@
-import { LRLanguage, LanguageSupport } from '@codemirror/language';
+import { LRLanguage, LanguageSupport, Language, LanguageDescription } from '@codemirror/language';
 
 declare const tiddlywikiLanguage: LRLanguage;
-declare function tiddlywiki(config?: {}): LanguageSupport;
+type ITiddlywikiConfig = {
+    defaultCodeLanguage?: Language | LanguageSupport;
+    codeLanguages?: readonly LanguageDescription[] | ((info: string) => Language | LanguageDescription | null);
+    completeHTMLTags?: boolean;
+};
+declare function tiddlywiki(config?: ITiddlywikiConfig): LanguageSupport;
 
 export { tiddlywiki, tiddlywikiLanguage };

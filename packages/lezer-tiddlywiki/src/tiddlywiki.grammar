@@ -5,9 +5,9 @@
 expression {
   Identifier |
   Heading |
-  Delete |
+  Strikethrough |
   Bold |
-  UnderLine |
+  Underscore |
   Italic |
   List |
   Blockquote |
@@ -20,9 +20,9 @@ expression {
 @tokens {
   Identifier { "@@" ![\n]* "@@" }
   Heading { ($[!]+) @whitespace ![\n]* }
-  Delete { "~~" ![\n]*  "~~"}
+  Strikethrough { "~~" ![\n]*  "~~"}
   Bold { "''" ![\n]*  "''"}
-  UnderLine { "__" ![\n]*  "__"}
+  Underscore { "__" ![\n]*  "__"}
   Italic { "//" ![\n]*  "//"}
   List { $[#]+ @whitespace }
   Blockquote { ">" @whitespace }

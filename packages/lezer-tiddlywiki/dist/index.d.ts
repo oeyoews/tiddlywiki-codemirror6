@@ -1,8 +1,8 @@
 import { LRParser } from '@lezer/lr';
-import * as _pnpm__lezer_common_1_2_1_node_modules__lezer_common from '.pnpm/@lezer+common@1.2.1/node_modules/@lezer/common';
+import { NodePropSource } from '@lezer/common';
 
 declare const parser: LRParser;
 
-declare const tiddlywikiHighlighting: _pnpm__lezer_common_1_2_1_node_modules__lezer_common.NodePropSource;
+declare const tiddlywikiHighlighting: NodePropSource;
 
-export { parser, tiddlywikiHighlighting };
+export { parser as TiddlyWikiParser, tiddlywikiHighlighting };

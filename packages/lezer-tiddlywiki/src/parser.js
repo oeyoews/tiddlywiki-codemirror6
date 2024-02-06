@@ -6,7 +6,7 @@ export const parser = LRParser.deserialize({
   states: "nQVQPOOOOQO'#Cn'#CnOOQO'#Cj'#CjQVQPOOOOQO-E6h-E6h",
   stateData: "}~OaOS~OQPORPOSPOTPOUPOVPOWPOXPOYPOZPO[PO]PO~O",
   goto: "ncPPPPPPPPPPPPPPdPPPjQRORSRTQOR",
-  nodeNames: "⚠ Program Identifier Heading Delete Bold UnderLine Italic List Blockquote LineComment Definition Keyword Image",
+  nodeNames: "⚠ Program Identifier Heading Strikethrough Bold Underscore Italic List Blockquote LineComment Definition Keyword Image",
   maxTerm: 18,
   propSources: [tiddlywikiHighlighting],
   skippedNodes: [0],
