@@ -9,6 +9,7 @@ import { EditorView, KeyBinding } from '@codemirror/view';
 import { cursorSyntaxLeft, cursorSyntaxRight } from '@codemirror/commands';
 import { IWidget } from '@/cm6/types/IWidget';
 import { notify } from '@/cm6/config';
+import { updateSaveStatus } from '@/cm6/modules/constants/saveStatus';
 
 const saveTiddlerCmd = (widget: IWidget) => {
   return (view: EditorView) => {
@@ -16,8 +17,14 @@ const saveTiddlerCmd = (widget: IWidget) => {
       'draft.title'
     ] as string;
     const text = view.state.doc.toString();
+    const lines = view.state.doc.lineAt(1);
     $tw.wiki.setText(title, 'text', '', text);
     $tw.notifier.display(notify.save);
+    updateSaveStatus(true);
+    // HACK: to update codemirror6 state
+    view.dispatch({
+      changes: { from: lines.from, to: lines.to, insert: lines.text }
+    });
     return true;
   };
 };

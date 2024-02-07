@@ -1,9 +1,17 @@
 import { showPanel, EditorView, Panel } from '@codemirror/view';
 import type { Text } from '@codemirror/state';
+import { statusTiddler } from '@/cm6/modules/constants/saveStatus';
+
+function getSaveStatus() {
+  const status = $tw.wiki.getTiddlerText(statusTiddler);
+  const statusValue = status === 'yes' ? true : false;
+  return statusValue ? 'Saved' : 'Unsaved';
+}
 
 function countWords(doc: Text) {
   let count = 0,
     iter = doc.iter();
+  const Save = getSaveStatus();
 
   while (!iter.next().done) {
     let inWord = false;
@@ -18,7 +26,7 @@ function countWords(doc: Text) {
   }
 
   // TODO: check user language
-  return `Words：${count} (Chars：${doc.length})`;
+  return `Words：${count} (Chars：${doc.length}) | ${Save}`;
 }
 
 function charCountPanel(view: EditorView): Panel {

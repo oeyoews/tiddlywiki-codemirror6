@@ -1,3 +1,7 @@
+import {
+  statusTiddler,
+  updateSaveStatus
+} from '@/cm6/modules/constants/saveStatus';
 import autocomplete from '@/cm6/config/autocomplete';
 import {
   defaultHighlightStyle,
@@ -178,6 +182,7 @@ export function cme(self: any): Extension[] {
       }
 
       if (v.docChanged) {
+        updateSaveStatus(false);
         const text = cm.state.doc.toString();
         self.widget.saveChanges(text); // update text with tiddlywiki api
       }

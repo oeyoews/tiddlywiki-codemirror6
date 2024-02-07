@@ -7,6 +7,7 @@ export default function setVimKeymap(widget?: IWidget) {
   Vim.map('H', '0', 'normal');
   Vim.map('L', '$', 'normal');
 
+  // TODO: update panel save status
   const saveTiddler = () => {
     const title = $tw.wiki.getTiddler(widget?.editTitle!)?.fields[
       'draft.title'
