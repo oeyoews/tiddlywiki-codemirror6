@@ -5,8 +5,10 @@ import { statusTiddler } from '@/cm6/modules/constants/saveStatus';
 function getSaveStatus() {
   const status = $tw.wiki.getTiddlerText(statusTiddler);
   const statusValue = status === 'yes' ? true : false;
-  return statusValue ? 'Saved' : 'Unsaved';
+  return statusValue ? 'save' : 'unsave';
 }
+
+type ISave = ReturnType<typeof getSaveStatus>;
 
 function countWords(doc: Text) {
   let count = 0,
@@ -24,13 +26,7 @@ function countWords(doc: Text) {
     }
   }
 
-  // TODO: check user language
   return `Words: ${count} (Chars: ${doc.length})`;
-}
-
-function tiddlerSaved() {
-  const Save = getSaveStatus();
-  return Save;
 }
 
 function charCountPanel(view: EditorView): Panel {
@@ -44,11 +40,10 @@ function charCountPanel(view: EditorView): Panel {
 
   leftNode.textContent = countWords(view.state.doc);
 
-  rightNode.style.cssText =
-    tiddlerSaved() === 'Saved' ? getStyles('save') : getStyles('unsave');
+  rightNode.style.cssText = getStyles(getSaveStatus());
   dom.append(leftNode, rightNode);
 
-  function getStyles(status: 'save' | 'unsave') {
+  function getStyles(status: ISave) {
     let color;
     if (status === 'save') {
       color = 'rgb(34, 197, 94)';
@@ -56,7 +51,7 @@ function charCountPanel(view: EditorView): Panel {
       color = '#f87171';
     }
 
-    const styles = `background-color: ${color};border-radius: 9999px; width: 0.75rem; height: 0.75rem; margin-block-start: 0.5em;margin-block-end: 0.5em `;
+    const styles = `background-color: ${color};border-radius: 9999px; width: 0.65rem; height: 0.65rem; 0.5em; margin: 0.5em;`;
     return styles;
   }
 
@@ -67,8 +62,7 @@ function charCountPanel(view: EditorView): Panel {
         leftNode.textContent = countWords(view.state.doc);
 
         leftNode.textContent = countWords(view.state.doc);
-        rightNode.style.cssText =
-          tiddlerSaved() === 'Saved' ? getStyles('save') : getStyles('unsave');
+        rightNode.style.cssText = getStyles(getSaveStatus());
       }
     }
   };
