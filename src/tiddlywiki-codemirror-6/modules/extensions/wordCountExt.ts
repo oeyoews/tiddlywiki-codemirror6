@@ -43,9 +43,22 @@ function charCountPanel(view: EditorView): Panel {
     'color: grey; font-size:0.8rem;display: flex; justify-content: space-between;';
 
   leftNode.textContent = countWords(view.state.doc);
-  rightNode.textContent = tiddlerSaved();
-  rightNode.style.color = tiddlerSaved() === 'Saved' ? 'green' : '#BF616A';
+
+  rightNode.style.cssText =
+    tiddlerSaved() === 'Saved' ? getStyles('save') : getStyles('unsave');
   dom.append(leftNode, rightNode);
+
+  function getStyles(status: 'save' | 'unsave') {
+    let color;
+    if (status === 'save') {
+      color = 'rgb(34, 197, 94)';
+    } else {
+      color = '#f87171';
+    }
+
+    const styles = `background-color: ${color};border-radius: 9999px; width: 0.75rem; height: 0.75rem; margin-block-start: 0.5em;margin-block-end: 0.5em `;
+    return styles;
+  }
 
   return {
     dom,
@@ -54,9 +67,8 @@ function charCountPanel(view: EditorView): Panel {
         leftNode.textContent = countWords(view.state.doc);
 
         leftNode.textContent = countWords(view.state.doc);
-        rightNode.textContent = tiddlerSaved();
-        rightNode.style.color =
-          tiddlerSaved() === 'Saved' ? 'green' : '#BF616A';
+        rightNode.style.cssText =
+          tiddlerSaved() === 'Saved' ? getStyles('save') : getStyles('unsave');
       }
     }
   };
