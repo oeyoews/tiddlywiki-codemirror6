@@ -11,7 +11,6 @@ function getSaveStatus() {
 function countWords(doc: Text) {
   let count = 0,
     iter = doc.iter();
-  const Save = getSaveStatus();
 
   while (!iter.next().done) {
     let inWord = false;
@@ -26,19 +25,39 @@ function countWords(doc: Text) {
   }
 
   // TODO: check user language
-  return `Words: ${count} (Chars: ${doc.length}) | ${Save}`;
+  return `Words: ${count} (Chars: ${doc.length})`;
+}
+
+function tiddlerSaved() {
+  const Save = getSaveStatus();
+  return Save;
 }
 
 function charCountPanel(view: EditorView): Panel {
   const dom = document.createElement('div');
+
+  const leftNode = document.createElement('div');
+  const rightNode = document.createElement('div');
+
   dom.style.cssText =
-    'color: grey; font-size:0.8rem;display: flex; justify-content: end;';
-  dom.textContent = countWords(view.state.doc);
+    'color: grey; font-size:0.8rem;display: flex; justify-content: space-between;';
+
+  leftNode.textContent = countWords(view.state.doc);
+  rightNode.textContent = tiddlerSaved();
+  rightNode.style.color = tiddlerSaved() === 'Saved' ? 'green' : '#BF616A';
+  dom.append(leftNode, rightNode);
 
   return {
     dom,
     update(update) {
-      if (update.docChanged) dom.textContent = countWords(update.state.doc);
+      if (update.docChanged) {
+        leftNode.textContent = countWords(view.state.doc);
+
+        leftNode.textContent = countWords(view.state.doc);
+        rightNode.textContent = tiddlerSaved();
+        rightNode.style.color =
+          tiddlerSaved() === 'Saved' ? 'green' : '#BF616A';
+      }
     }
   };
 }
