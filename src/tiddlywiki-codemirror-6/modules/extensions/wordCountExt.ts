@@ -29,18 +29,31 @@ function countWords(doc: Text) {
   return `Words: ${count} (Chars: ${doc.length})`;
 }
 
+const getPosPercent = (view: EditorView) => {
+  const pos = view.state.selection.main.head;
+  const doc = view.state.doc;
+  const totalLength = doc.length;
+  const currentLine = doc.lineAt(pos).number;
+  const totalLine = doc.lineAt(totalLength).number;
+  const percent = Math.round((currentLine / totalLine) * 100) + ' %';
+  return percent;
+};
+
 function charCountPanel(view: EditorView): Panel {
   const dom = document.createElement('div');
 
   const leftNode = document.createElement('div');
+  // const lineInfo = document.createElement('div');
   const rightNode = document.createElement('div');
 
   dom.style.cssText =
     'color: grey; font-size:0.8rem;display: flex; justify-content: space-between;';
 
+  // lineInfo.textContent = getPosPercent(view);
   leftNode.textContent = countWords(view.state.doc);
 
   rightNode.style.cssText = getStyles(getSaveStatus());
+
   dom.append(leftNode, rightNode);
 
   function getStyles(status: ISave) {
@@ -60,8 +73,9 @@ function charCountPanel(view: EditorView): Panel {
     update(update) {
       if (update.docChanged) {
         leftNode.textContent = countWords(view.state.doc);
-
         leftNode.textContent = countWords(view.state.doc);
+
+        lineInfo.textContent = getPosPercent(view);
         rightNode.style.cssText = getStyles(getSaveStatus());
       }
     }
