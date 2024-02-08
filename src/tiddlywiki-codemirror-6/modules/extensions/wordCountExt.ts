@@ -75,7 +75,7 @@ function charCountPanel(view: EditorView): Panel {
         leftNode.textContent = countWords(view.state.doc);
         leftNode.textContent = countWords(view.state.doc);
 
-        lineInfo.textContent = getPosPercent(view);
+        // lineInfo.textContent = getPosPercent(view);
         rightNode.style.cssText = getStyles(getSaveStatus());
       }
     }
