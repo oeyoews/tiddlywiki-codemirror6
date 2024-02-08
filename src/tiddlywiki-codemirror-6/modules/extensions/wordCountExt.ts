@@ -32,9 +32,8 @@ function countWords(doc: Text) {
 const getPosPercent = (view: EditorView) => {
   const pos = view.state.selection.main.head;
   const doc = view.state.doc;
-  const totalLength = doc.length;
   const currentLine = doc.lineAt(pos).number;
-  const totalLine = doc.lineAt(totalLength).number;
+  const totalLine = doc.lines;
   const percent = Math.round((currentLine / totalLine) * 100) + ' %';
   return percent;
 };
