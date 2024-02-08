@@ -6,8 +6,9 @@ import { css, cssLanguage } from '@codemirror/lang-css';
 import cm6, { modes } from '@/cm6/config';
 import { foldByIndent } from '@/cm6/modules/extensions/foldByIndent';
 import { markdown, markdownLanguage } from '@codemirror/lang-markdown';
-import { StreamLanguage } from '@codemirror/language';
-import { tiddlyWiki } from '@codemirror/legacy-modes/mode/tiddlywiki';
+
+// import { StreamLanguage } from '@codemirror/language';
+// import { tiddlyWiki } from '@codemirror/legacy-modes/mode/tiddlywiki';
 
 import { javascript, javascriptLanguage } from '@codemirror/lang-javascript';
 

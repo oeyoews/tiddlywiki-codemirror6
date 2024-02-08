@@ -10,6 +10,7 @@ import { cursorSyntaxLeft, cursorSyntaxRight } from '@codemirror/commands';
 import { IWidget } from '@/cm6/types/IWidget';
 import { notify } from '@/cm6/config';
 import { updateSaveStatus } from '@/cm6/modules/constants/saveStatus';
+import { gotoLine } from '@codemirror/search';
 
 const saveTiddlerCmd = (widget: IWidget) => {
   return (view: EditorView) => {
@@ -63,11 +64,13 @@ export const userKeymap = (widget: IWidget): KeyBinding[] => {
       scope: 'editor',
       run: acceptCompletion
     },
-    // {
-    //   key: 'Ctrl-Shift-j',
-    //   scope: 'editor',
-    //   run: gotoLine
-    // },
+    {
+      key: 'Ctrl-Shift-j',
+      scope: 'editor',
+      preventDefault: true,
+      stopPropagation: true,
+      run: gotoLine
+    },
     {
       key: 'Ctrl-j',
       scope: 'editor',
