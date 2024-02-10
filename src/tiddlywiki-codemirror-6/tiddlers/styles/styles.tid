@@ -73,12 +73,11 @@ body {
 	color: <<colour-extend cm-selection-foreground>> !important;
 }
 
-.cm-cursor, .cm-dropCursor {
-	border-left-color: <<colour cm-caret-colour>> !important;
-}
-
-.cm-cursor, .cm-dropCursor {
+.cm-cursor,
+.cm-dropCursor {
 	border-left: {{$:/config/codemirror-6/cursor-thickness}} solid !important;
+    <!-- not work -->
+	border-left-color: <<colour cm-caret-colour>> !important;
 }
 
 .cm-activeLine, .cm-activeLineGutter {
