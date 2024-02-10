@@ -64,13 +64,13 @@ export const userKeymap = (widget: IWidget): KeyBinding[] => {
       scope: 'editor',
       run: acceptCompletion
     },
-    {
-      key: 'Ctrl-Shift-j',
-      scope: 'editor',
-      preventDefault: true,
-      stopPropagation: true,
-      run: gotoLine
-    },
+    // {
+    //   key: 'Ctrl-Shift-j',
+    //   scope: 'editor',
+    //   preventDefault: true,
+    //   stopPropagation: true,
+    //   run: gotoLine
+    // },
     {
       key: 'Ctrl-j',
       scope: 'editor',

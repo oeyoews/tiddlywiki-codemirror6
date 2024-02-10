@@ -1,6 +1,6 @@
 {
   "name": "lang-tiddlywiki",
-  "version": "1.6.8",
+  "version": "1.6.9",
   "description": "",
   "scripts": {
     "build": "cm-buildhelper src/tiddlywiki.ts"

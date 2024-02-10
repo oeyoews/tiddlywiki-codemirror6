@@ -1,5 +1,7 @@
 title: $:/language/codemirror6/
 
+enableMaxheight/caption: 📝 Enable Max Height
+enableMaxheight/description: Enable Max Height
 lines/caption: 📝 Lines
 lines/description: Lines
 todobox/caption: 📝 Task checkbox

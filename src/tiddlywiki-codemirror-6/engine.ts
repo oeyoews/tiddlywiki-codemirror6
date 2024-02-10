@@ -30,6 +30,7 @@ class CodeMirrorEngine {
   private cm: EditorView;
   private state: EditorState;
   private dragCancel: boolean = false;
+  private maxHeight: string = '';
 
   constructor(options = {} as IOptions) {
     this.widget = options.widget;
@@ -37,6 +38,14 @@ class CodeMirrorEngine {
     this.nextSibling = options.nextSibling;
 
     this.domNode = this.widget.document.createElement('div');
+    if (cm6.enableMaxheight()) {
+      this.maxHeight = $tw.wiki.getTiddlerText(
+        '$:/config/TextEditor/EditorHeight/Height'
+      )!;
+
+      this.domNode.style.maxHeight = this.maxHeight;
+      this.domNode.style.overflow = 'auto';
+    }
 
     this.parentNode.insertBefore(this.domNode, this.nextSibling);
     this.widget.domNodes.push(this.domNode);
