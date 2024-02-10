@@ -1,9 +1,0 @@
-caption: {{$:/language/codemirror6/EditorHeight/caption}}
-caption-zh: {{$:/language/codemirror6/zh/EditorHeight/caption}}
-created: 20240210035527273
-description: {{$:/language/codemirror6/EditorHeight/description}}
-description-zh: {{$:/language/codemirror6/zh/EditorHeight/description}}
-modified: 20240210035527273
-settings-template: $:/plugins/oeyoews/tiddlywiki-codemirror-6/ui/templates/settings/input
-title: $:/config/codemirror-6/EditorHeight
-type: text/vnd.tiddlywiki
