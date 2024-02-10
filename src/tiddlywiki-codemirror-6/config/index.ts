@@ -20,11 +20,12 @@ function getConfig(title: string) {
 // NOTE: 对应配置的 caption 不要写成 TxxxBxxx 格式。
 
 export const tiddlers = {
-  enableMaxheight: {
+  EditorHeight: {
     caption: {
-      zh: '启用最大高度',
-      en: 'Enable Max Height'
-    }
+      zh: '最大高度',
+      en: 'Max Height'
+    },
+    text: '100vh'
   },
   lines: {
     caption: {
