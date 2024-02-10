@@ -1,5 +1,7 @@
 title: $:/language/codemirror6/zh/
 
+lines/caption: 📝 行数
+lines/description: 行数
 todobox/caption: 📝 代办事项复选框
 todobox/description: 代办事项复选框
 checkbox/caption: 📝 复选框

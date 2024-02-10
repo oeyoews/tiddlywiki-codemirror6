@@ -3,30 +3,19 @@
   "compilerOptions": {
     "declaration": false,
     "baseUrl": "./",
-    "typeRoots": [
-      "node_modules/@types",
-      "node_modules/@oeyoews/tw5-typed"
-    ],
+    "typeRoots": ["node_modules/@types", "node_modules/@oeyoews/tw5-typed"],
     "newLine": "lf",
-    "lib": [
-      "DOM",
-      "ESNext"
-    ],
+    "lib": ["DOM", "ESNext"],
     "paths": {
       // "@/*": [
       //   "./src/*"
       // ],
-      "@/cm6/*": [
-        "./src/tiddlywiki-codemirror-6/*"
-      ]
+      "@/cm6/*": ["./src/tiddlywiki-codemirror-6/*"]
     }
   },
-  "include": [
-    "src",
-    "scripts/**/*.ts"
-  ],
+  "include": ["src", "scripts/**/*.ts"],
   "exclude": [
-    "./**/*.js",
+    "./**/*.js"
     // "packages/**"
   ]
 }

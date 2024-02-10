@@ -20,6 +20,13 @@ function getConfig(title: string) {
 // NOTE: 对应配置的 caption 不要写成 TxxxBxxx 格式。
 
 export const tiddlers = {
+  lines: {
+    caption: {
+      zh: '行数',
+      en: 'Lines'
+    },
+    text: 1
+  },
   todobox: {
     caption: {
       zh: '代办事项复选框',

@@ -1,6 +1,7 @@
 import { EditorState, EditorSelection, Extension } from '@codemirror/state';
 import { openSearchPanel, closeSearchPanel } from '@codemirror/search';
 
+import cm6 from './config';
 import { completionStatus } from '@codemirror/autocomplete';
 import { undo, redo } from '@codemirror/commands';
 
@@ -51,13 +52,17 @@ class CodeMirrorEngine {
     dynamicmode(options.type, this.cme, this.widget, this);
 
     this.state = EditorState.create({
-      doc: options.value,
+      doc: options.value || '\n'.repeat(cm6.lines() - 1),
       extensions: this.cme
     });
 
     // create a codemirror6 instance
     this.cm = new EditorView({
       parent: this.domNode,
+      /*       selection: {
+        anchor: 1,
+        head: 3
+      }, */
       state: this.state
     });
   }

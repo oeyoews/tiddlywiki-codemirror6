@@ -1,0 +1,8 @@
+title: $:/config/codemirror-6/lines
+caption: {{$:/language/codemirror6/lines/caption}}
+caption-zh: {{$:/language/codemirror6/zh/lines/caption}}
+description: {{$:/language/codemirror6/lines/description}}
+description-zh: {{$:/language/codemirror6/zh/lines/description}}
+settings-template: $:/plugins/oeyoews/tiddlywiki-codemirror-6/ui/templates/settings/input
+
+3

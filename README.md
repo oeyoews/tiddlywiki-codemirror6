@@ -13,15 +13,15 @@ https://user-images.githubusercontent.com/72405338/294956491-948b791f-04e1-4447-
 - [vercel demo](https://tiddlywiki-codemirror6.vercel.app) or [gh-page demo](https://oeyoews.github.io/tiddlywiki-codemirror6)
 
 | Emoji 补全                   | Wiki Mode                           | 代码片段补全                               |
-|------------------------------|-------------------------------------|--------------------------------------------|
+| ---------------------------- | ----------------------------------- | ------------------------------------------ |
 | ![emoji](./assets/emoji.png) | ![wikimode](./assets/wiki-mode.png) | ![usersnippets](./assets/usersnippets.gif) |
 
 | tiddler 补全               | widget 补全                    | 图片补全                     |
-|----------------------------|--------------------------------|------------------------------|
+| -------------------------- | ------------------------------ | ---------------------------- |
 | ![link](./assets/link.gif) | ![widget](./assets/widget.gif) | ![image](./assets/image.gif) |
 
 | 颜色修改                     | Link 预览                                 |
-|------------------------------|-------------------------------------------|
+| ---------------------------- | ----------------------------------------- |
 | ![color](./assets/color.png) | ![linkpreview](./assets/link-preview.gif) |
 
 ## FileStruct

@@ -1,5 +1,7 @@
 title: $:/language/codemirror6/
 
+lines/caption: 📝 Lines
+lines/description: Lines
 todobox/caption: 📝 Task checkbox
 todobox/description: Task checkbox
 checkbox/caption: 📝 Checkbox
