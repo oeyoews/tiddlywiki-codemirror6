@@ -52,7 +52,15 @@ class CodeMirrorEngine {
     dynamicmode(options.type, this.cme, this.widget, this);
 
     this.state = EditorState.create({
-      doc: options.value || '\n'.repeat(cm6.lines() - 1),
+      doc:
+        options.value ||
+        '\n'.repeat(
+          Math.abs(
+            Number(cm6.lines() - 1) >= 0 && cm6.lines() < 20
+              ? cm6.lines() - 1
+              : 0
+          )
+        ),
       extensions: this.cme
     });
 

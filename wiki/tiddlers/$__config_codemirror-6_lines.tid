@@ -1,0 +1,11 @@
+caption: {{$:/language/codemirror6/lines/caption}}
+caption-zh: {{$:/language/codemirror6/zh/lines/caption}}
+created: 20240210031001169
+description: {{$:/language/codemirror6/lines/description}}
+description-zh: {{$:/language/codemirror6/zh/lines/description}}
+modified: 20240210031316673
+settings-template: $:/plugins/oeyoews/tiddlywiki-codemirror-6/ui/templates/settings/input
+title: $:/config/codemirror-6/lines
+type: text/vnd.tiddlywiki
+
+3
