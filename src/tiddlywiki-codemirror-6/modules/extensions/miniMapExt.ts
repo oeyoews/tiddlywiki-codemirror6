@@ -12,7 +12,6 @@ export function miniMapExt(cme: Extension[]) {
 
   if (cm6.minimap()) {
     cme.push(
-      // @ts-ignore
       showMinimap.compute(['doc'], (state) => {
         return {
           create: miniMapNode,
