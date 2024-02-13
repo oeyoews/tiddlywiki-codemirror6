@@ -24,6 +24,7 @@ export default (widget: IWidget, self: any) => {
     if (cm.composing) return;
 
     const nodeBefore = syntaxTree(context.state).resolveInner(context.pos);
+    console.log(nodeBefore.name);
     if (!cm6.commentComplete()) {
       if (
         nodeBefore.name === 'LineComment' ||

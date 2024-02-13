@@ -5,7 +5,7 @@ import { NodePropSource } from '@lezer/common';
 type IRules = keyof typeof Rules;
 type ITags = Record<IRules, Tag>;
 
-const tags: Omit<ITags, 'Program'> = {
+const tags: Omit<ITags, 'Document'> = {
   Bold: t.strong,
   Italic: t.emphasis,
   Strikethrough: t.strikethrough,

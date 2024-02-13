@@ -1,4 +1,4 @@
-@top Program { expression* }
+@top Document { expression* }
 
 @skip { space }
 
