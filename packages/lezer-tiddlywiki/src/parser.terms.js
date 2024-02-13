@@ -12,4 +12,5 @@ export const
   LineComment = 10,
   Definition = 11,
   Keyword = 12,
-  Image = 13
+  Macro = 13,
+  Image = 14

@@ -14,6 +14,7 @@ expression {
   LineComment |
   Definition |
   Keyword |
+  Macro |
   Image
 }
 
@@ -23,13 +24,14 @@ expression {
   Strikethrough { "~~" ![\n]*  "~~"}
   Bold { "''" ![\n]*  "''"}
   Underscore { "__" ![\n]*  "__"}
-  Italic { "//" ![\n]*  "//"}
-  List { $[#]+ @whitespace }
+  Italic { "//" ![\n]* "//"}
+  List { $[#]+ ![\n]* }
   Blockquote { ">" @whitespace }
   LineComment { "<!--" ![\n]* "-->" }
-  Definition { ";" ![\n]* }
+  Definition { $[;] ![\n]* }
   Keyword { "<$list " | "</$list>" | '<$set ' | "</$set>" | "<$vars " | "</$vars>" | "<$link>" | "<$text " | "filter=" | "<% " ![\n]* "%>"  | "<% " ("else" | "elseif" | "endif") @whitespace "%>" | "<$list-template>" | "<$list-empty>" | "</$list-template>" | "</$list-empty>" }
-  Image { ("<<" | "[img " |"[img[" | "[[" | "{{" | "{{{" ) ![\n]* ("]]" | "}}" | "}}}" | ">>") }
+  Macro { ("<<" ![\n]* ">>") }
+  Image { ("[img " |"[img[" | "[[" | "{{" | "{{{" ) ![\n]* ("]]" | "}}" | "}}}") }
   space { $[ \t\n\r]+ }
 }
 
