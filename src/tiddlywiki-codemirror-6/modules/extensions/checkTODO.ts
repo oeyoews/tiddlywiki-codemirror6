@@ -23,6 +23,7 @@ class CheckboxWidget extends WidgetType {
     let box = wrap.appendChild(document.createElement('input'));
     box.type = 'checkbox';
     box.style.cursor = 'pointer';
+    box.style.marginLeft = '0.2em';
     box.checked = this.checked;
     return wrap;
   }
@@ -32,6 +33,9 @@ class CheckboxWidget extends WidgetType {
   }
 }
 
+const checkedBox = '- [x]';
+const uncheckedBox = '- [ ]';
+
 function checkboxes(view: EditorView) {
   let widgets: any[] = [];
   for (let { from, to } of view.visibleRanges) {
@@ -40,8 +44,8 @@ function checkboxes(view: EditorView) {
       to,
       enter: (node) => {
         if (node.name !== 'TaskMarker') return;
-        const todoString = view.state.doc.sliceString(node.from, node.to);
-        let isChecked = todoString === '[x]';
+        const todoString = view.state.doc.sliceString(node.to - 5, node.to);
+        let isChecked = todoString === checkedBox;
 
         let deco = Decoration.widget({
           widget: new CheckboxWidget(isChecked),
@@ -58,10 +62,10 @@ function checkboxes(view: EditorView) {
 function toggleCheckbox(view: EditorView, pos: number) {
   let before = view.state.doc.sliceString(Math.max(0, pos - 5), pos);
   let change;
-  if (before == '- [ ]') {
-    change = { from: pos - 5, to: pos, insert: '- [x]' };
-  } else if (before == '- [x]')
-    change = { from: pos - 5, to: pos, insert: '- [ ]' };
+  if (before == uncheckedBox) {
+    change = { from: pos - 5, to: pos, insert: checkedBox };
+  } else if (before == checkedBox)
+    change = { from: pos - 5, to: pos, insert: uncheckedBox };
   else return false;
   view.dispatch({ changes: change });
   return true;
