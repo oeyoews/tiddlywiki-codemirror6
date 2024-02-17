@@ -63,6 +63,22 @@ export function filetypeSnippets(widget: IWidget) {
       text: item.replace('$:/language/Docs/Types/', '')
     }));
 
+  /*   type IFiletypeExtensions = {
+    [key: string]: {
+      type: string;
+    };
+  };
+
+  const filetypeExtensions: IFiletypeExtensions = $tw.config.fileExtensionInfo;
+  const filetypesData = Object.entries(filetypeExtensions);
+  const filetypes2 = filetypesData.map((filetype) => ({
+    title: filetype[0].slice(1),
+    text: filetype[1].type
+  }));
+
+  const filetypes = [...new Set(filetypes1.concat(filetypes2))];
+  console.log(filetypes1.concat(filetypes2)); */
+
   return filetypes.map(
     (item) =>
       ({

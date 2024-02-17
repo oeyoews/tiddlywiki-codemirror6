@@ -3,7 +3,6 @@ export const debounce = (
   delay = Number($tw.wiki.getTiddlerText('$:/config/Drafts/TypingTimeout'))
 ) => {
   let timer: ReturnType<typeof setTimeout> | null = null;
-  console.log('hhh');
   return function (...args: any[]) {
     if (timer) clearTimeout(timer);
     timer = setTimeout(() => {
