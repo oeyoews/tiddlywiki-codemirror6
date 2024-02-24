@@ -3,9 +3,9 @@ import * as Rules from './parser.terms.js';
 import { NodePropSource } from '@lezer/common';
 
 type IRules = keyof typeof Rules;
-type ITags = Record<IRules, Tag>;
+type ITags = Record<IRules & string, Tag>;
 
-const tags: Partial<ITags> & Record<string, Tag> = {
+const tags: Omit<ITags, 'Document'> = {
   Bold: t.strong,
   Italic: t.emphasis,
   Strikethrough: t.strikethrough,

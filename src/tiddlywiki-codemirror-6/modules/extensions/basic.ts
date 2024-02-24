@@ -44,6 +44,7 @@ export function cme(self: any): Extension[] {
 
     Prec.high(
       EditorView.domEventHandlers({
+        // TODO: markdown filetype drag view
         drop(event, view) {
           self.dragCancel = false;
           return self.handleDropEvent(event, view);
