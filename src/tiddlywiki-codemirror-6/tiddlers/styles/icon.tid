@@ -11,4 +11,4 @@ tags: $:/tags/Stylesheet
 </$list>
 \end
 
-<<icons "svg gif">>
+<<icons "svg gif plain json css md tiddlywiki js mermaid html">>
