@@ -63,9 +63,12 @@ body {
 	caret-color: <<colour cm-caret-colour>> !important;
 }
 
+<%if [[$:/themes/tiddlywiki/vanilla/settings/editorfontfamily]get[text]!match[]] %>
 .cm-scroller {
-	font-family: {{$:/themes/tiddlywiki/vanilla/settings/editorfontfamily}} !important;
+	font-family: <<condition>> !important;
 }
+<%endif %>
+
 
 .cm-editor ::selection, .cm-editor.cm-focused .cm-selectionBackground, .cm-selectionBackground, .cm-content ::selection {
 	<!-- background: initial !important; -->
