@@ -13,7 +13,8 @@ import {
   highlightActiveLineGutter,
   placeholder,
   highlightWhitespace,
-  highlightTrailingWhitespace
+  highlightTrailingWhitespace,
+  EditorView
 } from '@codemirror/view';
 
 import { vim } from '@replit/codemirror-vim';
@@ -34,6 +35,24 @@ export default function updateExtensions(cme: Extension[], widget: IWidget) {
     $tw.wiki.getTiddlerText('$:/palette')!
   )?.fields;
   const darkMode = fields?.['color-scheme'] === 'dark';
+
+  // https://github.com/replit/codemirror-vim/issues/119
+  // setup vim cursor style
+  cme.push(
+    Prec.high(
+      EditorView.theme({
+        '.cm-fat-cursor': {
+          borderRadius: '1px',
+          background: 'lightblue !important'
+        },
+        '&:not(.cm-focused) .cm-fat-cursor': {
+          outline: 'solid 1px lightblue !important',
+          background: 'none !important',
+          color: 'transparent !important'
+        }
+      })
+    )
+  );
 
   if (conf.onedark() && darkMode) {
     cme.push(oneDark);
