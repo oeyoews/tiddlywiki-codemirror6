@@ -183,7 +183,7 @@ export const tiddlers = {
       zh: '字体大小',
       en: 'Font Size'
     },
-    text: '18px',
+    text: '16px',
     icon: '📏',
     description: {
       zh: '设置字体大小以提高可读性。',
