@@ -53,6 +53,7 @@ export const tiddlers = {
     }
   },
   removeOutline: {
+    text: 'yes',
     caption: {
       en: 'remove editor outline',
       zh: '移除编辑器边框'
