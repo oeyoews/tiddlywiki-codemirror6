@@ -34,6 +34,8 @@ snippetPreview/caption: 📝 Snippet Preview
 snippetPreview/description: Enable preview for code snippets.
 linkPreview/caption: 🔗 Link Preview
 linkPreview/description: Enable preview for hyperlinks.
+fontFamily/caption: 📂 Font Family
+fontFamily/description: Set the font family for better readability.
 fontsize/caption: 📏 Font Size
 fontsize/description: Set the font size for better readability.
 wordCount/caption: 📊 Enable Word Count

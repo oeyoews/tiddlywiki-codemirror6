@@ -165,12 +165,25 @@ export const tiddlers = {
       en: 'Enable preview for hyperlinks.'
     }
   },
+  // TODO: support placehodler to show default font
+  fontFamily: {
+    caption: {
+      zh: '字体',
+      en: 'Font Family'
+    },
+    text: '',
+    icon: '📂',
+    description: {
+      zh: '设置字体以提高可读性。',
+      en: 'Set the font family for better readability.'
+    }
+  },
   fontsize: {
     caption: {
       zh: '字体大小',
       en: 'Font Size'
     },
-    text: '16px',
+    text: '18px',
     icon: '📏',
     description: {
       zh: '设置字体大小以提高可读性。',

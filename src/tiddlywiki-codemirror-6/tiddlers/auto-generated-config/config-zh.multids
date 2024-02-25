@@ -34,6 +34,8 @@ snippetPreview/caption: 📝 代码片段预览
 snippetPreview/description: 启用代码片段的预览。
 linkPreview/caption: 🔗 链接预览
 linkPreview/description: 启用超链接的预览。
+fontFamily/caption: 📂 字体
+fontFamily/description: 设置字体以提高可读性。
 fontsize/caption: 📏 字体大小
 fontsize/description: 设置字体大小以提高可读性。
 wordCount/caption: 📊 启用字数统计

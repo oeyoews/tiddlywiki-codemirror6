@@ -3,7 +3,17 @@ import cm6 from '@/cm6/config';
 
 /** @see-also https://codemirror.net/examples/styling */
 export default function () {
+  let font = $tw.wiki.getTiddlerText(
+    '$:/themes/tiddlywiki/vanilla/settings/editorfontfamily'
+  );
+  if (!font) {
+    font = cm6.fontFamily();
+  }
+
   return EditorView.theme({
+    '.cm-scroller': {
+      fontFamily: font!
+    },
     '&.cm-editor': {
       fontSize: cm6.fontsize()
     }

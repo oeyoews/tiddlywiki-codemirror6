@@ -46,8 +46,9 @@ body {
 
 \end
 
+<!-- use fontsize extension instead of style directly -->
+<!-- font-size: {{$:/config/codemirror-6/fontsize}}; -->
 .cm-editor {
-	<!-- font-size: {{$:/config/codemirror-6/fontsize}}; -->
 	color-scheme: {{{ [[$:/palette]get[text]!is[blank]] ~[[$:/palettes/vanilla]] +[get[color-scheme]] ~light }}};
 }
 
@@ -63,12 +64,12 @@ body {
 	caret-color: <<colour cm-caret-colour>> !important;
 }
 
-<%if [[$:/themes/tiddlywiki/vanilla/settings/editorfontfamily]get[text]!match[]] %>
+<!-- <%if [[$:/themes/tiddlywiki/vanilla/settings/editorfontfamily]get[text]!match[]] %>
 .cm-scroller {
 	font-family: <<condition>> !important;
 }
 <%endif %>
-
+ -->
 
 .cm-editor ::selection, .cm-editor.cm-focused .cm-selectionBackground, .cm-selectionBackground, .cm-content ::selection {
 	<!-- background: initial !important; -->
