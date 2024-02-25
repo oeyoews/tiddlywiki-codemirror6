@@ -46,7 +46,8 @@ export default function updateExtensions(cme: Extension[], widget: IWidget) {
           background: 'lightblue !important'
         },
         '&:not(.cm-focused) .cm-fat-cursor': {
-          outline: 'solid 1px lightblue !important',
+          // outline: 'solid 1px lightblue !important',
+          outline: 'none !important',
           background: 'none !important',
           color: 'transparent !important'
         }
@@ -72,12 +73,6 @@ export default function updateExtensions(cme: Extension[], widget: IWidget) {
     conf.clickable() && cme.push(linkExt, tidExt, imgExt);
     cme.push(rainbowBracketsWithText());
 
-    if (conf.vimmode()) {
-      setVimKeymap(widget);
-      cme.push(Prec.high(vim())); // NOTE: not support new Comparement usage
-    }
-    cme.push(keymap.of([...defaultKeymap]));
-
     conf.lineNumbers() && conf.foldGutter() && cme.push(foldGutter());
 
     conf.highlightActiveLine() &&
@@ -92,6 +87,12 @@ export default function updateExtensions(cme: Extension[], widget: IWidget) {
         EditorState.languageData.of(() => [{ autocomplete: completeAnyWord }])
       );
   }
+
+  if (conf.vimmode()) {
+    setVimKeymap(widget);
+    cme.push(Prec.high(vim())); // NOTE: not support new Comparement usage
+  }
+  cme.push(keymap.of([...defaultKeymap]));
 
   // NOTE: 优先级问题：最后放的 indent tab 优先级较低，需要使用 prec 提升
   cme.push(Prec.high(cmkeymaps(widget)));
