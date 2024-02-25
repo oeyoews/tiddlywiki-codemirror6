@@ -78,7 +78,8 @@ body {
 	border-left: {{$:/config/codemirror-6/cursor-thickness}} solid !important;
     <!-- not work -->
 	border-left-color: <<colour cm-caret-colour>> !important;
-	border-radius: 99px;
+	border-radius: 4px;
+	margin-left: 0.1em;
 }
 
 .cm-activeLine, .cm-activeLineGutter {
