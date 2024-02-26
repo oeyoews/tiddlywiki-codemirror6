@@ -141,10 +141,10 @@ body {
 	z-index: 9999 !important;
 } -->
 
-.cm-tooltip-autocomplete > ul > li {
+<!-- .cm-tooltip-autocomplete > ul > li {
 	font-family: {{$:/themes/tiddlywiki/vanilla/settings/editorfontfamily}} !important;
 	overflow: hidden;
-}
+} -->
 
 .cm-tooltip-autocomplete > ul > li[aria-selected], .cm-tooltip-autocomplete > ul > li:hover {
 	background-color: <<colour-extend cm-tooltip-selected-background>> !important;

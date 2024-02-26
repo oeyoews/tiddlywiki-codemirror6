@@ -14,6 +14,9 @@ export default function () {
     '.cm-scroller': {
       fontFamily: font!
     },
+    '.cm-tooltip-autocomplete > ul': {
+      fontFamily: `${font} !important`
+    },
     '&.cm-editor': {
       fontSize: cm6.fontsize()
     }
