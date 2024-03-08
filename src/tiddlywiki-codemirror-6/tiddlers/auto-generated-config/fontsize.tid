@@ -5,4 +5,4 @@ description: {{$:/language/codemirror6/fontsize/description}}
 description-zh: {{$:/language/codemirror6/zh/fontsize/description}}
 settings-template: $:/plugins/oeyoews/tiddlywiki-codemirror-6/ui/templates/settings/input
 
-18px
+16px
