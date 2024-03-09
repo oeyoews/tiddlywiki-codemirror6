@@ -11,6 +11,7 @@ import { markdown, markdownLanguage } from '@codemirror/lang-markdown';
 // import { tiddlyWiki } from '@codemirror/legacy-modes/mode/tiddlywiki';
 
 import { javascript, javascriptLanguage } from '@codemirror/lang-javascript';
+import { vue, vueLanguage } from '@codemirror/lang-vue';
 
 import { Extension, Prec } from '@codemirror/state';
 import { IWidget } from '../types/IWidget';
@@ -64,6 +65,8 @@ const dynamicmode = (
           // @ts-expect-error
           codeLanguages: (info: string) => {
             switch (info) {
+              case 'vue':
+                return vueLanguage;
               case 'javascript':
               case 'js':
               case 'ts':
