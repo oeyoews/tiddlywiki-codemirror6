@@ -25,7 +25,7 @@ export const tiddlers = {
       zh: '最大高度',
       en: 'Max Height'
     },
-    text: '100vh'
+    text: ''
   },
   lines: {
     caption: {
