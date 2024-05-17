@@ -25,7 +25,7 @@ jobs:
           node-version: latest
           cache: "pnpm"
       - name: Install Dependency
-        run: pnpm install --frozen-lockfile
+        run: pnpm install
 
       - name: Build Library and static website
         run: pnpm minify && pnpm run publish
