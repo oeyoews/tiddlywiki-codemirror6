@@ -101,6 +101,7 @@ const dynamicmode = (
       cme.push(html({ selfClosingTags: true }));
       break;
 
+    // toggle js boolean value
     case modes.javascript:
       cme.push(javascript());
       cm6.checkbox() && cme.push(checkboxPlugin);
