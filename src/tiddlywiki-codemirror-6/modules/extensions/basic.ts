@@ -117,8 +117,10 @@ export function cme(self: any): Extension[] {
         }
       })
     ),
+
     tooltips({
-      parent: self.domNode.ownerDocument?.body // NOTE: preview render bug: Cannot set property parentNode of #<Node> which has only a getter
+      parent: self.domNode
+      // parent: self.domNode.ownerDocument?.body // NOTE: preview render bug: Cannot set property parentNode of #<Node> which has only a getter
     }),
     // TODO
     // highlightSpecialChars({

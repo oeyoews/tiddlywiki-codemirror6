@@ -10,6 +10,7 @@ function getSaveStatus() {
 
 type ISave = ReturnType<typeof getSaveStatus>;
 
+// TODO: throttle
 function countWords(doc: Text) {
   let count = 0,
     iter = doc.iter();
