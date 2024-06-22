@@ -32,7 +32,7 @@
     "@modern-js/tsconfig": "2.46.1",
     "@oeyoews/prettier-config": "^1.0.2",
     "@oeyoews/tw5-typed": "^0.4.4",
-    "@types/node": "20.11.5",
+    "@types/node": "20.14.8",
     "@uiw/codemirror-theme-github": "^4.22.2",
     "rimraf": "5.0.7",
     "terser": "5.27.0",
