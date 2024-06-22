@@ -35,7 +35,7 @@
     "@types/node": "20.11.5",
     "@uiw/codemirror-theme-github": "^4.22.2",
     "rimraf": "5.0.7",
-    "terser": "5.27.0",
+    "terser": "5.31.1",
     "ts-node": "10.9.2",
     "typescript": "^5.5.2"
   },
