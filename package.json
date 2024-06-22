@@ -29,7 +29,7 @@
   },
   "devDependencies": {
     "@modern-js/eslint-config": "2.46.1",
-    "@modern-js/tsconfig": "2.46.1",
+    "@modern-js/tsconfig": "2.54.1",
     "@oeyoews/prettier-config": "^1.0.2",
     "@oeyoews/tw5-typed": "^0.4.4",
     "@types/node": "20.11.5",

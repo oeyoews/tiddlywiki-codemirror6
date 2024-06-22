@@ -97,8 +97,8 @@ importers:
         specifier: 2.46.1
         version: 2.46.1(@rsbuild/core@0.3.11)(@swc/helpers@0.5.3)(typescript@5.5.2)
       '@modern-js/tsconfig':
-        specifier: 2.46.1
-        version: 2.46.1
+        specifier: 2.54.1
+        version: 2.54.1
       '@oeyoews/prettier-config':
         specifier: ^1.0.2
         version: 1.0.2(prettier@3.3.2)
@@ -1171,8 +1171,8 @@ packages:
   '@modern-js/eslint-config@2.46.1':
     resolution: {integrity: sha512-cVudBdjvZVNSfrKMbVtEKQrmRVjQp4A3hmE7EIRKnBAFBByI6tXGmNKOubtUN5Zj6XPOnYUXqyT2JE/jhT2G2g==}
 
-  '@modern-js/tsconfig@2.46.1':
-    resolution: {integrity: sha512-LaDAQwzy59X3QP5YR4iH3ZGlI3nUFhzQ7LLFMbbI6yx3CtP5/RCOPpk9aPG4RMQwcf1FR4bEJQAJvUNhfKclHQ==}
+  '@modern-js/tsconfig@2.54.1':
+    resolution: {integrity: sha512-ENpH6A0AvqEiU/cVwrBtJJGWj40y7MjN4xOUrFCGdX+RsnVqhSr5tkWBxXu6EZ/3SkYwFaqpqhLvJyIqMgJ9sQ==}
 
   '@module-federation/runtime-tools@0.0.8':
     resolution: {integrity: sha512-tqx3wlVHnpWLk+vn22c0x9Nv1BqdZnoS6vdMb53IsVpbQIFP70nhhvymHUyFuPkoLzMFidS7GpG58DYT/4lvCw==}
@@ -1372,7 +1372,6 @@ packages:
     resolution: {integrity: sha512-7ZcsDROYK01FWJ9Nv1Oso7gC3b3aP8FLzbZA7ZWFCPEuBoFmIvCIVqs6DSmmpZW3KSw+XoVMELuEJuTjDi869g==}
     cpu: [arm64]
     os: [linux]
-    libc: [glibc]
 
   '@rspack/binding-linux-arm64-musl@0.5.0':
     resolution: {integrity: sha512-lk0IomCy276EoynmksoBwg0IcHvvVXuZPMeq7OgRPTvs33mdTExSzSTPtrGzx/D00bX1ybUqLQwJhcgGt6erPQ==}
@@ -1384,7 +1383,6 @@ packages:
     resolution: {integrity: sha512-IBfVGpycRrLbyCWzokzeFIfK+yII68w1WOx2iCoR+tPUKa3M7WAZjrbVB33PHxGKXeF+xX7Lzm50hi4uTK8L6g==}
     cpu: [arm64]
     os: [linux]
-    libc: [musl]
 
   '@rspack/binding-linux-x64-gnu@0.5.0':
     resolution: {integrity: sha512-r15ddpse0S/8wHtfL85uJrVotvPVIMnQX06KlXyGUSw1jWrjxV+NXFDJ4xXnHCvk/YV6lCFTotAssk4wJEE0Fw==}
@@ -1396,7 +1394,6 @@ packages:
     resolution: {integrity: sha512-EiVsp0yaGBmnMsS1U6Z5bitl2AjiVqFN3ArdIDZLlxgpVUHaR1ObXIkVqsX/VK5Jgytv1H7iOmtOnkOqyFmxPw==}
     cpu: [x64]
     os: [linux]
-    libc: [glibc]
 
   '@rspack/binding-linux-x64-musl@0.5.0':
     resolution: {integrity: sha512-lB9Dn1bi4xyzEe6Bf/GQ7Ktlrq4Kmt1LHwN+t0m6iVYH3Vb/3g8uQGDSkwnjP8NmlAtldK1cmvRMhR7flUrgZA==}
@@ -1408,7 +1405,6 @@ packages:
     resolution: {integrity: sha512-PZbmHZ/sFBC0W2vNNmMgeVORijAxhdkaU0QS95ltacO+bU8npcNb+01QgRzJovuhOfiT7HXDUmH7K0mrUqXpFg==}
     cpu: [x64]
     os: [linux]
-    libc: [musl]
 
   '@rspack/binding-win32-arm64-msvc@0.5.0':
     resolution: {integrity: sha512-aDoF13puU8LxST/qKZndtXzlJbnbnxY2Bxyj0fu7UDh8nHJD4A2HQfWRN6BZFHaVSqM6Bnli410dJrIWeTNhZQ==}
@@ -2567,6 +2563,7 @@ packages:
 
   glob@7.2.0:
     resolution: {integrity: sha512-lmLf6gtyrPq8tTjSmrO94wBeQbFR3HbLHbuyD69wuyQkImp2hWqMGB47OX65FBkPffO641IP9jWa1z4ivqG26Q==}
+    deprecated: Glob versions prior to v9 are no longer supported
 
   glob@7.2.3:
     resolution: {integrity: sha512-nFR0zLpU2YCaRxwoCJvL6UvCH2JFyFVIvwTLsIf21AuHlMskA1hhTdk+LlYJtOlYt9v6dvszD2BGRqBL+iQK9Q==}
@@ -2697,6 +2694,7 @@ packages:
 
   inflight@1.0.6:
     resolution: {integrity: sha512-k92I/b08q4wvFscXCLvqfsHCrjrF7yiXsQuIVvVE7N82W3+aqpzuUdBbfhWcy/FZR3/4IgflMgKLOsvPDrGCJA==}
+    deprecated: This module is not supported, and leaks memory. Do not use it. Check out lru-cache if you want a good and tested way to coalesce async requests by a key value, which is much more comprehensive and powerful.
 
   inherits@2.0.4:
     resolution: {integrity: sha512-k/vGaX4/Yla3WzyMCvTQOXYeIHvqOKtnqBduzTHpzpQZzAskKMhZ2K+EnBiSM9zGSoIFeMpXKxa4dYeZIQqewQ==}
@@ -3445,6 +3443,7 @@ packages:
 
   rimraf@3.0.2:
     resolution: {integrity: sha512-JZkJMZkAGFFPP2YqXZXPbMlMBgsxzE8ILs4lMIX/2o0L9UBw9O/Y3o6wFw/i9YLapcUJWwqbi3kdxIPdC62TIA==}
+    deprecated: Rimraf versions prior to v4 are no longer supported
     hasBin: true
 
   rimraf@5.0.7:
@@ -5300,7 +5299,7 @@ snapshots:
       - supports-color
       - typescript
 
-  '@modern-js/tsconfig@2.46.1': {}
+  '@modern-js/tsconfig@2.54.1': {}
 
   '@module-federation/runtime-tools@0.0.8':
     dependencies:
