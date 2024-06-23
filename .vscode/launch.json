@@ -1,0 +1,26 @@
+{
+	"version": "0.2.0",
+	"configurations": [
+		{
+			"type": "node-terminal",
+			"name": "开发模式",
+			"request": "launch",
+			"command": "pnpm run dev",
+			"cwd": "${workspaceFolder}"
+		},
+		{
+			"type": "node-terminal",
+			"name": "更新版本",
+			"request": "launch",
+			"command": "pnpm run bump",
+			"cwd": "${workspaceFolder}"
+		},
+		{
+			"type": "node-terminal",
+			"name": "更新配置文件",
+			"request": "launch",
+			"command": "pnpm run update:config",
+			"cwd": "${workspaceFolder}"
+		},
+	]
+}
