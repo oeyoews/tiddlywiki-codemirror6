@@ -33,14 +33,14 @@
     "@oeyoews/prettier-config": "^1.0.2",
     "@oeyoews/tw5-typed": "^0.4.4",
     "@types/node": "20.11.5",
-    "@uiw/codemirror-theme-github": "^4.22.2",
+    "@uiw/codemirror-theme-github": "^4.23.0",
     "rimraf": "5.0.7",
     "terser": "5.27.0",
     "ts-node": "10.9.2",
-    "typescript": "^5.5.2"
+    "typescript": "5.5.3"
   },
   "dependencies": {
-    "@codemirror/autocomplete": "^6.16.3",
+    "@codemirror/autocomplete": "^6.17.0",
     "@codemirror/commands": "^6.6.0",
     "@codemirror/lang-css": "^6.2.1",
     "@codemirror/lang-html": "^6.4.9",
@@ -62,7 +62,7 @@
     "@replit/codemirror-emacs": "^6.0.1",
     "@replit/codemirror-indentation-markers": "^6.5.2",
     "@replit/codemirror-vim": "^6.2.1",
-    "@uiw/codemirror-extensions-color": "^4.22.2",
+    "@uiw/codemirror-extensions-color": "^4.23.0",
     "codemirror-lang-mermaid": "^0.5.0",
     "lang-tiddlywiki": "workspace:^",
     "prettier": "3.3.2",
