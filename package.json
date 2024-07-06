@@ -67,6 +67,6 @@
     "lang-tiddlywiki": "workspace:^",
     "prettier": "3.3.2",
     "thememirror": "^2.0.1",
-    "tiddlywiki": "5.3.3"
+    "tiddlywiki": "5.3.4"
   }
 }
