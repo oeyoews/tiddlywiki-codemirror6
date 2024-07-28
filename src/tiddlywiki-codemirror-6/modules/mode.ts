@@ -1,3 +1,4 @@
+import { IMode } from '../config/index';
 import { tiddlywiki, tiddlywikiLanguage } from 'lang-tiddlywiki';
 import completions from '@/cm6/modules/completions';
 import { html, htmlLanguage } from '@codemirror/lang-html';
@@ -14,12 +15,12 @@ import { javascript, javascriptLanguage } from '@codemirror/lang-javascript';
 import { vue, vueLanguage } from '@codemirror/lang-vue';
 
 import { Extension, Prec } from '@codemirror/state';
-import { IWidget } from '../types/IWidget';
+import {type IWidget } from '../types/IWidget';
 import { checkboxPlugin } from './extensions/toggleBoolean';
 import { markdownCheckboxPlugin } from './extensions/checkTODO';
 
 const dynamicmode = (
-  mode: string = modes.tiddlywiki,
+  mode: IMode = modes.tiddlywiki,
   cme: Extension[],
   widget: IWidget,
   self: any

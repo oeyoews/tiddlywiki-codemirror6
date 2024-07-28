@@ -19,7 +19,25 @@ function getConfig(title: string) {
 // TODO: 这些配置如果写成常量，tiddlywiki 将会缓存？??，不会每次重新计算 (不知道为什么), 实例仅仅创建了一次？??，但是为什么做成 function, 重新在实例里面计算又可以了？??
 // NOTE: 对应配置的 caption 不要写成 TxxxBxxx 格式。
 
-export const tiddlers = {
+type ITiddlerConfig = {
+  caption: {
+    zh: string;
+    en: string;
+  };
+  text?: string|number;
+  icon?: string;
+  description?: {
+    zh: string;
+    en: string;
+  };
+}
+
+function defineConfig<T extends Object, K extends keyof T>(config: Record<K, ITiddlerConfig>) {
+  return config;
+}
+
+//#region tiddlers
+export const tiddlers =defineConfig({
   EditorHeight: {
     caption: {
       zh: '最大高度',
@@ -558,18 +576,18 @@ export const tiddlers = {
       zh: '设置制表符的大小。',
       en: 'Set the size of tabs.'
     }
-  }
-} as const;
+  },
+})
 
 type IConfigOptions = keyof typeof tiddlers;
 
 type IConfig = Record<IConfigOptions, () => any>;
 
 const cm6 = {} as IConfig;
-const options = Object.keys(tiddlers) as IConfigOptions[];
+const options = Object.keys(tiddlers) as IConfigOptions[]
 
-options.forEach((key: IConfigOptions) => {
-  cm6[key] = () => getConfig(key) as any;
+options.forEach((key) => {
+  cm6[key] = () => getConfig(key);
 });
 
 export default cm6;
