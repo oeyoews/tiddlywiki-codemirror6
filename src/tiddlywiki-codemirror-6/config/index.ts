@@ -32,11 +32,12 @@ type ITiddlerConfig = {
   };
 }
 
+// 泛型函数, 用于推导类型: IMode, 和 ITiddlerConfig
 function defineConfig<T extends Object, K extends keyof T>(config: Record<K, ITiddlerConfig>) {
   return config;
 }
 
-//#region tiddlers
+// #region tiddlers
 export const tiddlers =defineConfig({
   EditorHeight: {
     caption: {
@@ -584,7 +585,8 @@ type IConfigOptions = keyof typeof tiddlers;
 type IConfig = Record<IConfigOptions, () => any>;
 
 const cm6 = {} as IConfig;
-const options = Object.keys(tiddlers) as IConfigOptions[]
+// 类型断言的另外一种写法 as const
+const options = <IConfigOptions[]>Object.keys(tiddlers);
 
 options.forEach((key) => {
   cm6[key] = () => getConfig(key);
