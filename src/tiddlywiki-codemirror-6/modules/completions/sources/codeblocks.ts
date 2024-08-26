@@ -23,6 +23,14 @@ const getIcontype = (text: string) => {
   return type;
 };
 
+const getBoostArrayFromArray = (arr: string[]) => {
+  return arr
+    .map((item, index) => {
+      return index + 1;
+    })
+    .reverse();
+};
+
 export function codeblocksSnippets() {
   const types = ['js', 'mermaid', 'html'];
   const cblTypes = types.map((item) => ({
@@ -30,7 +38,7 @@ export function codeblocksSnippets() {
   }));
 
   return cblTypes.map(
-    (item) =>
+    (item, index) =>
       snip(
         triggerType.codeblocks +
           `${item.title}\n#{1}\n` +
@@ -39,7 +47,8 @@ export function codeblocksSnippets() {
           label: triggerType.codeblocks + item.title,
           displayLabel: item.title,
           type: getIcontype(item.title),
-          section: menu.codeblocks
+          section: menu.codeblocks,
+          boost: getBoostArrayFromArray(types)[index]
         }
       ) as Completion
   );
