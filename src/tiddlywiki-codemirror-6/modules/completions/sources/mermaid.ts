@@ -8,6 +8,7 @@ import { IWidget } from '@/cm6/types/IWidget';
 import triggerType from '@/cm6/modules/constants/triggerType';
 
 export function mermaidSnippets(widget: IWidget) {
+  // 文件类型 mermaid
   if (widget.editType !== modes.mermaid) return [];
   const types = [
     'flowchart',

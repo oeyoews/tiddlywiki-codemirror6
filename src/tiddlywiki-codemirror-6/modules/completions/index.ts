@@ -65,7 +65,8 @@ export default (widget: IWidget, self: any) => {
         options = sources.codeblocksSnippets();
         break;
       case isTrigger(lastWord, triggerType.mermaid):
-        options = sources.mermaidSnippets(widget);
+        // options = sources.mermaidSnippets(widget);
+        options = sources.mermaidCB();
         break;
       case isTrigger(lastWord, triggerType.md):
         if ($tw.modules.titles['$:/plugins/cdr/markdown-more/startup.js']) {

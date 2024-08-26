@@ -28,6 +28,4 @@ export const usersnippets: ISource[] = [
   }
 ];
 
-// general words
-
 export const words = ['tiddlywiki', 'GitHub', 'TiddlyWiki5'];
