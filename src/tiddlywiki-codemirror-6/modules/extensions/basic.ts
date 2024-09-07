@@ -170,7 +170,7 @@ export function cme(self: any): Extension[] {
     EditorView.updateListener.of((v: ViewUpdate) => {
       const cm: EditorView = self.cm; // 这是动态计算出来的 cm, 这也就是为什么在初始化前就可以拿到了 this.cm。如果直接在箭头函数的外面写死 cm, 那么 this.cm 就拿不到了
       if (cm.composing) {
-        return;
+        // return;
       }
       // NOTE: cm6 似乎自带 debounce, 这里使用 debounce 无效
       // HACK: tiddlywiki 对于 markdown 的空双花括号会有递归 bug, 预览会导致页面卡死

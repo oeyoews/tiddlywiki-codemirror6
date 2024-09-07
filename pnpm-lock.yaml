@@ -77,9 +77,6 @@ importers:
       '@uiw/codemirror-extensions-color':
         specifier: ^4.23.0
         version: 4.23.0(@codemirror/language@6.10.2)(@codemirror/state@6.4.1)(@codemirror/view@6.28.1)
-      codemirror-lang-mermaid:
-        specifier: ^0.5.0
-        version: 0.5.0
       lang-tiddlywiki:
         specifier: workspace:^
         version: link:packages/lang-tiddlywiki
@@ -1871,9 +1868,6 @@ packages:
   clone@1.0.4:
     resolution: {integrity: sha512-JQHZ2QMW6l3aH/j6xCqQThY/9OH4D/9ls34cgkUBiEeocRTU04tHfKPBsUK1PqZCUQM7GiA0IIXJSuXHI64Kbg==}
     engines: {node: '>=0.8'}
-
-  codemirror-lang-mermaid@0.5.0:
-    resolution: {integrity: sha512-Taw/2gPCyNArQJCxIP/HSUif+3zrvD+6Ugt7KJZ2dUKou/8r3ZhcfG8krNTZfV2iu8AuGnymKuo7bLPFyqsh/A==}
 
   color-convert@1.9.3:
     resolution: {integrity: sha512-QfAUtd+vFdAtFQcC8CCyYt1fYWxSqAiK2cSD6zDB8N3cpsEBAvRxp9zOGg6G/SHHJYAT88/az/IuDGALsNVbGg==}
@@ -6124,12 +6118,6 @@ snapshots:
       wrap-ansi: 7.0.0
 
   clone@1.0.4: {}
-
-  codemirror-lang-mermaid@0.5.0:
-    dependencies:
-      '@codemirror/language': 6.10.2
-      '@lezer/highlight': 1.2.0
-      '@lezer/lr': 1.4.1
 
   color-convert@1.9.3:
     dependencies:
