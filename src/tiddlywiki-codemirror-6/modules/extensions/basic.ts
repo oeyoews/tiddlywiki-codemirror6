@@ -168,8 +168,8 @@ export function cme(self: any): Extension[] {
     }),
     EditorView.perLineTextDirection.of(true),
     EditorView.updateListener.of((v: ViewUpdate) => {
-      const cm: EditorView = self.cm; // 这是动态计算出来的 cm, 这也就是为什么在初始化前就可以拿到了 this.cm。如果直接在箭头函数的外面写死 cm, 那么 this.cm 就拿不到了
-      if (cm.composing) {
+      const editor: EditorView = self.editor; // 这是动态计算出来的 cm, 这也就是为什么在初始化前就可以拿到了 this.cm。如果直接在箭头函数的外面写死 cm, 那么 this.cm 就拿不到了
+      if (editor?.composing) {
         // return;
       }
       // NOTE: cm6 似乎自带 debounce, 这里使用 debounce 无效
@@ -186,7 +186,7 @@ export function cme(self: any): Extension[] {
 
       if (v.docChanged) {
         updateSaveStatus(false);
-        const text = cm.state.doc.toString();
+        const text = editor.state.doc.toString();
         self.widget.saveChanges(text); // update text with tiddlywiki api
       }
     })

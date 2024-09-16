@@ -10,12 +10,12 @@ import { EditorView } from '@codemirror/view';
 // TODO: inline suggestion is conflict for autocompletion
 export default function inlineSuggestionExt(self: {
   cme: Extension[];
-  cm: EditorView;
+  editor: EditorView;
 }) {
   // TODO: how to refresh
   // status wrong
   const fetchSuggestion = () => {
-    const state = self.cm.state;
+    const state = self.editor.state;
     const status = completionStatus(state) === 'active';
     if (!status) {
       return;

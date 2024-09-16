@@ -24,21 +24,30 @@ type ITiddlerConfig = {
     zh: string;
     en: string;
   };
-  text?: string|number;
+  text?: string | number;
   icon?: string;
   description?: {
     zh: string;
     en: string;
   };
-}
+};
 
 // 泛型函数, 用于推导类型: IMode, 和 ITiddlerConfig
-function defineConfig<T extends Object, K extends keyof T>(config: Record<K, ITiddlerConfig>) {
+function defineConfig<T extends Object, K extends keyof T>(
+  config: Record<K, ITiddlerConfig>
+) {
   return config;
 }
 
 // #region tiddlers
-export const tiddlers =defineConfig({
+export const tiddlers = defineConfig({
+  insertModeFirst: {
+    caption: {
+      zh: 'VIM自动进入插入模式',
+      en: 'Insert Mode Auto Firstly'
+    },
+    text: 'no'
+  },
   EditorHeight: {
     caption: {
       zh: '最大高度',
@@ -547,7 +556,7 @@ export const tiddlers =defineConfig({
       zh: '行号',
       en: 'Line Numbers'
     },
-    text: 'yes',
+    text: 'no',
     icon: '🔢',
     description: {
       zh: '显示行号以便更好地导航代码。',
@@ -559,7 +568,7 @@ export const tiddlers =defineConfig({
       zh: '高亮活动行',
       en: 'Highlight Active Line'
     },
-    text: 'yes',
+    text: 'no',
     icon: '🔍',
     description: {
       zh: '高亮活动行以便更好地可见。',
@@ -577,8 +586,8 @@ export const tiddlers =defineConfig({
       zh: '设置制表符的大小。',
       en: 'Set the size of tabs.'
     }
-  },
-})
+  }
+});
 
 type IConfigOptions = keyof typeof tiddlers;
 
@@ -609,7 +618,7 @@ export const modes = {
 
 export type IMode = (typeof modes)[keyof typeof modes];
 
-/** notify */
+/** notify tiddlers */
 const notifierPrefix = '$:/plugins/oeyoews/tiddlywiki-codemirror-6/notify';
 
 const notifier = ['save', 'copy'] as const;

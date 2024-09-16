@@ -1,0 +1,8 @@
+title: $:/config/codemirror-6/insertModeFirst
+caption: {{$:/language/codemirror6/insertModeFirst/caption}}
+caption-zh: {{$:/language/codemirror6/zh/insertModeFirst/caption}}
+description: {{$:/language/codemirror6/insertModeFirst/description}}
+description-zh: {{$:/language/codemirror6/zh/insertModeFirst/description}}
+settings-template: $:/plugins/oeyoews/tiddlywiki-codemirror-6/ui/templates/settings/input-switch
+
+no

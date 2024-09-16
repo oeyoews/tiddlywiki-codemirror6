@@ -1,5 +1,7 @@
 title: $:/language/codemirror6/
 
+insertModeFirst/caption: 📝 Insert Mode Auto Firstly
+insertModeFirst/description: Insert Mode Auto Firstly
 EditorHeight/caption: 📝 Max Height
 EditorHeight/description: Max Height
 lines/caption: 📝 Lines

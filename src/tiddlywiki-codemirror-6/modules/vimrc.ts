@@ -1,8 +1,7 @@
 import { Vim } from '@replit/codemirror-vim';
 import { IWidget } from '../types/IWidget';
 import cm6, { notify } from '@/cm6/config';
-
-export default function setVimKeymap(widget?: IWidget) {
+export default function setVimKeymap(widget: IWidget) {
   cm6.vimJK() && Vim.map('jk', '<Esc>', 'insert'); // in insert mode
   Vim.map('H', '0', 'normal');
   Vim.map('L', '$', 'normal');

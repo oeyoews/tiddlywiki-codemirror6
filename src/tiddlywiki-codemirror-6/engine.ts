@@ -1,5 +1,7 @@
+// @ts-nocheck
 import { EditorState, EditorSelection, Extension } from '@codemirror/state';
 import { openSearchPanel, closeSearchPanel } from '@codemirror/search';
+import { Vim, getCM } from '@replit/codemirror-vim';
 
 import cm6 from './config';
 import { completionStatus } from '@codemirror/autocomplete';
@@ -7,9 +9,9 @@ import { undo, redo } from '@codemirror/commands';
 
 import { EditorView } from '@codemirror/view';
 
-import dynamicmode from '@/cm6/modules/mode';
-import { miniMapExt } from '@/cm6/modules/extensions/miniMapExt';
-import updateExtensions from '@/cm6/modules/extensions';
+import handleLanguageMode from '@/cm6/modules/mode';
+import { miniMapExt as setMinMapExt } from '@/cm6/modules/extensions/miniMapExt';
+import setExtensions from '@/cm6/modules/extensions';
 import {
   type IOperation,
   type IOperationType,
@@ -26,8 +28,9 @@ class CodeMirrorEngine {
   nextSibling: Node;
 
   private widget: IWidget;
+  /** extensions */
   private cme: Extension[] = [];
-  private cm: EditorView;
+  private editor: EditorView;
   private state: EditorState;
   private dragCancel: boolean = false;
   private maxHeight: string = '';
@@ -51,13 +54,17 @@ class CodeMirrorEngine {
     this.domNode.className = this.widget.editClass ? this.widget.editClass : '';
     this.domNode.style.display = 'inline-block';
 
+    // 添加扩展
     this.cme = cme(this);
+    // 设置语言
+    handleLanguageMode(options.type, this.cme, this.widget, this);
+    // 添加扩展集合
+    setExtensions(this.cme, this.widget, this.editor);
+    // 小地图配置
+    setMinMapExt(this.cme);
+    inlineSuggestionExt(this);
 
-    inlineSuggestionExt(this as any);
-    updateExtensions(this.cme, this.widget);
-    miniMapExt(this.cme);
-    dynamicmode(options.type, this.cme, this.widget, this);
-
+    // 初始化
     this.state = EditorState.create({
       doc:
         options.value ||
@@ -71,15 +78,21 @@ class CodeMirrorEngine {
       extensions: this.cme
     });
 
-    // create a codemirror6 instance
-    this.cm = new EditorView({
+    // main: create a codemirror6 instance
+    this.editor = new EditorView({
       parent: this.domNode,
-      /*       selection: {
-        anchor: 1,
-        head: 3
-      }, */
       state: this.state
+      // selection: {
+      //   anchor: 1,
+      //   head: 3
+      // },
     });
+    // @see https://github.com/replit/codemirror-vim/issues/6
+    if (cm6.insertModeFirst()) {
+      let editor = getCM(this.editor);
+      Vim.exitInsertMode(editor);
+      Vim.handleKey(editor, 'i');
+    }
   }
 
   handleDropEvent(event: DragEvent, view: EditorView) {
@@ -119,7 +132,7 @@ class CodeMirrorEngine {
       !e.shiftKey &&
       !e.altKey &&
       !e.metaKey &&
-      completionStatus(this.cm.state) === 'active'
+      completionStatus(this.editor.state) === 'active'
     ) {
       e.stopPropagation();
       return false;
@@ -172,21 +185,21 @@ class CodeMirrorEngine {
 
   /** @description Set the text of the engine if it doesn't currently have focus */
   setText(text: string) {
-    if (!this.cm.hasFocus) {
+    if (!this.editor.hasFocus) {
       this.updateDomNodeText(text);
     }
   }
 
   /** @description Update the DomNode with the new text */
   updateDomNodeText(text: string) {
-    const selections = this.cm.state.selection;
+    const selections = this.editor.state.selection;
     // NOTE: prevent ranger error
     try {
-      this.cm.dispatch(
-        this.cm.state.update({
+      this.editor.dispatch(
+        this.editor.state.update({
           changes: {
             from: 0,
-            to: this.cm.state.doc.length,
+            to: this.editor.state.doc.length,
             insert: text
           },
           selection: selections,
@@ -201,22 +214,22 @@ class CodeMirrorEngine {
 
   /** @description Get the text of the engine */
   getText() {
-    return this.cm.state.doc.toString();
+    return this.editor.state.doc.toString();
   }
 
   /** @description Fix the height of textarea to fit content, 其他的文本操作模块需要用到原型上的方法，比如 editortoolbar */
   fixHeight() {
-    this.cm.requestMeasure();
+    this.editor.requestMeasure();
   }
 
   /* Focus the engine node */
   focus() {
-    this.cm.focus();
+    this.editor.focus();
   }
 
   /** @description Create a blank structure representing a text operation */
   createTextOperation(type: IOperationType) {
-    const selections = this.cm.state.selection.ranges;
+    const selections = this.editor.state.selection.ranges;
     let operations;
     if (operationTypes.includes(type)) {
       operations = [];
@@ -224,7 +237,7 @@ class CodeMirrorEngine {
         const anchorPos = selections[i].from,
           headPos = selections[i].to;
         const operation = {
-          text: this.cm.state.doc.toString(),
+          text: this.editor.state.doc.toString(),
           selStart: anchorPos,
           selEnd: headPos,
           cutStart: null,
@@ -234,12 +247,12 @@ class CodeMirrorEngine {
           newSelEnd: null
         };
         // @ts-ignore
-        operation.selection = this.cm.state.sliceDoc(anchorPos, headPos);
+        operation.selection = this.editor.state.sliceDoc(anchorPos, headPos);
         operations.push(operation);
       }
     } else {
       operations = {
-        text: this.cm.state.doc.toString(),
+        text: this.editor.state.doc.toString(),
         selStart: selections[0].from,
         selEnd: selections[0].to,
         cutStart: null,
@@ -255,19 +268,19 @@ class CodeMirrorEngine {
   /* Execute a text operation */
   executeTextOperation(operations: IOperation) {
     if (operations.type && operations.type === 'undo') {
-      undo(this.cm);
+      undo(this.editor);
     } else if (operations.type && operations.type === 'redo') {
-      redo(this.cm);
+      redo(this.editor);
     } else if (operations.type && operations.type === 'search') {
-      closeSearchPanel(this.cm) || openSearchPanel(this.cm);
+      closeSearchPanel(this.editor) || openSearchPanel(this.editor);
     } else if (
       operations.type !== 'focus-editor' &&
       operations &&
       operations.length
     ) {
-      const ranges = this.cm.state.selection.ranges;
-      this.cm.dispatch(
-        this.cm.state.changeByRange(function (range) {
+      const ranges = this.editor.state.selection.ranges;
+      this.editor.dispatch(
+        this.editor.state.changeByRange(function (range) {
           let index;
           for (let i = 0; i < ranges.length; i++) {
             if (ranges[i] === range) {
@@ -305,8 +318,8 @@ class CodeMirrorEngine {
       operations.newSelEnd &&
       operations.replacement
     ) {
-      this.cm.dispatch(
-        this.cm.state.changeByRange(function (range) {
+      this.editor.dispatch(
+        this.editor.state.changeByRange(function (range) {
           const editorChanges = [
             {
               from: operations.cutStart,
@@ -325,7 +338,7 @@ class CodeMirrorEngine {
         })
       );
     }
-    this.cm.focus();
+    this.editor.focus();
     return this.getText();
   }
 }

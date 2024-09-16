@@ -19,9 +19,9 @@ import { isTrigger } from '@/cm6/utils/isTrigger';
 //  https://codemirror.net/docs/migration/
 export default (widget: IWidget, self: any) => {
   return (context: CompletionContext): CompletionResult | undefined => {
-    const cm: EditorView = self.cm;
+    const cm: EditorView = self.editor;
 
-    if (cm.composing) return;
+    if (cm?.composing) return;
 
     const nodeBefore = syntaxTree(context.state).resolveInner(context.pos);
     if (!cm6.commentComplete()) {
