@@ -170,7 +170,9 @@ body {
 <$list filter="[{$:/config/TextEditor/EditorHeight/Mode}match[fixed]]" variable="ignore">
 
 .cm-editor {
-	height: {{$:/config/TextEditor/EditorHeight/Height}};
+	<!-- height: {{$:/config/TextEditor/EditorHeight/Height}}; -->
+	<!-- 注意这里不再兼容tw的固定高度 -->
+	min-height: {{$:/config/TextEditor/EditorHeight/Height}};
 }
 
 </$list>
