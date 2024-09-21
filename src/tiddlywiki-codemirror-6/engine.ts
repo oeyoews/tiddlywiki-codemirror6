@@ -88,7 +88,7 @@ class CodeMirrorEngine {
       // },
     });
     // @see https://github.com/replit/codemirror-vim/issues/6
-    if (cm6.insertModeFirst() && !options.value) {
+    if (cm6.vimmode() && cm6.insertModeFirst() && !options.value) {
       let editor = getCM(this.editor);
       Vim.exitInsertMode(editor);
       Vim.handleKey(editor, 'i');
