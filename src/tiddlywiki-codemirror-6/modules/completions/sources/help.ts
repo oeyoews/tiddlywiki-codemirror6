@@ -9,7 +9,7 @@ export function helpSnippets() {
   }));
 
   return items.map((item) =>
-    snip('', {
+    snip(item.name, {
       section: menu.help,
       label: triggerType.help + item.title,
       detail: item.name,

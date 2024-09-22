@@ -21,7 +21,9 @@ export default (widget: IWidget, self: any) => {
   return (context: CompletionContext): CompletionResult | undefined => {
     const cm: EditorView = self.editor;
 
-    if (cm?.composing) return;
+    if (cm?.composing) {
+      return;
+    }
 
     const nodeBefore = syntaxTree(context.state).resolveInner(context.pos);
     if (!cm6.commentComplete()) {
@@ -50,6 +52,8 @@ export default (widget: IWidget, self: any) => {
     // 获取光标位置前最后一个单词
     let lastWord = doc.sliceString(wordStart, cursorPos);
 
+    // TODO: 退格键触发，https://discuss.codemirror.net/t/autocomplete-trigger-on-backspace/3636
+    // https://discuss.codemirror.net/t/codemirror6-delete-the-word-or-move-the-cursor-to-pop-up-the-autocomplete-hint/7047
     if (lastWord.length < cm6.minLength() || wordStart === cursorPos) {
       //  closeCompletion(context);
       return;
@@ -133,6 +137,7 @@ export default (widget: IWidget, self: any) => {
       options,
       // filter: false,
       getMatch: (compltion: Completion, matched) => {
+        // console.log(matched);
         if (!cm6.matchText()) return [];
         return matched as [];
       },

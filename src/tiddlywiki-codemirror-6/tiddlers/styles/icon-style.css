@@ -30,7 +30,7 @@
 
 .cm-completionIcon-cm-emoji:after {
   margin: 0 0.05em 0 0.1em;
-  vertical-align: sub;
+  /* vertical-align: sub; */
   content: '𝓮';
 }
 
