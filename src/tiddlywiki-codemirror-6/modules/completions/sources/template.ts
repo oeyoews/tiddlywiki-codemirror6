@@ -17,6 +17,7 @@ const renderInfo = (tiddler: string) => {
     created,
     modified,
     modifier,
+    text,
     ...fields
   } = $tw.wiki.getTiddler(tiddler)!.fields;
   const domNode = document.createElement('div');
@@ -25,11 +26,7 @@ const renderInfo = (tiddler: string) => {
   Object.entries(fields).forEach(([key, value]) => {
     return (tableNode.innerHTML += `<tr><td>${key}</td><td>${value}</td></tr>`);
   });
-  domNode.innerHTML += $tw.wiki.renderText(
-    'text/html',
-    fields.type,
-    fields.text
-  );
+  domNode.innerHTML += $tw.wiki.renderText('text/html', fields.type, text);
   return domNode;
 };
 
