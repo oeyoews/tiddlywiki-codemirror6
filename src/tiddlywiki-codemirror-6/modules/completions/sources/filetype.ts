@@ -1,9 +1,11 @@
 import { Completion } from '@codemirror/autocomplete';
-import { menu } from '@/cm6/modules/constants/menu';
 import { IWidget } from '@/cm6/types/IWidget';
 import { capitalize } from '@/cm6/utils/capitalize';
-import triggerType from '@/cm6/modules/constants/triggerType';
 import { type IMode } from '@/cm6/config';
+
+const section = 'filetype';
+const delimiter = '//';
+const type = 'cm-filetype';
 
 const getIcontype = (text: IMode) => {
   let type: ICompletionIcons = 'keyword';
@@ -51,7 +53,7 @@ const getIcontype = (text: IMode) => {
   return type;
 };
 
-export function filetypeSnippets(widget: IWidget) {
+function snippets(widget: IWidget) {
   const filetypes = $tw.wiki
     .filterTiddlers('[all[tiddlers+shadows]prefix[$:/language/Docs/Types/]]')
     .map((item) => ({
@@ -82,10 +84,10 @@ export function filetypeSnippets(widget: IWidget) {
   return filetypes.map(
     (item) =>
       ({
-        label: triggerType.filetype + item.title,
+        label: delimiter + item.title,
         displayLabel: capitalize(item.title),
         type: getIcontype(item.text as IMode),
-        section: menu.filetypes,
+        section,
         boost:
           item.text === 'text/markdown' || item.text === 'text/vnd.tiddlywiki'
             ? 1
@@ -103,3 +105,10 @@ export function filetypeSnippets(widget: IWidget) {
       }) as Completion
   );
 }
+
+export default {
+  section,
+  type,
+  delimiter,
+  snippets
+};

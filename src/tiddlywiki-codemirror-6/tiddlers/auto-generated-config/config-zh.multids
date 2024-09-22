@@ -72,8 +72,6 @@ cursorBlinkRate/caption: ⚡ 光标闪烁速率
 cursorBlinkRate/description: 设置光标闪烁的速率（以毫秒为单位）,设置为 0 禁用闪烁
 minLength/caption: 📏 最小长度
 minLength/description: 设置自动补全最小长度。1 为立刻触发
-delimiter/caption: 🔍 分隔符
-delimiter/description: 设置某些操作的分隔符。
 minimap/caption: 🗺️ 小地图
 minimap/description: 启用导航的小地图。
 minimapAudoHide/caption: 🗺️ 小地图自动隐藏

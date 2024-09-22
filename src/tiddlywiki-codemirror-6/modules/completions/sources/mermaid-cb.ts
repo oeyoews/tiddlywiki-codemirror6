@@ -1,9 +1,14 @@
 import { snippetCompletion as snip } from '@codemirror/autocomplete';
-import { menu } from '@/cm6/modules/constants/menu';
-import triggerType from '@/cm6/modules/constants/triggerType';
+
+const section = 'mermaid';
+const type = 'cm-mermaid';
+const delimiter = '``';
 
 // order 权重 排序
-export function mermaidSnippets() {
+function snippets() {
+  // if (typeof window?.mermaid) {
+  //   return [];
+  // }
   const tags = [
     'graph',
     'pie',
@@ -33,11 +38,18 @@ export function mermaidSnippets() {
 
   return tags.map((item, index) =>
     snip(`${placeholder}mermaid\n${item.title}\n#{text}\n${placeholder}`, {
-      label: triggerType.mermaid + item.title,
+      label: delimiter + item.title,
       displayLabel: item.title,
-      type: 'cm-mermaid',
-      section: menu.mermaid,
+      type,
+      section,
       boost: index < 5 ? 1 : 0
     })
   );
 }
+
+export default {
+  section,
+  type,
+  delimiter,
+  snippets
+};

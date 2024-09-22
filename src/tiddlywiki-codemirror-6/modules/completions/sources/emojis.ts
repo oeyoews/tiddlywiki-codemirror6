@@ -1,8 +1,11 @@
 import { Completion } from '@codemirror/autocomplete';
-import delimiter from '@/cm6/modules/constants/triggerType';
-import { menu } from '@/cm6/modules/constants/menu';
 
-export function emojiSnippets() {
+// 部分delimiter不支持修改，所以暂时不抽离出去, 暂时不暴露出配置
+const section = 'emojis';
+const type = 'cm-emoji';
+const delimiter = ':';
+
+function snippets() {
   const snippetModules = $tw.modules.types['emoji-snippets'];
   const sources: {
     /** emoji text */
@@ -29,11 +32,11 @@ export function emojiSnippets() {
   return sources.map(
     (item) =>
       ({
-        label: delimiter.emoji + item.title,
+        label: delimiter + item.title,
         displayLabel: item.title,
         detail: item.text,
         type: 'cm-emoji',
-        section: menu.emojis,
+        section,
         apply: (view, completion, from, to) => {
           // const cursorEndPosition = from + item.text.length;
           view.dispatch({
@@ -44,3 +47,10 @@ export function emojiSnippets() {
       }) as Completion
   );
 }
+
+export default {
+  section,
+  type,
+  delimiter,
+  snippets
+};

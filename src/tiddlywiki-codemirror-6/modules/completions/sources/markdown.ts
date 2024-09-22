@@ -1,8 +1,10 @@
 import { snippetCompletion as snip } from '@codemirror/autocomplete';
-import { menu } from '@/cm6/modules/constants/menu';
-import triggerType from '@/cm6/modules/constants/triggerType';
 
-export function mdSnippets() {
+const section = 'md';
+const type = 'keyword';
+const delimiter = ':::';
+
+function snippets() {
   const tags = [
     'note',
     'info',
@@ -29,11 +31,18 @@ export function mdSnippets() {
   }));
 
   return tags.map((item) =>
-    snip(`${triggerType.md}${item.title}\n#{text}\n${triggerType.md}`, {
-      label: triggerType.md + item.title,
+    snip(`${delimiter}${item.title}\n#{text}\n${delimiter}`, {
+      label: delimiter + item.title,
       displayLabel: item.title,
       type: 'keyword',
-      section: menu.md
+      section
     })
   );
 }
+
+export default {
+  section,
+  type,
+  delimiter,
+  snippets
+};

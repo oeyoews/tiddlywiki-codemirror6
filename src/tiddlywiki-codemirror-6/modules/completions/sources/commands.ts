@@ -1,8 +1,6 @@
 import { Completion } from '@codemirror/autocomplete';
 import cm6, { configBaseTitle } from '@/cm6/config';
-import { menu } from '@/cm6/modules/constants/menu';
 import { capitalize } from '@/cm6/utils/capitalize';
-import triggerType from '@/cm6/modules/constants/triggerType';
 import { IWidget } from '@/cm6/types/IWidget';
 import { EditorView } from '@codemirror/view';
 
@@ -13,6 +11,10 @@ type IFileType<T> = {
     en: string;
   };
 };
+
+const section = 'Command';
+const type = 'cm-command';
+const delimiter = '@#';
 
 function defineFileType<T extends string>(filetypes: IFileType<T>[]) {
   return filetypes;
@@ -93,19 +95,19 @@ const filetypes = defineFileType([
 
 // export type IEventTypes = (typeof filetypes)[number]['title'];
 
-export function commandSnippets(widget: IWidget) {
+export function snippets(widget: IWidget) {
   const language = $tw.wiki.getTiddlerText('$:/config/codemirror6/language');
 
   return filetypes.map(
     (item) =>
       ({
-        label: triggerType.command + item.title,
+        label: delimiter + item.title,
         displayLabel:
           language === 'zh'
             ? item.description.zh
             : capitalize(item.description.en),
-        type: 'cm-command',
-        section: menu.commands,
+        type,
+        section,
         apply: (view: EditorView, completion: Completion, from, to) => {
           view.dispatch({
             changes: { from, to, insert: '' }
@@ -217,3 +219,10 @@ export function commandSnippets(widget: IWidget) {
       }) as Completion
   );
 }
+
+export default {
+  section,
+  type,
+  delimiter,
+  snippets
+};
