@@ -1,3 +1,4 @@
+// TODO: triggerType snippets to map auto
 // TODO: support chinese fullwidth characters ???
 const triggerType = {
   link: '[[',
@@ -11,7 +12,8 @@ const triggerType = {
   command: '@#',
   md: ':::',
   mermaid: '``',
-  codeblocks: '```'
+  codeblocks: '```',
+  help: '/?'
 } as const;
 
 export default triggerType;

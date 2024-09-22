@@ -12,7 +12,8 @@ const menuItems = [
   'commands',
   'md',
   'mermaid',
-  'codeblocks'
+  'codeblocks',
+  'help'
 ] as const;
 
 type MenuType = (typeof menuItems)[number];

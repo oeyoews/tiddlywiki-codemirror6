@@ -13,6 +13,7 @@ import { mdSnippets } from './markdown';
 import { mermaidSnippets } from './mermaid';
 import { mermaidSnippets as mermaidCB } from './mermaid-cb';
 import { codeblocksSnippets } from './codeblocks';
+import { helpSnippets } from './help';
 
 export default {
   imageSnippets,
@@ -29,5 +30,6 @@ export default {
   mdSnippets,
   mermaidSnippets,
   codeblocksSnippets,
-  mermaidCB
+  mermaidCB,
+  helpSnippets
 };

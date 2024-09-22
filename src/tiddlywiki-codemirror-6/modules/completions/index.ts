@@ -106,6 +106,9 @@ export default (widget: IWidget, self: any) => {
       case isTrigger(lastWord, triggerType.emoji):
         options = sources.emojiSnippets();
         break;
+      case isTrigger(lastWord, triggerType.help):
+        options = sources.helpSnippets();
+        break;
       // TODO: 中文顿号不会被触发，因为 w 会分割他？？？
       case lastWord.startsWith(cm6.delimiter()) &&
         lastWord.charAt(1) !== cm6.delimiter():
