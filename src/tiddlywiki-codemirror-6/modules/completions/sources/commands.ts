@@ -52,8 +52,15 @@ const filetypes = defineFileType([
   {
     title: 'add-new-snippets',
     description: {
-      zh: '添加新的 模板片段（WIP）',
-      en: 'Add New Snippet(WIP)'
+      zh: '添加新的代码片段',
+      en: 'Add New Snippet'
+    }
+  },
+  {
+    title: 'add-new-template',
+    description: {
+      zh: '添加新的模板',
+      en: 'Add New Template'
     }
   },
   {
@@ -193,10 +200,21 @@ export function snippets(widget: IWidget) {
                 param: demoLink
               });
               break;
+            case 'add-new-template':
+              widget.dispatchEvent({
+                type: 'tm-new-tiddler',
+                paramObject: {
+                  title: '$:/templates/new'
+                }
+              });
+              break;
             case 'add-new-snippets':
-              $tw.rootWidget.dispatchEvent({
-                type: 'tm-modal',
-                param: 'AddSnippets'
+              widget.dispatchEvent({
+                type: 'tm-new-tiddler',
+                paramObject: {
+                  title: '$:/snippets/new',
+                  caption: 'New Snippet'
+                }
               });
               break;
             case 'toggleTiddlywikiFullscreen':
