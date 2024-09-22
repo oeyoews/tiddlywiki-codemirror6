@@ -35,7 +35,6 @@ function snippets(widget: IWidget) {
     .map((item) => ({
       title: item
     }));
-
   if (!items.length) {
     items = [
       {
@@ -63,7 +62,6 @@ function snippets(widget: IWidget) {
         }) as Completion
     );
   }
-
   return items.map(
     (item) =>
       ({
