@@ -2,8 +2,10 @@ import {
   snippetCompletion as snip,
   Completion
 } from '@codemirror/autocomplete';
-import { menu } from '@/cm6/modules/constants/menu';
-import triggerType from '@/cm6/modules/constants/triggerType';
+
+const section = 'codeblock';
+const type = '';
+const delimiter = '```';
 
 const getIcontype = (text: string) => {
   let type: ICompletionIcons = 'keyword';
@@ -31,7 +33,7 @@ const getBoostArrayFromArray = (arr: string[]) => {
     .reverse();
 };
 
-export function codeblocksSnippets() {
+function snippets() {
   const types = ['js', 'mermaid', 'html'];
   const cblTypes = types.map((item) => ({
     title: item
@@ -39,17 +41,19 @@ export function codeblocksSnippets() {
 
   return cblTypes.map(
     (item, index) =>
-      snip(
-        triggerType.codeblocks +
-          `${item.title}\n#{1}\n` +
-          triggerType.codeblocks,
-        {
-          label: triggerType.codeblocks + item.title,
-          displayLabel: item.title,
-          type: getIcontype(item.title),
-          section: menu.codeblocks,
-          boost: getBoostArrayFromArray(types)[index]
-        }
-      ) as Completion
+      snip(delimiter + `${item.title}\n#{1}\n` + delimiter, {
+        label: delimiter + item.title,
+        displayLabel: item.title,
+        type: getIcontype(item.title),
+        section,
+        boost: getBoostArrayFromArray(types)[index]
+      }) as Completion
   );
 }
+
+export default {
+  section,
+  type,
+  delimiter,
+  snippets
+};

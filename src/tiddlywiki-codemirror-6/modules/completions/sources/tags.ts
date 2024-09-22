@@ -1,9 +1,11 @@
 import { Completion } from '@codemirror/autocomplete';
-import { menu } from '@/cm6/modules/constants/menu';
 import { IWidget } from '@/cm6/types/IWidget';
-import triggerType from '@/cm6/modules/constants/triggerType';
 
-export function tagSnippets(widget: IWidget) {
+const section = 'tags';
+const type = 'cm-tag';
+const delimiter = '#';
+
+function snippets(widget: IWidget) {
   // @ts-ignore
   //   const tags = Object.keys($tw.wiki.getTagMap()).map((tag) => ({
   //     title: tag
@@ -15,10 +17,10 @@ export function tagSnippets(widget: IWidget) {
   return tags.map(
     (item) =>
       ({
-        label: triggerType.tag + item.title,
+        label: delimiter + item.title,
         displayLabel: item.title,
-        type: 'cm-tag',
-        section: menu.tags,
+        type,
+        section,
         boost: item.title.startsWith('$') ? 0 : 1,
 
         apply: (view, completion, from, to) => {
@@ -42,3 +44,10 @@ export function tagSnippets(widget: IWidget) {
       }) as Completion
   );
 }
+
+export default {
+  section,
+  type,
+  delimiter,
+  snippets
+};

@@ -1,10 +1,13 @@
 import { renderTid } from '@/cm6/utils/renderTiddler';
 import { snippetCompletion as snip } from '@codemirror/autocomplete';
-import { menu } from '@/cm6/modules/constants/menu';
 import conf from '@/cm6/config';
 import { usersnippets } from '@/cm6/modules/completions/snippets';
 
-export function userSnippets() {
+const section = 'snippet';
+const type = 'cm-snippet';
+const delimiter = '/';
+
+function snippets() {
   const userSnippetTiddlers = $tw.wiki.filterTiddlers(
     '[all[shadows+tiddlers]tag[$:/tags/TextEditor/Snippet]] [prefix[$:/snippets/]] [all[shadows+tiddlers]tag[$:/tags/KaTeX/Snippet]] -[is[draft]]'
   );
@@ -44,9 +47,9 @@ export function userSnippets() {
 
   return filteredSource.map((info) => {
     return snip(info.text, {
-      label: conf.delimiter() + (info.caption || info.title),
+      label: delimiter + (info.caption || info.title),
       displayLabel: info.caption || info.title,
-      type: 'cm-snippet', // real added class is cm-completionIcon-cm-snippets
+      type, // real added class is cm-completionIcon-cm-snippets
       boost:
         $tw.wiki.isSystemTiddler(info.vanillaTitle!) ||
         $tw.wiki.isShadowTiddler(info.vanillaTitle!) ||
@@ -57,7 +60,14 @@ export function userSnippets() {
       info: conf.snippetPreview()
         ? () => renderTid(info.vanillaTitle || info.title, conf.footer())
         : '',
-      section: menu.snippets
+      section
     });
   });
 }
+
+export default {
+  section,
+  type,
+  delimiter,
+  snippets
+};

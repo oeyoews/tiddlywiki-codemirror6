@@ -1,10 +1,11 @@
-import { menu } from '@/cm6/modules/constants/menu';
 import { Completion } from '@codemirror/autocomplete';
-import triggerType from '@/cm6/modules/constants/triggerType';
 
+const section = 'images';
+const type = 'cm-image';
+const delimiter = '[img[';
 // TODO: add /settings to jump setup tiddler
 // 如果不对 label 进行特殊处理，就要处理光标位置，自定义 app function, 灵活性较差 https://github.com/BurningTreeC/tiddlywiki-codemirror-6/blob/6ed53e8624b12cf2c09187f4f5fdcdd5960889c3/plugins/tiddlywiki-codemirror-6/engine.js#L327-L346C3
-export function imageSnippets() {
+function snippets() {
   const allImageTiddlers = $tw.wiki.filterTiddlers(
     '[!is[system]is[image]]  [all[tiddlers+shadows]tag[$:/tags/Image]]'
   );
@@ -12,10 +13,10 @@ export function imageSnippets() {
   return allImageTiddlers.map(
     (title) =>
       ({
-        label: triggerType.img + title,
+        label: delimiter + title,
         displayLabel: title,
-        type: 'cm-image',
-        section: menu.images,
+        type,
+        section,
         boost: title.startsWith('$') ? 0 : 1,
         info: () => {
           const imagePreview = document.createElement('div');
@@ -28,17 +29,24 @@ export function imageSnippets() {
           const doc = view.state.doc;
           let cursorEndPosition: number = from;
           const cursorPos = view.state.selection.main.head;
-          if (cursorPos + triggerType.img.length / 2 <= doc.length) {
+          if (cursorPos + delimiter.length / 2 <= doc.length) {
             cursorEndPosition =
-              cursorEndPosition + title.length + triggerType.img.length + 2;
+              cursorEndPosition + title.length + delimiter.length + 2;
           } else {
-            cursorEndPosition += (title + triggerType.img).length;
+            cursorEndPosition += (title + delimiter).length;
           }
           view.dispatch({
-            changes: { from, to, insert: triggerType.img + title },
+            changes: { from, to, insert: delimiter + title },
             selection: { anchor: cursorEndPosition, head: cursorEndPosition }
           });
         }
       }) as Completion
   );
 }
+
+export default {
+  section,
+  type,
+  delimiter,
+  snippets
+};

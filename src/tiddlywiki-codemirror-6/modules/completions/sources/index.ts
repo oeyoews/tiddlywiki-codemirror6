@@ -1,35 +1,45 @@
-import delimiter from '@/cm6/modules/constants/triggerType';
-import { imageSnippets } from './images';
-import { userSnippets } from './snippets';
-import { widgetSnippets } from './widget';
-import { getAllTiddlers } from './tiddlers';
-import { macroSnippets } from './macros';
-import { wordsSnippets } from './words';
-import { emojiSnippets } from './emojis';
-import { tagSnippets } from './tags';
-import { filetypeSnippets } from './filetype';
-import { commandSnippets } from './commands';
-import { mdSnippets } from './markdown';
-import { mermaidSnippets } from './mermaid';
-import { mermaidSnippets as mermaidCB } from './mermaid-cb';
-import { codeblocksSnippets } from './codeblocks';
-import { helpSnippets } from './help';
+import codeblocks from './codeblocks';
+import commands from './commands';
+import emojis from './emojis';
+import filetype from './filetype';
+import help from './help';
+import images from './images';
+import macros from './macros';
+import mermaidCb from './mermaid-cb';
+import snippets from './snippets';
+import tags from './tags';
+import tiddlers from './tiddlers';
+import tiddlersEmbed from './tiddlers-embed';
+import widget from './widget';
+// import markdown from './markdown';
+export { default as defaultSnippets } from './words';
 
-export default {
-  imageSnippets,
-  userSnippets,
-  widgetSnippets,
-  linkSnippets: getAllTiddlers,
-  macroSnippets,
-  embedSnippets: () => getAllTiddlers(delimiter.embed),
-  wordsSnippets,
-  emojiSnippets,
-  tagSnippets,
-  filetypeSnippets,
-  commandSnippets,
-  mdSnippets,
-  mermaidSnippets,
-  codeblocksSnippets,
-  mermaidCB,
-  helpSnippets
+const sources = [
+  codeblocks,
+  commands,
+  emojis,
+  filetype,
+  help,
+  images,
+  macros,
+  // markdown // 和emoji 冲突， 不常用，暂时不处理
+  mermaidCb,
+  snippets,
+  tags,
+  tiddlersEmbed,
+  tiddlers,
+  widget
+];
+
+export const delimiters = sources.map((item) => item.delimiter);
+export const delimitersInfo = sources.map((item) => ({
+  section: item.section,
+  delimiters: item.delimiter
+}));
+
+// 根据分隔符获取对应的source
+export const getSnippets = (delimiter: string) => {
+  const test = sources.find((item) => delimiter.startsWith(item.delimiter));
+  // console.log(delimiter, test);
+  return sources.find((item) => delimiter.startsWith(item.delimiter));
 };

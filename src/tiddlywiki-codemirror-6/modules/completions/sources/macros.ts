@@ -1,8 +1,10 @@
 import { snippetCompletion as snip } from '@codemirror/autocomplete';
-import delimiter from '@/cm6/modules/constants/triggerType';
-import { menu } from '@/cm6/modules/constants/menu';
 
-export function macroSnippets() {
+const section = 'macro';
+const type = 'cm-macro';
+const delimiter = '<<';
+
+function snippets() {
   const macros = Object.entries($tw.macros);
   // const usermacros = $tw.wiki.filterTiddlers(
   //   '[all[tiddlers+shadows]tag[$:/tags/Macro]!is[draft]get[text]search:title[define]search-replace:g:regexp[\\defines+(.+?)((s|S)+?(?=\\define|$)],[~$1|]search-replace:g[|~],[~]search-replace:g:regexp[^(s|S)*?~||(s|S)*$],[]split[~]!match[]]'
@@ -19,11 +21,18 @@ export function macroSnippets() {
         : 'no parameters';
 
     return snip(macro, {
-      label: delimiter.macro + name,
+      label: delimiter + name,
       displayLabel: name,
-      type: 'cm-macro',
+      type,
       info: paramList,
-      section: menu.macros
+      section
     });
   });
 }
+
+export default {
+  section,
+  type,
+  delimiter,
+  snippets
+};

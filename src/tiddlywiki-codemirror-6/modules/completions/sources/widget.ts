@@ -2,10 +2,11 @@ import {
   Completion,
   snippetCompletion as snip
 } from '@codemirror/autocomplete';
-import delimiter from '@/cm6/modules/constants/triggerType';
-import { menu } from '@/cm6/modules/constants/menu';
 
-export function widgetSnippets() {
+const section = 'widget';
+const type = 'cm-widget';
+const delimiter = '<$';
+function snippets() {
   const modules = $tw.modules.titles; // $tw.modules.types 获取不到 widget name, 除非根据文件名
   if (!modules) return [];
   const allwidgets = Object.entries(modules)
@@ -21,11 +22,18 @@ export function widgetSnippets() {
   // https://github.com/codemirror/website/tree/master/site/examples/autocompletion
   // https://codemirror.net/docs/ref/#autocomplete
   return allwidgets.map((widget) =>
-    snip(delimiter.widget + widget + ' ' + '#{0}/>#{1}', {
-      label: delimiter.widget + widget,
+    snip(delimiter + widget + ' ' + '#{0}/>#{1}', {
+      label: delimiter + widget,
       displayLabel: widget,
-      type: 'cm-widget',
-      section: menu.widgets
+      type,
+      section
     } as Completion)
   );
 }
+
+export default {
+  section,
+  type,
+  delimiter,
+  snippets
+};
