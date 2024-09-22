@@ -35,7 +35,7 @@ export function mermaidSnippets() {
     snip(`${placeholder}mermaid\n${item.title}\n#{text}\n${placeholder}`, {
       label: triggerType.mermaid + item.title,
       displayLabel: item.title,
-      type: 'keyword',
+      type: 'cm-mermaid',
       section: menu.mermaid,
       boost: index < 5 ? 1 : 0
     })

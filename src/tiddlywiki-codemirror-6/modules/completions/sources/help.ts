@@ -15,7 +15,7 @@ export function helpSnippets() {
       detail: item.name,
       // info: item.name,
       displayLabel: item.title,
-      type: 'keyword'
+      type: 'cm-help'
     })
   );
 }
