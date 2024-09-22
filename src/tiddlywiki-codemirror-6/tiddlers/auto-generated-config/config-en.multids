@@ -72,8 +72,6 @@ cursorBlinkRate/caption: ⚡ Cursor Blink Rate
 cursorBlinkRate/description: Set the rate at which the cursor blinks (in milliseconds).
 minLength/caption: 📏 Min Length
 minLength/description: Set the minimum length for input.
-delimiter/caption: 🔍 Delimiter
-delimiter/description: Set the delimiter for certain operations.
 minimap/caption: 🗺️ Minimap
 minimap/description: Enable a minimap for navigation.
 minimapAudoHide/caption: 🗺️ Minimap autohide
