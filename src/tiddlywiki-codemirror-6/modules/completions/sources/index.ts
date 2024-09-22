@@ -8,6 +8,7 @@ import macros from './macros';
 import mermaidCb from './mermaid-cb';
 import snippets from './snippets';
 import tags from './tags';
+import template from './template';
 import tiddlers from './tiddlers';
 import tiddlersEmbed from './tiddlers-embed';
 import widget from './widget';
@@ -28,7 +29,8 @@ const sources = [
   tags,
   tiddlersEmbed,
   tiddlers,
-  widget
+  widget,
+  template
 ];
 
 export const delimiters = sources.map((item) => item.delimiter);
