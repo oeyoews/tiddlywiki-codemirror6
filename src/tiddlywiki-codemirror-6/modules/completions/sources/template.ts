@@ -1,6 +1,3 @@
-// get all user templates to set current tiddler
-// add new snippet
-// add new template
 import { Completion } from '@codemirror/autocomplete';
 import { IWidget } from '@/cm6/types/IWidget';
 import { EditorView } from '@codemirror/view';
@@ -31,7 +28,7 @@ const renderInfo = (tiddler: string) => {
 };
 
 function snippets(widget: IWidget) {
-  const items = $tw.wiki
+  let items = $tw.wiki
     .filterTiddlers(
       '[all[shadows+tiddlers]tag[$:/tags/TextEditor/Templates]] [prefix[$:/templates/]] -[is[draft]]'
     )
@@ -39,13 +36,41 @@ function snippets(widget: IWidget) {
       title: item
     }));
 
+  if (!items.length) {
+    items = [
+      {
+        title: 'No template found, click me to create one first'
+      }
+    ];
+    return items.map(
+      (item) =>
+        ({
+          section,
+          type,
+          label: delimiter + item.title,
+          displayLabel: item.title,
+          apply: (view: EditorView, completion: Completion, from, to) => {
+            view.dispatch({
+              changes: { from: 0, to, insert: '' }
+            });
+            widget.dispatchEvent({
+              type: 'tm-new-tiddler',
+              paramObject: {
+                title: '$:/templates/new'
+              }
+            });
+          }
+        }) as Completion
+    );
+  }
+
   return items.map(
     (item) =>
       ({
         section,
+        type,
         label: delimiter + item.title,
         displayLabel: item.title.split('/').pop()!, // displayLabel 会影响match underline
-        type,
         info: () => renderInfo(item.title),
         apply: (view: EditorView, completion: Completion, from, to) => {
           // $tw.wiki.setText(widget.editTitle, 'draft.title', '', item.title);
