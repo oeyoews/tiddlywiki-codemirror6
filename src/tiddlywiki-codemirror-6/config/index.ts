@@ -522,7 +522,7 @@ export const tiddlers = defineConfig({
       zh: '括号匹配',
       en: 'Bracket Matching'
     },
-    text: 'yes',
+    text: 'no',
     icon: '🔄',
     description: {
       zh: '启用括号匹配。',

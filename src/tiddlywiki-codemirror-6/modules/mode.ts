@@ -15,7 +15,7 @@ import { javascript, javascriptLanguage } from '@codemirror/lang-javascript';
 import { vue, vueLanguage } from '@codemirror/lang-vue';
 
 import { Extension, Prec } from '@codemirror/state';
-import {type IWidget } from '../types/IWidget';
+import { type IWidget } from '../types/IWidget';
 import { checkboxPlugin } from './extensions/toggleBoolean';
 import { markdownCheckboxPlugin } from './extensions/checkTODO';
 
@@ -37,8 +37,8 @@ const dynamicmode = (
   // NOTE: use language-data's languages 高亮 markdown 代码，但是插件大小会增加 1M, 这里仅仅加上常用的高亮
   // codeLanguages: languages
   switch (mode) {
+    // case modes.mermaid:
     case modes.tiddlywiki:
-    case modes.mermaid:
       // NOTE: 不建议使用 legacymode, 和 cm6 部分功能有冲突
       // cme.push(StreamLanguage.define(tiddlyWiki));
       // @ts-ignore
@@ -49,11 +49,6 @@ const dynamicmode = (
       actionCompletions = tiddlywikiLanguage.data.of(options);
 
       break;
-    // case modes.mermaid:
-    /* cme.push(tiddlywiki({ base: tiddlywikiLanguage }));
-
-      actionCompletions = tiddlywikiLanguage.data.of(options); */
-    // break;
     case modes.markdown:
     case modes.xmarkdown:
       cm6.todobox() && cme.push(markdownCheckboxPlugin);
