@@ -3,6 +3,7 @@ import { snippetCompletion as snip } from '@codemirror/autocomplete';
 const section = 'macro';
 const type = 'cm-macro';
 const delimiter = '<<';
+const description = 'TiddlyWiki Macros';
 
 function snippets() {
   const macros = Object.entries($tw.macros);
@@ -34,5 +35,6 @@ export default {
   section,
   type,
   delimiter,
+  description,
   snippets
 };

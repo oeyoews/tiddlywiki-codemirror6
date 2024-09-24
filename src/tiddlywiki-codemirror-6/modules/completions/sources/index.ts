@@ -37,7 +37,8 @@ export const delimiters = sources.map((item) => item.delimiter);
 export const delimitersInfo = sources.map((item) => ({
   section: item.section,
   delimiters: item.delimiter,
-  type: item.type
+  type: item.type,
+  description: item.description || ''
 }));
 
 // 根据分隔符获取对应的source

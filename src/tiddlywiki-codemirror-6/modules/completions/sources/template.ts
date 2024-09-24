@@ -7,6 +7,7 @@ import { EditorView } from '@codemirror/view';
 const section = 'template';
 const type = 'cm-template';
 const delimiter = '@t';
+const description = 'select template for current tiddler';
 
 const renderInfo = (tiddler: string) => {
   const {

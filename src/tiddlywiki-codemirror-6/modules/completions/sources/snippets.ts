@@ -6,6 +6,7 @@ import { usersnippets } from '@/cm6/modules/completions/snippets';
 const section = 'snippet';
 const type = 'cm-snippet';
 const delimiter = '/';
+const description = 'snippets';
 
 function snippets() {
   const userSnippetTiddlers = $tw.wiki.filterTiddlers(
@@ -69,5 +70,6 @@ export default {
   section,
   type,
   delimiter,
+  description,
   snippets
 };

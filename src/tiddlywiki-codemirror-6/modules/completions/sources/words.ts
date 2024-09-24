@@ -5,6 +5,7 @@ export default {
   section: 'Word',
   type: 'cm-word',
   delimiter: '',
+  description: '',
   snippets: wordsSnippets
 };
 

@@ -4,6 +4,7 @@ import { IWidget } from '@/cm6/types/IWidget';
 const section = 'tags';
 const type = 'cm-tag';
 const delimiter = '#';
+const description = 'add tags for current tiddlers';
 
 function snippets(widget: IWidget) {
   // @ts-ignore
@@ -49,5 +50,6 @@ export default {
   section,
   type,
   delimiter,
+  description,
   snippets
 };

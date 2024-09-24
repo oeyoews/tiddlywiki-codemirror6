@@ -6,6 +6,7 @@ import { type IMode } from '@/cm6/config';
 const section = 'filetype';
 const delimiter = '//';
 const type = 'cm-filetype';
+const description = 'change file type';
 
 const getIcontype = (text: IMode) => {
   let type: ICompletionIcons = 'keyword';
@@ -110,5 +111,6 @@ export default {
   section,
   type,
   delimiter,
+  description,
   snippets
 };

@@ -7,12 +7,14 @@ import { delimitersInfo } from '.';
 const section = 'help';
 const type = 'cm-help';
 const delimiter = '/?';
+const description = 'show help triggers';
 
 function snippets(): Completion[] {
   const items = delimitersInfo.map((item) => ({
     section: item.section,
     delimiter: item.delimiters,
-    type: item.type
+    type: item.type,
+    info: item.description
   }));
 
   return items.map((item) =>
@@ -20,7 +22,7 @@ function snippets(): Completion[] {
       section,
       label: delimiter + item.section,
       detail: item.delimiter,
-      // info: item.name,
+      info: item.info,
       displayLabel: item.section,
       type: item.type
     })
@@ -31,5 +33,6 @@ export default {
   section,
   type,
   delimiter,
+  description,
   snippets
 };

@@ -6,6 +6,7 @@ import {
 const section = 'codeblock';
 const type = 'cm-codeblock';
 const delimiter = '```';
+const description = 'generate codeblock';
 
 const getIcontype = (text: string) => {
   let type: ICompletionIcons = 'keyword';
@@ -55,5 +56,6 @@ export default {
   section,
   type,
   delimiter,
+  description,
   snippets
 };

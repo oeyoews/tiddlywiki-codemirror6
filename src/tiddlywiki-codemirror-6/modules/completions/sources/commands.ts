@@ -15,6 +15,7 @@ type IFileType<T> = {
 const section = 'command';
 const type = 'cm-command';
 const delimiter = '@#';
+const description = 'some commands';
 
 function defineFileType<T extends string>(filetypes: IFileType<T>[]) {
   return filetypes;
@@ -242,5 +243,6 @@ export default {
   section,
   type,
   delimiter,
+  description,
   snippets
 };

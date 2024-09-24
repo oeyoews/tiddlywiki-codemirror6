@@ -4,6 +4,7 @@ import { Completion } from '@codemirror/autocomplete';
 const section = 'emojis';
 const type = 'cm-emoji';
 const delimiter = ':';
+const description = 'add emoji';
 
 function snippets() {
   const snippetModules = $tw.modules.types['emoji-snippets'];
@@ -52,5 +53,6 @@ export default {
   section,
   type,
   delimiter,
+  description,
   snippets
 };
