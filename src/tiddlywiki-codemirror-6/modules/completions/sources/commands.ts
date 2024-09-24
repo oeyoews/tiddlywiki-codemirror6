@@ -22,6 +22,14 @@ function defineFileType<T extends string>(filetypes: IFileType<T>[]) {
 }
 
 const filetypes = defineFileType([
+  // todo
+  {
+    title: 'copy-tiddler-content',
+    description: {
+      zh: '复制 tiddler 内容(WIP)',
+      en: 'copy current tiddler content(WIP)'
+    }
+  },
   {
     title: 'use-simple-editor',
     description: {

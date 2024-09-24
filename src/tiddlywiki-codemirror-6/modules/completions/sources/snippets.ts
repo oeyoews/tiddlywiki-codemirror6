@@ -46,22 +46,23 @@ function snippets() {
   source.push(...usersnippets);
   const filteredSource = source.filter((item) => item.title && item.text);
 
-  return filteredSource.map((info) => {
-    return snip(info.text, {
-      label: delimiter + (info.caption || info.title),
-      displayLabel: info.caption || info.title,
+  return filteredSource.map((snippet) => {
+    return snip(snippet.text, {
+      section,
+      label: delimiter + (snippet.caption || snippet.title.split('/').pop()!),
+      displayLabel: snippet.caption || snippet.title,
+      // detail: snippet.desc || '',
       type, // real added class is cm-completionIcon-cm-snippets
       boost:
-        $tw.wiki.isSystemTiddler(info.vanillaTitle!) ||
-        $tw.wiki.isShadowTiddler(info.vanillaTitle!) ||
-        info.caption?.startsWith('{')
+        $tw.wiki.isSystemTiddler(snippet.vanillaTitle!) ||
+        $tw.wiki.isShadowTiddler(snippet.vanillaTitle!) ||
+        snippet.caption?.startsWith('{')
           ? -99
           : 99,
       // detail: info.vanillaTitle ? info.vanillaTitle : info.title,
       info: conf.snippetPreview()
-        ? () => renderTid(info.vanillaTitle || info.title, conf.footer())
-        : '',
-      section
+        ? () => renderTid(snippet.vanillaTitle || snippet.title, conf.footer())
+        : ''
     });
   });
 }
