@@ -102,3 +102,5 @@ highlightActiveLine/caption: 🔍 高亮活动行
 highlightActiveLine/description: 高亮活动行以便更好地可见。
 tabSize/caption: 🔍 制表符大小
 tabSize/description: 设置制表符的大小。
+enableTWMode/caption:  tw 语法高亮（实验性）
+enableTWMode/description: tw 语法高亮（实验性）

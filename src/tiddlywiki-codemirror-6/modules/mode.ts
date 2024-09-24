@@ -41,8 +41,7 @@ const dynamicmode = (
     case modes.tiddlywiki:
       // NOTE: 不建议使用 legacymode, 和 cm6 部分功能有冲突
       // cme.push(StreamLanguage.define(tiddlyWiki));
-      // @ts-ignore
-      cme.push(tiddlywiki({}));
+      cm6.enableTWMode() && cme.push(tiddlywiki());
 
       cm6.foldByIndent() && cme.push(foldByIndent());
 

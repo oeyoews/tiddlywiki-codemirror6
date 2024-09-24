@@ -586,6 +586,18 @@ export const tiddlers = defineConfig({
       zh: '设置制表符的大小。',
       en: 'Set the size of tabs.'
     }
+  },
+  enableTWMode: {
+    caption: {
+      zh: 'tw 语法高亮（实验性）',
+      en: 'tw systax highlight （experimental）'
+    },
+    text: 'yes',
+    icon: '',
+    description: {
+      zh: 'tw 语法高亮（实验性）',
+      en: 'tw systax highlight （experimental）'
+    }
   }
 });
 
