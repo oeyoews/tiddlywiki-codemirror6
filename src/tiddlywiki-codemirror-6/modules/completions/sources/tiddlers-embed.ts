@@ -1,6 +1,6 @@
 import { getAllTiddlers } from './tiddlers';
 
-const type = 'cm-tiddler';
+const type = 'cm-tiddler-embed';
 const section = 'tiddlers';
 const delimiter = '{{';
 

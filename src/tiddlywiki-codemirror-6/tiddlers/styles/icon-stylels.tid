@@ -26,3 +26,11 @@ $:/plugins/oeyoews/tiddlywiki-codemirror-6/icon-dict
   content: url(<$transclude $variable="makedatauri" text={{{ [<content>] }}} type="image/svg+xml" />); }
 </$let>
 </$list>
+
+<!-- .cm-tooltip.cm-tooltip-autocomplete > ul::-webkit-scroller {
+  display: none !important;
+}
+
+.cm-tooltip.cm-tooltip-autocomplete > ul {
+  background: black !important;
+} -->

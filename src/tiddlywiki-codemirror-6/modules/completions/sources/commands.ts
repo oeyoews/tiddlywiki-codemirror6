@@ -12,7 +12,7 @@ type IFileType<T> = {
   };
 };
 
-const section = 'Command';
+const section = 'command';
 const type = 'cm-command';
 const delimiter = '@#';
 

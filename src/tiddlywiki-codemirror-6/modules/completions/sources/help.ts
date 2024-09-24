@@ -11,7 +11,8 @@ const delimiter = '/?';
 function snippets(): Completion[] {
   const items = delimitersInfo.map((item) => ({
     section: item.section,
-    delimiter: item.delimiters
+    delimiter: item.delimiters,
+    type: item.type
   }));
 
   return items.map((item) =>
@@ -21,7 +22,7 @@ function snippets(): Completion[] {
       detail: item.delimiter,
       // info: item.name,
       displayLabel: item.section,
-      type: 'cm-help'
+      type: item.type
     })
   );
 }

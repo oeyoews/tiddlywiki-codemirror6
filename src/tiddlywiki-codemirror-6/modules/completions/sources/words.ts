@@ -11,7 +11,7 @@ export default {
 export function wordsSnippets() {
   return words.map((word) => ({
     label: word,
-    displayLabel: word,
+    // displayLabel: word,
     type: 'cm-word'
   })) as Completion[];
 }

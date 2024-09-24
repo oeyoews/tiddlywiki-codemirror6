@@ -4,7 +4,7 @@ import {
 } from '@codemirror/autocomplete';
 
 const section = 'codeblock';
-const type = '';
+const type = 'cm-codeblock';
 const delimiter = '```';
 
 const getIcontype = (text: string) => {
