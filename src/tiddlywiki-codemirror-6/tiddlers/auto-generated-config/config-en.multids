@@ -102,3 +102,5 @@ highlightActiveLine/caption: 🔍 Highlight Active Line
 highlightActiveLine/description: Highlight the active line for better visibility.
 tabSize/caption: 🔍 Tab Size
 tabSize/description: Set the size of tabs.
+enableTWMode/caption:  Tw systax highlight （experimental）
+enableTWMode/description: tw systax highlight （experimental）

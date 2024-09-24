@@ -522,7 +522,7 @@ export const tiddlers = defineConfig({
       zh: '括号匹配',
       en: 'Bracket Matching'
     },
-    text: 'yes',
+    text: 'no',
     icon: '🔄',
     description: {
       zh: '启用括号匹配。',
@@ -585,6 +585,18 @@ export const tiddlers = defineConfig({
     description: {
       zh: '设置制表符的大小。',
       en: 'Set the size of tabs.'
+    }
+  },
+  enableTWMode: {
+    caption: {
+      zh: 'tw 语法高亮（实验性）',
+      en: 'tw systax highlight （experimental）'
+    },
+    text: 'yes',
+    icon: '',
+    description: {
+      zh: 'tw 语法高亮（实验性）',
+      en: 'tw systax highlight （experimental）'
     }
   }
 });
