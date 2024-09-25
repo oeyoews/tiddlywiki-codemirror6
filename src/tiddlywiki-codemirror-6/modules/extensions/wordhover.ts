@@ -34,29 +34,29 @@ export const wordHover: Extension = hoverTooltip(
     if (!$tw.wiki.getTiddlerText(title)) return null;
     // if (title.startsWith('$:/')) return null;
 
-    let previewNode = document.createElement('div');
-    previewNode.className = 'cm-link-preview';
+    let dom = document.createElement('div');
+    dom.className = 'cm-link-preview';
     try {
       if (!$tw.wiki.getTiddlerText(title)) {
-        previewNode.textContent = 'Nothing ...';
+        dom.textContent = 'Nothing ...';
       } else {
         const innerHTML = $tw.wiki.renderTiddler('text/html', title);
-        previewNode.innerHTML = innerHTML;
+        dom.innerHTML = innerHTML;
       }
-      previewNode.addEventListener('pointermove', (e: PointerEvent) => {
+      dom.addEventListener('pointermove', (e: PointerEvent) => {
         let setCursor = false;
         if (e.ctrlKey && !setCursor) {
-          previewNode.style.cursor = 'pointer';
+          dom.style.cursor = 'pointer';
           setCursor = true;
         } else if (!e.ctrlKey) {
-          previewNode.style.cursor = 'text';
+          dom.style.cursor = 'text';
           setCursor = false;
         }
       });
-      previewNode.addEventListener('click', (e: MouseEvent) => {
+      dom.addEventListener('click', (e: MouseEvent) => {
         e.preventDefault();
         if (e.ctrlKey) {
-          previewNode.hidden = true; // 隐藏弹窗
+          dom.hidden = true; // 隐藏弹窗
           new $tw.Story().navigateTiddler(title);
         }
       });
@@ -68,10 +68,10 @@ export const wordHover: Extension = hoverTooltip(
       pos: start,
       end,
       strictSide: true,
-      // arrow: true,
+      arrow: true,
       above: true,
       create(view: EditorView) {
-        return { dom: previewNode };
+        return { dom };
       }
     };
   },
@@ -83,18 +83,26 @@ export const wordHover: Extension = hoverTooltip(
 
 const linkpreviewStyle = EditorView.baseTheme({
   '.cm-link-preview': {
-    boxShadow: '0 4px 6px rgba(0, 0, 0, 0.1), 0 1px 3px rgba(0, 0, 0, 0.08)',
     // cursor: 'pointer',
     overflow: 'auto',
+    minWidth: '200px',
     maxWidth: '400px',
     maxHeight: '400px',
     padding: '6px',
-    borderRadius: '8px',
+    // margin: '6px',
     zIndex: '1001 !important' // not work
   },
   '.cm-tooltip': {
-    border: 'none !important'
+    border: 'none !important',
+    boxShadow: '0 4px 6px rgba(0, 0, 0, 0.1), 0 1px 3px rgba(0, 0, 0, 0.08)',
+    borderRadius: '5px'
   }
+  // '.cm-tooltip-arrow:before': {
+  //   borderTopColor: '#66b'
+  // },
+  // '.cm-tooltip-arrow:after': {
+  //   borderTopColor: 'transparent'
+  // }
 });
 
 export const linkHoverPreview: Extension[] = [wordHover, linkpreviewStyle];
