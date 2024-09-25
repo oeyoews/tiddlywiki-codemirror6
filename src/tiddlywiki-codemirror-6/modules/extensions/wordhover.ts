@@ -96,13 +96,11 @@ const linkpreviewStyle = EditorView.baseTheme({
     border: 'none !important',
     boxShadow: '0 4px 6px rgba(0, 0, 0, 0.1), 0 1px 3px rgba(0, 0, 0, 0.08)',
     borderRadius: '5px'
+  },
+  '.cm-tooltip-arrow:before': {
+    borderTopColor: 'transparent',
+    borderBottomColor: 'transparent'
   }
-  // '.cm-tooltip-arrow:before': {
-  //   borderTopColor: '#66b'
-  // },
-  // '.cm-tooltip-arrow:after': {
-  //   borderTopColor: 'transparent'
-  // }
 });
 
 export const linkHoverPreview: Extension[] = [wordHover, linkpreviewStyle];
