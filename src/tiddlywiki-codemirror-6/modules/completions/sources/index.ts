@@ -25,6 +25,7 @@ const sources = [
   images,
   macros,
   // markdown // 和emoji 冲突， 不常用，暂时不处理
+  // 动态加载mermaidCB, 判断用户是否安装了mermaid
   mermaidCb,
   snippets,
   tags,

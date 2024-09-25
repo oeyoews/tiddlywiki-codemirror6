@@ -1,5 +1,6 @@
 //@ts-nocheck
 
+/** 彩虹括号 */
 // https://github.com/eriknewland/rainbowbrackets/blob/main/rainbowBrackets.js
 import { EditorView, Decoration, ViewPlugin } from '@codemirror/view';
 

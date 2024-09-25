@@ -3,6 +3,7 @@ import { EditorState } from '@codemirror/state';
 import { Tooltip, showTooltip } from '@codemirror/view';
 import { StateField } from '@codemirror/state';
 
+// @unused
 // TODO: completion close tooltip
 // change info tip
 const cursorTooltipField = StateField.define<readonly Tooltip[]>({

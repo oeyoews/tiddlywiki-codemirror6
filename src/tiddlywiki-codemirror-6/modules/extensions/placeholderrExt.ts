@@ -1,6 +1,7 @@
 // placeholderMatcher
 // https://github.com/codemirror/website/blob/master/site/examples/decoration/placeholder.ts
 
+/** 占位符placeholder 配置 */
 import { WidgetType } from '@codemirror/view';
 import { MatchDecorator } from '@codemirror/view';
 

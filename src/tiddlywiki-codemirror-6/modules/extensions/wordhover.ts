@@ -1,6 +1,7 @@
 import { type Extension } from '@codemirror/state';
 import { hoverTooltip, EditorView } from '@codemirror/view';
 
+// 预览 [[xxx]] tiddler
 // https://codepen.io/okikio/pen/NWjzyRG?editors=0010
 export const wordHover: Extension = hoverTooltip(
   (view, pos, side) => {
@@ -55,6 +56,7 @@ export const wordHover: Extension = hoverTooltip(
       previewNode.addEventListener('click', (e: MouseEvent) => {
         e.preventDefault();
         if (e.ctrlKey) {
+          previewNode.hidden = true; // 隐藏弹窗
           new $tw.Story().navigateTiddler(title);
         }
       });

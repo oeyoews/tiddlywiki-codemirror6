@@ -1,5 +1,6 @@
 // @ts-nocheck
 
+/** 给[[xxx]] 添加下划线 */
 // https://codemirror.net/examples/decoration/
 import { EditorView, Decoration, DecorationSet } from '@codemirror/view';
 import { StateField, StateEffect } from '@codemirror/state';
