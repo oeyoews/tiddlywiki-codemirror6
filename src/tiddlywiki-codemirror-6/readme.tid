@@ -10,6 +10,7 @@ title: $:/plugins/oeyoews/tiddlywiki-codemirror-6/readme
 
 [[Demo|https://oeyoews.github.io/tiddlywiki-codemirror6/#%24%3A%2Fplugins%2Foeyoews%2Ftiddlywiki-codemirror-6]]
 
+> Press `/?` to get help
 
 !! Features
 
@@ -17,17 +18,6 @@ title: $:/plugins/oeyoews/tiddlywiki-codemirror-6/readme
 * Support load snippet module
 * Minmap, vimmode, word count, rainbow brackets, codeblock highlight
 * Custom placeholder, tabsize, mincompletion length
-
-!! Completions
-
-* `/` to get snippets
-* `[[` or `{{` to get tiddlers
-* `:` to get emojis
-* `[img[` to get images
-* `<$` to get widgets
-* `//` to change tiddler type
-* `#` to insert tags
-* `@#` to setup codemirror6
 
 !! Tips
 
@@ -40,7 +30,8 @@ title: $:/plugins/oeyoews/tiddlywiki-codemirror-6/readme
 
 !! TODO
 
-* 图标如果过多就单独做成一个模块插件
+* refactor documentation ...
+
 
 !! Can be removed plugins
 
