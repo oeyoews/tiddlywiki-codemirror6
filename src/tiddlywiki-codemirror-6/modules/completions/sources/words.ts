@@ -1,5 +1,5 @@
 import { Completion } from '@codemirror/autocomplete';
-import { words } from '../snippets';
+import { words } from '../builtin/snippets';
 
 const section = 'words';
 const type = 'cm-word';

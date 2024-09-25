@@ -429,6 +429,7 @@ color: #495057;
 }
 
 <!-- 有个max-width 400.xxxpx -->
+.cm-snippet-preview,
 .cm-image-preview {
 	overflow: auto;
 	width: 400px;

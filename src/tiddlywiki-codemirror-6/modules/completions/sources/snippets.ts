@@ -4,24 +4,24 @@ import {
   snippetCompletion as snip
 } from '@codemirror/autocomplete';
 import conf from '@/cm6/config';
-import { usersnippets } from '@/cm6/modules/completions/snippets';
+import { usersnippets } from '@/cm6/modules/completions/builtin/snippets';
 
 const section = 'snippet';
 const type = 'cm-snippet';
 const delimiter = '/';
 const description = 'snippets';
 
-const renderCodeBlock = (title: string, content: string) => {
+const renderCodeBlock = (snippet: ISource) => {
+  console.log(snippet);
   if (!conf.snippetPreview()) return '';
   const domNode = document.createElement('div');
+  domNode.className = 'cm-snippet-preview';
 
-  const _text = $tw.wiki.getTiddlerText(title);
   let renderText = () => {
-    // let html = `<pre><code>${_text}</code></pre>`;
     const type = 'text/vnd.tiddlywiki';
-    let oldText = `<$codeblock code="""${_text || content}""" />`;
-    if (conf.footer() && _text) {
-      oldText += `\n<footer style="text-align: right;margin-right: 10px">${title}</footer>`;
+    let oldText = `<$codeblock code="""${snippet.text}""" />`;
+    if (conf.footer() && snippet.vanillaTitle) {
+      oldText += `\n<footer style="text-align: right;margin-right: 10px">${snippet.vanillaTitle}</footer>`;
     }
     let html = $tw.wiki.renderText('text/html', type, oldText);
     return html;
@@ -84,7 +84,7 @@ function snippets() {
           : 99,
       // detail: info.vanillaTitle ? info.vanillaTitle : info.title,
       // @ts-expect-error
-      info: () => renderCodeBlock(snippet.title, snippet.text)
+      info: () => renderCodeBlock(snippet)
     });
   });
 }
