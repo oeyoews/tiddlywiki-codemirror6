@@ -384,11 +384,11 @@ input.btc-search-input {
 }
 
 input.btc-search-input:focus {
-color: #495057;
-    background-color:  <<color background>>;
+	color: #495057;
+    background-color: <<color background>>;
     border-color: #80bdff;
     outline: 0;
-    box-shadow: 0 0 0 0.2rem rgba(0,123,255,.25);
+    <!-- box-shadow: 0 0 0 0.2rem rgba(0,123,255,.25); -->
 }
 
 .cm-button {

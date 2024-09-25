@@ -48,13 +48,13 @@ export const tiddlers = defineConfig({
     },
     text: 'no'
   },
-  EditorHeight: {
-    caption: {
-      zh: '最大高度',
-      en: 'Max Height'
-    },
-    text: ''
-  },
+  // EditorHeight: {
+  //   caption: {
+  //     zh: '最大高度',
+  //     en: 'Max Height'
+  //   },
+  //   text: ''
+  // },
   lines: {
     caption: {
       zh: '行数',
@@ -139,13 +139,13 @@ export const tiddlers = defineConfig({
   },
   activateOnTyping: {
     caption: {
-      zh: '打字激活',
+      zh: '开启自动补全',
       en: 'Activate on Typing'
     },
     text: 'yes',
     icon: '🚀',
     description: {
-      zh: '启用打字激活弹出补全框，关闭后，可以 ctrl+space 手动触发',
+      zh: '关闭后，可以 `CTRL+SPACE` 手动触发',
       en: 'Enable activation on typing for enhanced functionality.'
     }
   },
@@ -189,7 +189,7 @@ export const tiddlers = defineConfig({
     },
     icon: '🔗',
     description: {
-      zh: '启用超链接的预览。',
+      zh: '启用超链接预览。',
       en: 'Enable preview for hyperlinks.'
     }
   },
@@ -202,7 +202,7 @@ export const tiddlers = defineConfig({
     text: '',
     icon: '📂',
     description: {
-      zh: '设置字体以提高可读性。',
+      zh: '设置编辑器字体',
       en: 'Set the font family for better readability.'
     }
   },
@@ -214,7 +214,7 @@ export const tiddlers = defineConfig({
     text: '16px',
     icon: '📏',
     description: {
-      zh: '设置字体大小以提高可读性。',
+      zh: '设置编辑器字体大小',
       en: 'Set the font size for better readability.'
     }
   },
@@ -258,7 +258,7 @@ export const tiddlers = defineConfig({
     },
     icon: '🔄',
     description: {
-      zh: '启用系统 Tiddlers 的自动完成。',
+      zh: '更多关于系统条目标题的补全提示',
       en: 'Enable completion for system tiddlers.'
     }
   },
@@ -270,7 +270,7 @@ export const tiddlers = defineConfig({
     text: 'yes',
     icon: '🔒',
     description: {
-      zh: '失焦时自动关闭。',
+      zh: '光标不在编辑区域时， 自动隐藏自动补全弹窗',
       en: 'Automatically close on blur.'
     }
   },
@@ -285,17 +285,17 @@ export const tiddlers = defineConfig({
       en: 'Enable folding gutter for code.'
     }
   },
-  translate: {
-    caption: {
-      zh: '翻译',
-      en: 'Translate'
-    },
-    icon: '🌐',
-    description: {
-      zh: '启用翻译',
-      en: 'Enable translation.'
-    }
-  },
+  // translate: {
+  //   caption: {
+  //     zh: '翻译',
+  //     en: 'Translate'
+  //   },
+  //   icon: '🌐',
+  //   description: {
+  //     zh: '启用翻译',
+  //     en: 'Enable translation.'
+  //   }
+  // },
   rtl: {
     caption: {
       zh: 'RTL',
@@ -303,7 +303,7 @@ export const tiddlers = defineConfig({
     },
     icon: '↔️',
     description: {
-      zh: '启用从右到左的文本方向。',
+      zh: '启用从右到左的文本方向(不建议开启)',
       en: 'Enable Right-to-Left text direction.'
     }
   },
@@ -333,7 +333,7 @@ export const tiddlers = defineConfig({
   },
   'clickable-icon': {
     caption: {
-      zh: '可点击图标',
+      zh: '点击图标',
       en: 'Clickable Icon'
     },
     text: '🐟',
@@ -350,18 +350,18 @@ export const tiddlers = defineConfig({
     },
     icon: '🖱️',
     description: {
-      zh: '启用可点击性。',
+      zh: '可以在编辑区域内看到一个可以点击的图标',
       en: 'Enable clickability.'
     }
   },
-  customPlaceholder: {
+  enableCustomPlaceholder: {
     caption: {
-      zh: '自定义占位符',
+      zh: '启用自定义占位符',
       en: 'Custom Placeholder'
     },
     icon: '🖊️',
     description: {
-      zh: '设置自定义占位符。',
+      zh: '启用设置自定义占位符。',
       en: 'Set a custom placeholder.'
     }
   },
@@ -373,7 +373,7 @@ export const tiddlers = defineConfig({
     text: '✨ Write something ✒️ ...',
     icon: '✏️️',
     description: {
-      zh: '设置默认的占位符文本。',
+      zh: '设置自定义的占位符',
       en: 'Set the default placeholder text.'
     }
   },
@@ -391,13 +391,13 @@ export const tiddlers = defineConfig({
   },
   minLength: {
     caption: {
-      zh: '最小长度',
+      zh: '最小自动补全检测长度',
       en: 'Min Length'
     },
     text: 1,
     icon: '📏',
     description: {
-      zh: '设置自动补全最小长度。1 为立刻触发',
+      zh: '设置自动补全最小长度。1为立刻触发',
       en: 'Set the minimum length for input.'
     }
   },
@@ -420,7 +420,7 @@ export const tiddlers = defineConfig({
     },
     icon: '🗺️',
     description: {
-      zh: '启用导航的小地图。',
+      zh: '启用右侧小地图',
       en: 'Enable a minimap for navigation.'
     }
   },
@@ -473,7 +473,7 @@ export const tiddlers = defineConfig({
   },
   maxRenderedOptions: {
     caption: {
-      zh: '最大渲染选项',
+      zh: '自动补全每页数量',
       en: 'Max Rendered Options'
     },
     text: 20,
@@ -483,28 +483,28 @@ export const tiddlers = defineConfig({
       en: 'Set the maximum number of rendered options in autocomplete.'
     }
   },
-  spellcheck: {
-    caption: {
-      zh: '拼写检查',
-      en: 'Spellcheck'
-    },
-    icon: '📝',
-    description: {
-      zh: '启用拼写检查。',
-      en: 'Enable spellchecking.'
-    }
-  },
-  autocorrect: {
-    caption: {
-      zh: '自动纠正',
-      en: 'Autocorrect'
-    },
-    icon: '🔄',
-    description: {
-      zh: '启用自动纠正。',
-      en: 'Enable autocorrection.'
-    }
-  },
+  // spellcheck: {
+  //   caption: {
+  //     zh: '拼写检查',
+  //     en: 'Spellcheck'
+  //   },
+  //   icon: '📝',
+  //   description: {
+  //     zh: '启用拼写检查。',
+  //     en: 'Enable spellchecking.'
+  //   }
+  // },
+  // autocorrect: {
+  //   caption: {
+  //     zh: '自动纠正',
+  //     en: 'Autocorrect'
+  //   },
+  //   icon: '🔄',
+  //   description: {
+  //     zh: '启用自动纠正。',
+  //     en: 'Enable autocorrection.'
+  //   }
+  // },
   indentWithTab: {
     caption: {
       zh: '制表符缩进',
@@ -542,12 +542,12 @@ export const tiddlers = defineConfig({
   },
   completeAnyWord: {
     caption: {
-      zh: '完成任意单词',
+      zh: '单词补全',
       en: 'Complete Any Word'
     },
     icon: '🔄',
     description: {
-      zh: '启用对任意单词的完成。',
+      zh: '如果当前编辑区域有重复输入的单词，重复输入时会提示',
       en: 'Enable completion for any word.'
     }
   },
@@ -559,19 +559,19 @@ export const tiddlers = defineConfig({
     text: 'no',
     icon: '🔢',
     description: {
-      zh: '显示行号以便更好地导航代码。',
+      zh: '开启行号',
       en: 'Show line numbers for better code navigation.'
     }
   },
   highlightActiveLine: {
     caption: {
-      zh: '高亮活动行',
+      zh: '高亮当前行',
       en: 'Highlight Active Line'
     },
     text: 'no',
     icon: '🔍',
     description: {
-      zh: '高亮活动行以便更好地可见。',
+      zh: '高亮光标所在行',
       en: 'Highlight the active line for better visibility.'
     }
   },
@@ -595,7 +595,7 @@ export const tiddlers = defineConfig({
     text: 'yes',
     icon: '',
     description: {
-      zh: 'tw 语法高亮（实验性）',
+      zh: 'tw 语法高亮（实验性)',
       en: 'tw systax highlight （experimental）'
     }
   }

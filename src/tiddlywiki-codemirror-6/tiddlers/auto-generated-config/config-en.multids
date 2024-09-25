@@ -2,8 +2,6 @@ title: $:/language/codemirror6/
 
 insertModeFirst/caption: 📝 Insert Mode Auto Firstly
 insertModeFirst/description: Insert Mode Auto Firstly
-EditorHeight/caption: 📝 Max Height
-EditorHeight/description: Max Height
 lines/caption: 📝 Lines
 lines/description: Lines
 todobox/caption: 📝 Task checkbox
@@ -52,8 +50,6 @@ closeOnBlur/caption: 🔒 Close on Blur
 closeOnBlur/description: Automatically close on blur.
 foldGutter/caption: 📂 Fold Gutter
 foldGutter/description: Enable folding gutter for code.
-translate/caption: 🌐 Translate
-translate/description: Enable translation.
 rtl/caption: ↔️ RTL
 rtl/description: Enable Right-to-Left text direction.
 cursor-thickness/caption: 🚸 Cursor Thickness
@@ -64,8 +60,8 @@ clickable-icon/caption: 🖱️ Clickable Icon
 clickable-icon/description: Set a clickable icon.
 clickable/caption: 🖱️ Clickable
 clickable/description: Enable clickability.
-customPlaceholder/caption: 🖊️ Custom Placeholder
-customPlaceholder/description: Set a custom placeholder.
+enableCustomPlaceholder/caption: 🖊️ Custom Placeholder
+enableCustomPlaceholder/description: Set a custom placeholder.
 placeholder/caption: ✏️️ Placeholder
 placeholder/description: Set the default placeholder text.
 cursorBlinkRate/caption: ⚡ Cursor Blink Rate
@@ -84,10 +80,6 @@ autocompleteIcons/caption: 🎨 Autocomplete Icons
 autocompleteIcons/description: Enable icons in autocomplete suggestions.
 maxRenderedOptions/caption: 🔍 Max Rendered Options
 maxRenderedOptions/description: Set the maximum number of rendered options in autocomplete.
-spellcheck/caption: 📝 Spellcheck
-spellcheck/description: Enable spellchecking.
-autocorrect/caption: 🔄 Autocorrect
-autocorrect/description: Enable autocorrection.
 indentWithTab/caption: 🔄 Indent with Tab
 indentWithTab/description: Indent with tab instead of spaces.
 bracketMatching/caption: 🔄 Bracket Matching

@@ -5,10 +5,20 @@ title: $:/plugins/oeyoews/tiddlywiki-codemirror-6/ui/templates/settings/input-sw
 
 <$reveal type="match" state="$:/config/codemirror6/language" text="en">
 <$link tooltip={{!!description}}>{{!!caption}}</$link>
+<div>
+<small>
+{{!!description}}
+</small>
+</div>
 </$reveal>
 
 <$reveal type="match" state="$:/config/codemirror6/language" text="zh">
 <$link tooltip={{!!description-zh}}>{{!!caption-zh}}</$link>
+<div>
+<small>
+{{!!description-zh}}
+</small>
+</div>
 </$reveal>
 
 </label>

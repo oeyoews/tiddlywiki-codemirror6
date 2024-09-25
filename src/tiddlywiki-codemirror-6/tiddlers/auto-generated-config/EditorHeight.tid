@@ -1,7 +1,0 @@
-title: $:/config/codemirror-6/EditorHeight
-caption: {{$:/language/codemirror6/EditorHeight/caption}}
-caption-zh: {{$:/language/codemirror6/zh/EditorHeight/caption}}
-description: {{$:/language/codemirror6/EditorHeight/description}}
-description-zh: {{$:/language/codemirror6/zh/EditorHeight/description}}
-settings-template: $:/plugins/oeyoews/tiddlywiki-codemirror-6/ui/templates/settings/input
-

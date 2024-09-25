@@ -152,20 +152,20 @@ export function cme(self: any): Extension[] {
     EditorView.contentAttributes.of({
       tabindex: self.widget.editTabIndex ? self.widget.editTabIndex : ''
     }),
-    EditorView.contentAttributes.of({
-      spellcheck: cm6.spellcheck()
-    }),
-    EditorView.contentAttributes.of({
-      autocorrect: cm6.autocorrect()
-    }),
-    EditorView.contentAttributes.of({
-      translate:
-        $tw.wiki.getTiddlerText(
-          '$:/state/codemirror-6/translate/' + self.widget.editTitle
-        ) === 'yes'
-          ? 'yes'
-          : 'no'
-    }),
+    // EditorView.contentAttributes.of({
+    //   spellcheck: cm6.spellcheck()
+    // }),
+    // EditorView.contentAttributes.of({
+    //   autocorrect: cm6.autocorrect()
+    // }),
+    // EditorView.contentAttributes.of({
+    //   translate:
+    //     $tw.wiki.getTiddlerText(
+    //       '$:/state/codemirror-6/translate/' + self.widget.editTitle
+    //     ) === 'yes'
+    //       ? 'yes'
+    //       : 'no'
+    // }),
     EditorView.perLineTextDirection.of(true),
     EditorView.updateListener.of((v: ViewUpdate) => {
       const editor: EditorView = self.editor; // 这是动态计算出来的 cm, 这也就是为什么在初始化前就可以拿到了 this.cm。如果直接在箭头函数的外面写死 cm, 那么 this.cm 就拿不到了

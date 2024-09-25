@@ -1,0 +1,8 @@
+title: $:/config/codemirror-6/enableCustomPlaceholder
+caption: {{$:/language/codemirror6/enableCustomPlaceholder/caption}}
+caption-zh: {{$:/language/codemirror6/zh/enableCustomPlaceholder/caption}}
+description: {{$:/language/codemirror6/enableCustomPlaceholder/description}}
+description-zh: {{$:/language/codemirror6/zh/enableCustomPlaceholder/description}}
+settings-template: $:/plugins/oeyoews/tiddlywiki-codemirror-6/ui/templates/settings/input-switch
+
+no

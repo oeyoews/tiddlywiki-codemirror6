@@ -8,24 +8,6 @@ const type = 'cm-codeblock';
 const delimiter = '```';
 const description = 'generate codeblock';
 
-const getIcontype = (text: string) => {
-  let type: ICompletionIcons = 'keyword';
-  switch (text) {
-    case 'js':
-      type = 'cm-js';
-      break;
-    case 'mermaid':
-      type = 'cm-mermaid';
-      break;
-    case 'html':
-      type = 'cm-html';
-      break;
-    default:
-      break;
-  }
-  return type;
-};
-
 const getBoostArrayFromArray = (arr: string[]) => {
   return arr
     .map((item, index) => {
@@ -35,7 +17,7 @@ const getBoostArrayFromArray = (arr: string[]) => {
 };
 
 function snippets() {
-  const types = ['js', 'mermaid', 'html'];
+  const types = ['html', 'js', 'mermaid'];
   const cblTypes = types.map((item) => ({
     title: item
   }));
@@ -45,7 +27,7 @@ function snippets() {
       snip(delimiter + `${item.title}\n#{1}\n` + delimiter, {
         label: delimiter + item.title,
         displayLabel: item.title,
-        type: getIcontype(item.title),
+        type: `cm-${item.title}`,
         section,
         boost: getBoostArrayFromArray(types)[index]
       }) as Completion

@@ -79,7 +79,9 @@ export default function updateExtensions(cme: Extension[], widget: IWidget) {
       cme.push(highlightActiveLineGutter(), highlightActiveLine());
     cme.push(
       placeholder(
-        conf.customPlaceholder() ? conf.placeholder() : widget.editPlaceholder
+        conf.enableCustomPlaceholder()
+          ? conf.placeholder()
+          : widget.editPlaceholder
       )
     );
     conf.completeAnyWord() &&

@@ -12,15 +12,15 @@ subtitle: {{||$:/esc}}
 <!-- toggle i18n -->
 Your codemirror6 config tiddlers: <$count filter="[prefix[$:/config/codemirror-6]] "/> (<$count filter="[all[tiddlers+shadows]prefix[$:/config/codemirror-6]]"/>)
 
-Config Language: <$select tiddler="$:/config/codemirror6/language" tooltip='change codemirror6 config language'>
+Language: <$select tiddler="$:/config/codemirror6/language" tooltip='change codemirror6 config language'>
 <option value=en>En</option>
 <option value=zh>中文</option>
 </$select>
 
 <$edit-text tiddler="$:/state/codemirror-6/settings/search" class="btc-search-input" default="" tag="input" type="search" placeholder="search..." focus="yes"/>
 
-<div class="btc-list-group btc-list-group-box-shadow btc-list-stream-settings">
-<$list filter="[all[shadows+tiddlers]prefix[$:/config/codemirror-6/]has[settings-template]]  +[search:title,caption,description{$:/state/codemirror-6/settings/search}] +[sortsub<sortBySettingsGroupFilter>]">
+<div class="btc-list-group !btc-list-group-box-shadow btc-list-stream-settings">
+<$list filter="[all[shadows+tiddlers]prefix[$:/config/codemirror-6/]has[settings-template]] +[search:title,caption,description{$:/state/codemirror-6/settings/search}] +[sortsub<sortBySettingsGroupFilter>]">
 <$list filter={{{[{!!condition}!is[blank]] :else[{!!title}]}}} variable="list-condition">
 <div class="btc-list-group-item">
 <$transclude tiddler={{!!settings-template}}/>
