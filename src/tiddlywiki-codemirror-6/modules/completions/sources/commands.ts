@@ -124,6 +124,8 @@ export function snippets(widget: IWidget) {
             : capitalize(item.description.en),
         type,
         section,
+
+        commitCharacters: ['tiddlywiki'],
         apply: (view: EditorView, completion: Completion, from, to) => {
           view.dispatch({
             changes: { from, to, insert: '' }

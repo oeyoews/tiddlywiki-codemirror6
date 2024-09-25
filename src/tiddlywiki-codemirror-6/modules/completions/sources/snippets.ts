@@ -1,5 +1,8 @@
 import { renderTid } from '@/cm6/utils/renderTiddler';
-import { snippetCompletion as snip } from '@codemirror/autocomplete';
+import {
+  type CompletionInfo,
+  snippetCompletion as snip
+} from '@codemirror/autocomplete';
 import conf from '@/cm6/config';
 import { usersnippets } from '@/cm6/modules/completions/snippets';
 
@@ -7,6 +10,27 @@ const section = 'snippet';
 const type = 'cm-snippet';
 const delimiter = '/';
 const description = 'snippets';
+
+const renderCodeBlock = (title: string, content: string) => {
+  if (!conf.snippetPreview()) return '';
+  console.log(content);
+  const domNode = document.createElement('div');
+
+  const _text = $tw.wiki.getTiddlerText(title);
+  let renderText = () => {
+    // let html = `<pre><code>${_text}</code></pre>`;
+    const type = 'text/vnd.tiddlywiki';
+    let oldText = `<$codeblock code="""${_text || content}""" />`;
+    if (conf.footer()) {
+      oldText += `\n<footer style="text-align: right;margin-right: 10px">${title}</footer>`;
+    }
+    let html = $tw.wiki.renderText('text/html', type, oldText);
+    return html;
+  };
+
+  domNode.innerHTML = renderText();
+  return domNode;
+};
 
 function snippets() {
   const userSnippetTiddlers = $tw.wiki.filterTiddlers(
@@ -60,9 +84,12 @@ function snippets() {
           ? -99
           : 99,
       // detail: info.vanillaTitle ? info.vanillaTitle : info.title,
-      info: conf.snippetPreview()
-        ? () => renderTid(snippet.vanillaTitle || snippet.title, conf.footer())
-        : ''
+      // conf.footer()
+      // info: conf.snippetPreview()
+      //   ? () => renderCodeBlock(snippet.vanillaTitle || snippet.title)
+      //   : ''
+      // @ts-expect-error
+      info: () => renderCodeBlock(snippet.title, snippet.text)
     });
   });
 }

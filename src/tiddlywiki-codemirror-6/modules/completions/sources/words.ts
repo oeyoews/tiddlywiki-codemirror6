@@ -1,18 +1,27 @@
 import { Completion } from '@codemirror/autocomplete';
 import { words } from '../snippets';
 
-export default {
-  section: 'Word',
-  type: 'cm-word',
-  delimiter: '',
-  description: '',
-  snippets: wordsSnippets
-};
+const section = 'words';
+const type = 'cm-word';
+const description = 'words';
+const delimiters = '';
 
-export function wordsSnippets() {
-  return words.map((word) => ({
-    label: word,
-    // displayLabel: word,
-    type: 'cm-word'
-  })) as Completion[];
+function snippets() {
+  return words.map(
+    (word) =>
+      ({
+        section,
+        label: word,
+        // commitCharacters: ['.'],
+        // displayLabel: word,
+        type: 'cm-word'
+      }) as Completion
+  );
 }
+
+export default {
+  section,
+  type,
+  description,
+  snippets
+};

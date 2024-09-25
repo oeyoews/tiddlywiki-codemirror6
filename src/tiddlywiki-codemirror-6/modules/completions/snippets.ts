@@ -1,11 +1,11 @@
 //  NOTE: Moving to the last field or moving the cursor out of the current field deactivates the fields.
 
 export const usersnippets: ISource[] = [
-  {
-    title: 'codeblock',
-    text: '```${1:lang}\n${2:code}\n```',
-    desc: ''
-  },
+  // {
+  //   title: 'codeblock',
+  //   text: '```${1:lang}\n${2:code}\n```',
+  //   desc: ''
+  // },
   {
     title: 'date',
     text: `${new Date().toLocaleDateString()}`,
