@@ -12,7 +12,6 @@ const delimiter = '/';
 const description = 'snippets';
 
 const renderCodeBlock = (snippet: ISource) => {
-  console.log(snippet);
   if (!conf.snippetPreview()) return '';
   const domNode = document.createElement('div');
   domNode.className = 'cm-snippet-preview';
