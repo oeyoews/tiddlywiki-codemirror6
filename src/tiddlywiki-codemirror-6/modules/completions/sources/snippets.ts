@@ -21,7 +21,7 @@ const renderCodeBlock = (title: string, content: string) => {
     // let html = `<pre><code>${_text}</code></pre>`;
     const type = 'text/vnd.tiddlywiki';
     let oldText = `<$codeblock code="""${_text || content}""" />`;
-    if (conf.footer()) {
+    if (conf.footer() && _text) {
       oldText += `\n<footer style="text-align: right;margin-right: 10px">${title}</footer>`;
     }
     let html = $tw.wiki.renderText('text/html', type, oldText);
