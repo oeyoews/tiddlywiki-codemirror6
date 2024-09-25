@@ -13,7 +13,6 @@ const description = 'snippets';
 
 const renderCodeBlock = (title: string, content: string) => {
   if (!conf.snippetPreview()) return '';
-  console.log(content);
   const domNode = document.createElement('div');
 
   const _text = $tw.wiki.getTiddlerText(title);
