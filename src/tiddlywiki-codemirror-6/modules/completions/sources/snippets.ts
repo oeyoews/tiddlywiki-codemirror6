@@ -84,10 +84,6 @@ function snippets() {
           ? -99
           : 99,
       // detail: info.vanillaTitle ? info.vanillaTitle : info.title,
-      // conf.footer()
-      // info: conf.snippetPreview()
-      //   ? () => renderCodeBlock(snippet.vanillaTitle || snippet.title)
-      //   : ''
       // @ts-expect-error
       info: () => renderCodeBlock(snippet.title, snippet.text)
     });
