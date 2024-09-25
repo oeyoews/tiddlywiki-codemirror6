@@ -57,20 +57,24 @@ export const tiddlers = defineConfig({
   // },
   lines: {
     caption: {
-      zh: '行数',
+      zh: '自动生成行数',
       en: 'Lines'
     },
-    text: 1
+    text: 1,
+    description: {
+      zh: '新建tiddler自动生成N行',
+      en: 'Max Lines'
+    }
   },
   todobox: {
     caption: {
-      zh: '代办事项复选框',
+      zh: '代办事项复选框(MD)',
       en: 'Task checkbox'
     }
   },
   checkbox: {
     caption: {
-      zh: '复选框',
+      zh: '复选框(JS)',
       en: 'Checkbox'
     }
   },
