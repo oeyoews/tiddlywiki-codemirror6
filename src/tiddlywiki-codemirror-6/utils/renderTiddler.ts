@@ -28,7 +28,7 @@ export function renderTid(
   // @see-also: https://github.com/Jermolene/TiddlyWiki5/discussions/7923
   // NOTE: 这里没有传入 this, 不能判断 fakedom
   const preview = document.createElement('div');
-  let renderedText = `<$transclude $tiddler='${title}' $mode='block' />`;
+  let renderedText = `<$transclude $tiddler="""${title}""" $mode='block' />`;
   if (footer) {
     renderedText += `\n<footer style="text-align: right;margin-right: 10px">Snippet Tiddler Is: ${title}</footer>`;
   }
