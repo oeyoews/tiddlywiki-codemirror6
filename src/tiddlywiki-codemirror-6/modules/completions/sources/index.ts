@@ -10,6 +10,7 @@ import snippets from './snippets';
 import tags from './tags';
 import template from './template';
 import tiddlers from './tiddlers';
+import tiddlersCn from './tiddlers-cn';
 import tiddlersEmbed from './tiddlers-embed';
 import widget from './widget';
 // import markdown from './markdown';
@@ -29,6 +30,7 @@ const sources = [
   tags,
   tiddlersEmbed,
   tiddlers,
+  tiddlersCn,
   widget,
   template
 ];
