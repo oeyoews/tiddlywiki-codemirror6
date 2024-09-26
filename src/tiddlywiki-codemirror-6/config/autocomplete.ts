@@ -1,6 +1,10 @@
 import { EditorState } from '@codemirror/state';
 import cm6 from '@/cm6/config';
-import { autocompletion, Completion } from '@codemirror/autocomplete';
+import {
+  autocompletion,
+  Completion,
+  selectedCompletion
+} from '@codemirror/autocomplete';
 
 // @see-also https://codemirror.net/docs/ref/#autocomplete.CompletionSection
 export default () =>
@@ -14,18 +18,20 @@ export default () =>
     },
 
     // https://github.com/codemirror/dev/issues/1293
-    /*     addToOptions: [
+    // @NOTE: 这将会导致dislable 也会高亮下划线
+    addToOptions: [
       {
         render: (completion: Completion, state: EditorState) => {
           const caret = document.createElement('span');
-          if (selectedCompletion(state) !== completion) return caret;
-          caret.style.backgroundColor = 'red';
+          caret.className = 'cm-autocomplete-tab';
+          // if (selectedCompletion(state) !== completion) return caret;
+          // caret.style.backgroundColor = 'yellow';
           caret.textContent = 'tab';
           return caret;
         },
         position: 81
       }
-    ], */
+    ],
     // positionInfo
     selectOnOpen: cm6.selectOnOpen(),
     icons: cm6.autocompleteIcons(),
