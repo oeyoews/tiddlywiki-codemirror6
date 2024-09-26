@@ -66,10 +66,9 @@ export default (widget: IWidget, self: any) => {
     return {
       from: wordStart,
       options, // NOTE: 一定要保证是数组
-      // filter: false,
+      filter: true,
       getMatch: (compltion: Completion, matched) => {
-        // console.log(matched);
-        if (!cm6.matchText()) return [];
+        // if (!cm6.matchText()) return [];
         return matched as [];
       },
       validFor

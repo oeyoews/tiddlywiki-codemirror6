@@ -10,7 +10,7 @@ export default () =>
       return 'cm-autocomplete-tooltip';
     },
     optionClass: (option: Completion): string => {
-      return 'cm-autocomplete-option';
+      return 'cm-autocomplete-option'; // 补全选中的样式
     },
 
     // https://github.com/codemirror/dev/issues/1293

@@ -89,26 +89,34 @@ export const tiddlers = defineConfig({
     caption: {
       en: 'remove editor outline',
       zh: '移除编辑器边框'
+    },
+    description: {
+      en: 'remove editor outline',
+      zh: '移除编辑器边框(配置待修复, 更改配置无效， 默认是移除)'
     }
   },
-  disableCM6: {
-    caption: {
-      en: '@depreacted: use simeple editor(Need Restart, Experimental, Not Recommended)',
-      zh: '@弃用 使用简单编辑器 (需要重启，实验性，不建议使用)'
-    }
-  },
+  // disableCM6: {
+  //   caption: {
+  //     en: '@depreacted: use simeple editor(Need Restart, Experimental, Not Recommended)',
+  //     zh: '@弃用 使用简单编辑器 (需要重启，实验性，不建议使用)'
+  //   }
+  // },
   vimJK: {
     caption: {
-      zh: 'vim 键盘映射 JK(你知道我在说什么.)',
+      zh: 'Vim JK',
       en: "vim keyboard mapping JK(You know what I'm saying.)"
+    },
+    description: {
+      zh: '快速退出插入模式',
+      en: 'Fast Exit Insert Mode'
     }
   },
-  matchText: {
-    caption: {
-      zh: '匹配文本',
-      en: 'Match Text'
-    }
-  },
+  // matchText: {
+  //   caption: {
+  //     zh: '匹配文本',
+  //     en: 'Match Text'
+  //   }
+  // },
   commentComplete: {
     caption: {
       zh: '注释中开启补全',
@@ -132,8 +140,8 @@ export const tiddlers = defineConfig({
   },
   debug: {
     caption: {
-      zh: '调试',
-      en: 'Debug'
+      zh: '调试(实验性)',
+      en: 'Debug(experimental)'
     },
     icon: '🐞',
     description: {
@@ -560,7 +568,7 @@ export const tiddlers = defineConfig({
       zh: '行号',
       en: 'Line Numbers'
     },
-    text: 'no',
+    text: 'yes',
     icon: '🔢',
     description: {
       zh: '开启行号',
@@ -572,7 +580,7 @@ export const tiddlers = defineConfig({
       zh: '高亮当前行',
       en: 'Highlight Active Line'
     },
-    text: 'no',
+    text: 'yes',
     icon: '🔍',
     description: {
       zh: '高亮光标所在行',

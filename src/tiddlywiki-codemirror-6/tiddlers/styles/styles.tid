@@ -433,7 +433,7 @@ input.btc-search-input:focus {
 .cm-snippet-preview,
 .cm-image-preview {
 	overflow: auto;
-	width: 400px;
+	min-width: 300px;
 	max-height: 300px;
 	border-radius: 4px !important;
 	padding-right: 8px;
