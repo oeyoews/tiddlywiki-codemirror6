@@ -448,10 +448,10 @@ input.btc-search-input:focus {
 }
 
 <!-- NOTE: if include emoji, emoji will broken use font-bold, emoji was split two chars because of dymamic matchedtext -->
-<!-- .cm-completionMatchedText {
+.cm-completionMatchedText {
 	font-weight: bold;
 	text-decoration: none !important;
-} -->
+}
 
 
 .cm-completionIcon-cm-tiddler:after {
