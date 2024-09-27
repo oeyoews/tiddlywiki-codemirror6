@@ -101,6 +101,17 @@ export const tiddlers = defineConfig({
   //     zh: '@弃用 使用简单编辑器 (需要重启，实验性，不建议使用)'
   //   }
   // },
+  lineWrapping: {
+    caption: {
+      zh: '自动换行',
+      en: 'Line Wrapping'
+    },
+    text: 'yes',
+    description: {
+      zh: '自动换行',
+      en: 'Line Wrapping'
+    }
+  },
   vimJK: {
     caption: {
       zh: 'Vim JK',

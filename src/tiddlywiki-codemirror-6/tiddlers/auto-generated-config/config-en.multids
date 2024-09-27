@@ -3,7 +3,7 @@ title: $:/language/codemirror6/
 insertModeFirst/caption: 📝 Insert Mode Auto Firstly
 insertModeFirst/description: Insert Mode Auto Firstly
 lines/caption: 📝 Lines
-lines/description: Lines
+lines/description: Max Lines
 todobox/caption: 📝 Task checkbox
 todobox/description: Task checkbox
 checkbox/caption: 📝 Checkbox
@@ -12,17 +12,15 @@ foldByIndent/caption: 📝 Fold By Indent
 foldByIndent/description: Fold By Indent
 removeOutline/caption: 📝 Remove editor outline
 removeOutline/description: remove editor outline
-disableCM6/caption: 📝 @depreacted: use simeple editor(Need Restart, Experimental, Not Recommended)
-disableCM6/description: @depreacted: use simeple editor(Need Restart, Experimental, Not Recommended)
+lineWrapping/caption: 📝 Line Wrapping
+lineWrapping/description: Line Wrapping
 vimJK/caption: 📝 Vim keyboard mapping JK(You know what I'm saying.)
-vimJK/description: vim keyboard mapping JK(You know what I'm saying.)
-matchText/caption: 📝 Match Text
-matchText/description: Match Text
+vimJK/description: Fast Exit Insert Mode
 commentComplete/caption: 📝 Comment Complete
 commentComplete/description: Comment Complete
 footer/caption: 📝 Footer
 footer/description: Show snippets footer
-debug/caption: 🐞 Debug
+debug/caption: 🐞 Debug(experimental)
 debug/description: Sebug for codemirror on console
 activateOnTyping/caption: 🚀 Activate on Typing
 activateOnTyping/description: Enable activation on typing for enhanced functionality.

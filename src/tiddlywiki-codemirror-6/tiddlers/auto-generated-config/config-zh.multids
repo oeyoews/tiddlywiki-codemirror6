@@ -2,27 +2,25 @@ title: $:/language/codemirror6/zh/
 
 insertModeFirst/caption: 📝 VIM自动进入插入模式
 insertModeFirst/description: VIM自动进入插入模式
-lines/caption: 📝 行数
-lines/description: 行数
-todobox/caption: 📝 代办事项复选框
-todobox/description: 代办事项复选框
-checkbox/caption: 📝 复选框
-checkbox/description: 复选框
+lines/caption: 📝 自动生成行数
+lines/description: 新建tiddler自动生成N行
+todobox/caption: 📝 代办事项复选框(MD)
+todobox/description: 代办事项复选框(MD)
+checkbox/caption: 📝 复选框(JS)
+checkbox/description: 复选框(JS)
 foldByIndent/caption: 📝 按缩进折叠
 foldByIndent/description: 按缩进折叠
 removeOutline/caption: 📝 移除编辑器边框
-removeOutline/description: 移除编辑器边框
-disableCM6/caption: 📝 @弃用 使用简单编辑器 (需要重启，实验性，不建议使用)
-disableCM6/description: @弃用 使用简单编辑器 (需要重启，实验性，不建议使用)
-vimJK/caption: 📝 vim 键盘映射 JK(你知道我在说什么.)
-vimJK/description: vim 键盘映射 JK(你知道我在说什么.)
-matchText/caption: 📝 匹配文本
-matchText/description: 匹配文本
+removeOutline/description: 移除编辑器边框(配置待修复, 更改配置无效， 默认是移除)
+lineWrapping/caption: 📝 自动换行
+lineWrapping/description: 自动换行
+vimJK/caption: 📝 Vim JK
+vimJK/description: 快速退出插入模式
 commentComplete/caption: 📝 注释中开启补全
 commentComplete/description: 注释中开启补全
 footer/caption: 📝 页脚
 footer/description: 显示代码片段来源
-debug/caption: 🐞 调试
+debug/caption: 🐞 调试(实验性)
 debug/description: 在控制台上显示 codemirror6 的日志
 activateOnTyping/caption: 🚀 开启自动补全
 activateOnTyping/description: 关闭后，可以 `CTRL+SPACE` 手动触发

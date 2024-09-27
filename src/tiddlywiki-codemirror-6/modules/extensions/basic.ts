@@ -30,7 +30,7 @@ import cm6 from '@/cm6/config';
 import rainbowBrackets from './rainbowBrackets';
 
 export function cme(self: any): Extension[] {
-  return [
+  let extensions = [
     indentationMarkers({
       thickness: 2,
       hideFirstIndent: false,
@@ -148,7 +148,6 @@ export function cme(self: any): Extension[] {
     crosshairCursor(),
     highlightSelectionMatches(),
     rainbowBrackets(),
-    EditorView.lineWrapping,
     EditorView.contentAttributes.of({
       tabindex: self.widget.editTabIndex ? self.widget.editTabIndex : ''
     }),
@@ -175,6 +174,7 @@ export function cme(self: any): Extension[] {
       // NOTE: cm6 似乎自带 debounce, 这里使用 debounce 无效
       // HACK: tiddlywiki 对于 markdown 的空双花括号会有递归 bug, 预览会导致页面卡死
       const pos = v.state.selection.main.head;
+      // 处理tw 中的空双花括号递归解析
       if (
         pos >= 2 &&
         v.state.doc.length - pos >= 2 &&
@@ -191,4 +191,9 @@ export function cme(self: any): Extension[] {
       }
     })
   ];
+  // 换行
+  if (cm6.lineWrapping()) {
+    extensions.push(EditorView.lineWrapping);
+  }
+  return extensions;
 }
