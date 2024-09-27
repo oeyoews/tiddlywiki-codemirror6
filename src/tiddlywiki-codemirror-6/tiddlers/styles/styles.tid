@@ -87,6 +87,8 @@ body {
     <!-- not work -->
 	border-left-color: <<colour cm-caret-colour>> !important;
 	border-radius: 4px;
+	<!-- 修复初始化高度不正确的问题 -->
+	min-height: 20px;
 }
 
 .cm-activeLine, .cm-activeLineGutter {
