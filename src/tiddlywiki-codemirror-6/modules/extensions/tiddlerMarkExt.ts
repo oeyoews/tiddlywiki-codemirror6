@@ -1,7 +1,7 @@
 //@ts-nocheck
-
 import { EditorView, Decoration, ViewPlugin } from '@codemirror/view';
 
+// [[xxx]] 添加样式
 const rainbowBracketsPlugin = ViewPlugin.fromClass(
   class {
     decorations;
@@ -59,8 +59,11 @@ export default function rainbowBracketsWithText() {
     EditorView.baseTheme({
       // '.rainbow-bracket': { backgroundColor: 'yellow' },
       '.rainbow-bracket-text': {
-        textDecoration: 'underline',
         cursor: 'pointer'
+        // transition: 'all 0.2s ease'
+      },
+      '.rainbow-bracket-text:hover': {
+        textDecoration: 'underline'
       }
     })
   ];

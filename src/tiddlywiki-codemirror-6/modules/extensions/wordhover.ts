@@ -92,6 +92,9 @@ const linkpreviewStyle = EditorView.baseTheme({
     // margin: '6px',
     zIndex: '1001 !important' // not work
   },
+  '.cm-link-preview:hover': {
+    cursor: 'pointer'
+  },
   '.cm-tooltip': {
     border: 'none !important',
     boxShadow: '0 4px 6px rgba(0, 0, 0, 0.1), 0 1px 3px rgba(0, 0, 0, 0.08)',

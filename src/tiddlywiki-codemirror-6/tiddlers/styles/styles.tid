@@ -438,7 +438,7 @@ input.btc-search-input:focus {
 <!-- 有个max-width 400.xxxpx -->
 .cm-snippet-preview,
 .cm-image-preview {
-	overflow: auto;
+	overflow-y: auto;
 	min-width: 300px;
 	max-height: 300px;
 	border-radius: 4px !important;
