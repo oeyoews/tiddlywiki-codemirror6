@@ -35,10 +35,11 @@ const underlineField = StateField.define<DecorationSet>({
 
 const underlineTheme = EditorView.baseTheme({
   '.cm-underline': {
-    background: 'mediumpurple',
-    padding: '0 2px',
-    borderRadius: '4px',
-    color: 'black'
+    background: 'yellow'
+    // background: 'mediumpurple',
+    // padding: '0 2px',
+    // borderRadius: '4px',
+    // color: 'black'
   }
 });
 

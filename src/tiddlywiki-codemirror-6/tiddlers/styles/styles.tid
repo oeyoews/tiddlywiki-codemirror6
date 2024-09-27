@@ -71,10 +71,14 @@ body {
 <%endif %>
  -->
 
-.cm-editor ::selection, .cm-editor.cm-focused .cm-selectionBackground, .cm-selectionBackground, .cm-content ::selection {
+.cm-editor ::selection,
+.cm-editor.cm-focused .cm-selectionBackground,
+.cm-selectionBackground,
+.cm-content ::selection {
 	<!-- background: initial !important; -->
 	<!-- background-color: <<colour-extend cm-selection-background>> !important; -->
-	color: <<colour-extend cm-selection-foreground>> !important;
+	<!-- color: <<colour-extend cm-selection-foreground>> !important; -->
+	color: inherit !important;
 }
 
 .cm-cursor,

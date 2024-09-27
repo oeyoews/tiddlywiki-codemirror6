@@ -48,8 +48,13 @@ const linkDecorator = new MatchDecorator({
 export const hyperLinkStyle = EditorView.baseTheme({
   '.cm-hyper-link-icon': {
     display: 'inline-block',
-    verticalAlign: 'middle',
-    marginLeft: '0.2ch'
+    // verticalAlign: 'middle',
+    marginLeft: '0.2ch',
+    scale: '0.8',
+    transition: 'all 0.2s ease'
+  },
+  '.cm-hyper-link-icon:hover': {
+    scale: '1'
   },
   '.cm-hyper-link-icon svg': {
     // display: 'block'
