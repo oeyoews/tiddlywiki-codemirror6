@@ -30,13 +30,13 @@ const filetypes = defineFileType([
       en: 'copy current tiddler content(WIP)'
     }
   },
-  {
-    title: 'use-simple-editor',
-    description: {
-      zh: '使用普通编辑器',
-      en: 'use simple editor'
-    }
-  },
+  // {
+  //   title: 'use-simple-editor',
+  //   description: {
+  //     zh: '使用普通编辑器',
+  //     en: 'use simple editor'
+  //   }
+  // },
   {
     title: 'report-cm6-bug',
     description: {
