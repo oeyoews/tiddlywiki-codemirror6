@@ -1,5 +1,5 @@
 title: $:/plugins/oeyoews/tiddlywiki-codemirror-6/ui/ControlPanel/settings
-caption: [img width=16 [$:/plugins/oeyoews/tiddlywiki-codemirror-6/icon]] Codemirror 6
+caption: {{$:/plugins/oeyoews/tiddlywiki-codemirror-6/icon}} Codemirror 6
 tags: $:/tags/ControlPanel
 class: o-tm
 mask-closable: yes
