@@ -7,7 +7,7 @@
     "registry": "https://registry.npmjs.org"
   },
   "license": "MIT",
-  "version": "2.0.2",
+  "version": "2.1.0",
   "packageManager": "pnpm@9.0.6",
   "scripts": {
     "update:config": " pnpm ts-node scripts/generateConfig.ts",
@@ -31,7 +31,6 @@
     "@modern-js/eslint-config": "2.46.1",
     "@modern-js/tsconfig": "2.46.1",
     "@oeyoews/prettier-config": "^1.0.2",
-    "@oeyoews/tw5-typed": "^0.4.4",
     "@types/node": "20.11.5",
     "@uiw/codemirror-theme-github": "^4.23.0",
     "rimraf": "5.0.7",
@@ -66,6 +65,7 @@
     "lang-tiddlywiki": "workspace:^",
     "prettier": "3.3.2",
     "thememirror": "^2.0.1",
-    "tiddlywiki": "5.3.4"
+    "tiddlywiki": "5.3.4",
+    "tw5-typed": "^0.5.12"
   }
 }

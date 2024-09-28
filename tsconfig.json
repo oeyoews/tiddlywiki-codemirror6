@@ -3,7 +3,7 @@
   "compilerOptions": {
     "declaration": false,
     "baseUrl": "./",
-    "typeRoots": ["node_modules/@types", "node_modules/@oeyoews/tw5-typed"],
+    "typeRoots": ["node_modules/@types", "node_modules/tw5-typed"],
     "newLine": "lf",
     "lib": ["DOM", "ESNext"],
     "paths": {

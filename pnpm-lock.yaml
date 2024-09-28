@@ -89,6 +89,9 @@ importers:
       tiddlywiki:
         specifier: 5.3.4
         version: 5.3.4
+      tw5-typed:
+        specifier: ^0.5.12
+        version: 0.5.12
     devDependencies:
       '@modern-js/eslint-config':
         specifier: 2.46.1
@@ -99,9 +102,6 @@ importers:
       '@oeyoews/prettier-config':
         specifier: ^1.0.2
         version: 1.0.2(prettier@3.3.2)
-      '@oeyoews/tw5-typed':
-        specifier: ^0.4.4
-        version: 0.4.4
       '@types/node':
         specifier: 20.11.5
         version: 20.11.5
@@ -1215,9 +1215,6 @@ packages:
     engines: {node: '>=14.17.6'}
     hasBin: true
 
-  '@oeyoews/tw5-typed@0.4.4':
-    resolution: {integrity: sha512-ddDeO0AGtAH72O+wF0Fi7ABRI1fdDn/yH82dvULkUKoobxtg1J6rElYIcESEQK3GliiwTHZ3W/oA+XjPOHc9wA==}
-
   '@pkgjs/parseargs@0.11.0':
     resolution: {integrity: sha512-+1VkjdD0QBLPodGrJUeqarH8VAIvQODIbwh9XpP5Syisf7YoQgsJKPNFoqqLQlu+VQ/tVSshMR6loPMn8U+dPg==}
     engines: {node: '>=14'}
@@ -1506,11 +1503,11 @@ packages:
   '@types/mocha@9.1.1':
     resolution: {integrity: sha512-Z61JK7DKDtdKTWwLeElSEBcWGRLY8g95ic5FoQqI9CMx0ns/Ghep3B4DfcEimiKMvtamNVULVNKEsiwV3aQmXw==}
 
-  '@types/node@18.19.39':
-    resolution: {integrity: sha512-nPwTRDKUctxw3di5b4TfT3I0sWDiWoPQCZjXhvdkINntwr8lcoVCKsTgnXeRubKIlfnV+eN/HYk6Jb40tbcEAQ==}
-
   '@types/node@20.11.5':
     resolution: {integrity: sha512-g557vgQjUUfN76MZAN/dt1z3dzcUsimuysco0KeluHgrPdJXkP/XdAURgyO2W9fZWHRtRBiVKzKn8vyOAwlG+w==}
+
+  '@types/node@20.16.10':
+    resolution: {integrity: sha512-vQUKgWTjEIRFCvK6CyriPH3MZYiYlNy0fKiEYHWbcoWLEgs4opurGGKlebrTLqdSMIbXImH6XExNiIyNUv3WpA==}
 
   '@types/sass@1.45.0':
     resolution: {integrity: sha512-jn7qwGFmJHwUSphV8zZneO3GmtlgLsmhs/LQyVvQbIIa+fzGMUiHI4HXJZL3FT8MJmgXWbLGiVVY7ElvHq6vDA==}
@@ -2558,6 +2555,7 @@ packages:
 
   glob@7.2.0:
     resolution: {integrity: sha512-lmLf6gtyrPq8tTjSmrO94wBeQbFR3HbLHbuyD69wuyQkImp2hWqMGB47OX65FBkPffO641IP9jWa1z4ivqG26Q==}
+    deprecated: Glob versions prior to v9 are no longer supported
 
   glob@7.2.3:
     resolution: {integrity: sha512-nFR0zLpU2YCaRxwoCJvL6UvCH2JFyFVIvwTLsIf21AuHlMskA1hhTdk+LlYJtOlYt9v6dvszD2BGRqBL+iQK9Q==}
@@ -2688,6 +2686,7 @@ packages:
 
   inflight@1.0.6:
     resolution: {integrity: sha512-k92I/b08q4wvFscXCLvqfsHCrjrF7yiXsQuIVvVE7N82W3+aqpzuUdBbfhWcy/FZR3/4IgflMgKLOsvPDrGCJA==}
+    deprecated: This module is not supported, and leaks memory. Do not use it. Check out lru-cache if you want a good and tested way to coalesce async requests by a key value, which is much more comprehensive and powerful.
 
   inherits@2.0.4:
     resolution: {integrity: sha512-k/vGaX4/Yla3WzyMCvTQOXYeIHvqOKtnqBduzTHpzpQZzAskKMhZ2K+EnBiSM9zGSoIFeMpXKxa4dYeZIQqewQ==}
@@ -3437,6 +3436,7 @@ packages:
 
   rimraf@3.0.2:
     resolution: {integrity: sha512-JZkJMZkAGFFPP2YqXZXPbMlMBgsxzE8ILs4lMIX/2o0L9UBw9O/Y3o6wFw/i9YLapcUJWwqbi3kdxIPdC62TIA==}
+    deprecated: Rimraf versions prior to v4 are no longer supported
     hasBin: true
 
   rimraf@5.0.7:
@@ -3794,6 +3794,9 @@ packages:
     peerDependencies:
       typescript: '>=2.8.0 || >= 3.2.0-dev || >= 3.3.0-dev || >= 3.4.0-dev || >= 3.5.0-dev || >= 3.6.0-dev || >= 3.6.0-beta || >= 3.7.0-dev || >= 3.7.0-beta'
 
+  tw5-typed@0.5.12:
+    resolution: {integrity: sha512-UNQSwfq8Um4RcZIatlt2PAer+VU3iOtbmjBzhbB8GbOQCyWTIp7y9fbloovm5EPsIPuZQGouQ/RUYpHPRRfizg==}
+
   type-check@0.4.0:
     resolution: {integrity: sha512-XleUoc9uwGXqjWwXaUTZAmzMcFZ5858QA2vvx1Ur5xIcixXIP+8LnFDgRplU30us6teqdlskFfu+ae4K79Ooew==}
     engines: {node: '>= 0.8.0'}
@@ -3837,6 +3840,9 @@ packages:
 
   undici-types@5.26.5:
     resolution: {integrity: sha512-JlCMO+ehdEIKqlFxk6IfVoAUVmgz7cU7zD/h9XZ0qzeosSHmUJVOzSQvvYSYWXkFXC+IfLKSIffhv0sVZup6pA==}
+
+  undici-types@6.19.8:
+    resolution: {integrity: sha512-ve2KP6f/JnbPBFyobGHuerC9g1FYGn/F8n1LWTwNxCEzd6IfqTwUQcNXgEtmmQ6DlRrC1hrSrBnCZPokRrDHjw==}
 
   unicode-canonical-property-names-ecmascript@2.0.0:
     resolution: {integrity: sha512-yY5PpDlfVIU5+y/BSCxAJRBIS1Zc2dDG3Ujq+sR0U+JjUevW2JhocOF+soROYDSaAezOzOKuyyixhD6mBknSmQ==}
@@ -5364,12 +5370,6 @@ snapshots:
       - ts-node
       - utf-8-validate
 
-  '@oeyoews/tw5-typed@0.4.4':
-    dependencies:
-      '@types/codemirror': 5.60.15
-      '@types/echarts': 4.9.22
-      '@types/node': 18.19.39
-
   '@pkgjs/parseargs@0.11.0':
     optional: true
 
@@ -5661,13 +5661,13 @@ snapshots:
 
   '@types/mocha@9.1.1': {}
 
-  '@types/node@18.19.39':
-    dependencies:
-      undici-types: 5.26.5
-
   '@types/node@20.11.5':
     dependencies:
       undici-types: 5.26.5
+
+  '@types/node@20.16.10':
+    dependencies:
+      undici-types: 6.19.8
 
   '@types/sass@1.45.0':
     dependencies:
@@ -8169,6 +8169,12 @@ snapshots:
       tslib: 1.14.1
       typescript: 5.5.3
 
+  tw5-typed@0.5.12:
+    dependencies:
+      '@types/codemirror': 5.60.15
+      '@types/echarts': 4.9.22
+      '@types/node': 20.16.10
+
   type-check@0.4.0:
     dependencies:
       prelude-ls: 1.2.1
@@ -8221,6 +8227,8 @@ snapshots:
       which-boxed-primitive: 1.0.2
 
   undici-types@5.26.5: {}
+
+  undici-types@6.19.8: {}
 
   unicode-canonical-property-names-ecmascript@2.0.0: {}
 

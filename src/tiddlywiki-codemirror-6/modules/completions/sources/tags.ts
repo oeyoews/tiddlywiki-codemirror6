@@ -11,36 +11,43 @@ function snippets(widget: IWidget) {
   //   const tags = Object.keys($tw.wiki.getTagMap()).map((tag) => ({
   //     title: tag
   //   })).sort;
-  const tags = $tw.wiki.filterTiddlers('[all[tags]]').map((tag) => ({
+  const alltags = $tw.wiki.filterTiddlers('[all[tags]]');
+  const currentTiddlertags = $tw.wiki.getTiddler(widget.editTitle)?.fields
+    ?.tags;
+
+  const filteredAllTags = alltags.filter(
+    (tag) => !currentTiddlertags?.includes(tag)
+  );
+
+  const tags = filteredAllTags.map((tag) => ({
     title: tag
   }));
 
   return tags.map(
     (item) =>
       ({
+        section,
         label: delimiter + item.title,
         displayLabel: item.title,
         type,
-        section,
         boost: item.title.startsWith('$') ? 0 : 1,
 
         apply: (view, completion, from, to) => {
           view.dispatch({
             changes: { from, to, insert: '' }
           });
-          const tags = $tw.wiki.getTiddler(widget.editTitle)?.fields?.tags;
-          // use tm-add-tag is better.
-          if (!tags?.includes(item.title)) {
-            $tw.wiki.setText(
-              widget.editTitle,
-              'tags',
-              '',
-              tags ? tags.join(' ') + ` ${item.title}` : ` ${item.title}`,
-              {
-                suppressTimestamp: false
-              }
-            );
-          }
+
+          const actionString = (
+            tiddler: string,
+            tag: string
+          ) => `<$fieldmangler tiddler="${tiddler}">
+<$action-sendmessage $message="tm-add-tag" $param="${tag}"/>
+</$fieldmangler>`;
+
+          console.log(currentTiddlertags);
+          $tw.rootWidget.invokeActionString(
+            actionString(widget.editTitle, item.title)
+          );
         }
       }) as Completion
   );
