@@ -1,14 +1,9 @@
 title: $:/plugins/oeyoews/tiddlywiki-codemirror-6/ui/EditorToolbar/toggleEditor
 tags: $:/tags/EditorToolbar
-custom-icon: yes
 caption: Toggle Editor
 description: toggle editor
 condition: [<targetTiddler>]
 icon: $:/plugins/oeyoews/tiddlywiki-codemirror-6/icon
-
-\whitespace trim
-
-[img width=18 [$:/plugins/oeyoews/tiddlywiki-codemirror-6/icon]]
 
 <$let
 	type={{{ [<targetTiddler>get[type]else[text/vnd.tiddlywiki]] }}}
