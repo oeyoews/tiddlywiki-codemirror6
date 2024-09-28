@@ -76,6 +76,10 @@ export const tiddlers = defineConfig({
     caption: {
       zh: '复选框(JS)',
       en: 'Checkbox'
+    },
+    description: {
+      zh: '适用于tiddler类型为javascript, 用于切换常量的布尔值, 普通用户建议关闭',
+      en: 'Checkbox'
     }
   },
   foldByIndent: {

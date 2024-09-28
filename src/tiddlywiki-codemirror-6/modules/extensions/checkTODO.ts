@@ -7,6 +7,7 @@ import {
   EditorView
 } from '@codemirror/view';
 
+// md: support - [x] and - [ ] toggle checkbox
 class CheckboxWidget extends WidgetType {
   constructor(readonly checked: boolean) {
     super();

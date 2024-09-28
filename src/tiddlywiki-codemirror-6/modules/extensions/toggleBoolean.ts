@@ -3,6 +3,7 @@ import { WidgetType } from '@codemirror/view';
 import { EditorView, Decoration } from '@codemirror/view';
 import { syntaxTree } from '@codemirror/language';
 
+// toggle boolean
 class CheckboxWidget extends WidgetType {
   constructor(readonly checked: boolean) {
     super();
@@ -20,6 +21,7 @@ class CheckboxWidget extends WidgetType {
     box.type = 'checkbox';
     box.style.cursor = 'pointer';
     box.checked = this.checked;
+    box.style.marginLeft = '0.2em';
     return wrap;
   }
 
