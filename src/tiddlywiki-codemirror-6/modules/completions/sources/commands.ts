@@ -136,22 +136,22 @@ export function snippets(widget: IWidget) {
                 // prefix: ''
               });
               break; */
-            case 'use-simple-editor':
-              const type = widget.editType || 'text/vnd.tiddlywiki';
-              const EDITOR_MAPPING_PREFIX = '$:/config/EditorTypeMappings/';
-              cm6.debug() &&
-                new $tw.Story().navigateTiddler(EDITOR_MAPPING_PREFIX + type);
-              $tw.wiki.setText(
-                EDITOR_MAPPING_PREFIX + type,
-                'text',
-                '',
-                'text',
-                {
-                  suppressTimestamp: true
-                }
-              );
+            // case 'use-simple-editor':
+            //   const type = widget.editType || 'text/vnd.tiddlywiki';
+            //   const EDITOR_MAPPING_PREFIX = '$:/config/EditorTypeMappings/';
+            //   cm6.debug() &&
+            //     new $tw.Story().navigateTiddler(EDITOR_MAPPING_PREFIX + type);
+            //   $tw.wiki.setText(
+            //     EDITOR_MAPPING_PREFIX + type,
+            //     'text',
+            //     '',
+            //     'text',
+            //     {
+            //       suppressTimestamp: true
+            //     }
+            //   );
 
-              break;
+            //   break;
             case 'toggleMode':
               const nextValue = cm6.vimmode() ? 'no' : 'yes';
               $tw.wiki.setText(
