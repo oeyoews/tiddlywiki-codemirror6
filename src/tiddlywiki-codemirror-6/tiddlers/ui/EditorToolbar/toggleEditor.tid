@@ -1,9 +1,10 @@
 title: $:/plugins/oeyoews/tiddlywiki-codemirror-6/ui/EditorToolbar/toggleEditor
-tags: $:/tags/EditorToolbar
 caption: Toggle Editor
-description: toggle editor
+description: use codemirror-6 or not
 condition: [<targetTiddler>]
 icon: $:/plugins/oeyoews/tiddlywiki-codemirror-6/icon
+
+<!-- tags: $:/tags/EditorToolbar -->
 
 <$let
 	type={{{ [<targetTiddler>get[type]else[text/vnd.tiddlywiki]] }}}
