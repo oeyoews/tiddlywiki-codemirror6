@@ -1,6 +1,6 @@
 import { Completion } from '@codemirror/autocomplete';
 import cm6, { configBaseTitle } from '@/cm6/config';
-import { capitalize } from '@/cm6/utils/capitalize';
+import { capitalize, useSound } from '@/cm6/utils/capitalize';
 import { IWidget } from '@/cm6/types/IWidget';
 import { EditorView } from '@codemirror/view';
 
@@ -126,6 +126,7 @@ export function snippets(widget: IWidget) {
         section,
         // commitCharacters: ['tiddlywiki'],
         apply: (view: EditorView, completion: Completion, from, to) => {
+          useSound();
           view.dispatch({
             changes: { from, to, insert: '' }
             // selection: { anchor: cursorEndPosition, head: cursorEndPosition }

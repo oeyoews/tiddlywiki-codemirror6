@@ -2,6 +2,7 @@ import { Completion } from '@codemirror/autocomplete';
 import conf from '@/cm6/config';
 import { renderTid } from '@/cm6/utils/renderTiddler';
 import { EditorView } from '@codemirror/view';
+import { useSound } from '@/cm6/utils/capitalize';
 
 const type = 'cm-tiddler';
 const section = 'tiddlers';
@@ -27,6 +28,7 @@ export function getAllTiddlers(delimiter: string) {
         // NOTE: TypeError: Cannot set property parentNode of #<Node> which has only a getter, 部分 widget 使用到$tw 的 fakedom api, 会导致报错。
         info: () => renderTid(title),
         apply: (view: EditorView, completion, from, to) => {
+          useSound();
           view.dispatch({
             changes: { from, to, insert: '[[' + title + ']]' }
           });

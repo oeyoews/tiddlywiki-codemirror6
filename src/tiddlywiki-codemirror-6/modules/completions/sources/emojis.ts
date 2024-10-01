@@ -1,3 +1,4 @@
+import { useSound } from '@/cm6/utils/capitalize';
 import { Completion } from '@codemirror/autocomplete';
 
 // 部分delimiter不支持修改，所以暂时不抽离出去, 暂时不暴露出配置
@@ -39,6 +40,7 @@ function snippets() {
         type: 'cm-emoji',
         section,
         apply: (view, completion, from, to) => {
+          useSound();
           // const cursorEndPosition = from + item.text.length;
           view.dispatch({
             changes: { from, to, insert: item.text }

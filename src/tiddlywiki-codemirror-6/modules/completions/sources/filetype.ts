@@ -1,6 +1,6 @@
 import { Completion } from '@codemirror/autocomplete';
 import { IWidget } from '@/cm6/types/IWidget';
-import { capitalize } from '@/cm6/utils/capitalize';
+import { capitalize, useSound } from '@/cm6/utils/capitalize';
 import { type IMode } from '@/cm6/config';
 
 const section = 'filetype';
@@ -99,6 +99,7 @@ function snippets(widget: IWidget) {
           });
           // TODO: 或者使用 widget.editTitle 替换 title
           // TODO: 传入 widget
+          useSound();
           $tw.wiki.setText(widget.editTitle, 'type', '', item.text, {
             suppressTimestamp: false
           });
