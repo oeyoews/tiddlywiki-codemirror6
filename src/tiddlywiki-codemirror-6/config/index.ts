@@ -41,6 +41,17 @@ function defineConfig<T extends Object, K extends keyof T>(
 
 // #region tiddlers
 export const tiddlers = defineConfig({
+  useSound: {
+    caption: {
+      zh: '使用声音',
+      en: 'Use Sound'
+    },
+    text: 'no',
+    description: {
+      zh: '插件neotw-play-sound提供声音支持',
+      en: 'Use Sound'
+    }
+  },
   insertModeFirst: {
     caption: {
       zh: 'VIM自动进入插入模式',

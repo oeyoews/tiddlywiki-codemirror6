@@ -11,7 +11,8 @@
   "qrcode": "yes",
   "created": "2024-01-05",
   "dependents": [
-    "$:/plugins/oeyoews/tiddlywiki-codemirror-6"
+    "$:/plugins/oeyoews/tiddlywiki-codemirror-6",
+    "$:/plugins/oeyoews/neotw-play-sound"
   ],
   "list": "readme"
 }

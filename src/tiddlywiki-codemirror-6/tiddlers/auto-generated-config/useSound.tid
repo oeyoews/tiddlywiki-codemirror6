@@ -1,0 +1,8 @@
+title: $:/config/codemirror-6/useSound
+caption: {{$:/language/codemirror6/useSound/caption}}
+caption-zh: {{$:/language/codemirror6/zh/useSound/caption}}
+description: {{$:/language/codemirror6/useSound/description}}
+description-zh: {{$:/language/codemirror6/zh/useSound/description}}
+settings-template: $:/plugins/oeyoews/tiddlywiki-codemirror-6/ui/templates/settings/input-switch
+
+no

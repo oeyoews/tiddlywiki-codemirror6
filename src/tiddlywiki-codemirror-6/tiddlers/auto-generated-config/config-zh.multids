@@ -1,5 +1,7 @@
 title: $:/language/codemirror6/zh/
 
+useSound/caption: 📝 使用声音
+useSound/description: 插件neotw-play-sound提供声音支持
 insertModeFirst/caption: 📝 VIM自动进入插入模式
 insertModeFirst/description: VIM自动进入插入模式
 lines/caption: 📝 自动生成行数
@@ -7,7 +9,7 @@ lines/description: 新建tiddler自动生成N行
 todobox/caption: 📝 代办事项复选框(MD)
 todobox/description: 代办事项复选框(MD)
 checkbox/caption: 📝 复选框(JS)
-checkbox/description: 复选框(JS)
+checkbox/description: 适用于tiddler类型为javascript, 用于切换常量的布尔值, 普通用户建议关闭
 foldByIndent/caption: 📝 按缩进折叠
 foldByIndent/description: 按缩进折叠
 removeOutline/caption: 📝 移除编辑器边框

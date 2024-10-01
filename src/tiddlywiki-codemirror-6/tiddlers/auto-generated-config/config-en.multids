@@ -1,5 +1,7 @@
 title: $:/language/codemirror6/
 
+useSound/caption: 📝 Use Sound
+useSound/description: Use Sound
 insertModeFirst/caption: 📝 Insert Mode Auto Firstly
 insertModeFirst/description: Insert Mode Auto Firstly
 lines/caption: 📝 Lines

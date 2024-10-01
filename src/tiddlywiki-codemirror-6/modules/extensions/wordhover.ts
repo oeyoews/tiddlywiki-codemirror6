@@ -1,3 +1,4 @@
+import { useSound } from '@/cm6/utils/capitalize';
 import { type Extension } from '@codemirror/state';
 import { hoverTooltip, EditorView } from '@codemirror/view';
 
@@ -56,6 +57,7 @@ export const wordHover: Extension = hoverTooltip(
       dom.addEventListener('click', (e: MouseEvent) => {
         e.preventDefault();
         if (e.ctrlKey) {
+          useSound();
           dom.hidden = true; // 隐藏弹窗
           new $tw.Story().navigateTiddler(title);
         }

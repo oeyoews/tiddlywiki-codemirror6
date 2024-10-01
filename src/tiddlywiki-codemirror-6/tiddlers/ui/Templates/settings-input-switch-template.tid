@@ -1,5 +1,9 @@
 title: $:/plugins/oeyoews/tiddlywiki-codemirror-6/ui/templates/settings/input-switch
 
+\define useSound()
+<$action-sendmessage $message="neotw-play-sound" audioTiddler="$:/plugins/oeyoews/neotw-play-sound/sounds/bite.mp3" />
+\end
+
 <!-- NOTE: check 不会即使更新shadow tiddler -->
 <label class="btcui-form-label">
 
@@ -23,4 +27,8 @@ title: $:/plugins/oeyoews/tiddlywiki-codemirror-6/ui/templates/settings/input-sw
 
 </label>
 
+<% if [[$:/config/codemirror-6/useSound]get[text]match[yes]] %>
+<$checkbox field="text" checked="yes" unchecked="no" class="btcui-form-switch" actions=<<useSound>>/>
+<% else %>
 <$checkbox field="text" checked="yes" unchecked="no" class="btcui-form-switch"/>
+<% endif %>

@@ -5,6 +5,7 @@ import {
 } from '@codemirror/autocomplete';
 import { delimitersInfo } from '.';
 import { IWidget } from '@/cm6/types/IWidget';
+import { useSound } from '@/cm6/utils/capitalize';
 
 const section = 'help';
 const type = 'cm-help';
@@ -29,6 +30,7 @@ function snippets(widget: IWidget): Completion[] {
       view.dispatch({
         changes: { from, to, insert: item.delimiter }
       });
+      useSound();
       startCompletion(view);
     },
     type: item.type

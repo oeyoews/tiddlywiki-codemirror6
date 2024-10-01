@@ -7,6 +7,7 @@ import {
 } from '@codemirror/view';
 import cm6 from '@/cm6/config';
 import createViewPlugin from '@/cm6/utils/createViewPlugin';
+import { useSound } from '@/cm6/utils/capitalize';
 
 class CustomLink extends WidgetType {
   constructor(state) {
@@ -32,6 +33,7 @@ class CustomLink extends WidgetType {
     wrapper.onclick = (e: MouseEvent) => {
       e.preventDefault();
       if (e.ctrlKey) {
+        useSound();
         new $tw.Story().navigateTiddler(title);
       }
     };

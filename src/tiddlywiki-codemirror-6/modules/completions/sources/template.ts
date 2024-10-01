@@ -119,5 +119,6 @@ export default {
   section,
   type,
   delimiter,
+  description,
   snippets
 };

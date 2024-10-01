@@ -2,6 +2,7 @@ import { Completion } from '@codemirror/autocomplete';
 import conf from '@/cm6/config';
 import { renderTid } from '@/cm6/utils/renderTiddler';
 import { EditorView } from '@codemirror/view';
+import { useSound } from '@/cm6/utils/capitalize';
 
 const type = 'cm-tiddler';
 const section = 'tiddlers';
@@ -40,6 +41,7 @@ export function getAllTiddlers(delimiter: string) {
             changes: { from, to, insert: delimiter + title },
             selection: { anchor: cursorEndPosition, head: cursorEndPosition }
           });
+          useSound();
         }
       }) as Completion
   );
