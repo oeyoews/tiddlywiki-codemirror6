@@ -345,18 +345,6 @@ export const tiddlers = defineConfig({
       en: 'Enable Right-to-Left text direction.'
     }
   },
-  'cursor-thickness': {
-    caption: {
-      zh: '光标厚度',
-      en: 'Cursor Thickness'
-    },
-    text: '1px',
-    icon: '🚸',
-    description: {
-      zh: '设置光标的宽度',
-      en: 'Set the thickness of the cursor.'
-    }
-  },
   onedark: {
     caption: {
       zh: '启用 One Dark 主题',
@@ -415,9 +403,21 @@ export const tiddlers = defineConfig({
       en: 'Set the default placeholder text.'
     }
   },
+  'cursor-thickness': {
+    caption: {
+      zh: '光标宽度',
+      en: 'Cursor Thickness'
+    },
+    text: '1px',
+    icon: '🚸',
+    description: {
+      zh: '设置光标的宽度',
+      en: 'Set the thickness of the cursor.'
+    }
+  },
   cursorBlinkRate: {
     caption: {
-      zh: '光标闪烁速率',
+      zh: '光标闪烁速度',
       en: 'Cursor Blink Rate'
     },
     text: 1000,
@@ -447,7 +447,7 @@ export const tiddlers = defineConfig({
     text: '/',
     icon: '🔍',
     description: {
-      zh: '显示代码片段(注意不要设置和其他的触发符号相同导致冲突)',
+      zh: '显示代码片段(注意不要设置和其他的触发符号相同导致冲突, 配置生效需要重启tiddlywiki)',
       en: 'Set the delimiter for certain operations.'
     }
   },
