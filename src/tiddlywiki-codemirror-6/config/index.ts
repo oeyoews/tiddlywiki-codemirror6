@@ -55,6 +55,7 @@ export const tiddlers = defineConfig({
       en: 'Use Sound'
     },
     text: 'no',
+    icon: '🔊',
     description: {
       zh: '由插件 [[oeyoews/neotw-play-sound|https://neotw.vercel.app/#%24%3A%2Fplugins%2Foeyoews%2Fneotw-play-sound]] 提供声音支持, 默认关闭',
       en: 'Use Sound'
@@ -108,6 +109,7 @@ export const tiddlers = defineConfig({
       zh: '自动换行',
       en: 'Line Wrapping'
     },
+    icon: '↩️',
     text: 'yes',
     description: {
       zh: '自动换行, 建议开启',
@@ -132,6 +134,7 @@ export const tiddlers = defineConfig({
       zh: 'Vim JK',
       en: "vim keyboard mapping JK(You know what I'm saying.)"
     },
+    icon: '⌨️',
     category: 'vim',
     description: {
       zh: '快速退出插入模式',
@@ -162,6 +165,7 @@ export const tiddlers = defineConfig({
       zh: '注释中开启补全',
       en: 'Comment Complete'
     },
+    icon: '💬',
     description: {
       zh: '注释中开启补全',
       en: 'Comment Complete'
@@ -243,7 +247,7 @@ export const tiddlers = defineConfig({
       en: 'Font Family'
     },
     text: '',
-    icon: '📂',
+    icon: '🅰️',
     description: {
       zh: '设置编辑器字体',
       en: 'Set the font family for better readability.'
@@ -357,7 +361,7 @@ export const tiddlers = defineConfig({
       zh: '启用自定义占位符',
       en: 'Custom Placeholder'
     },
-    icon: '🖊️',
+    icon: '✍️',
     category: 'placeholder',
     description: {
       zh: '启用设置自定义占位符。',
@@ -524,7 +528,7 @@ export const tiddlers = defineConfig({
       en: 'Footer'
     },
     category: 'completion',
-    icon: '📝',
+    icon: '📜',
     description: {
       zh: '显示代码片段来源',
       en: 'Show snippets footer'
@@ -587,7 +591,7 @@ export const tiddlers = defineConfig({
     },
     category: 'completion',
     text: 20,
-    icon: '🔍',
+    icon: '🔢',
     description: {
       zh: '设置自动完成中渲染的选项的最大数量。(样式高度待调整)',
       en: 'Set the maximum number of rendered options in autocomplete.'
@@ -630,12 +634,14 @@ export const tiddlers = defineConfig({
     }
   },
   todobox: {
+    icon: '☑️',
     caption: {
       zh: '代办事项复选框(MD)',
       en: 'Task checkbox'
     }
   },
   checkbox: {
+    icon: '☑️',
     caption: {
       zh: '复选框(JS)',
       en: 'Checkbox'
@@ -657,6 +663,7 @@ export const tiddlers = defineConfig({
     }
   },
   removeOutline: {
+    icon: '🚫',
     text: 'yes',
     caption: {
       en: 'remove editor outline',
