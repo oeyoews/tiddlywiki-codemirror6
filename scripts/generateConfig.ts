@@ -17,14 +17,17 @@ interface IConfigFields {
   description: I18n;
   template: 'input-switch' | 'input';
   text: string;
+  // ---
+  disable: boolean;
+  category: string;
 }
 
 const templatePrefix =
   '$:/plugins/oeyoews/tiddlywiki-codemirror-6/ui/templates/settings/';
 
-const tiddlersInfo = Object.entries(tiddlers) as unknown as Array<
-  [string, IConfigFields]
->;
+const tiddlersInfo = Object.entries(tiddlers).filter(
+  (i) => !i[1].disable
+) as unknown as Array<[string, IConfigFields]>;
 
 const dir = path.join(
   'src',
@@ -43,14 +46,15 @@ let multidcontentEn = 'title: $:/language/codemirror6/\n\n';
 // zh
 let multidcontentZH = 'title: $:/language/codemirror6/zh/\n\n';
 
-tiddlersInfo.forEach(([title, fields]) => {
+tiddlersInfo.forEach(([title, fields], index) => {
   // TODO: update caption
   let {
     caption,
     icon = '📝',
     description = caption,
     template,
-    text = 'no'
+    text = 'no',
+    category = 'general'
   } = fields;
 
   const captionEn =
@@ -72,6 +76,8 @@ caption-zh: {{$:/language/codemirror6/zh/${title}/caption}}
 description: {{$:/language/codemirror6/${title}/description}}
 description-zh: {{$:/language/codemirror6/zh/${title}/description}}
 settings-template: ${templatePrefix}${template}
+id: ${index + 1}
+settings-group: ${category}
 
 ${text}`;
 

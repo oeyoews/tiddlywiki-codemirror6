@@ -4,5 +4,7 @@ caption-zh: {{$:/language/codemirror6/zh/whitespace/caption}}
 description: {{$:/language/codemirror6/whitespace/description}}
 description-zh: {{$:/language/codemirror6/zh/whitespace/description}}
 settings-template: $:/plugins/oeyoews/tiddlywiki-codemirror-6/ui/templates/settings/input-switch
+id: 17
+settings-group: general
 
 no

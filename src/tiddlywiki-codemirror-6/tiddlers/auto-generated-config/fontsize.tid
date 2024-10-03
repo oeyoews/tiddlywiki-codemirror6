@@ -4,5 +4,7 @@ caption-zh: {{$:/language/codemirror6/zh/fontsize/caption}}
 description: {{$:/language/codemirror6/fontsize/description}}
 description-zh: {{$:/language/codemirror6/zh/fontsize/description}}
 settings-template: $:/plugins/oeyoews/tiddlywiki-codemirror-6/ui/templates/settings/input
+id: 15
+settings-group: general
 
 16px

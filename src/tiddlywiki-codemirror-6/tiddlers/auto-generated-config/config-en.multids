@@ -2,32 +2,24 @@ title: $:/language/codemirror6/
 
 useSound/caption: 📝 Use Sound
 useSound/description: Use Sound
-insertModeFirst/caption: 📝 Insert Mode Auto Firstly
-insertModeFirst/description: Insert Mode Auto Firstly
 lines/caption: 📝 Lines
 lines/description: Max Lines
-todobox/caption: 📝 Task checkbox
-todobox/description: Task checkbox
-checkbox/caption: 📝 Checkbox
-checkbox/description: Checkbox
 foldByIndent/caption: 📝 Fold By Indent
 foldByIndent/description: Fold By Indent
+foldGutter/caption: 📂 Fold Gutter
+foldGutter/description: Enable folding gutter for code.
 removeOutline/caption: 📝 Remove editor outline
 removeOutline/description: remove editor outline
 lineWrapping/caption: 📝 Line Wrapping
 lineWrapping/description: Line Wrapping
+vimmode/caption: 🎮 Vim Mode
+vimmode/description: Enable Vim mode for text editing.
 vimJK/caption: 📝 Vim keyboard mapping JK(You know what I'm saying.)
 vimJK/description: Fast Exit Insert Mode
-commentComplete/caption: 📝 Comment Complete
-commentComplete/description: Comment Complete
-footer/caption: 📝 Footer
-footer/description: Show snippets footer
-debug/caption: 🐞 Debug(experimental)
-debug/description: Sebug for codemirror on console
+insertModeFirst/caption: 📝 Insert Mode Auto Firstly
+insertModeFirst/description: Insert Mode Auto Firstly
 activateOnTyping/caption: 🚀 Activate on Typing
 activateOnTyping/description: Enable activation on typing for enhanced functionality.
-inlineSuggestion/caption: 🔍 Inline Suggestion (Experimental)
-inlineSuggestion/description: Experimental feature for inline suggestions.
 tiddlerPreview/caption: 📑 Tiddler Preview
 tiddlerPreview/description: Enable preview for tiddlers.
 snippetPreview/caption: 📝 Snippet Preview
@@ -44,16 +36,8 @@ whitespace/caption: 🔍 Highlight Whitespace
 whitespace/description: Enable highlighting of whitespace.
 highlightTrailingWhitespace/caption: 🔍 Highlight Trailing Whitespace
 highlightTrailingWhitespace/description: Enable highlighting of trailing whitespace.
-enableSystemTiddlersCompletion/caption: 🔄 Enable System Tiddlers Completion
-enableSystemTiddlersCompletion/description: Enable completion for system tiddlers.
 closeOnBlur/caption: 🔒 Close on Blur
 closeOnBlur/description: Automatically close on blur.
-foldGutter/caption: 📂 Fold Gutter
-foldGutter/description: Enable folding gutter for code.
-rtl/caption: ↔️ RTL
-rtl/description: Enable Right-to-Left text direction.
-cursor-thickness/caption: 🚸 Cursor Thickness
-cursor-thickness/description: Set the thickness of the cursor.
 onedark/caption: 🌒 Enable One Dark Theme
 onedark/description: Enable the One Dark theme.
 clickable-icon/caption: 🖱️ Clickable Icon
@@ -64,10 +48,10 @@ enableCustomPlaceholder/caption: 🖊️ Custom Placeholder
 enableCustomPlaceholder/description: Set a custom placeholder.
 placeholder/caption: ✏️️ Placeholder
 placeholder/description: Set the default placeholder text.
+cursor-thickness/caption: 🚸 Cursor Thickness
+cursor-thickness/description: Set the thickness of the cursor.
 cursorBlinkRate/caption: ⚡ Cursor Blink Rate
 cursorBlinkRate/description: Set the rate at which the cursor blinks (in milliseconds).
-minLength/caption: 📏 Min Length
-minLength/description: Set the minimum length for input.
 delimiter/caption: 🔍 Delimiter
 delimiter/description: Set the delimiter for certain operations.
 minimap/caption: 🗺️ Minimap
@@ -76,20 +60,24 @@ minimapAudoHide/caption: 🗺️ Minimap autohide
 minimapAudoHide/description: Automatically hide minimap
 closeBrackets/caption: 🔄 Close Brackets
 closeBrackets/description: Automatically close brackets.
-selectOnOpen/caption: 🔄 Select on Open
-selectOnOpen/description: Automatically select on open.
-autocompleteIcons/caption: 🎨 Autocomplete Icons
-autocompleteIcons/description: Enable icons in autocomplete suggestions.
-maxRenderedOptions/caption: 🔍 Max Rendered Options
-maxRenderedOptions/description: Set the maximum number of rendered options in autocomplete.
 indentWithTab/caption: 🔄 Indent with Tab
 indentWithTab/description: Indent with tab instead of spaces.
 bracketMatching/caption: 🔄 Bracket Matching
 bracketMatching/description: Enable matching of brackets.
-vimmode/caption: 🎮 Vim Mode
-vimmode/description: Enable Vim mode for text editing.
+autocompleteIcons/caption: 🎨 Autocomplete Icons
+autocompleteIcons/description: Enable icons in autocomplete suggestions.
+footer/caption: 📝 Footer
+footer/description: Show snippets footer
+minLength/caption: 📏 Min Length
+minLength/description: Set the minimum length for input.
+selectOnOpen/caption: 🔄 Select on Open
+selectOnOpen/description: Automatically select on open.
 completeAnyWord/caption: 🔄 Complete Any Word
 completeAnyWord/description: Enable completion for any word.
+enableSystemTiddlersCompletion/caption: 🔄 Enable System Tiddlers Completion
+enableSystemTiddlersCompletion/description: Enable completion for system tiddlers.
+maxRenderedOptions/caption: 🔍 Max Rendered Options
+maxRenderedOptions/description: Set the maximum number of rendered options in autocomplete.
 lineNumbers/caption: 🔢 Line Numbers
 lineNumbers/description: Show line numbers for better code navigation.
 highlightActiveLine/caption: 🔍 Highlight Active Line
@@ -98,3 +86,9 @@ tabSize/caption: 🔍 Tab Size
 tabSize/description: Set the size of tabs.
 enableTWMode/caption:  Tw systax highlight （experimental）
 enableTWMode/description: tw systax highlight （experimental）
+todobox/caption: 📝 Task checkbox
+todobox/description: Task checkbox
+checkbox/caption: 📝 Checkbox
+checkbox/description: Checkbox
+rtl/caption: ↔️ RTL
+rtl/description: Enable Right-to-Left text direction.

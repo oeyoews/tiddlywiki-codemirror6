@@ -6,7 +6,7 @@ mask-closable: yes
 subtitle: {{||$:/esc}}
 
 \define sortBySettingsGroupFilter()
-[get[settings-group]!is[blank]else[!general]] [get[settings-group-header]!is[blank]else[99]] +[join[]]
+[get[settings-group]!is[blank]else[!general]] [get[id]!is[blank]else[99]] +[join[]]
 \end
 
 <!-- toggle i18n -->

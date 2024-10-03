@@ -2,32 +2,24 @@ title: $:/language/codemirror6/zh/
 
 useSound/caption: 📝 使用声音
 useSound/description: 插件neotw-play-sound提供声音支持
-insertModeFirst/caption: 📝 VIM自动进入插入模式
-insertModeFirst/description: VIM自动进入插入模式
 lines/caption: 📝 自动生成行数
 lines/description: 新建tiddler自动生成N行
-todobox/caption: 📝 代办事项复选框(MD)
-todobox/description: 代办事项复选框(MD)
-checkbox/caption: 📝 复选框(JS)
-checkbox/description: 适用于tiddler类型为javascript, 用于切换常量的布尔值, 普通用户建议关闭
 foldByIndent/caption: 📝 按缩进折叠
 foldByIndent/description: 按缩进折叠
+foldGutter/caption: 📂 折叠
+foldGutter/description: 为代码启用折叠。
 removeOutline/caption: 📝 移除编辑器边框
 removeOutline/description: 移除编辑器边框(配置待修复, 更改配置无效， 默认是移除)
 lineWrapping/caption: 📝 自动换行
 lineWrapping/description: 自动换行
+vimmode/caption: 🎮 Vim 模式
+vimmode/description: 启用文本编辑的 Vim 模式。
 vimJK/caption: 📝 Vim JK
 vimJK/description: 快速退出插入模式
-commentComplete/caption: 📝 注释中开启补全
-commentComplete/description: 注释中开启补全
-footer/caption: 📝 页脚
-footer/description: 显示代码片段来源
-debug/caption: 🐞 调试(实验性)
-debug/description: 在控制台上显示 codemirror6 的日志
+insertModeFirst/caption: 📝 VIM自动进入插入模式
+insertModeFirst/description: VIM自动进入插入模式
 activateOnTyping/caption: 🚀 开启自动补全
 activateOnTyping/description: 关闭后，可以 `CTRL+SPACE` 手动触发
-inlineSuggestion/caption: 🔍 内联建议（实验性）
-inlineSuggestion/description: 内联建议的实验性功能。
 tiddlerPreview/caption: 📑 Tiddler 预览
 tiddlerPreview/description: 启用 tiddlers 的预览。
 snippetPreview/caption: 📝 代码片段预览
@@ -44,16 +36,8 @@ whitespace/caption: 🔍 高亮空格
 whitespace/description: 启用空格的高亮显示。
 highlightTrailingWhitespace/caption: 🔍 高亮尾随空格
 highlightTrailingWhitespace/description: 启用尾随空格的高亮显示。
-enableSystemTiddlersCompletion/caption: 🔄 启用系统 Tiddlers 完成
-enableSystemTiddlersCompletion/description: 更多关于系统条目标题的补全提示
 closeOnBlur/caption: 🔒 失焦关闭
 closeOnBlur/description: 光标不在编辑区域时， 自动隐藏自动补全弹窗
-foldGutter/caption: 📂 折叠
-foldGutter/description: 为代码启用折叠。
-rtl/caption: ↔️ RTL
-rtl/description: 启用从右到左的文本方向(不建议开启)
-cursor-thickness/caption: 🚸 光标厚度
-cursor-thickness/description: 设置光标的宽度
 onedark/caption: 🌒 启用 One Dark 主题
 onedark/description: 启用 One Dark 主题。
 clickable-icon/caption: 🖱️ 点击图标
@@ -64,32 +48,36 @@ enableCustomPlaceholder/caption: 🖊️ 启用自定义占位符
 enableCustomPlaceholder/description: 启用设置自定义占位符。
 placeholder/caption: ✏️️ 占位符
 placeholder/description: 设置自定义的占位符
-cursorBlinkRate/caption: ⚡ 光标闪烁速率
+cursor-thickness/caption: 🚸 光标宽度
+cursor-thickness/description: 设置光标的宽度
+cursorBlinkRate/caption: ⚡ 光标闪烁速度
 cursorBlinkRate/description: 设置光标闪烁的速率（以毫秒为单位）,设置为 0 禁用闪烁
-minLength/caption: 📏 最小自动补全检测长度
-minLength/description: 设置自动补全最小长度。1为立刻触发
 delimiter/caption: 🔍 分隔符
-delimiter/description: 显示代码片段(注意不要设置和其他的触发符号相同导致冲突)
+delimiter/description: 显示代码片段(注意不要设置和其他的触发符号相同导致冲突, 配置生效需要重启tiddlywiki)
 minimap/caption: 🗺️ 小地图
 minimap/description: 启用右侧小地图
 minimapAudoHide/caption: 🗺️ 小地图自动隐藏
 minimapAudoHide/description: 自动隐藏小地图
 closeBrackets/caption: 🔄 自动关闭括号
 closeBrackets/description: 自动关闭括号。
-selectOnOpen/caption: 🔄 自动选择补全项
-selectOnOpen/description: 自动选择补全项
-autocompleteIcons/caption: 🎨 自动完成图标
-autocompleteIcons/description: 在自动完成建议中启用图标。
-maxRenderedOptions/caption: 🔍 自动补全每页数量
-maxRenderedOptions/description: 设置自动完成中渲染的选项的最大数量。
 indentWithTab/caption: 🔄 制表符缩进
 indentWithTab/description: 使用制表符进行缩进，而不是空格。
 bracketMatching/caption: 🔄 括号匹配
 bracketMatching/description: 启用括号匹配。
-vimmode/caption: 🎮 Vim 模式
-vimmode/description: 启用文本编辑的 Vim 模式。
+autocompleteIcons/caption: 🎨 自动完成图标
+autocompleteIcons/description: 在自动完成建议中启用图标。
+footer/caption: 📝 页脚
+footer/description: 显示代码片段来源
+minLength/caption: 📏 最小自动补全检测长度
+minLength/description: 设置自动补全最小长度。1为立刻触发
+selectOnOpen/caption: 🔄 自动选择补全项
+selectOnOpen/description: 自动选择补全项
 completeAnyWord/caption: 🔄 单词补全
 completeAnyWord/description: 如果当前编辑区域有重复输入的单词，重复输入时会提示
+enableSystemTiddlersCompletion/caption: 🔄 启用系统 Tiddlers 完成
+enableSystemTiddlersCompletion/description: 更多关于系统条目标题的补全提示
+maxRenderedOptions/caption: 🔍 自动补全每页数量
+maxRenderedOptions/description: 设置自动完成中渲染的选项的最大数量。(样式高度待调整)
 lineNumbers/caption: 🔢 行号
 lineNumbers/description: 开启行号
 highlightActiveLine/caption: 🔍 高亮当前行
@@ -98,3 +86,9 @@ tabSize/caption: 🔍 制表符大小
 tabSize/description: 设置制表符的大小。
 enableTWMode/caption:  tw 语法高亮（实验性）
 enableTWMode/description: tw 语法高亮（实验性)
+todobox/caption: 📝 代办事项复选框(MD)
+todobox/description: 代办事项复选框(MD)
+checkbox/caption: 📝 复选框(JS)
+checkbox/description: 适用于tiddler类型为javascript, 用于切换常量的布尔值, 普通用户建议关闭
+rtl/caption: ↔️ RTL
+rtl/description: 启用从右到左的文本方向(中文不建议开启)

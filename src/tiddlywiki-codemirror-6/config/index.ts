@@ -20,12 +20,20 @@ function getConfig(title: string) {
 // NOTE: 对应配置的 caption 不要写成 TxxxBxxx 格式。
 
 type ITiddlerConfig = {
+  disable?: boolean;
   caption: {
     zh: string;
     en: string;
   };
   text?: string | number;
   icon?: string;
+  category?:
+    | 'vim'
+    | 'general'
+    | 'markdown'
+    | 'placeholder'
+    | 'completion'
+    | 'fold';
   description?: {
     zh: string;
     en: string;
@@ -52,13 +60,6 @@ export const tiddlers = defineConfig({
       en: 'Use Sound'
     }
   },
-  insertModeFirst: {
-    caption: {
-      zh: 'VIM自动进入插入模式',
-      en: 'Insert Mode Auto Firstly'
-    },
-    text: 'no'
-  },
   // EditorHeight: {
   //   caption: {
   //     zh: '最大高度',
@@ -77,26 +78,23 @@ export const tiddlers = defineConfig({
       en: 'Max Lines'
     }
   },
-  todobox: {
-    caption: {
-      zh: '代办事项复选框(MD)',
-      en: 'Task checkbox'
-    }
-  },
-  checkbox: {
-    caption: {
-      zh: '复选框(JS)',
-      en: 'Checkbox'
-    },
-    description: {
-      zh: '适用于tiddler类型为javascript, 用于切换常量的布尔值, 普通用户建议关闭',
-      en: 'Checkbox'
-    }
-  },
   foldByIndent: {
     caption: {
       zh: '按缩进折叠',
       en: 'Fold By Indent'
+    },
+    category: 'fold'
+  },
+  foldGutter: {
+    caption: {
+      zh: '折叠',
+      en: 'Fold Gutter'
+    },
+    icon: '📂',
+    category: 'fold',
+    description: {
+      zh: '为代码启用折叠。',
+      en: 'Enable folding gutter for code.'
     }
   },
   removeOutline: {
@@ -127,15 +125,37 @@ export const tiddlers = defineConfig({
       en: 'Line Wrapping'
     }
   },
+  // vim
+  vimmode: {
+    caption: {
+      zh: 'Vim 模式',
+      en: 'Vim Mode'
+    },
+    icon: '🎮',
+    category: 'vim',
+    description: {
+      zh: '启用文本编辑的 Vim 模式。',
+      en: 'Enable Vim mode for text editing.'
+    }
+  },
   vimJK: {
     caption: {
       zh: 'Vim JK',
       en: "vim keyboard mapping JK(You know what I'm saying.)"
     },
+    category: 'vim',
     description: {
       zh: '快速退出插入模式',
       en: 'Fast Exit Insert Mode'
     }
+  },
+  insertModeFirst: {
+    caption: {
+      zh: 'VIM自动进入插入模式',
+      en: 'Insert Mode Auto Firstly'
+    },
+    category: 'vim',
+    text: 'no'
   },
   // matchText: {
   //   caption: {
@@ -143,38 +163,27 @@ export const tiddlers = defineConfig({
   //     en: 'Match Text'
   //   }
   // },
-  commentComplete: {
-    caption: {
-      zh: '注释中开启补全',
-      en: 'Comment Complete'
-    },
-    description: {
-      zh: '注释中开启补全',
-      en: 'Comment Complete'
-    }
-  },
-  footer: {
-    caption: {
-      zh: '页脚',
-      en: 'Footer'
-    },
-    icon: '📝',
-    description: {
-      zh: '显示代码片段来源',
-      en: 'Show snippets footer'
-    }
-  },
-  debug: {
-    caption: {
-      zh: '调试(实验性)',
-      en: 'Debug(experimental)'
-    },
-    icon: '🐞',
-    description: {
-      zh: '在控制台上显示 codemirror6 的日志',
-      en: 'Sebug for codemirror on console'
-    }
-  },
+  // commentComplete: {
+  //   caption: {
+  //     zh: '注释中开启补全',
+  //     en: 'Comment Complete'
+  //   },
+  //   description: {
+  //     zh: '注释中开启补全',
+  //     en: 'Comment Complete'
+  //   }
+  // },
+  // debug: {
+  //   caption: {
+  //     zh: '调试(实验性)',
+  //     en: 'Debug(experimental)'
+  //   },
+  //   icon: '🐞',
+  //   description: {
+  //     zh: '在控制台上显示 codemirror6 的日志',
+  //     en: 'Sebug for codemirror on console'
+  //   }
+  // },
   activateOnTyping: {
     caption: {
       zh: '开启自动补全',
@@ -188,6 +197,7 @@ export const tiddlers = defineConfig({
     }
   },
   inlineSuggestion: {
+    disable: true,
     caption: {
       zh: '内联建议（实验性）',
       en: 'Inline Suggestion (Experimental)'
@@ -289,17 +299,6 @@ export const tiddlers = defineConfig({
       en: 'Enable highlighting of trailing whitespace.'
     }
   },
-  enableSystemTiddlersCompletion: {
-    caption: {
-      zh: '启用系统 Tiddlers 完成',
-      en: 'Enable System Tiddlers Completion'
-    },
-    icon: '🔄',
-    description: {
-      zh: '更多关于系统条目标题的补全提示',
-      en: 'Enable completion for system tiddlers.'
-    }
-  },
   closeOnBlur: {
     caption: {
       zh: '失焦关闭',
@@ -310,17 +309,6 @@ export const tiddlers = defineConfig({
     description: {
       zh: '光标不在编辑区域时， 自动隐藏自动补全弹窗',
       en: 'Automatically close on blur.'
-    }
-  },
-  foldGutter: {
-    caption: {
-      zh: '折叠',
-      en: 'Fold Gutter'
-    },
-    icon: '📂',
-    description: {
-      zh: '为代码启用折叠。',
-      en: 'Enable folding gutter for code.'
     }
   },
   // translate: {
@@ -334,17 +322,6 @@ export const tiddlers = defineConfig({
   //     en: 'Enable translation.'
   //   }
   // },
-  rtl: {
-    caption: {
-      zh: 'RTL',
-      en: 'RTL'
-    },
-    icon: '↔️',
-    description: {
-      zh: '启用从右到左的文本方向(不建议开启)',
-      en: 'Enable Right-to-Left text direction.'
-    }
-  },
   onedark: {
     caption: {
       zh: '启用 One Dark 主题',
@@ -386,6 +363,7 @@ export const tiddlers = defineConfig({
       en: 'Custom Placeholder'
     },
     icon: '🖊️',
+    category: 'placeholder',
     description: {
       zh: '启用设置自定义占位符。',
       en: 'Set a custom placeholder.'
@@ -398,6 +376,7 @@ export const tiddlers = defineConfig({
     },
     text: '✨ Write something ✒️ ...',
     icon: '✏️️',
+    category: 'placeholder',
     description: {
       zh: '设置自定义的占位符',
       en: 'Set the default placeholder text.'
@@ -425,18 +404,6 @@ export const tiddlers = defineConfig({
     description: {
       zh: '设置光标闪烁的速率（以毫秒为单位）,设置为 0 禁用闪烁',
       en: 'Set the rate at which the cursor blinks (in milliseconds).'
-    }
-  },
-  minLength: {
-    caption: {
-      zh: '最小自动补全检测长度',
-      en: 'Min Length'
-    },
-    text: 1,
-    icon: '📏',
-    description: {
-      zh: '设置自动补全最小长度。1为立刻触发',
-      en: 'Set the minimum length for input.'
     }
   },
   delimiter: {
@@ -485,42 +452,6 @@ export const tiddlers = defineConfig({
       en: 'Automatically close brackets.'
     }
   },
-  selectOnOpen: {
-    caption: {
-      zh: '自动选择补全项',
-      en: 'Select on Open'
-    },
-    text: 'yes',
-    icon: '🔄',
-    description: {
-      zh: '自动选择补全项',
-      en: 'Automatically select on open.'
-    }
-  },
-  autocompleteIcons: {
-    caption: {
-      zh: '自动完成图标',
-      en: 'Autocomplete Icons'
-    },
-    text: 'yes',
-    icon: '🎨',
-    description: {
-      zh: '在自动完成建议中启用图标。',
-      en: 'Enable icons in autocomplete suggestions.'
-    }
-  },
-  maxRenderedOptions: {
-    caption: {
-      zh: '自动补全每页数量',
-      en: 'Max Rendered Options'
-    },
-    text: 20,
-    icon: '🔍',
-    description: {
-      zh: '设置自动完成中渲染的选项的最大数量。',
-      en: 'Set the maximum number of rendered options in autocomplete.'
-    }
-  },
   // spellcheck: {
   //   caption: {
   //     zh: '拼写检查',
@@ -567,15 +498,55 @@ export const tiddlers = defineConfig({
       en: 'Enable matching of brackets.'
     }
   },
-  vimmode: {
+  autocompleteIcons: {
     caption: {
-      zh: 'Vim 模式',
-      en: 'Vim Mode'
+      zh: '自动完成图标',
+      en: 'Autocomplete Icons'
     },
-    icon: '🎮',
+    category: 'completion',
+    text: 'yes',
+    icon: '🎨',
     description: {
-      zh: '启用文本编辑的 Vim 模式。',
-      en: 'Enable Vim mode for text editing.'
+      zh: '在自动完成建议中启用图标。',
+      en: 'Enable icons in autocomplete suggestions.'
+    }
+  },
+  footer: {
+    caption: {
+      zh: '页脚',
+      en: 'Footer'
+    },
+    category: 'completion',
+    icon: '📝',
+    description: {
+      zh: '显示代码片段来源',
+      en: 'Show snippets footer'
+    }
+  },
+  minLength: {
+    caption: {
+      zh: '最小自动补全检测长度',
+      en: 'Min Length'
+    },
+    category: 'completion',
+    text: 1,
+    icon: '📏',
+    description: {
+      zh: '设置自动补全最小长度。1为立刻触发',
+      en: 'Set the minimum length for input.'
+    }
+  },
+  selectOnOpen: {
+    caption: {
+      zh: '自动选择补全项',
+      en: 'Select on Open'
+    },
+    text: 'yes',
+    category: 'completion',
+    icon: '🔄',
+    description: {
+      zh: '自动选择补全项',
+      en: 'Automatically select on open.'
     }
   },
   completeAnyWord: {
@@ -583,10 +554,36 @@ export const tiddlers = defineConfig({
       zh: '单词补全',
       en: 'Complete Any Word'
     },
+    category: 'completion',
     icon: '🔄',
     description: {
       zh: '如果当前编辑区域有重复输入的单词，重复输入时会提示',
       en: 'Enable completion for any word.'
+    }
+  },
+  enableSystemTiddlersCompletion: {
+    caption: {
+      zh: '启用系统 Tiddlers 完成',
+      en: 'Enable System Tiddlers Completion'
+    },
+    icon: '🔄',
+    category: 'completion',
+    description: {
+      zh: '更多关于系统条目标题的补全提示',
+      en: 'Enable completion for system tiddlers.'
+    }
+  },
+  maxRenderedOptions: {
+    caption: {
+      zh: '自动补全每页数量',
+      en: 'Max Rendered Options'
+    },
+    category: 'completion',
+    text: 20,
+    icon: '🔍',
+    description: {
+      zh: '设置自动完成中渲染的选项的最大数量。(样式高度待调整)',
+      en: 'Set the maximum number of rendered options in autocomplete.'
     }
   },
   lineNumbers: {
@@ -635,6 +632,33 @@ export const tiddlers = defineConfig({
     description: {
       zh: 'tw 语法高亮（实验性)',
       en: 'tw systax highlight （experimental）'
+    }
+  },
+  todobox: {
+    caption: {
+      zh: '代办事项复选框(MD)',
+      en: 'Task checkbox'
+    }
+  },
+  checkbox: {
+    caption: {
+      zh: '复选框(JS)',
+      en: 'Checkbox'
+    },
+    description: {
+      zh: '适用于tiddler类型为javascript, 用于切换常量的布尔值, 普通用户建议关闭',
+      en: 'Checkbox'
+    }
+  },
+  rtl: {
+    caption: {
+      zh: 'RTL',
+      en: 'RTL'
+    },
+    icon: '↔️',
+    description: {
+      zh: '启用从右到左的文本方向(中文不建议开启)',
+      en: 'Enable Right-to-Left text direction.'
     }
   }
 });

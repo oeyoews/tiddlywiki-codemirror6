@@ -1,8 +1,0 @@
-title: $:/config/codemirror-6/commentComplete
-caption: {{$:/language/codemirror6/commentComplete/caption}}
-caption-zh: {{$:/language/codemirror6/zh/commentComplete/caption}}
-description: {{$:/language/codemirror6/commentComplete/description}}
-description-zh: {{$:/language/codemirror6/zh/commentComplete/description}}
-settings-template: $:/plugins/oeyoews/tiddlywiki-codemirror-6/ui/templates/settings/input-switch
-
-no

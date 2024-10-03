@@ -4,5 +4,7 @@ caption-zh: {{$:/language/codemirror6/zh/maxRenderedOptions/caption}}
 description: {{$:/language/codemirror6/maxRenderedOptions/description}}
 description-zh: {{$:/language/codemirror6/zh/maxRenderedOptions/description}}
 settings-template: $:/plugins/oeyoews/tiddlywiki-codemirror-6/ui/templates/settings/input
+id: 39
+settings-group: completion
 
 20

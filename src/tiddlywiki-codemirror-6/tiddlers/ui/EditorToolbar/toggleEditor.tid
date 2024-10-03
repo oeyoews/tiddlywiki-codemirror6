@@ -3,8 +3,7 @@ caption: Toggle Editor
 description: use codemirror-6 or not
 condition: [<targetTiddler>]
 icon: $:/plugins/oeyoews/tiddlywiki-codemirror-6/icon
-
-<!-- tags: $:/tags/EditorToolbar -->
+tags: $:/tags/EditorToolbar
 
 <$let
 	type={{{ [<targetTiddler>get[type]else[text/vnd.tiddlywiki]] }}}
