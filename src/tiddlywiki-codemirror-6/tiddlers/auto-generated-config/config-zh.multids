@@ -1,29 +1,27 @@
 title: $:/language/codemirror6/zh/
 
-useSound/caption: 📝 使用声音
-useSound/description: 由插件[[oeyoews/neotw-play-sound|https://neotw.vercel.app/#%24%3A%2Fplugins%2Foeyoews%2Fneotw-play-sound]] 提供声音支持
+useSound/caption: 📝 开启音效
+useSound/description: 由插件 [[oeyoews/neotw-play-sound|https://neotw.vercel.app/#%24%3A%2Fplugins%2Foeyoews%2Fneotw-play-sound]] 提供声音支持, 默认关闭
 lines/caption: 📝 自动生成行数
 lines/description: 新建tiddler自动生成N行
+foldGutter/caption: 📂 折叠按钮图标
+foldGutter/description: 在编辑器行号右侧显示折叠按钮图标
 foldByIndent/caption: 📝 按缩进折叠
 foldByIndent/description: 按缩进折叠
-foldGutter/caption: 📂 折叠
-foldGutter/description: 为代码启用折叠。
-removeOutline/caption: 📝 移除编辑器边框
-removeOutline/description: 移除编辑器边框(配置待修复, 更改配置无效， 默认是移除)
 lineWrapping/caption: 📝 自动换行
-lineWrapping/description: 自动换行
+lineWrapping/description: 自动换行, 建议开启
 vimmode/caption: 🎮 Vim 模式
 vimmode/description: 启用文本编辑的 Vim 模式。
 vimJK/caption: 📝 Vim JK
 vimJK/description: 快速退出插入模式
 insertModeFirst/caption: 📝 VIM自动进入插入模式
-insertModeFirst/description: VIM自动进入插入模式
+insertModeFirst/description: VIM模式下新建tiddler自动进入插入模式
 activateOnTyping/caption: 🚀 开启自动补全
-activateOnTyping/description: 关闭后，可以 `CTRL+SPACE` 手动触发
+activateOnTyping/description: 关闭后，可以 <kbd>CTRL+SPACE</kbd> 手动触发
 tiddlerPreview/caption: 📑 Tiddler 预览
 tiddlerPreview/description: 启用 tiddlers 的预览。
-snippetPreview/caption: 📝 代码片段预览
-snippetPreview/description: 启用代码片段的预览。
+snippetPreview/caption: 📝 / 预览文本
+snippetPreview/description: 启用 `/` 代码片段的预览。
 linkPreview/caption: 🔗 链接预览
 linkPreview/description: 启用超链接预览。
 fontFamily/caption: 📂 字体
@@ -38,12 +36,12 @@ highlightTrailingWhitespace/caption: 🔍 高亮尾随空格
 highlightTrailingWhitespace/description: 启用尾随空格的高亮显示。
 closeOnBlur/caption: 🔒 失焦关闭
 closeOnBlur/description: 光标不在编辑区域时， 自动隐藏自动补全弹窗
-onedark/caption: 🌒 启用 One Dark 主题
-onedark/description: 启用 One Dark 主题。
+onedark/caption: 🌒 黑暗模式下启用编辑器黑暗样式
+onedark/description: 黑暗模式下启用编辑器黑暗样式
 clickable-icon/caption: 🖱️ 点击图标
 clickable-icon/description: 设置一个可点击的图标。
 clickable/caption: 🖱️ 可点击
-clickable/description: 可以在编辑区域内看到一个可以点击的图标
+clickable/description: 可以在编辑区域内看到一个可以点击的图标 <kbd>CTRL+click</kbd>
 enableCustomPlaceholder/caption: 🖊️ 启用自定义占位符
 enableCustomPlaceholder/description: 启用设置自定义占位符。
 placeholder/caption: ✏️️ 占位符
@@ -53,7 +51,7 @@ cursor-thickness/description: 设置光标的宽度
 cursorBlinkRate/caption: ⚡ 光标闪烁速度
 cursorBlinkRate/description: 设置光标闪烁的速率（以毫秒为单位）,设置为 0 禁用闪烁
 delimiter/caption: 🔍 分隔符
-delimiter/description: 显示代码片段(注意不要设置和其他的触发符号相同导致冲突, 配置生效需要重启tiddlywiki)
+delimiter/description: 显示代码片段(注意不要设置和其他的触发符号相同导致冲突, 配置生效需要__重启__tiddlywiki)
 minimap/caption: 🗺️ 小地图
 minimap/description: 启用右侧小地图
 minimapAudoHide/caption: 🗺️ 小地图自动隐藏
@@ -62,6 +60,8 @@ closeBrackets/caption: 🔄 自动关闭括号
 closeBrackets/description: 自动关闭括号。
 indentWithTab/caption: 🔄 制表符缩进
 indentWithTab/description: 使用制表符进行缩进，而不是空格。
+tabSize/caption: 🔍 制表符大小
+tabSize/description: 设置制表符的大小。
 bracketMatching/caption: 🔄 括号匹配
 bracketMatching/description: 启用括号匹配。
 autocompleteIcons/caption: 🎨 自动完成图标
@@ -69,9 +69,9 @@ autocompleteIcons/description: 在自动完成建议中启用图标。
 footer/caption: 📝 页脚
 footer/description: 显示代码片段来源
 minLength/caption: 📏 最小自动补全检测长度
-minLength/description: 设置自动补全最小长度。1为立刻触发
-selectOnOpen/caption: 🔄 自动选择补全项
-selectOnOpen/description: 自动选择补全项
+minLength/description: 设置自动补全最小长度。1为立刻触发, 一般不建议修改
+selectOnOpen/caption: 🔄 自动选中当前补全项
+selectOnOpen/description: 自动选中当前补全项进行补全
 completeAnyWord/caption: 🔄 单词补全
 completeAnyWord/description: 如果当前编辑区域有重复输入的单词，重复输入时会提示
 enableSystemTiddlersCompletion/caption: 🔄 启用系统 Tiddlers 完成
@@ -82,13 +82,13 @@ lineNumbers/caption: 🔢 行号
 lineNumbers/description: 开启行号
 highlightActiveLine/caption: 🔍 高亮当前行
 highlightActiveLine/description: 高亮光标所在行
-tabSize/caption: 🔍 制表符大小
-tabSize/description: 设置制表符的大小。
-enableTWMode/caption:  tw 语法高亮（实验性）
-enableTWMode/description: tw 语法高亮（实验性)
+enableTWMode/caption:  wikitext 语法高亮（实验性）
+enableTWMode/description: wikitext 语法高亮（实验性)
 todobox/caption: 📝 代办事项复选框(MD)
 todobox/description: 代办事项复选框(MD)
 checkbox/caption: 📝 复选框(JS)
 checkbox/description: 适用于tiddler类型为javascript, 用于切换常量的布尔值, 普通用户建议关闭
 rtl/caption: ↔️ RTL
 rtl/description: 启用从右到左的文本方向(中文不建议开启)
+removeOutline/caption: 📝 移除编辑器边框
+removeOutline/description: 移除编辑器边框(配置待修复, 更改配置无效， 默认是移除)

@@ -4,7 +4,7 @@ caption-zh: {{$:/language/codemirror6/zh/activateOnTyping/caption}}
 description: {{$:/language/codemirror6/activateOnTyping/description}}
 description-zh: {{$:/language/codemirror6/zh/activateOnTyping/description}}
 settings-template: $:/plugins/oeyoews/tiddlywiki-codemirror-6/ui/templates/settings/input-switch
-id: 10
+id: 9
 settings-group: general
 
 yes

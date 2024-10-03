@@ -4,7 +4,7 @@ caption-zh: {{$:/language/codemirror6/zh/enableCustomPlaceholder/caption}}
 description: {{$:/language/codemirror6/enableCustomPlaceholder/description}}
 description-zh: {{$:/language/codemirror6/zh/enableCustomPlaceholder/description}}
 settings-template: $:/plugins/oeyoews/tiddlywiki-codemirror-6/ui/templates/settings/input-switch
-id: 23
+id: 22
 settings-group: placeholder
 
 no

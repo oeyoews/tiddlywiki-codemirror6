@@ -51,12 +51,12 @@ function defineConfig<T extends Object, K extends keyof T>(
 export const tiddlers = defineConfig({
   useSound: {
     caption: {
-      zh: '使用声音',
+      zh: '开启音效',
       en: 'Use Sound'
     },
     text: 'no',
     description: {
-      zh: '由插件 [[oeyoews/neotw-play-sound|https://neotw.vercel.app/#%24%3A%2Fplugins%2Foeyoews%2Fneotw-play-sound]] 提供声音支持',
+      zh: '由插件 [[oeyoews/neotw-play-sound|https://neotw.vercel.app/#%24%3A%2Fplugins%2Foeyoews%2Fneotw-play-sound]] 提供声音支持, 默认关闭',
       en: 'Use Sound'
     }
   },
@@ -78,35 +78,24 @@ export const tiddlers = defineConfig({
       en: 'Max Lines'
     }
   },
+  foldGutter: {
+    caption: {
+      zh: '折叠按钮图标',
+      en: 'Fold Gutter'
+    },
+    icon: '📂',
+    category: 'fold',
+    description: {
+      zh: '在编辑器行号右侧显示折叠按钮图标',
+      en: 'Enable folding gutter for code.'
+    }
+  },
   foldByIndent: {
     caption: {
       zh: '按缩进折叠',
       en: 'Fold By Indent'
     },
     category: 'fold'
-  },
-  foldGutter: {
-    caption: {
-      zh: '折叠',
-      en: 'Fold Gutter'
-    },
-    icon: '📂',
-    category: 'fold',
-    description: {
-      zh: '为代码启用折叠。',
-      en: 'Enable folding gutter for code.'
-    }
-  },
-  removeOutline: {
-    text: 'yes',
-    caption: {
-      en: 'remove editor outline',
-      zh: '移除编辑器边框'
-    },
-    description: {
-      en: 'remove editor outline',
-      zh: '移除编辑器边框(配置待修复, 更改配置无效， 默认是移除)'
-    }
   },
   // disableCM6: {
   //   caption: {
@@ -121,7 +110,7 @@ export const tiddlers = defineConfig({
     },
     text: 'yes',
     description: {
-      zh: '自动换行',
+      zh: '自动换行, 建议开启',
       en: 'Line Wrapping'
     }
   },
@@ -155,7 +144,11 @@ export const tiddlers = defineConfig({
       en: 'Insert Mode Auto Firstly'
     },
     category: 'vim',
-    text: 'no'
+    text: 'no',
+    description: {
+      zh: 'VIM模式下新建tiddler自动进入插入模式',
+      en: 'Insert Mode Auto Firstly'
+    }
   },
   // matchText: {
   //   caption: {
@@ -194,7 +187,7 @@ export const tiddlers = defineConfig({
     text: 'yes',
     icon: '🚀',
     description: {
-      zh: '关闭后，可以 `CTRL+SPACE` 手动触发',
+      zh: '关闭后，可以 <kbd>CTRL+SPACE</kbd> 手动触发',
       en: 'Enable activation on typing for enhanced functionality.'
     }
   },
@@ -223,12 +216,12 @@ export const tiddlers = defineConfig({
   },
   snippetPreview: {
     caption: {
-      zh: '代码片段预览',
+      zh: '/ 预览文本',
       en: 'Snippet Preview'
     },
     icon: '📝',
     description: {
-      zh: '启用代码片段的预览。',
+      zh: '启用 `/` 代码片段的预览。',
       en: 'Enable preview for code snippets.'
     }
   },
@@ -326,13 +319,13 @@ export const tiddlers = defineConfig({
   // },
   onedark: {
     caption: {
-      zh: '启用 One Dark 主题',
+      zh: '黑暗模式下启用编辑器黑暗样式',
       en: 'Enable One Dark Theme'
     },
     text: 'yes',
     icon: '🌒',
     description: {
-      zh: '启用 One Dark 主题。',
+      zh: '黑暗模式下启用编辑器黑暗样式',
       en: 'Enable the One Dark theme.'
     }
   },
@@ -355,7 +348,7 @@ export const tiddlers = defineConfig({
     },
     icon: '🖱️',
     description: {
-      zh: '可以在编辑区域内看到一个可以点击的图标',
+      zh: '可以在编辑区域内看到一个可以点击的图标 <kbd>CTRL+click</kbd>',
       en: 'Enable clickability.'
     }
   },
@@ -416,7 +409,7 @@ export const tiddlers = defineConfig({
     text: '/',
     icon: '🔍',
     description: {
-      zh: '显示代码片段(注意不要设置和其他的触发符号相同导致冲突, 配置生效需要重启tiddlywiki)',
+      zh: '显示代码片段(注意不要设置和其他的触发符号相同导致冲突, 配置生效需要__重启__tiddlywiki)',
       en: 'Set the delimiter for certain operations.'
     }
   },
@@ -488,6 +481,18 @@ export const tiddlers = defineConfig({
       en: 'Indent with tab instead of spaces.'
     }
   },
+  tabSize: {
+    caption: {
+      zh: '制表符大小',
+      en: 'Tab Size'
+    },
+    text: 2,
+    icon: '🔍',
+    description: {
+      zh: '设置制表符的大小。',
+      en: 'Set the size of tabs.'
+    }
+  },
   bracketMatching: {
     caption: {
       zh: '括号匹配',
@@ -534,20 +539,20 @@ export const tiddlers = defineConfig({
     text: 1,
     icon: '📏',
     description: {
-      zh: '设置自动补全最小长度。1为立刻触发',
+      zh: '设置自动补全最小长度。1为立刻触发, 一般不建议修改',
       en: 'Set the minimum length for input.'
     }
   },
   selectOnOpen: {
     caption: {
-      zh: '自动选择补全项',
+      zh: '自动选中当前补全项',
       en: 'Select on Open'
     },
     text: 'yes',
     category: 'completion',
     icon: '🔄',
     description: {
-      zh: '自动选择补全项',
+      zh: '自动选中当前补全项进行补全',
       en: 'Automatically select on open.'
     }
   },
@@ -612,28 +617,16 @@ export const tiddlers = defineConfig({
       en: 'Highlight the active line for better visibility.'
     }
   },
-  tabSize: {
-    caption: {
-      zh: '制表符大小',
-      en: 'Tab Size'
-    },
-    text: 2,
-    icon: '🔍',
-    description: {
-      zh: '设置制表符的大小。',
-      en: 'Set the size of tabs.'
-    }
-  },
   enableTWMode: {
     caption: {
-      zh: 'tw 语法高亮（实验性）',
-      en: 'tw systax highlight （experimental）'
+      zh: 'wikitext 语法高亮（实验性）',
+      en: 'wikitext systax highlight （experimental）'
     },
     text: 'yes',
     icon: '',
     description: {
-      zh: 'tw 语法高亮（实验性)',
-      en: 'tw systax highlight （experimental）'
+      zh: 'wikitext 语法高亮（实验性)',
+      en: 'wikitexttw systax highlight （experimental）'
     }
   },
   todobox: {
@@ -661,6 +654,17 @@ export const tiddlers = defineConfig({
     description: {
       zh: '启用从右到左的文本方向(中文不建议开启)',
       en: 'Enable Right-to-Left text direction.'
+    }
+  },
+  removeOutline: {
+    text: 'yes',
+    caption: {
+      en: 'remove editor outline',
+      zh: '移除编辑器边框'
+    },
+    description: {
+      en: 'remove editor outline',
+      zh: '移除编辑器边框(配置待修复, 更改配置无效， 默认是移除)'
     }
   }
 });

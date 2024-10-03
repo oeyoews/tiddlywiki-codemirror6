@@ -4,12 +4,10 @@ useSound/caption: 📝 Use Sound
 useSound/description: Use Sound
 lines/caption: 📝 Lines
 lines/description: Max Lines
-foldByIndent/caption: 📝 Fold By Indent
-foldByIndent/description: Fold By Indent
 foldGutter/caption: 📂 Fold Gutter
 foldGutter/description: Enable folding gutter for code.
-removeOutline/caption: 📝 Remove editor outline
-removeOutline/description: remove editor outline
+foldByIndent/caption: 📝 Fold By Indent
+foldByIndent/description: Fold By Indent
 lineWrapping/caption: 📝 Line Wrapping
 lineWrapping/description: Line Wrapping
 vimmode/caption: 🎮 Vim Mode
@@ -62,6 +60,8 @@ closeBrackets/caption: 🔄 Close Brackets
 closeBrackets/description: Automatically close brackets.
 indentWithTab/caption: 🔄 Indent with Tab
 indentWithTab/description: Indent with tab instead of spaces.
+tabSize/caption: 🔍 Tab Size
+tabSize/description: Set the size of tabs.
 bracketMatching/caption: 🔄 Bracket Matching
 bracketMatching/description: Enable matching of brackets.
 autocompleteIcons/caption: 🎨 Autocomplete Icons
@@ -82,13 +82,13 @@ lineNumbers/caption: 🔢 Line Numbers
 lineNumbers/description: Show line numbers for better code navigation.
 highlightActiveLine/caption: 🔍 Highlight Active Line
 highlightActiveLine/description: Highlight the active line for better visibility.
-tabSize/caption: 🔍 Tab Size
-tabSize/description: Set the size of tabs.
-enableTWMode/caption:  Tw systax highlight （experimental）
-enableTWMode/description: tw systax highlight （experimental）
+enableTWMode/caption:  Wikitext systax highlight （experimental）
+enableTWMode/description: wikitexttw systax highlight （experimental）
 todobox/caption: 📝 Task checkbox
 todobox/description: Task checkbox
 checkbox/caption: 📝 Checkbox
 checkbox/description: Checkbox
 rtl/caption: ↔️ RTL
 rtl/description: Enable Right-to-Left text direction.
+removeOutline/caption: 📝 Remove editor outline
+removeOutline/description: remove editor outline

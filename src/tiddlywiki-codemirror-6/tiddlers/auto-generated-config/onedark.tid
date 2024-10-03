@@ -4,7 +4,7 @@ caption-zh: {{$:/language/codemirror6/zh/onedark/caption}}
 description: {{$:/language/codemirror6/onedark/description}}
 description-zh: {{$:/language/codemirror6/zh/onedark/description}}
 settings-template: $:/plugins/oeyoews/tiddlywiki-codemirror-6/ui/templates/settings/input-switch
-id: 20
+id: 19
 settings-group: general
 
 yes

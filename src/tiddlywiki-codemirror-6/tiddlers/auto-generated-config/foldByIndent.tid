@@ -4,7 +4,7 @@ caption-zh: {{$:/language/codemirror6/zh/foldByIndent/caption}}
 description: {{$:/language/codemirror6/foldByIndent/description}}
 description-zh: {{$:/language/codemirror6/zh/foldByIndent/description}}
 settings-template: $:/plugins/oeyoews/tiddlywiki-codemirror-6/ui/templates/settings/input-switch
-id: 3
+id: 4
 settings-group: fold
 
 no
