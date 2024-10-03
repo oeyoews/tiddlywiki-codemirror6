@@ -163,27 +163,29 @@ export const tiddlers = defineConfig({
   //     en: 'Match Text'
   //   }
   // },
-  // commentComplete: {
-  //   caption: {
-  //     zh: '注释中开启补全',
-  //     en: 'Comment Complete'
-  //   },
-  //   description: {
-  //     zh: '注释中开启补全',
-  //     en: 'Comment Complete'
-  //   }
-  // },
-  // debug: {
-  //   caption: {
-  //     zh: '调试(实验性)',
-  //     en: 'Debug(experimental)'
-  //   },
-  //   icon: '🐞',
-  //   description: {
-  //     zh: '在控制台上显示 codemirror6 的日志',
-  //     en: 'Sebug for codemirror on console'
-  //   }
-  // },
+  commentComplete: {
+    disable: true,
+    caption: {
+      zh: '注释中开启补全',
+      en: 'Comment Complete'
+    },
+    description: {
+      zh: '注释中开启补全',
+      en: 'Comment Complete'
+    }
+  },
+  debug: {
+    disable: true,
+    caption: {
+      zh: '调试(实验性)',
+      en: 'Debug(experimental)'
+    },
+    icon: '🐞',
+    description: {
+      zh: '在控制台上显示 codemirror6 的日志',
+      en: 'Sebug for codemirror on console'
+    }
+  },
   activateOnTyping: {
     caption: {
       zh: '开启自动补全',
