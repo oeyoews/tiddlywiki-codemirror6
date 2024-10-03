@@ -9,8 +9,8 @@ subtitle: {{||$:/esc}}
 [get[settings-group]!is[blank]else[!general]] [get[id]!is[blank]else[99]] +[join[]]
 \end
 
-<!-- toggle i18n -->
-Your codemirror6 config tiddlers: <$count filter="[prefix[$:/config/codemirror-6]] "/> (<$count filter="[all[tiddlers+shadows]prefix[$:/config/codemirror-6]]"/>)
+<!-- TODO: toggle i18n -->
+Your codemirror6 config tiddlers: <$count filter="[prefix[$:/config/codemirror-6]] "/>/<$count filter="[all[tiddlers+shadows]prefix[$:/config/codemirror-6]]"/> (<small><$text text= {{{ [[$:/plugins/oeyoews/tiddlywiki-codemirror-6]get[version]] }}} /></small>)
 
 Language: <$select tiddler="$:/config/codemirror6/language" tooltip='change codemirror6 config language'>
 <option value=en>En</option>
