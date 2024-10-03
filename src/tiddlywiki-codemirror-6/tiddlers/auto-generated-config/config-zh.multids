@@ -1,7 +1,7 @@
 title: $:/language/codemirror6/zh/
 
 useSound/caption: 📝 使用声音
-useSound/description: 插件neotw-play-sound提供声音支持
+useSound/description: 由插件[[oeyoews/neotw-play-sound|https://neotw.vercel.app/#%24%3A%2Fplugins%2Foeyoews%2Fneotw-play-sound]] 提供声音支持
 lines/caption: 📝 自动生成行数
 lines/description: 新建tiddler自动生成N行
 foldByIndent/caption: 📝 按缩进折叠

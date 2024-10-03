@@ -56,7 +56,7 @@ export const tiddlers = defineConfig({
     },
     text: 'no',
     description: {
-      zh: '插件neotw-play-sound提供声音支持',
+      zh: '由插件 [[oeyoews/neotw-play-sound|https://neotw.vercel.app/#%24%3A%2Fplugins%2Foeyoews%2Fneotw-play-sound]] 提供声音支持',
       en: 'Use Sound'
     }
   },
