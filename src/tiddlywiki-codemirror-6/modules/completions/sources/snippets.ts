@@ -1,14 +1,11 @@
-import { renderTid } from '@/cm6/utils/renderTiddler';
-import {
-  type CompletionInfo,
-  snippetCompletion as snip
-} from '@codemirror/autocomplete';
+import { snippetCompletion as snip } from '@codemirror/autocomplete';
 import conf from '@/cm6/config';
 import { usersnippets } from '@/cm6/modules/completions/builtin/snippets';
 
 const section = 'snippet';
 const type = 'cm-snippet';
-const delimiter = '/';
+const delimiter =
+  $tw.wiki.getTiddlerText('$:/config/codemirror-6/delimiter') || '/';
 const description = 'snippets';
 
 const renderCodeBlock = (snippet: ISource) => {

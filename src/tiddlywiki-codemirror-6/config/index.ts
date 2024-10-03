@@ -439,18 +439,18 @@ export const tiddlers = defineConfig({
       en: 'Set the minimum length for input.'
     }
   },
-  // delimiter: {
-  //   caption: {
-  //     zh: '分隔符',
-  //     en: 'Delimiter'
-  //   },
-  //   text: '/',
-  //   icon: '🔍',
-  //   description: {
-  //     zh: '设置某些操作的分隔符。',
-  //     en: 'Set the delimiter for certain operations.'
-  //   }
-  // },
+  delimiter: {
+    caption: {
+      zh: '分隔符',
+      en: 'Delimiter'
+    },
+    text: '/',
+    icon: '🔍',
+    description: {
+      zh: '显示代码片段(注意不要设置和其他的触发符号相同导致冲突)',
+      en: 'Set the delimiter for certain operations.'
+    }
+  },
   minimap: {
     caption: {
       zh: '小地图',

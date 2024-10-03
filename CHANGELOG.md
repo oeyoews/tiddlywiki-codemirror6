@@ -1,5 +1,6 @@
 ## Changelog
 
+* `2.2.2`: 重新添加 delimiter config
 * `2.2.1`: 补全支持声音触发
 * `2.2.0`: support sound
 * `2.1.2`: 移除切换到简单编辑器(vanilla textarea)的按钮
