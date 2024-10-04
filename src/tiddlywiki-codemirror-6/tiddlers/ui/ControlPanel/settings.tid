@@ -23,6 +23,10 @@ Language: <$select tiddler="$:/config/codemirror6/language" tooltip='change code
 <$list filter="[all[shadows+tiddlers]prefix[$:/config/codemirror-6/]has[settings-template]] +[search:title,caption,description{$:/state/codemirror-6/settings/search}] +[sortsub<sortBySettingsGroupFilter>]">
 <$list filter={{{[{!!condition}!is[blank]] :else[{!!title}]}}} variable="list-condition">
 <div class="btc-list-group-item">
+<div class="group-category" hidden>
+<$text text= {{{ [<currentTiddler>get[settings-group]else[general]] }}} />
+<!-- {{!!settings-group}} -->
+</div>
 <$transclude tiddler={{!!settings-template}}/>
 </div>
 </$list>

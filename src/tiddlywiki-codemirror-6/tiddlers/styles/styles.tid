@@ -480,3 +480,21 @@ li[aria-selected] {
 	opacity: 1;
 }
 }
+
+.group-category {
+	position:absolute;
+	top:0;
+	right:0;
+	font-size: 12px;
+	background-color: lightgray;
+	padding: 0 5px;
+	opacity: 1;
+	transition: opacity 0.5s;
+	transition-delay: 0.3s;
+	text-transform: capitalize;
+}
+<!-- .btc-list-group-item:hover {
+	.group-category {
+		opacity: 1;
+	}
+} -->
