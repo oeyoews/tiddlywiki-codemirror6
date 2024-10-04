@@ -4,7 +4,7 @@ caption-zh: {{$:/language/codemirror6/zh/tabSize/caption}}
 description: {{$:/language/codemirror6/tabSize/description}}
 description-zh: {{$:/language/codemirror6/zh/tabSize/description}}
 settings-template: $:/plugins/oeyoews/tiddlywiki-codemirror-6/ui/templates/settings/input
-id: 31
+id: 32
 settings-group: general
 
 2

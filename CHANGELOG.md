@@ -1,5 +1,6 @@
 ## Changelog
 
+* `2.4.0`: 添加searchPosition 配置
 * `2.3.0`: 优化配置分组
 * `2.2.2`: 重新添加 delimiter config
 * `2.2.1`: 补全支持声音触发

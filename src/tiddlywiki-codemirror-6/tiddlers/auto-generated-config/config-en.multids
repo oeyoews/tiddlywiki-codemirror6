@@ -1,6 +1,6 @@
 title: $:/language/codemirror6/
 
-useSound/caption: 📝 Use Sound
+useSound/caption: 🔊 Use Sound
 useSound/description: Use Sound
 lines/caption: 📝 Lines
 lines/description: Max Lines
@@ -8,23 +8,25 @@ foldGutter/caption: 📂 Fold Gutter
 foldGutter/description: Enable folding gutter for code.
 foldByIndent/caption: 📝 Fold By Indent
 foldByIndent/description: Fold By Indent
-lineWrapping/caption: 📝 Line Wrapping
+lineWrapping/caption: ↩️ Line Wrapping
 lineWrapping/description: Line Wrapping
 vimmode/caption: 🎮 Vim Mode
 vimmode/description: Enable Vim mode for text editing.
-vimJK/caption: 📝 Vim keyboard mapping JK(You know what I'm saying.)
+vimJK/caption: ⌨️ Vim keyboard mapping JK(You know what I'm saying.)
 vimJK/description: Fast Exit Insert Mode
 insertModeFirst/caption: 📝 Insert Mode Auto Firstly
 insertModeFirst/description: Insert Mode Auto Firstly
 activateOnTyping/caption: 🚀 Activate on Typing
 activateOnTyping/description: Enable activation on typing for enhanced functionality.
+inlineSuggestion/caption: 🔍 Inline Suggestion (Experimental)
+inlineSuggestion/description: Experimental feature for inline suggestions.
 tiddlerPreview/caption: 📑 Tiddler Preview
 tiddlerPreview/description: Enable preview for tiddlers.
 snippetPreview/caption: 📝 Snippet Preview
 snippetPreview/description: Enable preview for code snippets.
 linkPreview/caption: 🔗 Link Preview
 linkPreview/description: Enable preview for hyperlinks.
-fontFamily/caption: 📂 Font Family
+fontFamily/caption: 🅰️ Font Family
 fontFamily/description: Set the font family for better readability.
 fontsize/caption: 📏 Font Size
 fontsize/description: Set the font size for better readability.
@@ -42,7 +44,7 @@ clickable-icon/caption: 🖱️ Clickable Icon
 clickable-icon/description: Set a clickable icon.
 clickable/caption: 🖱️ Clickable
 clickable/description: Enable clickability.
-enableCustomPlaceholder/caption: 🖊️ Custom Placeholder
+enableCustomPlaceholder/caption: ✍️ Custom Placeholder
 enableCustomPlaceholder/description: Set a custom placeholder.
 placeholder/caption: ✏️️ Placeholder
 placeholder/description: Set the default placeholder text.
@@ -66,7 +68,7 @@ bracketMatching/caption: 🔄 Bracket Matching
 bracketMatching/description: Enable matching of brackets.
 autocompleteIcons/caption: 🎨 Autocomplete Icons
 autocompleteIcons/description: Enable icons in autocomplete suggestions.
-footer/caption: 📝 Footer
+footer/caption: 📜 Footer
 footer/description: Show snippets footer
 minLength/caption: 📏 Min Length
 minLength/description: Set the minimum length for input.
@@ -76,19 +78,19 @@ completeAnyWord/caption: 🔄 Complete Any Word
 completeAnyWord/description: Enable completion for any word.
 enableSystemTiddlersCompletion/caption: 🔄 Enable System Tiddlers Completion
 enableSystemTiddlersCompletion/description: Enable completion for system tiddlers.
-maxRenderedOptions/caption: 🔍 Max Rendered Options
+maxRenderedOptions/caption: 🔢 Max Rendered Options
 maxRenderedOptions/description: Set the maximum number of rendered options in autocomplete.
 lineNumbers/caption: 🔢 Line Numbers
 lineNumbers/description: Show line numbers for better code navigation.
 highlightActiveLine/caption: 🔍 Highlight Active Line
 highlightActiveLine/description: Highlight the active line for better visibility.
+searchPosition/caption: 🔍 Search Position
+searchPosition/description: Search Position
 enableTWMode/caption:  Wikitext systax highlight （experimental）
 enableTWMode/description: wikitexttw systax highlight （experimental）
-todobox/caption: 📝 Task checkbox
+todobox/caption: ☑️ Task checkbox
 todobox/description: Task checkbox
-checkbox/caption: 📝 Checkbox
-checkbox/description: Checkbox
 rtl/caption: ↔️ RTL
 rtl/description: Enable Right-to-Left text direction.
-removeOutline/caption: 📝 Remove editor outline
+removeOutline/caption: 🚫 Remove editor outline
 removeOutline/description: remove editor outline

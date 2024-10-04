@@ -25,6 +25,8 @@ type ITiddlerConfig = {
     zh: string;
     en: string;
   };
+  'option-names'?: string;
+  'option-values'?: string;
   text?: string | number;
   icon?: string;
   category?:
@@ -196,11 +198,12 @@ export const tiddlers = defineConfig({
     }
   },
   inlineSuggestion: {
-    disable: true,
+    disable: false,
     caption: {
       zh: '内联建议（实验性）',
       en: 'Inline Suggestion (Experimental)'
     },
+    text: 'yes',
     icon: '🔍',
     description: {
       zh: '内联建议的实验性功能。',
@@ -621,6 +624,21 @@ export const tiddlers = defineConfig({
       en: 'Highlight the active line for better visibility.'
     }
   },
+  // search
+  searchPosition: {
+    caption: {
+      zh: '搜索面板位置',
+      en: 'Search Position'
+    },
+    'option-names': 'top bottom',
+    'option-values': 'top bottom',
+    text: 'top',
+    icon: '🔍',
+    description: {
+      zh: '搜索面板位置, 默认在顶部',
+      en: 'Search Position'
+    }
+  },
   enableTWMode: {
     caption: {
       zh: 'wikitext 语法高亮（实验性）',
@@ -641,6 +659,7 @@ export const tiddlers = defineConfig({
     }
   },
   checkbox: {
+    disable: true,
     icon: '☑️',
     caption: {
       zh: '复选框(JS)',

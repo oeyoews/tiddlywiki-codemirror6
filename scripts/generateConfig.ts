@@ -15,11 +15,13 @@ interface IConfigFields {
   icon: string;
   caption: I18n;
   description: I18n;
-  template: 'input-switch' | 'input';
+  template: 'input-switch' | 'input' | 'select';
   text: string;
   // ---
   disable: boolean;
   category: string;
+  'option-names'?: string;
+  'option-values'?: string;
 }
 
 const templatePrefix =
@@ -56,12 +58,16 @@ tiddlersInfo.forEach(([title, fields], index) => {
     text = 'no',
     category = 'general'
   } = fields;
+  const optionNames = fields['option-names'];
+  const optionvalues = fields['option-values'];
 
   const captionEn =
     icon + ' ' + caption.en.replace(/^\w/, (match) => match.toUpperCase());
   const captionZh = icon + ' ' + caption.zh;
 
-  if (text === 'no' || text == 'yes') {
+  if (optionNames) {
+    template = 'select';
+  } else if (text === 'no' || text == 'yes') {
     template = 'input-switch';
   } else {
     template = 'input';
@@ -70,7 +76,7 @@ tiddlersInfo.forEach(([title, fields], index) => {
   multidcontentEn += `${title}/caption: ${captionEn}\n${title}/description: ${description.en}\n`;
   multidcontentZH += `${title}/caption: ${captionZh}\n${title}/description: ${description.zh}\n`;
 
-  const content = `title: ${configBaseTitle}${title}
+  let content = `title: ${configBaseTitle}${title}
 caption: {{$:/language/codemirror6/${title}/caption}}
 caption-zh: {{$:/language/codemirror6/zh/${title}/caption}}
 description: {{$:/language/codemirror6/${title}/description}}
@@ -78,8 +84,13 @@ description-zh: {{$:/language/codemirror6/zh/${title}/description}}
 settings-template: ${templatePrefix}${template}
 id: ${index + 1}
 settings-group: ${category}
+`;
 
-${text}`;
+  if (optionNames) {
+    content += `option-names: ${optionNames}\noption-values: ${optionvalues}\n\n${text}`;
+  } else {
+    content += `\n${text}`;
+  }
 
   const filepath = path.join(dir, title + '.tid');
   fs.writeFileSync(filepath, content);

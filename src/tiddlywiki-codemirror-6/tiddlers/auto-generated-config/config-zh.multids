@@ -1,6 +1,6 @@
 title: $:/language/codemirror6/zh/
 
-useSound/caption: 📝 开启音效
+useSound/caption: 🔊 开启音效
 useSound/description: 由插件 [[oeyoews/neotw-play-sound|https://neotw.vercel.app/#%24%3A%2Fplugins%2Foeyoews%2Fneotw-play-sound]] 提供声音支持, 默认关闭
 lines/caption: 📝 自动生成行数
 lines/description: 新建tiddler自动生成N行
@@ -8,23 +8,25 @@ foldGutter/caption: 📂 折叠按钮图标
 foldGutter/description: 在编辑器行号右侧显示折叠按钮图标
 foldByIndent/caption: 📝 按缩进折叠
 foldByIndent/description: 按缩进折叠
-lineWrapping/caption: 📝 自动换行
+lineWrapping/caption: ↩️ 自动换行
 lineWrapping/description: 自动换行, 建议开启
 vimmode/caption: 🎮 Vim 模式
 vimmode/description: 启用文本编辑的 Vim 模式。
-vimJK/caption: 📝 Vim JK
+vimJK/caption: ⌨️ Vim JK
 vimJK/description: 快速退出插入模式
 insertModeFirst/caption: 📝 VIM自动进入插入模式
 insertModeFirst/description: VIM模式下新建tiddler自动进入插入模式
 activateOnTyping/caption: 🚀 开启自动补全
 activateOnTyping/description: 关闭后，可以 <kbd>CTRL+SPACE</kbd> 手动触发
+inlineSuggestion/caption: 🔍 内联建议（实验性）
+inlineSuggestion/description: 内联建议的实验性功能。
 tiddlerPreview/caption: 📑 Tiddler 预览
 tiddlerPreview/description: 启用 tiddlers 的预览。
 snippetPreview/caption: 📝 / 预览文本
 snippetPreview/description: 启用 `/` 代码片段的预览。
 linkPreview/caption: 🔗 链接预览
 linkPreview/description: 启用超链接预览。
-fontFamily/caption: 📂 字体
+fontFamily/caption: 🅰️ 字体
 fontFamily/description: 设置编辑器字体
 fontsize/caption: 📏 字体大小
 fontsize/description: 设置编辑器字体大小
@@ -42,7 +44,7 @@ clickable-icon/caption: 🖱️ 点击图标
 clickable-icon/description: 设置一个可点击的图标。
 clickable/caption: 🖱️ 可点击
 clickable/description: 可以在编辑区域内看到一个可以点击的图标 <kbd>CTRL+click</kbd>
-enableCustomPlaceholder/caption: 🖊️ 启用自定义占位符
+enableCustomPlaceholder/caption: ✍️ 启用自定义占位符
 enableCustomPlaceholder/description: 启用设置自定义占位符。
 placeholder/caption: ✏️️ 占位符
 placeholder/description: 设置自定义的占位符
@@ -66,7 +68,7 @@ bracketMatching/caption: 🔄 括号匹配
 bracketMatching/description: 启用括号匹配。
 autocompleteIcons/caption: 🎨 自动完成图标
 autocompleteIcons/description: 在自动完成建议中启用图标。
-footer/caption: 📝 页脚
+footer/caption: 📜 页脚
 footer/description: 显示代码片段来源
 minLength/caption: 📏 最小自动补全检测长度
 minLength/description: 设置自动补全最小长度。1为立刻触发, 一般不建议修改
@@ -76,19 +78,19 @@ completeAnyWord/caption: 🔄 单词补全
 completeAnyWord/description: 如果当前编辑区域有重复输入的单词，重复输入时会提示
 enableSystemTiddlersCompletion/caption: 🔄 启用系统 Tiddlers 完成
 enableSystemTiddlersCompletion/description: 更多关于系统条目标题的补全提示
-maxRenderedOptions/caption: 🔍 自动补全每页数量
+maxRenderedOptions/caption: 🔢 自动补全每页数量
 maxRenderedOptions/description: 设置自动完成中渲染的选项的最大数量。(样式高度待调整)
 lineNumbers/caption: 🔢 行号
 lineNumbers/description: 开启行号
 highlightActiveLine/caption: 🔍 高亮当前行
 highlightActiveLine/description: 高亮光标所在行
+searchPosition/caption: 🔍 搜索面板位置
+searchPosition/description: 搜索面板位置, 默认在顶部
 enableTWMode/caption:  wikitext 语法高亮（实验性）
 enableTWMode/description: wikitext 语法高亮（实验性)
-todobox/caption: 📝 代办事项复选框(MD)
+todobox/caption: ☑️ 代办事项复选框(MD)
 todobox/description: 代办事项复选框(MD)
-checkbox/caption: 📝 复选框(JS)
-checkbox/description: 适用于tiddler类型为javascript, 用于切换常量的布尔值, 普通用户建议关闭
 rtl/caption: ↔️ RTL
 rtl/description: 启用从右到左的文本方向(中文不建议开启)
-removeOutline/caption: 📝 移除编辑器边框
+removeOutline/caption: 🚫 移除编辑器边框
 removeOutline/description: 移除编辑器边框(配置待修复, 更改配置无效， 默认是移除)

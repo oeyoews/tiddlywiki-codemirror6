@@ -9,7 +9,7 @@ import {
   indentOnInput
 } from '@codemirror/language';
 import { EditorState, Extension } from '@codemirror/state';
-import { highlightSelectionMatches } from '@codemirror/search';
+import { search, highlightSelectionMatches } from '@codemirror/search';
 
 import { history } from '@codemirror/commands';
 
@@ -40,6 +40,7 @@ export function cme(self: any): Extension[] {
     tabSizePlugin(),
     fontSizeExt(),
     indentUnit.of('	'),
+    search({ top: cm6.searchPosition() === 'top' }),
     // EditorState.readOnly.of(true), // NOTE: lastest vim-mode extension has fix that bug
 
     Prec.high(

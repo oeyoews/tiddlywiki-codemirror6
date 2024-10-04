@@ -4,7 +4,7 @@ caption-zh: {{$:/language/codemirror6/zh/highlightActiveLine/caption}}
 description: {{$:/language/codemirror6/highlightActiveLine/description}}
 description-zh: {{$:/language/codemirror6/zh/highlightActiveLine/description}}
 settings-template: $:/plugins/oeyoews/tiddlywiki-codemirror-6/ui/templates/settings/input-switch
-id: 41
+id: 42
 settings-group: general
 
 yes

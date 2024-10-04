@@ -4,7 +4,7 @@ caption-zh: {{$:/language/codemirror6/zh/bracketMatching/caption}}
 description: {{$:/language/codemirror6/bracketMatching/description}}
 description-zh: {{$:/language/codemirror6/zh/bracketMatching/description}}
 settings-template: $:/plugins/oeyoews/tiddlywiki-codemirror-6/ui/templates/settings/input-switch
-id: 32
+id: 33
 settings-group: general
 
 no
