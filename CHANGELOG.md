@@ -1,5 +1,6 @@
 ## Changelog
 
+* `2.5.0`: 支持ghost text
 * `2.4.1`: 添加category css
 * `2.4.0`: 添加searchPosition 配置
 * `2.3.0`: 优化配置分组
