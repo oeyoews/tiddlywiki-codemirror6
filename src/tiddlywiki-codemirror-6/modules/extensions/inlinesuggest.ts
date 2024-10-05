@@ -5,6 +5,7 @@ import { inlineSuggestion } from '@/cm6/modules/extensions/inlineSuggestion';
 import { completionStatus, selectedCompletion } from '@codemirror/autocomplete';
 import cm6 from '@/cm6/config';
 import { EditorView } from '@codemirror/view';
+import { delimiters } from '../completions/sources';
 
 // @WIP
 // @see-also: https://github.com/ChromeDevTools/devtools-frontend/blob/main/front_end/ui/components/text_editor/config.ts#L370
@@ -16,6 +17,7 @@ export default function inlineSuggestionExt(self: {
   // TODO: how to refresh
   // status wrong
   const fetchSuggestion = () => {
+    console.log('inlineSuggestion ...');
     const state = self.editor.state;
     const status = completionStatus(state) === 'active';
     if (!status) {
@@ -42,11 +44,20 @@ export default function inlineSuggestionExt(self: {
       return;
     }
 
-    // 如果不开启 show completion, 就获取不到列表
+    // @NOTE: 如果不开启 show completion, 就获取不到列表
     if (status) {
-      // TODO: 需要细化逻辑
-      // return selectedCompletion(state)?.label.slice(0, lastWord.length);
-      return ' ' + selectedCompletion(state)?.displayLabel;
+      const completion = selectedCompletion(state);
+      if (
+        completion?.label?.toString().startsWith(lastWord) ||
+        completion?.displayLabel?.toString().startsWith(lastWord)
+      ) {
+        return (
+          completion?.label.slice(lastWord.length) ||
+          completion?.displayLabel?.slice(lastWord.length)
+        );
+      } else {
+        return ' ' + (completion?.label || completion?.displayLabel);
+      }
     }
     return '';
   };
