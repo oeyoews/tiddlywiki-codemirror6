@@ -3,7 +3,7 @@ caption: {{$:/language/codemirror6/vimJK/caption}}
 caption-zh: {{$:/language/codemirror6/zh/vimJK/caption}}
 description: {{$:/language/codemirror6/vimJK/description}}
 description-zh: {{$:/language/codemirror6/zh/vimJK/description}}
-settings-template: $:/plugins/oeyoews/tiddlywiki-codemirror-6/ui/templates/settings/input-switch
+settings-template: input-switch
 id: 7
 settings-group: vim
 

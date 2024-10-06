@@ -3,7 +3,7 @@ caption: {{$:/language/codemirror6/keymap/caption}}
 caption-zh: {{$:/language/codemirror6/zh/keymap/caption}}
 description: {{$:/language/codemirror6/keymap/description}}
 description-zh: {{$:/language/codemirror6/zh/keymap/description}}
-settings-template: $:/plugins/oeyoews/tiddlywiki-codemirror-6/ui/templates/settings/select
+settings-template: select
 id: 6
 settings-group: keymap
 option-names: standard vim

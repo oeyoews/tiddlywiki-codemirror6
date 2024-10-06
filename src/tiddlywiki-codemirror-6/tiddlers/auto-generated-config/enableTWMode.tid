@@ -3,7 +3,7 @@ caption: {{$:/language/codemirror6/enableTWMode/caption}}
 caption-zh: {{$:/language/codemirror6/zh/enableTWMode/caption}}
 description: {{$:/language/codemirror6/enableTWMode/description}}
 description-zh: {{$:/language/codemirror6/zh/enableTWMode/description}}
-settings-template: $:/plugins/oeyoews/tiddlywiki-codemirror-6/ui/templates/settings/input-switch
+settings-template: input-switch
 id: 44
 settings-group: general
 

@@ -81,7 +81,7 @@ caption: {{$:/language/codemirror6/${title}/caption}}
 caption-zh: {{$:/language/codemirror6/zh/${title}/caption}}
 description: {{$:/language/codemirror6/${title}/description}}
 description-zh: {{$:/language/codemirror6/zh/${title}/description}}
-settings-template: ${templatePrefix}${template}
+settings-template: ${template}
 id: ${index + 1}
 settings-group: ${category}
 `;

@@ -3,7 +3,7 @@ caption: {{$:/language/codemirror6/foldGutter/caption}}
 caption-zh: {{$:/language/codemirror6/zh/foldGutter/caption}}
 description: {{$:/language/codemirror6/foldGutter/description}}
 description-zh: {{$:/language/codemirror6/zh/foldGutter/description}}
-settings-template: $:/plugins/oeyoews/tiddlywiki-codemirror-6/ui/templates/settings/input-switch
+settings-template: input-switch
 id: 3
 settings-group: fold
 

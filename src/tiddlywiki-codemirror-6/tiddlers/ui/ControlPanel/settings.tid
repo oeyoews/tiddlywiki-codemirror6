@@ -40,6 +40,7 @@ Your codemirror6 config tiddlers: <$count filter="[prefix[$:/config/codemirror-6
 
 <label class="btcui-form-label">
 
+<!-- header:english -->
 <$reveal type="match" state="$:/config/codemirror6/language" text="en">
 <$link tooltip={{!!description}}>{{!!caption}}</$link>
 <div>
@@ -53,6 +54,7 @@ Your codemirror6 config tiddlers: <$count filter="[prefix[$:/config/codemirror-6
 </div>
 </$reveal>
 
+<!-- header:chinese -->
 <$reveal type="match" state="$:/config/codemirror6/language" text="zh">
 <$link tooltip={{!!description-zh}}>{{!!caption-zh}}</$link>
 <div>
@@ -69,12 +71,12 @@ Your codemirror6 config tiddlers: <$count filter="[prefix[$:/config/codemirror-6
 </label>
 
 <!-- input -->
-<% if [<currentTiddler>get[settings-template]match[$:/plugins/oeyoews/tiddlywiki-codemirror-6/ui/templates/settings/input]] %>
+<% if [<currentTiddler>get[settings-template]split[/]last[]match[input]] %>
 <$edit-text tag="input" class="btcui-form-input"/>
 <% endif %>
 
 <!-- input-switch -->
-<% if [<currentTiddler>get[settings-template]match[$:/plugins/oeyoews/tiddlywiki-codemirror-6/ui/templates/settings/input-switch]] %>
+<% if [<currentTiddler>get[settings-template]split[/]last[]match[input-switch]] %>
 <% if [[$:/config/codemirror-6/useSound]get[text]match[yes]] %>
 <$checkbox field="text" checked="yes" unchecked="no" class="btcui-form-switch" actions=<<useSound>>/>
 <% else %>
@@ -83,7 +85,7 @@ Your codemirror6 config tiddlers: <$count filter="[prefix[$:/config/codemirror-6
 <% endif %>
 
 <!-- select -->
-<% if [<currentTiddler>get[settings-template]match[$:/plugins/oeyoews/tiddlywiki-codemirror-6/ui/templates/settings/select]] %>
+<% if [<currentTiddler>get[settings-template]split[/]last[]match[select]] %>
 <$vars cnt={{{[enlist{!!option-names}count[]]}}}}>
 <$select class="btcui-form-select">
 <$list filter="[range<cnt>]" variable="index">

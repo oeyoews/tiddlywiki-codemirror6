@@ -3,7 +3,7 @@ caption: {{$:/language/codemirror6/cursorBlinkRate/caption}}
 caption-zh: {{$:/language/codemirror6/zh/cursorBlinkRate/caption}}
 description: {{$:/language/codemirror6/cursorBlinkRate/description}}
 description-zh: {{$:/language/codemirror6/zh/cursorBlinkRate/description}}
-settings-template: $:/plugins/oeyoews/tiddlywiki-codemirror-6/ui/templates/settings/input
+settings-template: input
 id: 26
 settings-group: general
 

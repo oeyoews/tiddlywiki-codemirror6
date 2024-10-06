@@ -3,7 +3,7 @@ caption: {{$:/language/codemirror6/clickable-icon/caption}}
 caption-zh: {{$:/language/codemirror6/zh/clickable-icon/caption}}
 description: {{$:/language/codemirror6/clickable-icon/description}}
 description-zh: {{$:/language/codemirror6/zh/clickable-icon/description}}
-settings-template: $:/plugins/oeyoews/tiddlywiki-codemirror-6/ui/templates/settings/input
+settings-template: input
 id: 21
 settings-group: general
 

@@ -3,7 +3,7 @@ caption: {{$:/language/codemirror6/fontFamily/caption}}
 caption-zh: {{$:/language/codemirror6/zh/fontFamily/caption}}
 description: {{$:/language/codemirror6/fontFamily/description}}
 description-zh: {{$:/language/codemirror6/zh/fontFamily/description}}
-settings-template: $:/plugins/oeyoews/tiddlywiki-codemirror-6/ui/templates/settings/input
+settings-template: input
 id: 14
 settings-group: general
 

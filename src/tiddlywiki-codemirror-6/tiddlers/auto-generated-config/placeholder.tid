@@ -3,7 +3,7 @@ caption: {{$:/language/codemirror6/placeholder/caption}}
 caption-zh: {{$:/language/codemirror6/zh/placeholder/caption}}
 description: {{$:/language/codemirror6/placeholder/description}}
 description-zh: {{$:/language/codemirror6/zh/placeholder/description}}
-settings-template: $:/plugins/oeyoews/tiddlywiki-codemirror-6/ui/templates/settings/input
+settings-template: input
 id: 24
 settings-group: placeholder
 
