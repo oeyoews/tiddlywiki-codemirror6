@@ -35,6 +35,7 @@ type ITiddlerConfig = {
     | 'markdown'
     | 'placeholder'
     | 'completion'
+    | 'keymap'
     | 'fold';
   description?: {
     zh: string;
@@ -77,7 +78,7 @@ export const tiddlers = defineConfig({
     },
     text: 1,
     description: {
-      zh: '新建tiddler自动生成N行',
+      zh: '新建tiddler自动生成N行(最大不超过20行)',
       en: 'Max Lines'
     }
   },
@@ -118,8 +119,24 @@ export const tiddlers = defineConfig({
       en: 'Line Wrapping'
     }
   },
+  keymap: {
+    caption: {
+      zh: '键位绑定',
+      en: 'KeyMap'
+    },
+    icon: '🎮',
+    category: 'keymap',
+    text: 'standard',
+    'option-names': 'standard vim',
+    'option-values': 'standard vim',
+    description: {
+      zh: '选择编辑器的键位绑定',
+      en: 'select editor keymap'
+    }
+  },
   // vim
   vimmode: {
+    disable: true,
     caption: {
       zh: 'Vim 模式',
       en: 'Vim Mode'

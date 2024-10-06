@@ -1,5 +1,7 @@
 ## Changelog
 
+* `2.7.0`: 添加恢复默全部设置按钮
+* `2.6.0`: 添加恢复默设置按钮
 * `2.5.0`: 支持ghost text
 * `2.4.1`: 添加category css
 * `2.4.0`: 添加searchPosition 配置

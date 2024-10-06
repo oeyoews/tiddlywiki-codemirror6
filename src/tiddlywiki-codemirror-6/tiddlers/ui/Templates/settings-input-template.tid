@@ -5,8 +5,12 @@ title: $:/plugins/oeyoews/tiddlywiki-codemirror-6/ui/templates/settings/input
 <$reveal type="match" state="$:/config/codemirror6/language" text="en">
 <$link tooltip={{!!description}}>{{!!caption}}</$link>
 <div>
-<small>
-{{!!description}}
+<small> {{!!description}}
+<% if [<currentTiddler>is[tiddler]] %>
+<$button> Reset
+<$action-deletetiddler $tiddler=<<currentTiddler>>/>
+</$button>
+<% endif %>
 </small>
 </div>
 </$reveal>
@@ -14,8 +18,12 @@ title: $:/plugins/oeyoews/tiddlywiki-codemirror-6/ui/templates/settings/input
 <$reveal type="match" state="$:/config/codemirror6/language" text="zh">
 <$link tooltip={{!!description-zh}}>{{!!caption-zh}}</$link>
 <div>
-<small>
-{{!!description-zh}}
+<small> {{!!description-zh}}
+<% if [<currentTiddler>is[tiddler]] %>
+<$button> 恢复默认设置
+<$action-deletetiddler $tiddler=<<currentTiddler>>/>
+</$button>
+<% endif %>
 </small>
 </div>
 </$reveal>

@@ -78,7 +78,7 @@ class CodeMirrorEngine {
       extensions: this.cme
     });
 
-    // main: create a codemirror6 instance
+    // #region main: create a codemirror6 instance
     this.editor = new EditorView({
       parent: this.domNode,
       state: this.state
@@ -88,7 +88,7 @@ class CodeMirrorEngine {
       // },
     });
     // @see https://github.com/replit/codemirror-vim/issues/6
-    if (cm6.vimmode() && cm6.insertModeFirst() && !options.value) {
+    if (cm6.keymap() === 'vim' && cm6.insertModeFirst() && !options.value) {
       let editor = getCM(this.editor);
       Vim.exitInsertMode(editor);
       Vim.handleKey(editor, 'i');

@@ -10,8 +10,8 @@ foldByIndent/caption: 📝 Fold By Indent
 foldByIndent/description: Fold By Indent
 lineWrapping/caption: ↩️ Line Wrapping
 lineWrapping/description: Line Wrapping
-vimmode/caption: 🎮 Vim Mode
-vimmode/description: Enable Vim mode for text editing.
+keymap/caption: 🎮 KeyMap
+keymap/description: select editor keymap
 vimJK/caption: ⌨️ Vim keyboard mapping JK(You know what I'm saying.)
 vimJK/description: Fast Exit Insert Mode
 insertModeFirst/caption: 📝 Insert Mode Auto Firstly

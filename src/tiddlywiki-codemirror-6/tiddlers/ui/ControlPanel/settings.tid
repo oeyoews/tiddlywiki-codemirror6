@@ -10,12 +10,17 @@ subtitle: {{||$:/esc}}
 \end
 
 <!-- TODO: toggle i18n -->
-Your codemirror6 config tiddlers: <$count filter="[prefix[$:/config/codemirror-6]] "/>/<$count filter="[all[tiddlers+shadows]prefix[$:/config/codemirror-6]]"/> (<small><$text text= {{{ [[$:/plugins/oeyoews/tiddlywiki-codemirror-6]get[version]] }}} /></small>)
-
-Language: <$select tiddler="$:/config/codemirror6/language" tooltip='change codemirror6 config language'>
+Your codemirror6 config tiddlers: <$count filter="[prefix[$:/config/codemirror-6]] "/>/<$count filter="[all[tiddlers+shadows]prefix[$:/config/codemirror-6]]"/> (<small><$text text= {{{ [[$:/plugins/oeyoews/tiddlywiki-codemirror-6]get[version]] }}} /></small>) Language: <$select tiddler="$:/config/codemirror6/language" tooltip='change codemirror6 config language'>
 <option value=en>En</option>
 <option value=zh>中文</option>
-</$select>
+</$select> <% if [prefix[$:/config/codemirror-6]] %> <$button> <!-- <$action-deletetiddler $filter="[prefix[$:/config/codemirror-6]]"/> --> reset all config to default
+<$action-setfield $tiddler="$:/temp/advancedsearch" text="[prefix[$:/config/codemirror-6]]"/>
+<$action-setfield $tiddler="$:/temp/advancedsearch/input" text="[prefix[$:/config/codemirror-6]]"/>
+<$action-setfield $tiddler="$:/temp/advancedsearch/refresh" text="yes"/>
+<$action-setfield $tiddler="$:/state/tab--1498284803" text="$:/core/ui/AdvancedSearch/Filter"/>
+<$action-navigate $to="$:/AdvancedSearch" $scroll="no"/>
+</$button>
+<% endif %>
 
 <$edit-text tiddler="$:/state/codemirror-6/settings/search" class="btc-search-input" default="" tag="input" type="search" placeholder="search..." focus="yes"/>
 

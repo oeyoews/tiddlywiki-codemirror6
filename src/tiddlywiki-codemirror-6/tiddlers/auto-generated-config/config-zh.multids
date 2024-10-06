@@ -3,15 +3,15 @@ title: $:/language/codemirror6/zh/
 useSound/caption: 🔊 开启音效
 useSound/description: 由插件 [[oeyoews/neotw-play-sound|https://neotw.vercel.app/#%24%3A%2Fplugins%2Foeyoews%2Fneotw-play-sound]] 提供声音支持, 默认关闭
 lines/caption: 📝 自动生成行数
-lines/description: 新建tiddler自动生成N行
+lines/description: 新建tiddler自动生成N行(最大不超过20行)
 foldGutter/caption: 📂 折叠按钮图标
 foldGutter/description: 在编辑器行号右侧显示折叠按钮图标
 foldByIndent/caption: 📝 按缩进折叠
 foldByIndent/description: 按缩进折叠
 lineWrapping/caption: ↩️ 自动换行
 lineWrapping/description: 自动换行, 建议开启
-vimmode/caption: 🎮 Vim 模式
-vimmode/description: 启用文本编辑的 Vim 模式。
+keymap/caption: 🎮 键位绑定
+keymap/description: 选择编辑器的键位绑定
 vimJK/caption: ⌨️ Vim JK
 vimJK/description: 快速退出插入模式
 insertModeFirst/caption: 📝 VIM自动进入插入模式

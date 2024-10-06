@@ -154,7 +154,7 @@ export function snippets(widget: IWidget) {
 
             //   break;
             case 'toggleMode':
-              const nextValue = cm6.vimmode() ? 'no' : 'yes';
+              const nextValue = cm6.keymap() === 'vim' ? 'no' : 'yes';
               $tw.wiki.setText(
                 configBaseTitle + 'vimmode',
                 'text',

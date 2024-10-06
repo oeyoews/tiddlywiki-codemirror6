@@ -90,7 +90,7 @@ export default function updateExtensions(cme: Extension[], widget: IWidget) {
       );
   }
 
-  if (conf.vimmode()) {
+  if (conf.keymap() === 'vim') {
     setVimKeymap(widget);
     cme.push(Prec.high(vim())); // NOTE: not support new Comparement usage
   }
