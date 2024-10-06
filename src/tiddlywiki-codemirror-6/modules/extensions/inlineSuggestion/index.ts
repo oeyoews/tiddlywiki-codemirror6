@@ -17,6 +17,7 @@ import {
   TransactionSpec
 } from '@codemirror/state';
 
+// copyed from https://github.com/saminzadeh/codemirror-extension-inline-suggestion
 /**
  * @param f callback
  * @param wait milliseconds

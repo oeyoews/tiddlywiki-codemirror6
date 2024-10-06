@@ -5,7 +5,6 @@ import { inlineSuggestion } from '@/cm6/modules/extensions/inlineSuggestion';
 import { completionStatus, selectedCompletion } from '@codemirror/autocomplete';
 import cm6 from '@/cm6/config';
 import { EditorView } from '@codemirror/view';
-import { delimiters } from '../completions/sources';
 
 // @WIP
 // @see-also: https://github.com/ChromeDevTools/devtools-frontend/blob/main/front_end/ui/components/text_editor/config.ts#L370
@@ -17,7 +16,6 @@ export default function inlineSuggestionExt(self: {
   // TODO: how to refresh
   // status wrong
   const fetchSuggestion = () => {
-    console.log('inlineSuggestion ...');
     const state = self.editor.state;
     const status = completionStatus(state) === 'active';
     if (!status) {
