@@ -9,6 +9,10 @@ subtitle: {{||$:/esc}}
 [get[settings-group]!is[blank]else[!general]] [get[id]!is[blank]else[99]] +[join[]]
 \end
 
+\define useSound()
+<$action-sendmessage $message="neotw-play-sound" audioTiddler="$:/plugins/oeyoews/neotw-play-sound/sounds/bite.mp3" />
+\end
+
 <!-- TODO: toggle i18n -->
 Your codemirror6 config tiddlers: <$count filter="[prefix[$:/config/codemirror-6]] "/>/<$count filter="[all[tiddlers+shadows]prefix[$:/config/codemirror-6]]"/> (<small><$text text= {{{ [[$:/plugins/oeyoews/tiddlywiki-codemirror-6]get[version]] }}} /></small>) Language: <$select tiddler="$:/config/codemirror6/language" tooltip='change codemirror6 config language'>
 <option value=en>En</option>
@@ -28,11 +32,67 @@ Your codemirror6 config tiddlers: <$count filter="[prefix[$:/config/codemirror-6
 <$list filter="[all[shadows+tiddlers]prefix[$:/config/codemirror-6/]has[settings-template]] +[search:title,caption,description{$:/state/codemirror-6/settings/search}] +[sortsub<sortBySettingsGroupFilter>]">
 <$list filter={{{[{!!condition}!is[blank]] :else[{!!title}]}}} variable="list-condition">
 <div class="btc-list-group-item">
-<div class="group-category" hidden>
-<$text text= {{{ [<currentTiddler>get[settings-group]else[general]] }}} />
+<!-- <div class="group-category" hidden>
+<$text text= {{{ [<currentTiddler>get[settings-group]else[general]] }}} /> -->
 <!-- {{!!settings-group}} -->
+<!-- </div> -->
+<!-- <$transclude tiddler={{!!settings-template}}/> -->
+
+<label class="btcui-form-label">
+
+<$reveal type="match" state="$:/config/codemirror6/language" text="en">
+<$link tooltip={{!!description}}>{{!!caption}}</$link>
+<div>
+<small> {{!!description}}
+<% if [<currentTiddler>is[tiddler]] %>
+<$button> Reset
+<$action-deletetiddler $tiddler=<<currentTiddler>>/>
+</$button>
+<% endif %>
+</small>
 </div>
-<$transclude tiddler={{!!settings-template}}/>
+</$reveal>
+
+<$reveal type="match" state="$:/config/codemirror6/language" text="zh">
+<$link tooltip={{!!description-zh}}>{{!!caption-zh}}</$link>
+<div>
+<small> {{!!description-zh}}
+<% if [<currentTiddler>is[tiddler]] %>
+<$button> 恢复默认设置
+<$action-deletetiddler $tiddler=<<currentTiddler>>/>
+</$button>
+<% endif %>
+</small>
+</div>
+</$reveal>
+
+</label>
+
+<!-- input -->
+<% if [<currentTiddler>get[settings-template]match[$:/plugins/oeyoews/tiddlywiki-codemirror-6/ui/templates/settings/input]] %>
+<$edit-text tag="input" class="btcui-form-input"/>
+<% endif %>
+
+<!-- input-switch -->
+<% if [<currentTiddler>get[settings-template]match[$:/plugins/oeyoews/tiddlywiki-codemirror-6/ui/templates/settings/input-switch]] %>
+<% if [[$:/config/codemirror-6/useSound]get[text]match[yes]] %>
+<$checkbox field="text" checked="yes" unchecked="no" class="btcui-form-switch" actions=<<useSound>>/>
+<% else %>
+<$checkbox field="text" checked="yes" unchecked="no" class="btcui-form-switch"/>
+<% endif %>
+<% endif %>
+
+<!-- select -->
+<% if [<currentTiddler>get[settings-template]match[$:/plugins/oeyoews/tiddlywiki-codemirror-6/ui/templates/settings/select]] %>
+<$vars cnt={{{[enlist{!!option-names}count[]]}}}}>
+<$select class="btcui-form-select">
+<$list filter="[range<cnt>]" variable="index">
+<option value={{{[enlist{!!option-values}nth<index>]}}}><$text text={{{[enlist{!!option-names}nth<index>]}}}/></option>
+</$list>
+</$select>
+</$vars>
+<% endif %>
+
 </div>
 </$list>
 </$list>
