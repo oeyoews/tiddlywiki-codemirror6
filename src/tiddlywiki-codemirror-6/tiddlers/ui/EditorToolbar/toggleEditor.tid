@@ -2,13 +2,18 @@ title: $:/plugins/oeyoews/tiddlywiki-codemirror-6/ui/EditorToolbar/toggleEditor
 caption: Toggle Editor
 description: use codemirror-6 or not
 condition: [<targetTiddler>]
-icon: $:/plugins/oeyoews/tiddlywiki-codemirror-6/icon
 tags: $:/tags/EditorToolbar
+icon: $:/plugins/oeyoews/tiddlywiki-codemirror-6/icon
+custom-icon: yes
 
+\whitespace trim
 <$let
 	type={{{ [<targetTiddler>get[type]else[text/vnd.tiddlywiki]] }}}
 	configTitle=`$:/config/EditorTypeMappings/$(type)$`
 	currentEditor={{{ [<configTitle>get[text]] }}}
 >
+<span>
+	<$transclude $tiddler={{{ [<configTitle>get[text]match[codemirror-6]then[$:/plugins/oeyoews/tiddlywiki-codemirror-6/icon]else[$:/plugins/oeyoews/tiddlywiki-codemirror-6/icons/text]] }}} />
+</span>
 	<$action-setfield $tiddler=<<configTitle>> text={{{ [<currentEditor>match[codemirror-6]] :then[[text]] :else[[codemirror-6]] }}} />
 </$let>
