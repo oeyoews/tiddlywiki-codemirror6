@@ -50,6 +50,13 @@ export default (widget: IWidget, self: any) => {
     // 获取光标位置前最后一个单词
     let lastWord = doc.sliceString(wordStart, cursorPos);
 
+    function checkFieldStart(word: string) {
+      // ：
+      const regex =
+        /^@[a-zA-Z0-9_\u4e00-\u9fa5]+[:][a-zA-Z0-9_\u4e00-\u9fa5]+$/;
+
+      return regex.test(word);
+    }
     // TODO: 退格键触发，https://discuss.codemirror.net/t/autocomplete-trigger-on-backspace/3636
     // https://discuss.codemirror.net/t/codemirror6-delete-the-word-or-move-the-cursor-to-pop-up-the-autocomplete-hint/7047
     if (lastWord.length < cm6.minLength() || wordStart === cursorPos) {
@@ -61,6 +68,29 @@ export default (widget: IWidget, self: any) => {
     if (delimiters.some((item) => lastWord.startsWith(item))) {
       options = getSnippets(lastWord)!.snippets(widget);
       // console.log(options);
+    }
+
+    if (checkFieldStart(lastWord)) {
+      options = [
+        {
+          label: lastWord,
+          displayLabel: '回车确认',
+          type: 'cm-field',
+          apply: (view, completion, from, to) => {
+            view.dispatch({
+              changes: { from, to, insert: '' }
+            });
+            const fieldObj = lastWord.replace('@', '').split(':');
+
+            const actionString = (tiddler: string, field: string[]) =>
+              `<$action-setfield $tiddler="${tiddler}" ${field[0]}="${field[1]}" />`;
+
+            $tw.rootWidget.invokeActionString(
+              actionString(widget.editTitle, fieldObj)
+            );
+          }
+        }
+      ];
     }
 
     return {

@@ -74,24 +74,24 @@ export const tiddlers = defineConfig({
   lines: {
     caption: {
       zh: '自动生成行数',
-      en: 'Lines'
+      en: 'Lines font new create tiddler'
     },
     text: 1,
     description: {
       zh: '新建tiddler自动生成N行(最大不超过20行)',
-      en: 'Max Lines'
+      en: 'Max Lines(max 20)'
     }
   },
   foldGutter: {
     caption: {
       zh: '折叠按钮图标',
-      en: 'Fold Gutter'
+      en: 'Fold Gutter Icon'
     },
     icon: '📂',
     category: 'fold',
     description: {
       zh: '在编辑器行号右侧显示折叠按钮图标',
-      en: 'Enable folding gutter for code.'
+      en: 'Show fold gutter icon'
     }
   },
   foldByIndent: {
