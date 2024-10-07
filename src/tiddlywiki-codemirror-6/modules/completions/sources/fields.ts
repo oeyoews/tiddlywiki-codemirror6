@@ -1,10 +1,10 @@
-import { Completion } from '@codemirror/autocomplete';
+import { Completion, startCompletion } from '@codemirror/autocomplete';
 import { IWidget } from '@/cm6/types/IWidget';
 import { useSound } from '@/cm6/utils/capitalize';
 
 const section = 'fields';
 const type = 'cm-field';
-const delimiter = '@fields:';
+const delimiter = '@f';
 const description = 'add fields for current tiddlers';
 
 function snippets(widget: IWidget) {
@@ -25,20 +25,8 @@ function snippets(widget: IWidget) {
 
         apply: (view, completion, from, to) => {
           view.dispatch({
-            changes: { from, to, insert: '' }
+            changes: { from, to, insert: '@' + item.field + ':' }
           });
-
-          const actionString = (
-            tiddler: string,
-            field: string
-          ) => `<$fieldmangler tiddler="${tiddler}">
-<$action-sendmessage $message="tm-add-field" $param="${field}"/>
-</$fieldmangler>`;
-
-          useSound();
-          $tw.rootWidget.invokeActionString(
-            actionString(widget.editTitle, item.field)
-          );
         }
       }) as Completion
   );
