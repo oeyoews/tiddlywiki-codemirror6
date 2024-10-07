@@ -12,3 +12,4 @@
 * Prese `ctrl + /` to comment line(non vimmode)
 * vimmode: `"+y`(copy to system clipboard)
 * vimmode: `"+p`(paste system clipboard to editor)
+* trigger 的触发时根据正则表达式来检测的， 所以触发器的前面不能紧挨着其他字符， 比如 `xxx/`这种是不行的， 需要是`xxx /` 这种.
