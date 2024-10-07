@@ -12,7 +12,7 @@ title: $:/plugins/oeyoews/tiddlywiki-codemirror-6/changelog
 
 \procedure progress()
 <$action-deletetiddler $tiddler="$:/temp/oeyoews/codemirror6-changelog-progress" />
-<$action-setfield $tiddler="$:/temp/oeyoews/codemirror6-changelog-progress" text="loading" />
+<$action-setfield $tiddler="$:/temp/oeyoews/codemirror6-changelog-progress" text="Loading ..." />
 \end progress
 
 
