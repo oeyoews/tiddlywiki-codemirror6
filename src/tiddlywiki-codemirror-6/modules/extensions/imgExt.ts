@@ -23,8 +23,7 @@ class HyperLink extends WidgetType {
     wrapper.onclick = (e: MouseEvent) => {
       e.preventDefault();
       if (e.ctrlKey) {
-        // new $tw.Story().navigateTiddler(title);
-        $tw.rootWidget.invokeActionString(`<$action-navigate $to="${title}"/>`);
+        new $tw.Story().navigateTiddler(title);
       }
     };
     return wrapper;
