@@ -8,7 +8,7 @@ const type = 'cm-tiddler';
 const section = 'tiddlers';
 const delimiter = '[[';
 
-export function getAllTiddlers(delimiter: string) {
+export function getAllTiddlers(delimiter: string, endDelimiter: string) {
   const systemFilter =
     '[all[tiddlers+shadows]!has[draft.of]!prefix[$:/status]!preifx[$:/temp]!prefix[$:/state]!tag[$:/tags/TextEditor/Snippet]!prefix[$:/language]!prefix[$:/config/Server/]!prefix[Draft of]]';
   const filter = conf.enableSystemTiddlersCompletion()
@@ -29,13 +29,10 @@ export function getAllTiddlers(delimiter: string) {
         // TODO: 自动补全右括号，if right brackets not exist
         apply: (view: EditorView, completion, from, to) => {
           const doc = view.state.doc;
-          let cursorEndPosition: number = from;
+          let cursorEndPosition: number = from + (title + delimiter).length;
           const cursorPos = view.state.selection.main.head;
-          if (cursorPos + delimiter.length <= doc.length) {
-            cursorEndPosition =
-              cursorEndPosition + title.length + delimiter.length * 2;
-          } else {
-            cursorEndPosition += (title + delimiter).length;
+          if (doc.sliceString(cursorPos, cursorPos + 2) === endDelimiter) {
+            cursorEndPosition = cursorEndPosition += 2;
           }
           view.dispatch({
             changes: { from, to, insert: delimiter + title },
@@ -51,5 +48,5 @@ export default {
   section,
   type,
   delimiter,
-  snippets: () => getAllTiddlers(delimiter)
+  snippets: () => getAllTiddlers(delimiter, ']]')
 };

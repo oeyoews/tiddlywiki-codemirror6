@@ -9,5 +9,5 @@ export default {
   section,
   type,
   delimiter,
-  snippets: () => getAllTiddlers(delimiter)
+  snippets: () => getAllTiddlers(delimiter, '}}')
 };

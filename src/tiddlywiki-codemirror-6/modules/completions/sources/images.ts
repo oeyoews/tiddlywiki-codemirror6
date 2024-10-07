@@ -7,9 +7,9 @@ const description = 'show image';
 // TODO: add /settings to jump setup tiddler
 // 如果不对 label 进行特殊处理，就要处理光标位置，自定义 app function, 灵活性较差 https://github.com/BurningTreeC/tiddlywiki-codemirror-6/blob/6ed53e8624b12cf2c09187f4f5fdcdd5960889c3/plugins/tiddlywiki-codemirror-6/engine.js#L327-L346C3
 function snippets() {
-  const allImageTiddlers = $tw.wiki.filterTiddlers(
-    '[!is[system]is[image]]  [all[tiddlers+shadows]tag[$:/tags/Image]]'
-  );
+  // $:/core/icon 只能使用嵌入， 不能使用img 语法
+  //  [all[tiddlers+shadows]tag[$:/tags/Image]!prefix[$:/core]]
+  const allImageTiddlers = $tw.wiki.filterTiddlers('[!is[system]is[image]]');
 
   return allImageTiddlers.map(
     (title) =>
@@ -28,17 +28,18 @@ function snippets() {
         },
         apply: (view, completion, from, to) => {
           const doc = view.state.doc;
-          let cursorEndPosition: number = from;
+          let cursorEndPosition: number = from + (title + delimiter).length;
           const cursorPos = view.state.selection.main.head;
-          if (cursorPos + delimiter.length / 2 <= doc.length) {
-            cursorEndPosition =
-              cursorEndPosition + title.length + delimiter.length + 2;
-          } else {
-            cursorEndPosition += (title + delimiter).length;
+
+          if (doc.sliceString(cursorPos, cursorPos + 2) === ']]') {
+            cursorEndPosition = cursorEndPosition += 2;
           }
           view.dispatch({
             changes: { from, to, insert: delimiter + title },
-            selection: { anchor: cursorEndPosition, head: cursorEndPosition }
+            selection: {
+              anchor: cursorEndPosition,
+              head: cursorEndPosition
+            }
           });
         }
       }) as Completion

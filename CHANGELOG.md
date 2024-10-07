@@ -1,5 +1,6 @@
  <h2> Changelog </h2>
 
+* `3.0.0`: 补全自动识别括号， 自动跳到括号末尾位置
 * `2.9.1`: fields completion support xxx-xxx
 * `2.9.0`: support fields completion
 * `2.8.2`: add changelog
