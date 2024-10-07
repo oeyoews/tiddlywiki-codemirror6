@@ -1,6 +1,7 @@
 import codeblocks from './codeblocks';
 import commands from './commands';
 import emojis from './emojis';
+import fields from './fields';
 import filetype from './filetype';
 import help from './help';
 import images from './images';
@@ -33,6 +34,7 @@ const sources = [
   tiddlers,
   tiddlersCn,
   widget,
+  fields,
   template
 ];
 
