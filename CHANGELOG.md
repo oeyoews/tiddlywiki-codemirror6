@@ -1,5 +1,6 @@
  <h2> Changelog </h2>
 
+* `3.1.0`: 动态加载补全
 * `3.0.1`: 修复图片点击事件
 * `3.0.0`: 补全自动识别括号， 自动跳到括号末尾位置
 * `2.9.1`: fields completion support xxx-xxx

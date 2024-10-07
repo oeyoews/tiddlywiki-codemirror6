@@ -2,10 +2,10 @@ title: $:/language/codemirror6/
 
 useSound/caption: 🔊 Use Sound
 useSound/description: Use Sound
-lines/caption: 📝 Lines
-lines/description: Max Lines
-foldGutter/caption: 📂 Fold Gutter
-foldGutter/description: Enable folding gutter for code.
+lines/caption: 📝 Lines font new create tiddler
+lines/description: Max Lines(max 20)
+foldGutter/caption: 📂 Fold Gutter Icon
+foldGutter/description: Show fold gutter icon
 foldByIndent/caption: 📝 Fold By Indent
 foldByIndent/description: Fold By Indent
 lineWrapping/caption: ↩️ Line Wrapping
@@ -94,3 +94,5 @@ rtl/caption: ↔️ RTL
 rtl/description: Enable Right-to-Left text direction.
 removeOutline/caption: 🚫 Remove editor outline
 removeOutline/description: remove editor outline
+chineseEmbed/caption: 📝 [[ Support Chinese 【【
+chineseEmbed/description: Support Chinese 【【

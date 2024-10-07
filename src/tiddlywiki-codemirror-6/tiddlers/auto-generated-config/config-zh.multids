@@ -94,3 +94,5 @@ rtl/caption: ↔️ RTL
 rtl/description: 启用从右到左的文本方向(中文不建议开启)
 removeOutline/caption: 🚫 移除编辑器边框
 removeOutline/description: 移除编辑器边框(配置待修复, 更改配置无效， 默认是移除)
+chineseEmbed/caption: 📝 [[ 支持中文 【【
+chineseEmbed/description: 支持中文符号【【(需要重启)

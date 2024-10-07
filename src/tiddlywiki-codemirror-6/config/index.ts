@@ -709,6 +709,17 @@ export const tiddlers = defineConfig({
       en: 'remove editor outline',
       zh: '移除编辑器边框(配置待修复, 更改配置无效， 默认是移除)'
     }
+  },
+  chineseEmbed: {
+    caption: {
+      zh: '[[ 支持中文 【【',
+      en: '[[ Support Chinese 【【'
+    },
+    text: 'no',
+    description: {
+      zh: '支持中文符号【【(需要重启)',
+      en: 'Support Chinese 【【'
+    }
   }
 });
 

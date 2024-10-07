@@ -1,0 +1,10 @@
+title: $:/config/codemirror-6/chineseEmbed
+caption: {{$:/language/codemirror6/chineseEmbed/caption}}
+caption-zh: {{$:/language/codemirror6/zh/chineseEmbed/caption}}
+description: {{$:/language/codemirror6/chineseEmbed/description}}
+description-zh: {{$:/language/codemirror6/zh/chineseEmbed/description}}
+settings-template: input-switch
+id: 48
+settings-group: general
+
+no

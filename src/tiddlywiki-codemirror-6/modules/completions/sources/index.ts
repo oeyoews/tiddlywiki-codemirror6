@@ -1,3 +1,4 @@
+import cm6 from '@/cm6/config';
 import codeblocks from './codeblocks';
 import commands from './commands';
 import emojis from './emojis';
@@ -20,23 +21,39 @@ export { default as defaultSnippets } from './words';
 const sources = [
   codeblocks,
   commands,
-  emojis,
+  // emojis,
   filetype,
   help,
   images,
   macros,
   // markdown // 和emoji 冲突， 不常用，暂时不处理
   // 动态加载mermaidCB, 判断用户是否安装了mermaid
-  mermaidCb,
+  // mermaidCb,
   snippets,
   tags,
   tiddlersEmbed,
   tiddlers,
-  tiddlersCn,
+  // tiddlersCn,
   widget,
   fields,
   template
 ];
+
+const snippetModules = $tw.modules.types['emoji-snippets'];
+const hasMermaid = Object.keys($tw.modules.types['widget-subclass']).includes(
+  '$:/plugins/oeyoews/mermaid/codeblock_sub.js'
+);
+
+if (hasMermaid) {
+  sources.push(mermaidCb);
+}
+if (snippetModules) {
+  sources.push(emojis);
+}
+
+if (cm6.chineseEmbed()) {
+  sources.push(tiddlersCn);
+}
 
 export const delimiters = sources.map((item) => item.delimiter);
 export const delimitersInfo = sources.map((item) => ({
