@@ -1,0 +1,32 @@
+title: $:/plugins/oeyoews/tiddlywiki-codemirror-6/changelog
+
+\procedure completion()
+\procedure errorHandler()
+<$action-setfield $tiddler="$:/temp/fetcherror" tags="$:/tags/Alert" text=`There was an error fetching the URL: $(error)$, statusText: $(statusText)$, status: $(status)$`/>
+\end errorHandler
+<$list filter="[<status>match[200]]" emptyMessage=<<errorHandler>>>
+<$action-setfield $tiddler="$:/temp/oeyoews/codemirror6-changelog" text=<<data>>/>
+</$list>
+<$action-deletetiddler $tiddler="$:/temp/oeyoews/codemirror6-changelog-progress" />
+\end completion
+
+\procedure progress()
+<$action-deletetiddler $tiddler="$:/temp/oeyoews/codemirror6-changelog-progress" />
+<$action-setfield $tiddler="$:/temp/oeyoews/codemirror6-changelog-progress" text="loading" />
+\end progress
+
+
+\procedure fetch-url()
+<<progress>>
+	<$action-sendmessage
+		$message="tm-http-request"
+		url="https://raw.githubusercontent.com/oeyoews/tiddlywiki-codemirror6/refs/heads/main/CHANGELOG.md"
+		method="GET"
+		oncompletion=<<completion>>
+	/>
+\end
+
+<$button actions=<<fetch-url>>>See Changlog</$button>
+
+{{$:/temp/oeyoews/codemirror6-changelog-progress}}
+{{$:/temp/oeyoews/codemirror6-changelog}}

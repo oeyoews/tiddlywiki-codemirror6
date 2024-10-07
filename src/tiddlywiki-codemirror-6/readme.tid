@@ -19,31 +19,7 @@ title: $:/plugins/oeyoews/tiddlywiki-codemirror-6/readme
 * Minmap, vimmode, word count, rainbow brackets, codeblock highlight
 * Custom placeholder, tabsize, mincompletion length
 
-!! Tips
-
-* Emoji complete need install [[$:/plugins/oeyoews/tiddlywiki-cmp-emoji]] plugin
-* If you hope add your custom snippets, your can write a simple plugin module(module-type: snippets).
-* Presss tab to accept current completion
-* Prese `ctrl + /` to comment line(non vimmode)
-* vimmode: `"+y`(copy to system clipboard)
-* vimmode: `"+p`(paste system clipboard to editor)
-
-!! TODO
-
-* refactor documentation ...
-
-
-!! Can be removed plugins
-
-* Cm5 series plugins
-* Autolist plugin
-* Autocomplete plugin
-* Insert current time plugin
-* Emoji button plugin
-* Chars button plugin
-* ...
-
-!! Proposal
+<!-- !! Proposal
 
 > Zero Js, Pure Wikitext.
 
@@ -51,7 +27,7 @@ Incorporating code snippets into plugins for widgets, macros, and templates can 
 
 The codemirror6 plugin, in particular, could seamlessly load these code snippets while also accommodating placeholders. Additionally, users could share their frequently used code snippets, fostering a collaborative and supportive community. These snippets could even be packaged separately as plugins, such as zero-js or pure wikitext. This approach would undoubtedly streamline the coding process and contribute to a more efficient and user-friendly experience.
 
-[[example|https://github.com/oeyoews/tiddlywiki-codemirror6/blob/main/src/tiddlywiki-snippets/tiddlers/general/toc01.tid]]
+[[example|https://github.com/oeyoews/tiddlywiki-codemirror6/blob/main/src/tiddlywiki-snippets/tiddlers/general/toc01.tid]] -->
 
 !! Motivation
 

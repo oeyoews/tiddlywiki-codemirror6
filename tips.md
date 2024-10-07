@@ -5,3 +5,10 @@
 * `ctrl+space` can trigger completion, but if you use chinese ime, this shortcut maybe conflict with chinese ime
 
 * 友情提示： obsidian 的编辑器库用的也是codemirror6, 但是我们(tiddlywiki)可以在最大程度上发挥cm6的扩展能力，从而进一步优化编辑写作体验.
+
+* Emoji complete need install [[$:/plugins/oeyoews/tiddlywiki-cmp-emoji]] plugin
+* If you hope add your custom snippets, your can write a simple plugin module(module-type: snippets).
+* Presss tab to accept current completion
+* Prese `ctrl + /` to comment line(non vimmode)
+* vimmode: `"+y`(copy to system clipboard)
+* vimmode: `"+p`(paste system clipboard to editor)

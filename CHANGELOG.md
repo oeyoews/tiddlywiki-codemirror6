@@ -1,5 +1,6 @@
-## Changelog
+ <h2> Changelog </h2>
 
+* `2.8.2`: add changelog
 * `2.7.0`: 添加恢复默全部设置按钮
 * `2.6.0`: 添加恢复默设置按钮
 * `2.5.0`: 支持ghost text
