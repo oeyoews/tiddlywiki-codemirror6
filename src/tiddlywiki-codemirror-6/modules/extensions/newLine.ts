@@ -63,7 +63,7 @@ const hyperNewlineStyle = EditorView.baseTheme({
   '.cm-newline': {
     color: 'currentColor',
     'pointer-events': 'none',
-    opacity: 0.5
+    opacity: 0.3
   }
 });
 
