@@ -29,6 +29,7 @@ import { tidExt } from '@/cm6/modules/extensions/tidExt';
 import { imgExt } from '@/cm6/modules/extensions/imgExt';
 import removeOutlineExt from './removeOutlineExt';
 import rainbowBracketsWithText from './tiddlerMarkExt';
+import highlightNewLine from './newLine';
 
 export default function updateExtensions(cme: Extension[], widget: IWidget) {
   const fields = $tw.wiki.getTiddler(
@@ -71,6 +72,7 @@ export default function updateExtensions(cme: Extension[], widget: IWidget) {
     conf.lineNumbers() && cme.push(lineNumbers());
 
     conf.clickable() && cme.push(linkExt, tidExt, imgExt);
+    conf.highlightNewLine() && cme.push(highlightNewLine);
     cme.push(rainbowBracketsWithText());
 
     conf.lineNumbers() && conf.foldGutter() && cme.push(foldGutter());

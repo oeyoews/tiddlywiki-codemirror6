@@ -4,7 +4,7 @@ caption-zh: {{$:/language/codemirror6/zh/enableCustomPlaceholder/caption}}
 description: {{$:/language/codemirror6/enableCustomPlaceholder/description}}
 description-zh: {{$:/language/codemirror6/zh/enableCustomPlaceholder/description}}
 settings-template: input-switch
-id: 23
+id: 24
 settings-group: placeholder
 
 no

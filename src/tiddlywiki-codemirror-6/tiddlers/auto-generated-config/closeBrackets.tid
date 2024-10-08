@@ -4,7 +4,7 @@ caption-zh: {{$:/language/codemirror6/zh/closeBrackets/caption}}
 description: {{$:/language/codemirror6/closeBrackets/description}}
 description-zh: {{$:/language/codemirror6/zh/closeBrackets/description}}
 settings-template: input-switch
-id: 30
+id: 31
 settings-group: general
 
 yes

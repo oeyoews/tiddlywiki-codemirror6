@@ -307,6 +307,17 @@ export const tiddlers = defineConfig({
       en: 'Enable highlighting of whitespace.'
     }
   },
+  highlightNewLine: {
+    caption: {
+      zh: '高亮换行符',
+      en: 'Highlight newline'
+    },
+    icon: '↵',
+    description: {
+      zh: '高亮换行符号',
+      en: 'support highlight newline'
+    }
+  },
   highlightTrailingWhitespace: {
     caption: {
       zh: '高亮尾随空格',

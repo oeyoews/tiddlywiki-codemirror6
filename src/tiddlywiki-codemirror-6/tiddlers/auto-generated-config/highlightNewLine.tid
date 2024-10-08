@@ -1,0 +1,10 @@
+title: $:/config/codemirror-6/highlightNewLine
+caption: {{$:/language/codemirror6/highlightNewLine/caption}}
+caption-zh: {{$:/language/codemirror6/zh/highlightNewLine/caption}}
+description: {{$:/language/codemirror6/highlightNewLine/description}}
+description-zh: {{$:/language/codemirror6/zh/highlightNewLine/description}}
+settings-template: input-switch
+id: 18
+settings-group: general
+
+no

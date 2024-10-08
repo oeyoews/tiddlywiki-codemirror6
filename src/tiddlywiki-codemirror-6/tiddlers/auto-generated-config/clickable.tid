@@ -4,7 +4,7 @@ caption-zh: {{$:/language/codemirror6/zh/clickable/caption}}
 description: {{$:/language/codemirror6/clickable/description}}
 description-zh: {{$:/language/codemirror6/zh/clickable/description}}
 settings-template: input-switch
-id: 22
+id: 23
 settings-group: general
 
 no

@@ -4,7 +4,7 @@ caption-zh: {{$:/language/codemirror6/zh/cursor-thickness/caption}}
 description: {{$:/language/codemirror6/cursor-thickness/description}}
 description-zh: {{$:/language/codemirror6/zh/cursor-thickness/description}}
 settings-template: input
-id: 25
+id: 26
 settings-group: general
 
 1px

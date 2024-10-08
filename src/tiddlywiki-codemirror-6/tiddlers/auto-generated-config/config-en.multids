@@ -34,6 +34,8 @@ wordCount/caption: 📊 Enable Word Count
 wordCount/description: Display the word count for the content.
 whitespace/caption: 🔍 Highlight Whitespace
 whitespace/description: Enable highlighting of whitespace.
+highlightNewLine/caption: ↵ Highlight newline
+highlightNewLine/description: support highlight newline
 highlightTrailingWhitespace/caption: 🔍 Highlight Trailing Whitespace
 highlightTrailingWhitespace/description: Enable highlighting of trailing whitespace.
 closeOnBlur/caption: 🔒 Close on Blur

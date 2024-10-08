@@ -34,6 +34,8 @@ wordCount/caption: 📊 启用字数统计
 wordCount/description: 显示内容的字数统计。
 whitespace/caption: 🔍 高亮空格
 whitespace/description: 启用空格的高亮显示。
+highlightNewLine/caption: ↵ 高亮换行符
+highlightNewLine/description: 高亮换行符号
 highlightTrailingWhitespace/caption: 🔍 高亮尾随空格
 highlightTrailingWhitespace/description: 启用尾随空格的高亮显示。
 closeOnBlur/caption: 🔒 失焦关闭

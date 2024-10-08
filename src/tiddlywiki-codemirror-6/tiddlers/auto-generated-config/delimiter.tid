@@ -4,7 +4,7 @@ caption-zh: {{$:/language/codemirror6/zh/delimiter/caption}}
 description: {{$:/language/codemirror6/delimiter/description}}
 description-zh: {{$:/language/codemirror6/zh/delimiter/description}}
 settings-template: input
-id: 27
+id: 28
 settings-group: general
 
 /

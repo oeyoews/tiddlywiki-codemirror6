@@ -4,7 +4,7 @@ caption-zh: {{$:/language/codemirror6/zh/indentWithTab/caption}}
 description: {{$:/language/codemirror6/indentWithTab/description}}
 description-zh: {{$:/language/codemirror6/zh/indentWithTab/description}}
 settings-template: input-switch
-id: 31
+id: 32
 settings-group: general
 
 yes
