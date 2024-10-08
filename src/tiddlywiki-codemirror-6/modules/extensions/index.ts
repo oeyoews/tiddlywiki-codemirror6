@@ -75,7 +75,14 @@ export default function updateExtensions(cme: Extension[], widget: IWidget) {
     conf.highlightNewLine() && cme.push(highlightNewLine);
     cme.push(rainbowBracketsWithText());
 
-    conf.lineNumbers() && conf.foldGutter() && cme.push(foldGutter());
+    conf.lineNumbers() &&
+      conf.foldGutter() &&
+      cme.push(
+        foldGutter({
+          // closedText: '▶',
+          // openText: '▼'
+        })
+      );
 
     conf.highlightActiveLine() &&
       cme.push(highlightActiveLineGutter(), highlightActiveLine());

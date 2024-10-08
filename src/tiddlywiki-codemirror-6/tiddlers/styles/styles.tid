@@ -505,3 +505,7 @@ li[aria-selected] {
 <!-- .cm-trailingSpace::before {
 	content: "␣" !important;
 } -->
+
+.cm-tooltip.cm-tooltip-autocomplete > ul {
+	max-height: 15em !important;
+}
