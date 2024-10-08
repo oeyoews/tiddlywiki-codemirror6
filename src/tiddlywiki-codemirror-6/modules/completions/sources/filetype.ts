@@ -66,6 +66,14 @@ function snippets(widget: IWidget) {
       text: item.replace('$:/language/Docs/Types/', '')
     }));
 
+  const currentFileType = $tw.wiki.getTiddler(widget?.editTitle!)?.fields[
+    'type'
+  ];
+
+  const filteredFiletypes = filetypes.filter(
+    (item) => item.text !== currentFileType
+  );
+
   /*   type IFiletypeExtensions = {
     [key: string]: {
       type: string;
@@ -82,7 +90,7 @@ function snippets(widget: IWidget) {
   const filetypes = [...new Set(filetypes1.concat(filetypes2))];
   console.log(filetypes1.concat(filetypes2)); */
 
-  return filetypes.map(
+  return filteredFiletypes.map(
     (item) =>
       ({
         label: delimiter + item.title,
