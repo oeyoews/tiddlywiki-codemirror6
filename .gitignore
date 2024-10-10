@@ -130,9 +130,11 @@ public-dist
 # for TiddlyWiki
 dist/
 output/
-wiki/tiddlers/
 Draft**
 \$__StoryList.tid
 \$__palette.tid
 \$__Import.tid
 \$__DefaultTiddlers.tid
+
+!wiki\tiddlers/\$__plugins_oeyoews_neotw-vconsole.json
+wiki/tiddlers/

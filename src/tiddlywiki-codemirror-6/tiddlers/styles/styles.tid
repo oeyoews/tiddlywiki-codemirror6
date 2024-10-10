@@ -474,10 +474,12 @@ input.btc-search-input:focus {
 	border-radius: 3px;
 	padding: 0 2px;
 	opacity: 0;
+	scale: 0.8;
 }
 li[aria-selected] {
 .cm-autocomplete-tab {
 	opacity: 1;
+
 }
 }
 
@@ -499,10 +501,10 @@ li[aria-selected] {
 	}
 } -->
 <!-- https://github.com/oeyoews/nvim/blob/5a4acb60ec224242e89bbf42cf88d9ae58d392e3/lua/core/options.lua#L100 -->
-.cm-highlightSpace:before {
+<!-- .cm-highlightSpace:before {
 	content: "␣" !important;
     opacity: 0.3 !important;
-}
+} -->
 .cm-highlightTab {
     opacity: 0.3 !important;
 }
