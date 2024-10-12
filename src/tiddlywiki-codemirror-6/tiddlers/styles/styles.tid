@@ -515,3 +515,8 @@ li[aria-selected] {
 .cm-tooltip.cm-tooltip-autocomplete > ul {
 	max-height: 15em !important;
 }
+
+<!-- 内联样式多了个overfolw: auto??? -->
+.tc-edit-texteditor-body  {
+	overflow: inherit !important;
+}
