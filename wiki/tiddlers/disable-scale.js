@@ -13,6 +13,8 @@ exports.startup = () => {
 
 
 console.log('startup disable scale')
+ require('touch-emulator.js')()
+		// console.log(emu, 'touchemulator')
 window.onload = () => {
 		console.log('onload')
   document.addEventListener('touchstart', (event) => {
