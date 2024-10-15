@@ -26,7 +26,7 @@ title: $:/plugins/oeyoews/tiddlywiki-codemirror-6/changelog
 	/>
 \end
 
-<$button actions=<<fetch-url>>>See Changlog</$button>
+<$button actions=<<fetch-url>>>See Changlog(from github repo)</$button>
 
 {{$:/temp/oeyoews/codemirror6-changelog-progress}}
 {{$:/temp/oeyoews/codemirror6-changelog}}
