@@ -1,0 +1,12 @@
+author: oeyoews
+created: 20220519155650976
+description: add some meta
+list: readme
+modified: 20220519165352473
+name: TiddlyWiki5 Meta
+packaged-by: Gatha on 20th May 2022, 00:53:54
+plugin-type: plugin
+tags: 
+title: $:/plugins/oeyoews/tw-meta
+type: application/json
+version: v0.0.5
