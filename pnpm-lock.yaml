@@ -5,7 +5,7 @@ settings:
   excludeLinksFromLockfile: false
 
 overrides:
-  tiddlywiki: 5.2.2
+  tiddlywiki: 5.3.4
 
 importers:
 
@@ -90,8 +90,8 @@ importers:
         specifier: ^2.0.1
         version: 2.0.1(@codemirror/language@6.10.1)(@codemirror/state@6.4.1)(@codemirror/view@6.28.1)
       tiddlywiki:
-        specifier: 5.2.2
-        version: 5.2.2
+        specifier: 5.3.4
+        version: 5.3.4
       tw5-typed:
         specifier: ^0.5.12
         version: 0.5.12
@@ -3713,8 +3713,8 @@ packages:
   through@2.3.8:
     resolution: {integrity: sha512-w89qg7PI8wAdvX60bMDP+bFoD5Dvhm9oLheFp5O4a2QF0cSBGsBX4qZmadPMvVqlLJBBci+WqGGOAPvcDeNSVg==}
 
-  tiddlywiki@5.2.2:
-    resolution: {integrity: sha512-xAY30p06CI6oFvebL/BnPtM9rbYRG14AVbpEfTvCHjpGutYsn6XBOogbhqnAxncmifFK3CaBGfiaqPNGi6rxGQ==}
+  tiddlywiki@5.3.4:
+    resolution: {integrity: sha512-p+OpI0d0vWEhA+oEHt4yDeA92VagHtPqj6Mx2mojZryIJevjQbblA7A3XECD07Cot3RcIkuW2AGfDDS/8OfSyg==}
     engines: {node: '>=0.8.2'}
     hasBin: true
     bundledDependencies: []
@@ -5363,7 +5363,7 @@ snapshots:
       simple-git: 3.25.0
       stylus: 0.59.0
       tailwindcss: 3.4.4(ts-node@10.9.2(@types/node@20.11.5)(typescript@5.5.3))
-      tiddlywiki: 5.2.2
+      tiddlywiki: 5.3.4
       uglify-js: 3.18.0
       ws: 8.18.0
     transitivePeerDependencies:
@@ -8089,7 +8089,7 @@ snapshots:
 
   through@2.3.8: {}
 
-  tiddlywiki@5.2.2: {}
+  tiddlywiki@5.3.4: {}
 
   tmp@0.0.33:
     dependencies:
