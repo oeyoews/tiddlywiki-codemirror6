@@ -1,9 +1,9 @@
-title: $:/plugins/oeyoews/tiddlywiki-codemirror-6/ui/ControlPanel/settings
+title: $:/plugins/oeyoews/tiddlywiki-codemirror-6/settings
 caption: {{$:/plugins/oeyoews/tiddlywiki-codemirror-6/icon}} Codemirror 6
-tags: $:/tags/ControlPanel
 class: o-tm
 mask-closable: yes
 subtitle: {{||$:/esc}}
+tags: $:/tags/ControlPanel/SettingsTab
 
 \define sortBySettingsGroupFilter()
 [get[settings-group]!is[blank]else[!general]] [get[id]!is[blank]else[99]] +[join[]]
