@@ -4,6 +4,8 @@
 > [!IMPORTANT]
 > The tiddlywiki-codemirror-6 plugin has entered maintenance status. Next, we will mainly fix bugs and improve the compatibility of the plugin. No major changes will be made overall (2024-01-24). If you want to view the smallest version of tiddlywiki-codemirror-6 plugin, please check out the `basic` branch.
 
+[stackblitz codemirror6 demo](https://stackblitz.com/~/github.com/oeyoews/tiddlywiki-codemirror6)
+
 https://user-images.githubusercontent.com/72405338/294956491-948b791f-04e1-4447-a5d3-81ebb13619de.mp4
 
 <img alt="Dynamic JSON Badge" src="https://img.shields.io/badge/dynamic/json?url=https%3A%2F%2Fraw.githubusercontent.com%2Foeyoews%2Ftiddlywiki-codemirror6%2Fmain%2Fpackage.json&query=version&style=flat-square&logo=Codemirror&logoColor=white&label=codemirror&labelColor=black&color=black">

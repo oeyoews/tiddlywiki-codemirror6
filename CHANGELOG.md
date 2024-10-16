@@ -2,7 +2,7 @@
 
 * `3.5.1`: update setting page modal by command
 * `3.5.0`: move codemirror config page to tiddlywiki settings tab
-* `3.4.0`: 修复zoomin 模式下，补全弹窗异常的问题
+* `3.4.0`: 修复 zoomin 模式下，补全弹窗异常的问题
 * `3.3.2`: 恢复空格高亮样式
 * `3.3.1`: 优化文件类型补全
 * `3.3.0`: 调整补全弹窗最大高度
