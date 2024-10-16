@@ -174,7 +174,7 @@ export function snippets(widget: IWidget) {
               );
               new $tw.Story().navigateTiddler('$:/ControlPanel'); */
               $tw.modal.display(
-                '$:/plugins/oeyoews/tiddlywiki-codemirror-6/ui/ControlPanel/settings'
+                '$:/plugins/oeyoews/tiddlywiki-codemirror-6/settings'
               );
               break;
             case 'update-codemirror6-plugin':
