@@ -28,6 +28,7 @@ import { indentUnit } from '@codemirror/language';
 import { Prec } from '@codemirror/state';
 import cm6 from '@/cm6/config';
 import rainbowBrackets from './rainbowBrackets';
+import { passwordMask } from './maskPlugin';
 
 export function cme(self: any): Extension[] {
   let extensions = [
@@ -40,6 +41,7 @@ export function cme(self: any): Extension[] {
     tabSizePlugin(),
     fontSizeExt(),
     indentUnit.of('	'),
+    // passwordMask(),
     search({ top: cm6.searchPosition() === 'top' }),
     // EditorState.readOnly.of(true), // NOTE: lastest vim-mode extension has fix that bug
 
