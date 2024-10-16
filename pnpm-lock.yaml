@@ -68,9 +68,6 @@ importers:
       '@oeyoews/tiddlywiki-plugin-dev':
         specifier: ^0.0.40
         version: 0.0.40(postcss@8.4.39)(ts-node@10.9.2(@types/node@20.11.5)(typescript@5.5.3))
-      '@replit/codemirror-emacs':
-        specifier: ^6.0.1
-        version: 6.0.1(@codemirror/autocomplete@6.17.0(@codemirror/language@6.10.1)(@codemirror/state@6.4.1)(@codemirror/view@6.28.1)(@lezer/common@1.2.1))(@codemirror/commands@6.6.0)(@codemirror/search@6.5.6)(@codemirror/state@6.4.1)(@codemirror/view@6.28.1)
       '@replit/codemirror-indentation-markers':
         specifier: ^6.5.2
         version: 6.5.2(@codemirror/language@6.10.1)(@codemirror/state@6.4.1)(@codemirror/view@6.28.1)
@@ -83,18 +80,9 @@ importers:
       lang-tiddlywiki:
         specifier: workspace:^
         version: link:packages/lang-tiddlywiki
-      prettier:
-        specifier: 3.3.2
-        version: 3.3.2
-      thememirror:
-        specifier: ^2.0.1
-        version: 2.0.1(@codemirror/language@6.10.1)(@codemirror/state@6.4.1)(@codemirror/view@6.28.1)
       tiddlywiki:
         specifier: 5.3.4
         version: 5.3.4
-      tw5-typed:
-        specifier: ^0.5.12
-        version: 0.5.12
     devDependencies:
       '@modern-js/eslint-config':
         specifier: 2.46.1
@@ -111,6 +99,9 @@ importers:
       '@uiw/codemirror-theme-github':
         specifier: ^4.23.0
         version: 4.23.0(@codemirror/language@6.10.1)(@codemirror/state@6.4.1)(@codemirror/view@6.28.1)
+      prettier:
+        specifier: 3.3.2
+        version: 3.3.2
       rimraf:
         specifier: 5.0.7
         version: 5.0.7
@@ -120,6 +111,9 @@ importers:
       ts-node:
         specifier: 10.9.2
         version: 10.9.2(@types/node@20.11.5)(typescript@5.5.3)
+      tw5-typed:
+        specifier: ^0.5.12
+        version: 0.5.12
       typescript:
         specifier: 5.5.3
         version: 5.5.3
@@ -1221,15 +1215,6 @@ packages:
   '@pkgjs/parseargs@0.11.0':
     resolution: {integrity: sha512-+1VkjdD0QBLPodGrJUeqarH8VAIvQODIbwh9XpP5Syisf7YoQgsJKPNFoqqLQlu+VQ/tVSshMR6loPMn8U+dPg==}
     engines: {node: '>=14'}
-
-  '@replit/codemirror-emacs@6.0.1':
-    resolution: {integrity: sha512-2WYkODZGH1QVAXWuOxTMCwktkoZyv/BjYdJi2A5w4fRrmOQFuIACzb6pO9dgU3J+Pm2naeiX2C8veZr/3/r6AA==}
-    peerDependencies:
-      '@codemirror/autocomplete': ^6.0.2
-      '@codemirror/commands': ^6.0.0
-      '@codemirror/search': ^6.0.0
-      '@codemirror/state': ^6.0.1
-      '@codemirror/view': ^6.3.0
 
   '@replit/codemirror-indentation-markers@6.5.2':
     resolution: {integrity: sha512-D/GJ2LuPPe+3rQBJXnvDLcsjc5ej8ubyyNo+fJh8/5/D1eaku/Bb5saVt+aIw7YdWxtp14xM4hJik6bNRfzQbg==}
@@ -3696,13 +3681,6 @@ packages:
   text-table@0.2.0:
     resolution: {integrity: sha512-N+8UisAXDGk8PFXP4HAzVR9nbfmVJ3zYLAWiTIoqC5v5isinhr+r5uaO8+7r3BMfuNIufIsA7RdpVgacC2cSpw==}
 
-  thememirror@2.0.1:
-    resolution: {integrity: sha512-d5i6FVvWWPkwrm4cHLI3t9AT1OrkAt7Ig8dtdYSofgF7C/eiyNuq6zQzSTusWTde3jpW9WLvA9J/fzNKMUsd0w==}
-    peerDependencies:
-      '@codemirror/language': ^6.0.0
-      '@codemirror/state': ^6.0.0
-      '@codemirror/view': ^6.0.0
-
   thenify-all@1.6.0:
     resolution: {integrity: sha512-RNxQH/qI8/t3thXJDwcstUO4zeqo64+Uy/+sNVRBx4Xn2OX+OZ9oP+iJnNFqplFra2ZUVeKCSa2oVWi3T4uVmA==}
     engines: {node: '>=0.8'}
@@ -5375,14 +5353,6 @@ snapshots:
 
   '@pkgjs/parseargs@0.11.0':
     optional: true
-
-  '@replit/codemirror-emacs@6.0.1(@codemirror/autocomplete@6.17.0(@codemirror/language@6.10.1)(@codemirror/state@6.4.1)(@codemirror/view@6.28.1)(@lezer/common@1.2.1))(@codemirror/commands@6.6.0)(@codemirror/search@6.5.6)(@codemirror/state@6.4.1)(@codemirror/view@6.28.1)':
-    dependencies:
-      '@codemirror/autocomplete': 6.17.0(@codemirror/language@6.10.1)(@codemirror/state@6.4.1)(@codemirror/view@6.28.1)(@lezer/common@1.2.1)
-      '@codemirror/commands': 6.6.0
-      '@codemirror/search': 6.5.6
-      '@codemirror/state': 6.4.1
-      '@codemirror/view': 6.28.1
 
   '@replit/codemirror-indentation-markers@6.5.2(@codemirror/language@6.10.1)(@codemirror/state@6.4.1)(@codemirror/view@6.28.1)':
     dependencies:
@@ -8072,12 +8042,6 @@ snapshots:
       source-map-support: 0.5.21
 
   text-table@0.2.0: {}
-
-  thememirror@2.0.1(@codemirror/language@6.10.1)(@codemirror/state@6.4.1)(@codemirror/view@6.28.1):
-    dependencies:
-      '@codemirror/language': 6.10.1
-      '@codemirror/state': 6.4.1
-      '@codemirror/view': 6.28.1
 
   thenify-all@1.6.0:
     dependencies:
