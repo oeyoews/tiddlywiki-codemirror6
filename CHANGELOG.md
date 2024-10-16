@@ -1,4 +1,6 @@
- <h2> Changelog </h2>
+<h2> Changelog </h2>
+
+<h2>V3</h2>
 
 * `3.5.1`: tag completion better for http link
 * `3.5.1`: update setting page modal by command
@@ -12,6 +14,9 @@
 * `3.1.0`: 动态加载补全
 * `3.0.1`: 修复图片点击事件
 * `3.0.0`: 补全自动识别括号， 自动跳到括号末尾位置
+
+<h2>V2</h2>
+
 * `2.9.1`: fields completion support xxx-xxx
 * `2.9.0`: support fields completion
 * `2.8.2`: add changelog
@@ -30,6 +35,8 @@
 * `2.0.2`: 添加自动换行配置
 * `2.0.1`: 自动补全高亮样式修改
 * `2.0.0`: 添加tab 提示
+
+<h2>V1</h2>
 
 * `1.9.0`: 更新中文配置描述
 
