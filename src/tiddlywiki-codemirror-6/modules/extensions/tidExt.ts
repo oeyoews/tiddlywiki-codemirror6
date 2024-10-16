@@ -71,7 +71,7 @@ export const tidExt = [
       'text-decoration': 'none',
       transition: 'all 0.2s ease',
       scale: '0.8',
-      display: 'line-block'
+      display: 'inline-block'
     },
     '.cm-tiddler-link:hover': {
       scale: '1'
