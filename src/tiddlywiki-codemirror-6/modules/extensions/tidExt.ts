@@ -9,6 +9,7 @@ import cm6 from '@/cm6/config';
 import createViewPlugin from '@/cm6/utils/createViewPlugin';
 import { useSound } from '@/cm6/utils/capitalize';
 
+// add clickable icon
 class CustomLink extends WidgetType {
   constructor(state) {
     super();
@@ -26,9 +27,7 @@ class CustomLink extends WidgetType {
     const wrapper = document.createElement('a');
     const title = this.state.title;
     wrapper.textContent = cm6['clickable-icon']() || ' 🔗';
-    wrapper.className = 'cm-link';
-    wrapper.style.cursor = 'pointer';
-    wrapper.style.userSelect = 'none';
+    wrapper.className = 'cm-tiddler-link';
     wrapper.title = title;
     wrapper.onclick = (e: MouseEvent) => {
       e.preventDefault();
@@ -62,4 +61,20 @@ const customLinkDecorator = new MatchDecorator({
   }
 });
 
-export const tidExt = createViewPlugin(customLinkDecorator);
+export const tidExt = [
+  createViewPlugin(customLinkDecorator),
+
+  EditorView.baseTheme({
+    '.cm-tiddler-link': {
+      cursor: 'pointer',
+      'user-select': 'none',
+      'text-decoration': 'none',
+      transition: 'all 0.2s ease',
+      scale: '0.8',
+      display: 'line-block'
+    },
+    '.cm-tiddler-link:hover': {
+      scale: '1'
+    }
+  })
+];
