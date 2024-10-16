@@ -51,6 +51,9 @@ export default (widget: IWidget, self: any) => {
     let lastWord = doc.sliceString(wordStart, cursorPos);
 
     function checkFieldStart(word: string) {
+      if (word.startsWith('https:') || word.startsWith('http:')) {
+        return false;
+      }
       // ：
       // const regex =
       //   /^@[a-zA-Z0-9_-\u4e00-\u9fa5]+[:][a-zA-Z0-9_-\u4e00-\u9fa5]+$/;

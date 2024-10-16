@@ -1,5 +1,6 @@
  <h2> Changelog </h2>
 
+* `3.5.1`: tag completion better for http link
 * `3.5.1`: update setting page modal by command
 * `3.5.0`: move codemirror config page to tiddlywiki settings tab
 * `3.4.0`: 修复 zoomin 模式下，补全弹窗异常的问题
