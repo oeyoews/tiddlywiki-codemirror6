@@ -2,6 +2,7 @@
 
 <h2>V3</h2>
 
+* `3.7.0`: `ctrl+click` to double click for tiddler navigation
 * `3.6.1`: update readme video tutorial
 * `3.6.0`: update `/?` to `@help:`, and some other triggers
 * `3.5.2`: update clickable icon style on hover

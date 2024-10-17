@@ -29,12 +29,12 @@ class CustomLink extends WidgetType {
     wrapper.textContent = cm6['clickable-icon']() || ' 🔗';
     wrapper.className = 'cm-tiddler-link';
     wrapper.title = title;
-    wrapper.onclick = (e: MouseEvent) => {
+    wrapper.ondblclick = (e: MouseEvent) => {
       e.preventDefault();
-      if (e.ctrlKey) {
-        useSound();
-        new $tw.Story().navigateTiddler(title);
-      }
+      // if (e.ctrlKey) {
+      useSound();
+      new $tw.Story().navigateTiddler(title);
+      // }
     };
 
     return wrapper;
