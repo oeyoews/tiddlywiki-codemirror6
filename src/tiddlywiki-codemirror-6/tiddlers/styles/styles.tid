@@ -520,3 +520,38 @@ li[aria-selected] {
 .tc-edit-texteditor-body  {
 	overflow: inherit !important;
 }
+
+<!-- modal ui -->
+.o-tm .tc-modal,
+.o-tm .tc-modal-header,
+.o-tm .tc-modal-body,
+.o-tm .tc-modal-footer {
+  border: none;
+  background-color: #f5f5f5;
+}
+
+.o-tm .tc-modal-header {
+	border-radius: 10px 10px 0 0;
+}
+
+.o-tm .tc-modal {
+	border-radius: 10px;
+}
+
+.o-tm .tc-modal-footer {
+	border-radius: 0 0 10px 10px;
+}
+
+@media (max-width: 500px) {
+.o-tm .tc-modal {
+	width: 95% !important;
+}
+}
+
+.o-tm .tc-modal-footer {
+  <!-- display: none; -->
+}
+
+.o-tm .tc-modal-backdrop {
+  cursor: pointer;
+}

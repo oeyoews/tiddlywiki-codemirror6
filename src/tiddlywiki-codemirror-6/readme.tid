@@ -2,11 +2,10 @@ title: $:/plugins/oeyoews/tiddlywiki-codemirror-6/readme
 
 <!-- <img alt="version" src="https://img.shields.io/badge/dynamic/json?url=https%3A%2F%2Fraw.githubusercontent.com%2Foeyoews%2Ftiddlywiki-codemirror6%2Fmain%2Fpackage.json&query=version&style=flat-square&logo=Codemirror&logoColor=white&label=codemirror&labelColor=black&color=black"> -->
 
-<center>
-<video width="300" controls style="border-radius:8px;">
-  <source src="https://user-images.githubusercontent.com/72405338/294956491-948b791f-04e1-4447-a5d3-81ebb13619de.mp4" type="video/mp4">
-</video>
-</center>
+<$button style="border: none;">
+<$action-sendmessage $message="tm-modal" $param="$:/plugins/oeyoews/tiddlywiki-codemirror-6/video" />
+Show Video Tutorial
+</$button>
 
 [[Demo|https://oeyoews.github.io/tiddlywiki-codemirror6/#%24%3A%2Fplugins%2Foeyoews%2Ftiddlywiki-codemirror-6]]
 

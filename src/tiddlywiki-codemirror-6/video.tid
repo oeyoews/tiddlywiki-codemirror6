@@ -1,0 +1,10 @@
+title: $:/plugins/oeyoews/tiddlywiki-codemirror-6/video
+class: tc-modal-centered o-tm
+mask-closable: yes
+subtitle: Codemirror6 Video Tutorial
+
+<center>
+<video width="700" controls style="border-radius:8px;">
+  <source src="https://user-images.githubusercontent.com/72405338/294956491-948b791f-04e1-4447-a5d3-81ebb13619de.mp4" type="video/mp4">
+</video>
+</center>
