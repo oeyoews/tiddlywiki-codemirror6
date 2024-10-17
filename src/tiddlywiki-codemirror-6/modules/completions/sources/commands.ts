@@ -14,7 +14,7 @@ type IFileType<T> = {
 
 const section = 'command';
 const type = 'cm-command';
-const delimiter = '@#';
+const delimiter = '@cmd:';
 const description = 'some commands';
 
 function defineFileType<T extends string>(filetypes: IFileType<T>[]) {

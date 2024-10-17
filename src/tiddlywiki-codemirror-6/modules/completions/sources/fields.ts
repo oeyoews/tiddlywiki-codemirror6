@@ -4,7 +4,7 @@ import { useSound } from '@/cm6/utils/capitalize';
 
 const section = 'fields';
 const type = 'cm-field';
-const delimiter = '@f';
+const delimiter = '@field:';
 const description = 'add fields for current tiddlers';
 
 function snippets(widget: IWidget) {

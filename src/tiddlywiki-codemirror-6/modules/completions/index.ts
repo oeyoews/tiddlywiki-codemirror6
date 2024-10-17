@@ -51,7 +51,11 @@ export default (widget: IWidget, self: any) => {
     let lastWord = doc.sliceString(wordStart, cursorPos);
 
     function checkFieldStart(word: string) {
-      if (word.startsWith('https:') || word.startsWith('http:')) {
+      if (
+        word.startsWith('https:') ||
+        word.startsWith('http:') ||
+        delimiters.some((item) => word.startsWith(item))
+      ) {
         return false;
       }
       // ：

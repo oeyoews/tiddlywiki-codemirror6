@@ -9,7 +9,7 @@ import { useSound } from '@/cm6/utils/capitalize';
 
 const section = 'help';
 const type = 'cm-help';
-const delimiter = '/?';
+const delimiter = '@help:';
 const description = 'show help triggers';
 
 function snippets(widget: IWidget): Completion[] {

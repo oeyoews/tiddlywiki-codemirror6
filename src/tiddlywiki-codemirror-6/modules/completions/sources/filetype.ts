@@ -4,7 +4,7 @@ import { capitalize, useSound } from '@/cm6/utils/capitalize';
 import { type IMode } from '@/cm6/config';
 
 const section = 'filetype';
-const delimiter = '//';
+const delimiter = '@type:';
 const type = 'cm-filetype';
 const description = 'change file type';
 
