@@ -624,7 +624,7 @@ export const tiddlers = defineConfig({
     text: 20,
     icon: '🔢',
     description: {
-      zh: '设置自动完成中渲染的选项的最大数量。(样式高度待调整)',
+      zh: '设置自动完成中渲染的选项的最大数量',
       en: 'Set the maximum number of rendered options in autocomplete.'
     }
   },
