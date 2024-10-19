@@ -12,7 +12,7 @@ title: $:/plugins/oeyoews/tiddlywiki-codemirror-6/changelog
 
 \procedure progress()
 <$action-deletetiddler $tiddler="$:/temp/oeyoews/codemirror6-changelog-progress" />
-<$action-setfield $tiddler="$:/temp/oeyoews/codemirror6-changelog-progress" text="Loading ..." />
+<$action-setfield $tiddler="$:/temp/oeyoews/codemirror6-changelog-progress" text="Loading..." />
 \end progress
 
 
@@ -26,7 +26,16 @@ title: $:/plugins/oeyoews/tiddlywiki-codemirror-6/changelog
 	/>
 \end
 
+
 <$button actions=<<fetch-url>>>See Changlog(from github repo)</$button>
 
-{{$:/temp/oeyoews/codemirror6-changelog-progress}}
+<!-- {{$:/temp/oeyoews/codemirror6-changelog-progress}} -->
 {{$:/temp/oeyoews/codemirror6-changelog}}
+
+<% if [[$:/temp/oeyoews/codemirror6-changelog-progress]get[text]match[Loading...]] %>
+<div class="cm-changelog-skeleton">
+  <div class="cm-changelog-skeleton-item"></div>
+  <div class="cm-changelog-skeleton-item"></div>
+  <div class="cm-changelog-skeleton-item"></div>
+</div>
+<% endif %>
