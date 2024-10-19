@@ -2,12 +2,12 @@
 
 <h2>V3</h2>
 
+* `3.7.0`: better newline extension for current line
 * `3.7.0`: `ctrl+click` to double click for tiddler navigation
 * `3.6.1`: update readme video tutorial
 * `3.6.0`: update `/?` to `@help:`, and some other triggers
 * `3.5.2`: update clickable icon style on hover
 * `3.5.1`: tag completion better for http link
-* `3.5.1`: update setting page modal by command
 * `3.5.0`: move codemirror config page to tiddlywiki settings tab
 * `3.4.0`: 修复 zoomin 模式下，补全弹窗异常的问题
 * `3.3.2`: 恢复空格高亮样式

@@ -23,9 +23,17 @@ function highlightNewLine(): Extension {
 
       getDecorations(view: EditorView) {
         const widgets = [];
+        const cursorLine = view.state.doc.lineAt(
+          view.state.selection.main.head
+        ); // 获取光标所在行
         for (const { from, to } of view.visibleRanges) {
           for (let pos = from; pos <= to; ) {
             const line = view.state.doc.lineAt(pos);
+            if (line.number === cursorLine.number) {
+              // 跳过光标所在行
+              pos = line.to + 1;
+              continue;
+            }
             if (line.length === 0) {
               widgets.push(
                 Decoration.widget({
@@ -48,7 +56,11 @@ function highlightNewLine(): Extension {
       }
 
       update(update: ViewUpdate) {
-        if (update.docChanged || update.viewportChanged) {
+        if (
+          update.docChanged ||
+          update.viewportChanged ||
+          update.selectionSet
+        ) {
           this.decorations = this.getDecorations(update.view);
         }
       }
