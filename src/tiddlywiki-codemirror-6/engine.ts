@@ -87,6 +87,10 @@ class CodeMirrorEngine {
       //   head: 3
       // },
     });
+
+    // 存储实例在 DOM 元素上
+    this.domNode.cm6 = this.editor;
+
     // @see https://github.com/replit/codemirror-vim/issues/6
     if (cm6.keymap() === 'vim' && cm6.insertModeFirst() && !options.value) {
       let editor = getCM(this.editor);

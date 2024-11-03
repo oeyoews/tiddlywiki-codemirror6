@@ -2,6 +2,7 @@
 
 <h2>V3</h2>
 
+* `3.8.0`: expose cm6 instance for dev
 * `3.7.0`: better newline extension for current line
 * `3.7.0`: `ctrl+click` to double click for tiddler navigation
 * `3.6.1`: update readme video tutorial
