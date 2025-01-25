@@ -81,7 +81,7 @@ completeAnyWord/description: 如果当前编辑区域有重复输入的单词，
 enableSystemTiddlersCompletion/caption: 🔄 启用系统 Tiddlers 完成
 enableSystemTiddlersCompletion/description: 更多关于系统条目标题的补全提示
 maxRenderedOptions/caption: 🔢 自动补全每页数量
-maxRenderedOptions/description: 设置自动完成中渲染的选项的最大数量。(样式高度待调整)
+maxRenderedOptions/description: 设置自动完成中渲染的选项的最大数量
 lineNumbers/caption: 🔢 行号
 lineNumbers/description: 开启行号
 highlightActiveLine/caption: 🔍 高亮当前行
