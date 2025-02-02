@@ -51,9 +51,23 @@ export default (widget: IWidget, self: any) => {
     let lastWord = doc.sliceString(wordStart, cursorPos);
 
     function checkFieldStart(word: string) {
-      const brackets = ['(', '[', '{', '<', "'", '"', '`', '“', '”', '‘', '’'];
+      const brackets = [
+        '(',
+        '[',
+        '{',
+        '<',
+        "'",
+        '"',
+        '`',
+        '“',
+        '”',
+        '‘',
+        '’',
+        '$'
+      ];
       if (
         brackets.some((item) => word.includes(item)) ||
+        // brackets.includes(word) ||
         word.startsWith('https:') ||
         word.startsWith('http:') ||
         delimiters.some((item) => word.startsWith(item))
