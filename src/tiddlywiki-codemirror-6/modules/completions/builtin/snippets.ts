@@ -8,12 +8,12 @@ export const usersnippets: ISource[] = [
   // },
   {
     title: 'date',
-    text: `${new Date().toLocaleDateString()}`,
+    text: `${new Date().toISOString().split('T')[0]}`,
     desc: 'Current date'
   },
   {
     title: 'time',
-    text: `${new Date().toLocaleString()}`,
+    text: `${new Date().toISOString().replace('T', ' ').slice(0, 16)}`,
     desc: 'insert current time'
   },
   {

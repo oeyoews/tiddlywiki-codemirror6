@@ -2,6 +2,7 @@
 
 <h2>V3</h2>
 
+* `3.8.5`: update `/date` snippets, and add `/username` example for tiddlywiki-cmp plugin
 * `3.8.3`: supprot system snippets for prefix $:/snippets/
 * `3.8.2`: remove $ trigger for fields
 * `3.8.1`: add tree view for plugin(2025-01-25)

@@ -6,4 +6,11 @@ module-type: snippets
 tiddlywiki-cmp module
 
 \*/
-module.exports = [];
+
+module.exports = [
+  {
+    title: 'username',
+    text: $tw.wiki.getTiddlerText('$:/status/UserName'),
+    desc: 'insert your username'
+  }
+];
