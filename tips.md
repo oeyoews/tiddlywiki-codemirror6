@@ -1,3 +1,5 @@
+## TIPS FOR CODEMIRROR6
+
 * cm6 自带一个插件库， 可以用来快速更新到最新的插件版本
 * `ctrl+s` 自动保存你的tiddler, 不再需要先退出编辑保存了
 * 当wiki 含有异常保存的draft tiddler, 会引起一些小的问题.
@@ -14,4 +16,7 @@
 * vimmode: `"+p`(paste system clipboard to editor)
 * trigger 的触发时根据正则表达式来检测的， 所以触发器的前面不能紧挨着其他字符， 比如 `xxx/`这种是不行的， 需要是`xxx /` 这种.
 * (vim) :c(opy) to copy current tiddler text comtent
-* vim 也支持直接 ctrl + c 复制了
+* vim 也支持直接 ctrl + c 复制了(但是仅仅支持插入模式)
+
+> [!NOTE]
+> 此TIPS不再更新(2025/03/01)
