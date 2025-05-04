@@ -66,15 +66,14 @@ class CodeMirrorEngine {
 
     // 初始化
     this.state = EditorState.create({
-      doc:
-        options.value ||
-        '\n'.repeat(
-          Math.abs(
-            Number(cm6.lines() - 1) >= 0 && cm6.lines() < 20
-              ? cm6.lines() - 1
-              : 0
-          )
-        ),
+      doc: options.value || '',
+      // '\n'.repeat(
+      //   Math.abs(
+      //     Number(cm6.lines() - 1) >= 0 && cm6.lines() < 20
+      //       ? cm6.lines() - 1
+      //       : 0
+      //   )
+      // ),
       extensions: this.cme
     });
 

@@ -7,7 +7,7 @@
     "registry": "https://registry.npmjs.org"
   },
   "license": "MIT",
-  "version": "3.8.6",
+  "version": "3.8.7",
   "packageManager": "pnpm@9.0.6",
   "scripts": {
     "update:config": " pnpm ts-node scripts/generateConfig.ts",

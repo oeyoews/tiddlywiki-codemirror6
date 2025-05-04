@@ -591,3 +591,7 @@ li[aria-selected] {
     left: 100%;
   }
 }
+
+[data-tiddler-title^="Draft of"] .cm-editor .cm-content {
+	min-height: 40vh;
+}
