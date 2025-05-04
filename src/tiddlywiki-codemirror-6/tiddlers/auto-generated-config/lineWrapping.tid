@@ -4,7 +4,7 @@ caption-zh: {{$:/language/codemirror6/zh/lineWrapping/caption}}
 description: {{$:/language/codemirror6/lineWrapping/description}}
 description-zh: {{$:/language/codemirror6/zh/lineWrapping/description}}
 settings-template: input-switch
-id: 5
+id: 4
 settings-group: general
 
 yes

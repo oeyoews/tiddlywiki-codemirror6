@@ -4,7 +4,7 @@ caption-zh: {{$:/language/codemirror6/zh/maxRenderedOptions/caption}}
 description: {{$:/language/codemirror6/maxRenderedOptions/description}}
 description-zh: {{$:/language/codemirror6/zh/maxRenderedOptions/description}}
 settings-template: input
-id: 41
+id: 40
 settings-group: completion
 
 20

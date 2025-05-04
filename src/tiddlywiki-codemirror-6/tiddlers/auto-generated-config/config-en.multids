@@ -2,8 +2,6 @@ title: $:/language/codemirror6/
 
 useSound/caption: 🔊 Use Sound
 useSound/description: Use Sound
-lines/caption: 📝 Lines font new create tiddler
-lines/description: Max Lines(max 20)
 foldGutter/caption: 📂 Fold Gutter Icon
 foldGutter/description: Show fold gutter icon
 foldByIndent/caption: 📝 Fold By Indent

@@ -4,7 +4,7 @@ caption-zh: {{$:/language/codemirror6/zh/enableSystemTiddlersCompletion/caption}
 description: {{$:/language/codemirror6/enableSystemTiddlersCompletion/description}}
 description-zh: {{$:/language/codemirror6/zh/enableSystemTiddlersCompletion/description}}
 settings-template: input-switch
-id: 40
+id: 39
 settings-group: completion
 
 no

@@ -4,7 +4,7 @@ caption-zh: {{$:/language/codemirror6/zh/searchPosition/caption}}
 description: {{$:/language/codemirror6/searchPosition/description}}
 description-zh: {{$:/language/codemirror6/zh/searchPosition/description}}
 settings-template: select
-id: 44
+id: 43
 settings-group: general
 option-names: top bottom
 option-values: top bottom

@@ -4,7 +4,7 @@ caption-zh: {{$:/language/codemirror6/zh/highlightActiveLine/caption}}
 description: {{$:/language/codemirror6/highlightActiveLine/description}}
 description-zh: {{$:/language/codemirror6/zh/highlightActiveLine/description}}
 settings-template: input-switch
-id: 43
+id: 42
 settings-group: general
 
 yes

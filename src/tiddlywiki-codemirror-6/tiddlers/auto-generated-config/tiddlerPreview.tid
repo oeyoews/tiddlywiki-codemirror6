@@ -4,7 +4,7 @@ caption-zh: {{$:/language/codemirror6/zh/tiddlerPreview/caption}}
 description: {{$:/language/codemirror6/tiddlerPreview/description}}
 description-zh: {{$:/language/codemirror6/zh/tiddlerPreview/description}}
 settings-template: input-switch
-id: 11
+id: 10
 settings-group: general
 
 no

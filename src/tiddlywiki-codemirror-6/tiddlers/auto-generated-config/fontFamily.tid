@@ -4,6 +4,6 @@ caption-zh: {{$:/language/codemirror6/zh/fontFamily/caption}}
 description: {{$:/language/codemirror6/fontFamily/description}}
 description-zh: {{$:/language/codemirror6/zh/fontFamily/description}}
 settings-template: input
-id: 14
+id: 13
 settings-group: general
 

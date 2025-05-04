@@ -4,7 +4,7 @@ caption-zh: {{$:/language/codemirror6/zh/lineNumbers/caption}}
 description: {{$:/language/codemirror6/lineNumbers/description}}
 description-zh: {{$:/language/codemirror6/zh/lineNumbers/description}}
 settings-template: input-switch
-id: 42
+id: 41
 settings-group: general
 
 yes
