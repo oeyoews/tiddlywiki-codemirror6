@@ -4,6 +4,7 @@
 		"tiddlywiki/filesystem",
 		"tiddlywiki/tiddlyweb",
 		"tiddlywiki/pluginlibrary",
+		"tiddlywiki/markdown",
 		"tiddlywiki/highlight"
 	],
 	"themes": [
