@@ -46,10 +46,10 @@ const updatedInfoFileContent = JSON.stringify(info, null, 2);
 // 将更新后的内容写回文件
 fs.writeFileSync(infoFilePath, updatedInfoFileContent, 'utf8');
 fs.writeFileSync('./package.json', JSON.stringify(jsonInfo, null, 2), 'utf8');
-fs.writeFileSync(
-  './packages/lang-tiddlywiki/package.json',
-  JSON.stringify(langtwInfo, null, 2),
-  'utf8'
-);
+// fs.writeFileSync(
+//   './packages/lang-tiddlywiki/package.json',
+//   JSON.stringify(langtwInfo, null, 2),
+//   'utf8'
+// );
 
 console.log('版本号已更新！', info.version);
