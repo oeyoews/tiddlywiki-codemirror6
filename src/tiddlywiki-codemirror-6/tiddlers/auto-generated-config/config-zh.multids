@@ -70,6 +70,8 @@ autocompleteIcons/caption: 🎨 自动完成图标
 autocompleteIcons/description: 在自动完成建议中启用图标。
 footer/caption: 📜 页脚
 footer/description: 显示代码片段来源
+ZHIPU_API_KEY/caption: 🧠 apikey
+ZHIPU_API_KEY/description: zhipu apikey
 minLength/caption: 📏 最小自动补全检测长度
 minLength/description: 设置自动补全最小长度。1为立刻触发, 一般不建议修改
 selectOnOpen/caption: 🔄 自动选中当前补全项

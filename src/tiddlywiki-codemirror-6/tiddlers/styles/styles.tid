@@ -587,3 +587,20 @@ li[aria-selected] {
 [data-tiddler-title^="Draft of"] .cm-editor .cm-content {
 	min-height: 40vh;
 }
+
+.cm-locked {
+  cursor: not-allowed;
+  <!-- pointer-events: none;-->
+  user-select: none;
+}
+
+.editor-mask {
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: rgba(255, 255, 255, 0.3);
+  cursor: not-allowed;
+  pointer-events: all; /* 阻止事件穿透 */
+  z-index: 1000;
+  backdrop-filter: blur(0.1px); /* 背景模糊 */
+  -webkit-backdrop-filter: blur(0.1px); /* Safari 支持 */
+}

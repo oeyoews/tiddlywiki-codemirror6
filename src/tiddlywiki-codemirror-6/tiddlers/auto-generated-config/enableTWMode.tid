@@ -4,7 +4,7 @@ caption-zh: {{$:/language/codemirror6/zh/enableTWMode/caption}}
 description: {{$:/language/codemirror6/enableTWMode/description}}
 description-zh: {{$:/language/codemirror6/zh/enableTWMode/description}}
 settings-template: input-switch
-id: 44
+id: 45
 settings-group: general
 
 yes

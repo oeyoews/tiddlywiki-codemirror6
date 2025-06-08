@@ -90,7 +90,7 @@ export default (widget: IWidget, self: any) => {
 
     let options: Completion[] = defaultSnippets.snippets();
     if (delimiters.some((item) => lastWord.startsWith(item))) {
-      options = getSnippets(lastWord)!.snippets(widget);
+      options = getSnippets(lastWord)!.snippets(widget, self);
       // console.log(options);
     }
 

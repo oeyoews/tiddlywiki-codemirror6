@@ -70,6 +70,8 @@ autocompleteIcons/caption: 🎨 Autocomplete Icons
 autocompleteIcons/description: Enable icons in autocomplete suggestions.
 footer/caption: 📜 Footer
 footer/description: Show snippets footer
+ZHIPU_API_KEY/caption: 🧠 Apikey
+ZHIPU_API_KEY/description: zhipu apikey
 minLength/caption: 📏 Min Length
 minLength/description: Set the minimum length for input.
 selectOnOpen/caption: 🔄 Select on Open

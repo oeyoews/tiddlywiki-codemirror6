@@ -1,0 +1,9 @@
+title: $:/config/codemirror-6/ZHIPU_API_KEY
+caption: {{$:/language/codemirror6/ZHIPU_API_KEY/caption}}
+caption-zh: {{$:/language/codemirror6/zh/ZHIPU_API_KEY/caption}}
+description: {{$:/language/codemirror6/ZHIPU_API_KEY/description}}
+description-zh: {{$:/language/codemirror6/zh/ZHIPU_API_KEY/description}}
+settings-template: input
+id: 36
+settings-group: ai
+
