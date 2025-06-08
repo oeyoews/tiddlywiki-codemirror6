@@ -13,8 +13,10 @@ body {
 	left: 0;
 	height: 100vh;
 	width: 100vw;
-	<!-- z-index: 1000; prevent autocomplete not visible -->
+	<!-- prevent autocomplete not visible -->
+	<!-- z-index: 1000; -->
 	z-index: 999;
+	overflow-y: auto
 }
 
 .tc-tiddler-edit-frame[data-tiddler-title="$(cssEscapedTitle)$"] .tc-dropzone-editor {
@@ -25,18 +27,19 @@ body {
 	width: 100vw;
 	z-index: 1000;
 	background-color: <<colour tiddler-background>>;
+	overflow-y: auto !important;
 }
 
 .tc-tiddler-edit-frame[data-tiddler-title="$(cssEscapedTitle)$"] .tc-dropzone-editor > div > div:not(.tc-tiddler-preview) > .tc-edit-texteditor {
-	overflow-y: auto;
+	overflow-y: auto !important;
 }
 
 .tc-tiddler-edit-frame[data-tiddler-title="$(cssEscapedTitle)$"] .tc-dropzone-editor > div > div.tc-tiddler-preview > .tc-edit-texteditor {
-	overflow-y: auto;
+	overflow-y: auto !important;
 }
 
 .tc-tiddler-edit-frame .tc-dropzone-editor > div > div.tc-tiddler-preview > .tc-tiddler-preview-preview {
-	overflow-y: auto;
+	overflow-y: auto !important;
 }
 
 .tc-tiddler-edit-frame[data-tiddler-title="$(cssEscapedTitle)$"] .tc-dropzone-editor > div, .tc-tiddler-edit-frame[data-tiddler-title="$(cssEscapedTitle)$"] .tc-dropzone-editor > div > div.tc-tiddler-preview,
