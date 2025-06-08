@@ -4,7 +4,7 @@ caption-zh: {{$:/language/codemirror6/zh/insertModeFirst/caption}}
 description: {{$:/language/codemirror6/insertModeFirst/description}}
 description-zh: {{$:/language/codemirror6/zh/insertModeFirst/description}}
 settings-template: input-switch
-id: 8
+id: 7
 settings-group: vim
 
 no

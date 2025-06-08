@@ -4,7 +4,7 @@ caption-zh: {{$:/language/codemirror6/zh/minimap/caption}}
 description: {{$:/language/codemirror6/minimap/description}}
 description-zh: {{$:/language/codemirror6/zh/minimap/description}}
 settings-template: input-switch
-id: 29
+id: 28
 settings-group: general
 
 no

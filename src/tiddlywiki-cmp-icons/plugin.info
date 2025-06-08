@@ -1,0 +1,14 @@
+{
+  "title": "$:/plugins/oeyoews/tiddlywiki-cmp-icons",
+  "description": "tiddlywiki-icons",
+  "author": "oeyoews",
+  "version": "0.0.2",
+  "core-version": ">=5.3.6",
+  "type": "application/json",
+  "plugin-type": "plugin",
+  "name": "tiddlywiki-icons",
+  "meat#disabled": "yes",
+  "qrcode": "yes",
+  "created": "2024-01-11",
+  "list": "readme"
+}

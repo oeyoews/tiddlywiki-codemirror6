@@ -4,7 +4,7 @@ caption-zh: {{$:/language/codemirror6/zh/footer/caption}}
 description: {{$:/language/codemirror6/footer/description}}
 description-zh: {{$:/language/codemirror6/zh/footer/description}}
 settings-template: input-switch
-id: 36
+id: 35
 settings-group: completion
 
 no

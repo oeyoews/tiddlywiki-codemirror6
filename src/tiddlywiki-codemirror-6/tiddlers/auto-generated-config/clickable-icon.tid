@@ -4,7 +4,7 @@ caption-zh: {{$:/language/codemirror6/zh/clickable-icon/caption}}
 description: {{$:/language/codemirror6/clickable-icon/description}}
 description-zh: {{$:/language/codemirror6/zh/clickable-icon/description}}
 settings-template: input
-id: 22
+id: 21
 settings-group: general
 
 🐟

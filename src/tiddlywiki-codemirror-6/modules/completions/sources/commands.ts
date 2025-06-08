@@ -3,6 +3,8 @@ import cm6, { configBaseTitle } from '@/cm6/config';
 import { capitalize, useSound } from '@/cm6/utils/capitalize';
 import { IWidget } from '@/cm6/types/IWidget';
 import { EditorView } from '@codemirror/view';
+import { zhipuStreamRequest } from '@/cm6/modules/ai/zhipu';
+import { lockEditorUI, unlockEditorUI } from '@/cm6/utils/toggle';
 
 type IFileType<T> = {
   title: T;
@@ -22,6 +24,13 @@ function defineFileType<T extends string>(filetypes: IFileType<T>[]) {
 }
 
 const filetypes = defineFileType([
+  {
+    title: 'ai',
+    description: {
+      zh: 'ai',
+      en: 'ai'
+    }
+  },
   // todo
   {
     title: 'copy-tiddler-content',
@@ -111,7 +120,7 @@ const filetypes = defineFileType([
 
 // export type IEventTypes = (typeof filetypes)[number]['title'];
 
-export function snippets(widget: IWidget) {
+export function snippets(widget: IWidget, _self: any) {
   const language = $tw.wiki.getTiddlerText('$:/config/codemirror6/language');
 
   return filetypes.map(
@@ -125,7 +134,7 @@ export function snippets(widget: IWidget) {
         type,
         section,
         // commitCharacters: ['tiddlywiki'],
-        apply: (view: EditorView, completion: Completion, from, to) => {
+        apply: async (view: EditorView, completion: Completion, from, to) => {
           useSound();
           view.dispatch({
             changes: { from, to, insert: '' }
@@ -164,6 +173,72 @@ export function snippets(widget: IWidget) {
                   suppressTimestamp: true
                 }
               );
+              break;
+            case 'ai':
+              const title = $tw.wiki.getTiddler(widget?.editTitle!)?.fields[
+                'draft.title'
+              ] as string;
+              // 禁用用户编辑
+              view.dispatch({
+                effects: _self.editableCompartment.reconfigure(
+                  EditorView.editable.of(false)
+                )
+              });
+              // 禁用用户所有交互（鼠标、键盘）
+              view.dispatch({
+                effects: _self.blockInteractionCompartment.reconfigure(
+                  EditorView.domEventHandlers({
+                    mousedown: (e) => {
+                      e.preventDefault();
+                      return true;
+                    },
+                    touchstart: (e) => {
+                      e.preventDefault();
+                      return true;
+                    },
+                    keydown: (e) => {
+                      e.preventDefault();
+                      return true;
+                    },
+                    keyup: (e) => {
+                      e.preventDefault();
+                      return true;
+                    },
+                    focus: (e) => {
+                      e.preventDefault();
+                      return true;
+                    },
+                    blur: (e) => {
+                      e.preventDefault();
+                      return true;
+                    }
+                  })
+                )
+              });
+              lockEditorUI(view);
+              addMask(view);
+
+              // TODO: 考虑并发
+              await zhipuStreamRequest(
+                `根据标题生成一篇文章(markdown语法): ${title}`,
+                (text: string) => insertTextFromCursor(view, text, true),
+                () => {
+                  unlockEditorUI(view);
+                  removeMask(view);
+                  // 合并触发， 否则block不生效
+                  view.dispatch({
+                    effects: [
+                      _self.blockInteractionCompartment.reconfigure(
+                        EditorView.domEventHandlers({})
+                      ),
+                      _self.editableCompartment.reconfigure(
+                        EditorView.editable.of(true)
+                      )
+                    ]
+                  });
+                }
+              );
+
               break;
             case 'setupCM6':
               /*               $tw.wiki.setText(
@@ -256,3 +331,54 @@ export default {
   description,
   snippets
 };
+
+function insertTextFromCursor(
+  view: EditorView,
+  text: string,
+  stream = false,
+  delay = 100
+) {
+  if (!text) return;
+
+  const state = view.state;
+  let pos = state.selection.main.head;
+  let index = 0;
+  if (stream) {
+    view.dispatch({
+      changes: { from: pos, insert: text },
+      selection: { anchor: pos + text.length } // 更新光标到下一个位置
+    });
+  } else {
+    function typeNextChar() {
+      if (index < text.length) {
+        view.dispatch({
+          changes: { from: pos, insert: text[index] },
+          selection: { anchor: pos + 1 } // 更新光标到下一个位置
+        });
+        pos += 1;
+        index += 1;
+        setTimeout(typeNextChar, delay);
+      }
+    }
+
+    typeNextChar();
+  }
+}
+
+function addMask(view: any) {
+  const editorEl = view.dom;
+  if (!editorEl.parentNode.querySelector('.editor-mask')) {
+    const mask = document.createElement('div');
+    mask.className = 'editor-mask';
+    editorEl.parentNode.style.position = 'relative'; // 确保父容器相对定位
+    editorEl.parentNode.appendChild(mask);
+  }
+}
+
+function removeMask(view: any) {
+  const editorEl = view.dom;
+  const mask = editorEl.parentNode.querySelector('.editor-mask');
+  if (mask) {
+    mask.remove();
+  }
+}

@@ -14,7 +14,7 @@ function snippets() {
   return macros.map(([_, { name, params }]) => {
     const macro =
       params.length > 0
-        ? `<<${name} ${params[0].name}="#{1}">>`
+        ? `<<${name} ${params[0].name}:"#{1}">>`
         : `<<${name}>>#{1}`;
     const paramList =
       params.length > 0

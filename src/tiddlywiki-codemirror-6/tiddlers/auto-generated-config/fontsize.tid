@@ -4,7 +4,7 @@ caption-zh: {{$:/language/codemirror6/zh/fontsize/caption}}
 description: {{$:/language/codemirror6/fontsize/description}}
 description-zh: {{$:/language/codemirror6/zh/fontsize/description}}
 settings-template: input
-id: 15
+id: 14
 settings-group: general
 
 16px

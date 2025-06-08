@@ -29,7 +29,7 @@ const renderCodeBlock = (snippet: ISource) => {
 
 function snippets() {
   const userSnippetTiddlers = $tw.wiki.filterTiddlers(
-    '[all[shadows+tiddlers]tag[$:/tags/TextEditor/Snippet]] [prefix[$:/snippets/]] [all[shadows+tiddlers]tag[$:/tags/KaTeX/Snippet]] -[is[draft]]'
+    '[all[shadows+tiddlers]tag[$:/tags/TextEditor/Snippet]] [all[shadows+tiddlers]prefix[$:/snippets/]] [all[shadows+tiddlers]tag[$:/tags/KaTeX/Snippet]] -[is[draft]]'
   );
 
   const source: ISource[] = userSnippetTiddlers.map((title) => {

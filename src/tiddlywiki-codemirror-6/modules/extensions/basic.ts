@@ -24,6 +24,7 @@ import { indentationMarkers } from '@replit/codemirror-indentation-markers';
 import { EditorView, dropCursor, tooltips } from '@codemirror/view';
 import tabSizePlugin from '@/cm6/modules/extensions/tab-size';
 import fontSizeExt from './fontSizeExt';
+import iconpatch from './iconpatch';
 import { indentUnit } from '@codemirror/language';
 import { Prec } from '@codemirror/state';
 import cm6 from '@/cm6/config';
@@ -39,6 +40,7 @@ export function cme(self: any): Extension[] {
     dropCursor(),
     tabSizePlugin(),
     fontSizeExt(),
+    iconpatch,
     indentUnit.of('	'),
     search({ top: cm6.searchPosition() === 'top' }),
     // EditorState.readOnly.of(true), // NOTE: lastest vim-mode extension has fix that bug

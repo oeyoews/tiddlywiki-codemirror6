@@ -4,7 +4,7 @@ caption-zh: {{$:/language/codemirror6/zh/onedark/caption}}
 description: {{$:/language/codemirror6/onedark/description}}
 description-zh: {{$:/language/codemirror6/zh/onedark/description}}
 settings-template: input-switch
-id: 21
+id: 20
 settings-group: general
 
 yes

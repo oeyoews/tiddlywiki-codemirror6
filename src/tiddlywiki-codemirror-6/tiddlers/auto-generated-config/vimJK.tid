@@ -4,7 +4,7 @@ caption-zh: {{$:/language/codemirror6/zh/vimJK/caption}}
 description: {{$:/language/codemirror6/vimJK/description}}
 description-zh: {{$:/language/codemirror6/zh/vimJK/description}}
 settings-template: input-switch
-id: 7
+id: 6
 settings-group: vim
 
 no

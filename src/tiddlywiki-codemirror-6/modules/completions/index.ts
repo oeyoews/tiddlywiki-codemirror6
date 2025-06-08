@@ -51,9 +51,23 @@ export default (widget: IWidget, self: any) => {
     let lastWord = doc.sliceString(wordStart, cursorPos);
 
     function checkFieldStart(word: string) {
-      const brackets = ['(', '[', '{', '<', "'", '"', '`', '“', '”', '‘', '’'];
+      const brackets = [
+        '(',
+        '[',
+        '{',
+        '<',
+        "'",
+        '"',
+        '`',
+        '“',
+        '”',
+        '‘',
+        '’',
+        '$'
+      ];
       if (
         brackets.some((item) => word.includes(item)) ||
+        // brackets.includes(word) ||
         word.startsWith('https:') ||
         word.startsWith('http:') ||
         delimiters.some((item) => word.startsWith(item))
@@ -76,7 +90,7 @@ export default (widget: IWidget, self: any) => {
 
     let options: Completion[] = defaultSnippets.snippets();
     if (delimiters.some((item) => lastWord.startsWith(item))) {
-      options = getSnippets(lastWord)!.snippets(widget);
+      options = getSnippets(lastWord)!.snippets(widget, self);
       // console.log(options);
     }
 

@@ -4,7 +4,7 @@ caption-zh: {{$:/language/codemirror6/zh/tabSize/caption}}
 description: {{$:/language/codemirror6/tabSize/description}}
 description-zh: {{$:/language/codemirror6/zh/tabSize/description}}
 settings-template: input
-id: 33
+id: 32
 settings-group: general
 
 2

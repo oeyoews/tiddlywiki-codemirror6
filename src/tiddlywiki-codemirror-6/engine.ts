@@ -1,5 +1,10 @@
 // @ts-nocheck
-import { EditorState, EditorSelection, Extension } from '@codemirror/state';
+import {
+  Compartment,
+  EditorState,
+  EditorSelection,
+  Extension
+} from '@codemirror/state';
 import { openSearchPanel, closeSearchPanel } from '@codemirror/search';
 import { Vim, getCM } from '@replit/codemirror-vim';
 
@@ -60,24 +65,33 @@ class CodeMirrorEngine {
     handleLanguageMode(options.type, this.cme, this.widget, this);
     // 添加扩展集合
     setExtensions(this.cme, this.widget, this.editor);
+
+    // 创建编辑器，并使用 Compartment 管理 editable 状态
+    this.editableCompartment = new Compartment();
+    this.blockInteractionCompartment = new Compartment();
+    this.cme.push(
+      this.editableCompartment.of(EditorView.editable.of(true)) // 初始允许编辑
+    );
+    this.cme.push(
+      this.blockInteractionCompartment.of(EditorView.domEventHandlers({}))
+    );
+
     // 小地图配置
     setMinMapExt(this.cme);
     inlineSuggestionExt(this);
 
     // 初始化
     this.state = EditorState.create({
-      doc:
-        options.value ||
-        '\n'.repeat(
-          Math.abs(
-            Number(cm6.lines() - 1) >= 0 && cm6.lines() < 20
-              ? cm6.lines() - 1
-              : 0
-          )
-        ),
+      doc: options.value || '',
+      // '\n'.repeat(
+      //   Math.abs(
+      //     Number(cm6.lines() - 1) >= 0 && cm6.lines() < 20
+      //       ? cm6.lines() - 1
+      //       : 0
+      //   )
+      // ),
       extensions: this.cme
     });
-
     // #region main: create a codemirror6 instance
     this.editor = new EditorView({
       parent: this.domNode,

@@ -4,7 +4,7 @@ caption-zh: {{$:/language/codemirror6/zh/foldGutter/caption}}
 description: {{$:/language/codemirror6/foldGutter/description}}
 description-zh: {{$:/language/codemirror6/zh/foldGutter/description}}
 settings-template: input-switch
-id: 3
+id: 2
 settings-group: fold
 
 no

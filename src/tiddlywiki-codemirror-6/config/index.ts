@@ -36,6 +36,7 @@ type ITiddlerConfig = {
     | 'placeholder'
     | 'completion'
     | 'keymap'
+    | 'ai'
     | 'fold';
   description?: {
     zh: string;
@@ -71,17 +72,17 @@ export const tiddlers = defineConfig({
   //   },
   //   text: ''
   // },
-  lines: {
-    caption: {
-      zh: '自动生成行数',
-      en: 'Lines font new create tiddler'
-    },
-    text: 1,
-    description: {
-      zh: '新建tiddler自动生成N行(最大不超过20行)',
-      en: 'Max Lines(max 20)'
-    }
-  },
+  // lines: {
+  //   caption: {
+  //     zh: '自动生成行数',
+  //     en: 'Lines font new create tiddler'
+  //   },
+  //   text: 1,
+  //   description: {
+  //     zh: '新建tiddler自动生成N行(最大不超过20行)',
+  //     en: 'Max Lines(max 20)'
+  //   }
+  // },
   foldGutter: {
     caption: {
       zh: '折叠按钮图标',
@@ -563,6 +564,19 @@ export const tiddlers = defineConfig({
     description: {
       zh: '显示代码片段来源',
       en: 'Show snippets footer'
+    }
+  },
+  ZHIPU_API_KEY: {
+    caption: {
+      zh: 'apikey',
+      en: 'apikey'
+    },
+    category: 'ai',
+    text: '',
+    icon: '🧠',
+    description: {
+      zh: 'zhipu apikey',
+      en: 'zhipu apikey'
     }
   },
   minLength: {

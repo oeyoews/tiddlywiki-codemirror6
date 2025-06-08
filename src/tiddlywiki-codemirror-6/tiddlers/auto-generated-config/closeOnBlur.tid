@@ -4,7 +4,7 @@ caption-zh: {{$:/language/codemirror6/zh/closeOnBlur/caption}}
 description: {{$:/language/codemirror6/closeOnBlur/description}}
 description-zh: {{$:/language/codemirror6/zh/closeOnBlur/description}}
 settings-template: input-switch
-id: 20
+id: 19
 settings-group: general
 
 yes

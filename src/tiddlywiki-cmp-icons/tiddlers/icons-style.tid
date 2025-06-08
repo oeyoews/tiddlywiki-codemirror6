@@ -1,8 +1,8 @@
-title: $:/plugins/oeyoews/tiddlywiki-codemirror-6/icon-styles
+title: $:/plugins/oeyoews/tiddlywiki-cmp-icons/icon-style
 tags: $:/tags/Stylesheet
 
 \define tiddler()
-$:/plugins/oeyoews/tiddlywiki-codemirror-6/icon-dict
+$:/plugins/oeyoews/tiddlywiki-cmp-icons/icon-dict
 \end
 
 <!-- \define icons(icons)
@@ -20,12 +20,27 @@ $:/plugins/oeyoews/tiddlywiki-codemirror-6/icon-dict
 <!-- filetype icons -->
 <$list filter="[<tiddler>indexes[]]">
 <$let content={{{ [<tiddler>getindex<currentTiddler>]}}} >
-.cm-completionIcon-cm-<<currentTiddler>>::after {
-  margin: 0 0.05em 0 0.1em;
-  vertical-align: sub;
-  content: url(<$transclude $variable="makedatauri" text={{{ [<content>] }}} type="image/svg+xml" />); }
+.cm-completionIcon-cm-<<currentTiddler>>::before {
+  -webkit-mask-image: url(<$transclude $variable="makedatauri" text={{{ [<content>] }}} type="image/svg+xml" />);
+  mask-image: url(<$transclude $variable="makedatauri" text={{{ [<content>] }}} type="image/svg+xml" />);
+  content: "";
+  display: inline-block;
+  width: 16px;
+  height: 16px;
+  background-color: currentColor;
+  -webkit-mask-repeat: no-repeat;
+  mask-repeat: no-repeat;
+  -webkit-mask-size: 100% 100%;
+  mask-size: 100% 100%;
+  vertical-align: bottom;
+  }
 </$let>
 </$list>
+
+<!-- 增加权重 -->
+.cm-completionIcon.cm-completionIcon {
+  width: 0.8em !important;
+}
 
 <!-- .cm-tooltip.cm-tooltip-autocomplete > ul::-webkit-scroller {
   display: none !important;
