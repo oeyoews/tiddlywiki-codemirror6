@@ -607,3 +607,63 @@ li[aria-selected] {
   backdrop-filter: blur(0.1px); /* 背景模糊 */
   -webkit-backdrop-filter: blur(0.1px); /* Safari 支持 */
 }
+
+
+.ai-btn {
+  font-weight: 500;
+  border-radius: 6px;
+  padding: 5px 14px;
+  cursor: pointer;
+  font-size: 15px;
+  outline: none;
+  transition: background 0.18s, color 0.18s, box-shadow 0.18s;
+}
+
+.ai-accept-reject-btns {
+  position: absolute;
+  right: 24px;
+  bottom: 24px;
+  z-index: 1000;
+  background: rgba(255,255,255,0.98);
+  border: 1px solid #e0e0e0;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.08);
+  padding: 14px 18px;
+  border-radius: 8px;
+  display: flex;
+  gap: 18px;
+  align-items: center;
+}
+
+.ai-accept-btn {
+  border: none;
+  box-shadow: 0 2px 8px rgba(79,140,255,0.12);
+  background: linear-gradient(90deg, #4f8cff 0%, #38d9a9 100%);
+  color: #fff;
+}
+.ai-accept-btn:hover {
+  background: linear-gradient(90deg, #357ae8 0%, #20c997 100%);
+}
+
+.ai-reject-btn {
+  border: 1.5px solid #ff4d4f;
+  background: #fff;
+  color: #ff4d4f;
+}
+.ai-reject-btn:hover {
+  background: #ff4d4f;
+  color: #fff;
+}
+
+.ai-interrupt-btn {
+  position: absolute;
+  right: 24px;
+  bottom: 70px;
+  z-index: 1001;
+  background: #fffbe6;
+  color: #faad14;
+  border: 1.5px solid #faad14;
+  box-shadow: 0 2px 8px rgba(250,173,20,0.08);
+}
+.ai-interrupt-btn:hover {
+  background: #ffe58f;
+}
