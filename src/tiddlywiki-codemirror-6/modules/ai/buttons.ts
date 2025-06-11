@@ -11,7 +11,7 @@ export function insertAcceptRejectButtons(
 
   // 接受按钮
   const acceptBtn = document.createElement('button');
-  acceptBtn.textContent = '接受';
+  acceptBtn.textContent = 'Accept';
   acceptBtn.className = 'ai-btn ai-accept-btn';
   acceptBtn.onclick = () => {
     btnContainer.remove();
@@ -19,7 +19,7 @@ export function insertAcceptRejectButtons(
 
   // 拒绝按钮
   const rejectBtn = document.createElement('button');
-  rejectBtn.textContent = '拒绝';
+  rejectBtn.textContent = 'Reject';
   rejectBtn.className = 'ai-btn ai-reject-btn';
   rejectBtn.onclick = () => {
     // 撤销到插入前的内容
@@ -47,7 +47,7 @@ export function insertInterruptButton(
   onInterrupt: () => void
 ) {
   const btn = document.createElement('button');
-  btn.textContent = '停止';
+  btn.textContent = 'Stop';
   btn.className = 'ai-btn ai-interrupt-btn';
   btn.onclick = () => {
     abortController.abort();

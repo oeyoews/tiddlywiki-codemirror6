@@ -608,7 +608,6 @@ li[aria-selected] {
   -webkit-backdrop-filter: blur(0.1px); /* Safari 支持 */
 }
 
-
 .ai-btn {
   font-weight: 500;
   border-radius: 6px;
@@ -621,24 +620,23 @@ li[aria-selected] {
 
 .ai-accept-reject-btns {
   position: absolute;
-  right: 24px;
-  bottom: 24px;
+  right: 5px;
+  bottom: 5px;
   z-index: 1000;
   background: rgba(255,255,255,0.98);
-  border: 1px solid #e0e0e0;
   box-shadow: 0 4px 16px rgba(0,0,0,0.08);
-  padding: 14px 18px;
-  border-radius: 8px;
+  padding: 15px;
+  border-radius: 6px;
   display: flex;
-  gap: 18px;
+  gap: 8px;
   align-items: center;
 }
 
 .ai-accept-btn {
-  border: none;
   box-shadow: 0 2px 8px rgba(79,140,255,0.12);
   background: linear-gradient(90deg, #4f8cff 0%, #38d9a9 100%);
   color: #fff;
+  border: #38d9a9;
 }
 .ai-accept-btn:hover {
   background: linear-gradient(90deg, #357ae8 0%, #20c997 100%);
@@ -656,8 +654,8 @@ li[aria-selected] {
 
 .ai-interrupt-btn {
   position: absolute;
-  right: 24px;
-  bottom: 70px;
+  right: 5px;
+  top: 5px;
   z-index: 1001;
   background: #fffbe6;
   color: #faad14;
