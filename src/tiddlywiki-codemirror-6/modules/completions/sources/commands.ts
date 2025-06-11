@@ -5,6 +5,11 @@ import { IWidget } from '@/cm6/types/IWidget';
 import { EditorView } from '@codemirror/view';
 import { zhipuStreamRequest } from '@/cm6/modules/ai/zhipu';
 import { lockEditorUI, unlockEditorUI } from '@/cm6/utils/toggle';
+import {
+  removeInterruptButton,
+  insertAcceptRejectButtons,
+  insertInterruptButton
+} from '@/cm6/modules/ai/buttons';
 
 type IFileType<T> = {
   title: T;
@@ -218,6 +223,26 @@ export function snippets(widget: IWidget, _self: any) {
               lockEditorUI(view);
               addMask(view);
 
+              // 记录插入前的内容
+              const beforeText = view.state.doc.toString();
+
+              // 允许中断
+              const abortController = new AbortController();
+              insertInterruptButton(view, abortController, () => {
+                unlockEditorUI(view);
+                removeMask(view);
+                view.dispatch({
+                  effects: [
+                    _self.blockInteractionCompartment.reconfigure(
+                      EditorView.domEventHandlers({})
+                    ),
+                    _self.editableCompartment.reconfigure(
+                      EditorView.editable.of(true)
+                    )
+                  ]
+                });
+              });
+
               // TODO: 考虑并发
               await zhipuStreamRequest(
                 `根据标题生成一篇文章(markdown语法): ${title}`,
@@ -236,7 +261,12 @@ export function snippets(widget: IWidget, _self: any) {
                       )
                     ]
                   });
-                }
+
+                  // 插入“接受/拒绝”按钮
+                  insertAcceptRejectButtons(view, beforeText);
+                  removeInterruptButton(view);
+                },
+                { signal: abortController.signal }
               );
 
               break;

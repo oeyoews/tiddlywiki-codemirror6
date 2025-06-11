@@ -43,10 +43,9 @@ export async function zhipuai(message: string, model = 'glm-4') {
 export async function zhipuStreamRequest(
   messages: string,
   onMessage: Function,
-  cbl: Function
+  cbl: Function,
+  options?: { signal?: AbortSignal }
 ) {
-  const controller = new AbortController();
-
   try {
     const response = await fetch(ZHIPU_API_URL, {
       method: 'POST',
@@ -61,7 +60,7 @@ export async function zhipuStreamRequest(
         top_p: 0.7,
         stream: true
       }),
-      signal: controller.signal
+      signal: options?.signal
     });
 
     if (!response.ok) throw new Error(`请求失败: ${response.status}`);
@@ -102,8 +101,6 @@ export async function zhipuStreamRequest(
     console.error('请求错误:', error);
     throw error; // 根据需求选择是否抛出
   } finally {
-    // 这里可以放清理或结束操作，比如：
-    // controller.abort(); // 如果你想在finally时中止请求（通常没必要）
     cbl();
   }
 }
