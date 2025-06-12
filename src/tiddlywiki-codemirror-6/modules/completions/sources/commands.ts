@@ -19,6 +19,11 @@ type IFileType<T> = {
   };
 };
 
+const typeList = {
+  // 'text/vnd.tiddlywiki': 'tiddlywiki的wikitext',
+  'text/markdown': 'markdown',
+  'text/x-markdown': 'markdown'
+};
 const section = 'command';
 const type = 'cm-command';
 const delimiter = '@cmd:';
@@ -180,9 +185,13 @@ export function snippets(widget: IWidget, _self: any) {
               );
               break;
             case 'ai':
-              const title = $tw.wiki.getTiddler(widget?.editTitle!)?.fields[
-                'draft.title'
-              ] as string;
+              const fields = $tw.wiki.getTiddler(widget?.editTitle!)?.fields;
+              const title = fields?.['draft.title'] as string;
+              const editType = fields?.['type'] as keyof typeof typeList;
+              if (!editType.endsWith('markdown')) {
+                return;
+              }
+
               // 禁用用户编辑
               view.dispatch({
                 effects: _self.editableCompartment.reconfigure(
@@ -243,9 +252,10 @@ export function snippets(widget: IWidget, _self: any) {
                 });
               });
 
+              const prompt = `根据标题生成一篇文章(${typeList['text/markdown']}语法): ${title}`;
               // TODO: 考虑并发
               await zhipuStreamRequest(
-                `根据标题生成一篇文章(markdown语法): ${title}`,
+                prompt,
                 (text: string) => insertTextFromCursor(view, text, true),
                 () => {
                   unlockEditorUI(view);
