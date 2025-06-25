@@ -30,14 +30,14 @@ type ITiddlerConfig = {
   text?: string | number;
   icon?: string;
   category?:
-    | 'vim'
-    | 'general'
-    | 'markdown'
-    | 'placeholder'
-    | 'completion'
-    | 'keymap'
-    | 'ai'
-    | 'fold';
+  | 'vim'
+  | 'general'
+  | 'markdown'
+  | 'placeholder'
+  | 'completion'
+  | 'keymap'
+  | 'ai'
+  | 'fold';
   description?: {
     zh: string;
     en: string;
@@ -483,17 +483,17 @@ export const tiddlers = defineConfig({
       en: 'Automatically close brackets.'
     }
   },
-  // spellcheck: {
-  //   caption: {
-  //     zh: '拼写检查',
-  //     en: 'Spellcheck'
-  //   },
-  //   icon: '📝',
-  //   description: {
-  //     zh: '启用拼写检查。',
-  //     en: 'Enable spellchecking.'
-  //   }
-  // },
+  spellcheck: {
+    caption: {
+      zh: '拼写检查',
+      en: 'Spellcheck'
+    },
+    icon: '📝',
+    description: {
+      zh: '启用拼写检查。',
+      en: 'Enable spellchecking.'
+    }
+  },
   // autocorrect: {
   //   caption: {
   //     zh: '自动纠正',

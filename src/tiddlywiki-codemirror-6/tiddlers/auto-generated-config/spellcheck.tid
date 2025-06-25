@@ -1,0 +1,10 @@
+title: $:/config/codemirror-6/spellcheck
+caption: {{$:/language/codemirror6/spellcheck/caption}}
+caption-zh: {{$:/language/codemirror6/zh/spellcheck/caption}}
+description: {{$:/language/codemirror6/spellcheck/description}}
+description-zh: {{$:/language/codemirror6/zh/spellcheck/description}}
+settings-template: input-switch
+id: 31
+settings-group: general
+
+no

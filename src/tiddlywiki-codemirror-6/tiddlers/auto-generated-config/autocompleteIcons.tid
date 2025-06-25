@@ -4,7 +4,7 @@ caption-zh: {{$:/language/codemirror6/zh/autocompleteIcons/caption}}
 description: {{$:/language/codemirror6/autocompleteIcons/description}}
 description-zh: {{$:/language/codemirror6/zh/autocompleteIcons/description}}
 settings-template: input-switch
-id: 34
+id: 35
 settings-group: completion
 
 yes
