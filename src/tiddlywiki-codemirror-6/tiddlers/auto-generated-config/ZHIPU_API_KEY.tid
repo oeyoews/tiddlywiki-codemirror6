@@ -4,6 +4,6 @@ caption-zh: {{$:/language/codemirror6/zh/ZHIPU_API_KEY/caption}}
 description: {{$:/language/codemirror6/ZHIPU_API_KEY/description}}
 description-zh: {{$:/language/codemirror6/zh/ZHIPU_API_KEY/description}}
 settings-template: input
-id: 36
+id: 37
 settings-group: ai
 

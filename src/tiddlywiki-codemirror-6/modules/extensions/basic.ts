@@ -154,9 +154,9 @@ export function cme(self: any): Extension[] {
     EditorView.contentAttributes.of({
       tabindex: self.widget.editTabIndex ? self.widget.editTabIndex : ''
     }),
-    // EditorView.contentAttributes.of({
-    //   spellcheck: cm6.spellcheck()
-    // }),
+    EditorView.contentAttributes.of({
+      spellcheck: cm6.spellcheck()
+    }),
     // EditorView.contentAttributes.of({
     //   autocorrect: cm6.autocorrect()
     // }),

@@ -60,6 +60,8 @@ minimapAudoHide/caption: 🗺️ Minimap autohide
 minimapAudoHide/description: Automatically hide minimap
 closeBrackets/caption: 🔄 Close Brackets
 closeBrackets/description: Automatically close brackets.
+spellcheck/caption: 📝 Spellcheck
+spellcheck/description: Enable spellchecking.
 indentWithTab/caption: 🔄 Indent with Tab
 indentWithTab/description: Indent with tab instead of spaces.
 tabSize/caption: 🔍 Tab Size

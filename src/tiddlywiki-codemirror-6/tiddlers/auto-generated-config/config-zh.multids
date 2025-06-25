@@ -60,6 +60,8 @@ minimapAudoHide/caption: 🗺️ 小地图自动隐藏
 minimapAudoHide/description: 自动隐藏小地图
 closeBrackets/caption: 🔄 自动关闭括号
 closeBrackets/description: 自动关闭括号。
+spellcheck/caption: 📝 拼写检查
+spellcheck/description: 启用拼写检查。
 indentWithTab/caption: 🔄 制表符缩进
 indentWithTab/description: 使用制表符进行缩进，而不是空格。
 tabSize/caption: 🔍 制表符大小
