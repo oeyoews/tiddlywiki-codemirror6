@@ -453,7 +453,7 @@ input.btc-search-input:focus {
 
 <!-- https://github.com/Jermolene/TiddlyWiki5/pull/7787 -->
 .tc-tiddler-preview {
-	grid-template-columns: repeat(2, minmax(0px, 1fr)) !important;
+	grid-template-columns: repeat(2, minmax(0px, 1fr));
 }
 
 <!-- NOTE: if include emoji, emoji will broken use font-bold, emoji was split two chars because of dymamic matchedtext -->
