@@ -7,7 +7,7 @@
     "registry": "https://registry.npmjs.org"
   },
   "license": "MIT",
-  "version": "3.9.3",
+  "version": "3.9.4",
   "packageManager": "pnpm@9.0.6",
   "scripts": {
     "update:config": "pnpm ts-node scripts/generateConfig.ts",
@@ -51,7 +51,6 @@
     "@replit/codemirror-indentation-markers": "^6.5.3",
     "@replit/codemirror-vim": "^6.3.0",
     "@uiw/codemirror-extensions-color": "^4.23.13",
-    "@xsai/stream-text": "0.3.0-beta.4",
     "lang-tiddlywiki": "workspace:^",
     "tiddlywiki": "5.3.6"
   },

@@ -1,7 +1,7 @@
+import cm6 from '@/cm6/config';
+
 const ZHIPU_API_URL = 'https://open.bigmodel.cn/api/paas/v4/chat/completions';
 const ZHIPU_API_KEY = cm6.ZHIPU_API_KEY();
-
-import cm6 from '@/cm6/config';
 
 /**
  * 使用 fetch 调用 Zhipu GLM-4 模型
