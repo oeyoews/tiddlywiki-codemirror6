@@ -39,7 +39,7 @@ const dir = path.join(
 );
 
 if (fs.existsSync(dir)) {
-  fs.rmdirSync(dir, { recursive: true });
+  fs.rmSync(dir, { recursive: true });
 }
 fs.mkdirSync(dir, { recursive: true });
 
