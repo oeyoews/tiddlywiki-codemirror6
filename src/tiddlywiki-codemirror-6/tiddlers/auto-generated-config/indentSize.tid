@@ -1,0 +1,10 @@
+title: $:/config/codemirror-6/indentSize
+caption: {{$:/language/codemirror6/indentSize/caption}}
+caption-zh: {{$:/language/codemirror6/zh/indentSize/caption}}
+description: {{$:/language/codemirror6/indentSize/description}}
+description-zh: {{$:/language/codemirror6/zh/indentSize/description}}
+settings-template: input
+id: 33
+settings-group: general
+
+2

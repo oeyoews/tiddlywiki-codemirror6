@@ -4,7 +4,7 @@ caption-zh: {{$:/language/codemirror6/zh/completeAnyWord/caption}}
 description: {{$:/language/codemirror6/completeAnyWord/description}}
 description-zh: {{$:/language/codemirror6/zh/completeAnyWord/description}}
 settings-template: input-switch
-id: 39
+id: 40
 settings-group: completion
 
 no

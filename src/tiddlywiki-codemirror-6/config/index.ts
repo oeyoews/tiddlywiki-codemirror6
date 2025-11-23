@@ -30,14 +30,14 @@ type ITiddlerConfig = {
   text?: string | number;
   icon?: string;
   category?:
-    | 'vim'
-    | 'general'
-    | 'markdown'
-    | 'placeholder'
-    | 'completion'
-    | 'keymap'
-    | 'ai'
-    | 'fold';
+  | 'vim'
+  | 'general'
+  | 'markdown'
+  | 'placeholder'
+  | 'completion'
+  | 'keymap'
+  | 'ai'
+  | 'fold';
   description?: {
     zh: string;
     en: string;
@@ -505,6 +505,7 @@ export const tiddlers = defineConfig({
   //     en: 'Enable autocorrection.'
   //   }
   // },
+  // 如果关闭制表符缩进，tab后会跳出编辑器区域
   indentWithTab: {
     caption: {
       zh: '制表符缩进',
@@ -513,14 +514,28 @@ export const tiddlers = defineConfig({
     text: 'yes',
     icon: '🔄',
     description: {
-      zh: '使用制表符进行缩进，而不是空格。',
-      en: 'Indent with tab instead of spaces.'
+      zh: '使用制表符进行缩进，而不是空格。如果关闭制表符缩进，tab后会跳出编辑器区域',
+      en: 'Indent with tab instead of spaces. If disabled, tab will jump out of the editor area'
     }
   },
-  tabSize: {
+  indentType: {
     caption: {
-      zh: '制表符大小',
-      en: 'Tab Size'
+      zh: '缩进类型',
+      en: 'Indent Type'
+    },
+    text: 'tab',
+    icon: '🔍',
+    'option-names': 'tab space',
+    'option-values': 'tab space',
+    description: {
+      zh: '设置缩进类型，tab 或 space。需要开启制表符缩进',
+      en: 'Set the type of indent, tab or space. Need to enable indent with tab.'
+    }
+  },
+  indentSize: {
+    caption: {
+      zh: '缩进大小',
+      en: 'Indent Size'
     },
     text: 2,
     icon: '🔍',

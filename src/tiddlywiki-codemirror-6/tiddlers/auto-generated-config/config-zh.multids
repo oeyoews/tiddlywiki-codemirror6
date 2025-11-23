@@ -61,9 +61,11 @@ minimapAudoHide/description: 自动隐藏小地图
 closeBrackets/caption: 🔄 自动关闭括号
 closeBrackets/description: 自动关闭括号。
 indentWithTab/caption: 🔄 制表符缩进
-indentWithTab/description: 使用制表符进行缩进，而不是空格。
-tabSize/caption: 🔍 制表符大小
-tabSize/description: 设置制表符的大小。
+indentWithTab/description: 使用制表符进行缩进，而不是空格。如果关闭制表符缩进，tab后会跳出编辑器区域
+indentType/caption: 🔍 缩进类型
+indentType/description: 设置缩进类型，tab 或 space。需要开启制表符缩进
+indentSize/caption: 🔍 缩进大小
+indentSize/description: 设置制表符的大小。
 bracketMatching/caption: 🔄 括号匹配
 bracketMatching/description: 启用括号匹配。
 autocompleteIcons/caption: 🎨 自动完成图标

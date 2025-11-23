@@ -61,9 +61,11 @@ minimapAudoHide/description: Automatically hide minimap
 closeBrackets/caption: 🔄 Close Brackets
 closeBrackets/description: Automatically close brackets.
 indentWithTab/caption: 🔄 Indent with Tab
-indentWithTab/description: Indent with tab instead of spaces.
-tabSize/caption: 🔍 Tab Size
-tabSize/description: Set the size of tabs.
+indentWithTab/description: Indent with tab instead of spaces. If disabled, tab will jump out of the editor area
+indentType/caption: 🔍 Indent Type
+indentType/description: Set the type of indent, tab or space. Need to enable indent with tab.
+indentSize/caption: 🔍 Indent Size
+indentSize/description: Set the size of tabs.
 bracketMatching/caption: 🔄 Bracket Matching
 bracketMatching/description: Enable matching of brackets.
 autocompleteIcons/caption: 🎨 Autocomplete Icons

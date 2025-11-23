@@ -1,0 +1,12 @@
+title: $:/config/codemirror-6/indentType
+caption: {{$:/language/codemirror6/indentType/caption}}
+caption-zh: {{$:/language/codemirror6/zh/indentType/caption}}
+description: {{$:/language/codemirror6/indentType/description}}
+description-zh: {{$:/language/codemirror6/zh/indentType/description}}
+settings-template: select
+id: 32
+settings-group: general
+option-names: tab space
+option-values: tab space
+
+tab
