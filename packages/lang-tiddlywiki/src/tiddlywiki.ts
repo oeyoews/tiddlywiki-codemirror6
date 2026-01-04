@@ -25,7 +25,7 @@ function isHeading(type: NodeType) {
 
 function findSectionEnd(headerNode: SyntaxNode, level: number) {
   let last = headerNode;
-  for (;;) {
+  for (; ;) {
     let next = last.nextSibling,
       heading;
     if (!next || ((heading = isHeading(next.type)) != null && heading <= level))
@@ -67,8 +67,8 @@ export const tiddlywikiLanguage = LRLanguage.define({
   languageData: {
     commentTokens: {
       block: {
-        open: '<!--',
-        close: '-->'
+        open: '<!-- ',
+        close: ' -->'
       }
     },
     indentOnInput: /^\s*<\/\w+\W$/
@@ -87,8 +87,8 @@ export const tiddlywikiLanguage = LRLanguage.define({
 type ITiddlywikiConfig = {
   defaultCodeLanguage?: Language | LanguageSupport;
   codeLanguages?:
-    | readonly LanguageDescription[]
-    | ((info: string) => Language | LanguageDescription | null);
+  | readonly LanguageDescription[]
+  | ((info: string) => Language | LanguageDescription | null);
   completeHTMLTags?: boolean;
 };
 

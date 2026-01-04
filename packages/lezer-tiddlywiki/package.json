@@ -36,14 +36,14 @@
     "clean": true
   },
   "dependencies": {
-    "@codemirror/language": "^6.10.1",
-    "@lezer/highlight": "^1.2.0",
-    "@lezer/lr": "^1.4.0",
-    "tsup": "^8.0.1"
+    "@codemirror/language": "^6.12.1",
+    "@lezer/highlight": "^1.2.3",
+    "@lezer/lr": "^1.4.5",
+    "tsup": "^8.5.1"
   },
   "devDependencies": {
-    "@lezer/generator": "^1.6.0",
-    "mocha": "^10.2.0"
+    "@lezer/generator": "^1.8.0",
+    "mocha": "^10.8.2"
   },
   "license": "MIT"
 }

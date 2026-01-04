@@ -49,8 +49,8 @@ const tiddlywikiLanguage = language.LRLanguage.define({
     languageData: {
         commentTokens: {
             block: {
-                open: '<!--',
-                close: '-->'
+                open: '<!-- ',
+                close: ' -->'
             }
         },
         indentOnInput: /^\s*<\/\w+\W$/

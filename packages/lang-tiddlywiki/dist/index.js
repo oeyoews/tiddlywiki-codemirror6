@@ -1,5 +1,5 @@
 import { TiddlyWikiParser, tiddlywikiHighlighting } from 'lezer-tiddlywiki';
-import { foldService, syntaxTree, LRLanguage, indentNodeProp, delimitedIndent, foldNodeProp, foldInside, LanguageSupport } from '@codemirror/language';
+import { foldService, syntaxTree, LRLanguage, indentNodeProp, foldNodeProp, delimitedIndent, foldInside, LanguageSupport } from '@codemirror/language';
 import { NodeProp } from '@lezer/common';
 
 const headingProp = /*@__PURE__*/new NodeProp();
@@ -47,8 +47,8 @@ const tiddlywikiLanguage = /*@__PURE__*/LRLanguage.define({
     languageData: {
         commentTokens: {
             block: {
-                open: '<!--',
-                close: '-->'
+                open: '<!-- ',
+                close: ' -->'
             }
         },
         indentOnInput: /^\s*<\/\w+\W$/

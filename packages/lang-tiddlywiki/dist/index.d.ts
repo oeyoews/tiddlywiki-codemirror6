@@ -1,4 +1,4 @@
-import { LRLanguage, LanguageSupport, Language, LanguageDescription } from '@codemirror/language';
+import { LRLanguage, Language, LanguageSupport, LanguageDescription } from '@codemirror/language';
 
 declare const tiddlywikiLanguage: LRLanguage;
 type ITiddlywikiConfig = {

@@ -16,12 +16,12 @@
   "keywords": [],
   "author": "",
   "devDependencies": {
-    "@codemirror/buildhelper": "^1.0.0"
+    "@codemirror/buildhelper": "^1.0.2"
   },
   "license": "MIT",
   "dependencies": {
-    "@codemirror/language": "^6.10.1",
-    "@lezer/highlight": "^1.2.0",
+    "@codemirror/language": "^6.12.1",
+    "@lezer/highlight": "^1.2.3",
     "lezer-tiddlywiki": "workspace:^"
   }
 }
