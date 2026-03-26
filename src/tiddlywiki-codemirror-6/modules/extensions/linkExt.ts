@@ -30,14 +30,23 @@ class HyperLink extends WidgetType {
 }
 
 // https://github.com/uiwjs/react-codemirror/blob/master/extensions/hyper-link/src/index.ts
-const defaultRegexp = /\b((?:https?|ftp):\/\/[^\s/$.?#].[^\s]*)\b/gi;
+// For TiddlyWiki wikitext, external links are commonly written as `[[https://...]]`.
+// So the URL match must stop before the closing `]]` (otherwise we'd end up with
+// `https://example.com/]]00` when the editor tokenization includes `]]00` right after).
+//
+// Note: don't blindly forbid `]` since URLs can contain single `]` (e.g. IPv6 literals like
+// `http://[::1]/`). We only stop when `]` starts the `]]` sequence.
+const defaultRegexp =
+  /((?:https?|ftp):\/\/(?:[^\s\[\]|]+|](?!]))+)(?=\s|$|\]\]|\|)/gi;
 
 // https://xxxk
 const linkDecorator = new MatchDecorator({
   // regexp: /https?:\/\/[a-z0-9\._/~%\-\+&\#\?!=\(\)@]*/gi,
   regexp: defaultRegexp,
   decorate: (add, from, to, match, view) => {
-    const url = match[0];
+    // Trim common trailing punctuation (.) to avoid generating invalid URLs like
+    // `https://example.com/]]00` from TiddlyWiki wikitext tokens.
+    const url = match[0].replace(/[),.;!?]+$/g, '');
     const start = to,
       end = to;
     const linkIcon = new HyperLink({ at: start, url });
