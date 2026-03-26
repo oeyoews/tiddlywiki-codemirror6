@@ -10,24 +10,38 @@ function getSaveStatus() {
 
 type ISave = ReturnType<typeof getSaveStatus>;
 
+const WORD_CHAR_REGEXP = /[\w\u4e00-\u9fa5]/;
+const CHINESE_CHAR_REGEXP = /[\u4e00-\u9fa5]/;
+
+/**
+ * Word count rules:
+ * - Each Chinese character counts as 1 "word".
+ * - Each consecutive run of "word chars" (letters/digits/_ plus Chinese) counts as 1,
+ *   but Chinese chars should not merge English word runs.
+ */
+export function countWordsFromString(text: string) {
+  let count = 0;
+  let inEnglishWordRun = false;
+
+  for (let i = 0; i < text.length; i++) {
+    const ch = text[i];
+    const isChineseChar = CHINESE_CHAR_REGEXP.test(ch);
+    const isWordChar = WORD_CHAR_REGEXP.test(ch);
+
+    if (isChineseChar || (isWordChar && !inEnglishWordRun)) count++;
+
+    // 中文仍然会增加 count，但不参与“英文/数字/下划线”的连续状态，
+    // 以免出现 “你好Hello世界” 少算 “Hello” 的问题。
+    inEnglishWordRun = isWordChar && !isChineseChar;
+  }
+
+  return count;
+}
+
 // @experimental
 // TODO: throttle
 function countWords(doc: Text) {
-  let count = 0,
-    iter = doc.iter();
-
-  while (!iter.next().done) {
-    let inWord = false;
-
-    for (let i = 0; i < iter.value.length; i++) {
-      let word = /[\w\u4e00-\u9fa5]/.test(iter.value[i]);
-      let isChineseChar = /[\u4e00-\u9fa5]/.test(iter.value[i]);
-
-      if (isChineseChar || (word && !inWord)) count++;
-      inWord = word;
-    }
-  }
-
+  const count = countWordsFromString(doc.toString());
   return `Words: ${count} (Chars: ${doc.length})`;
 }
 
@@ -73,7 +87,6 @@ function charCountPanel(view: EditorView): Panel {
     dom,
     update(update) {
       if (update.docChanged) {
-        leftNode.textContent = countWords(view.state.doc);
         leftNode.textContent = countWords(view.state.doc);
 
         // lineInfo.textContent = getPosPercent(view);
