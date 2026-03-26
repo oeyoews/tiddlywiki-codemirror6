@@ -25,6 +25,7 @@ import { type IWidget } from '@/cm6/types/IWidget';
 import { cmkeymaps } from '@/cm6/modules/keymap';
 import { linkHoverPreview } from '@/cm6/modules/extensions/wordhover';
 import { linkExt } from '@/cm6/modules/extensions/linkExt';
+import { openLinkOnDblClick } from '@/cm6/modules/extensions/openLinkOnDblClick';
 import { tidExt } from '@/cm6/modules/extensions/tidExt';
 import { imgExt } from '@/cm6/modules/extensions/imgExt';
 import removeOutlineExt from './removeOutlineExt';
@@ -71,6 +72,7 @@ export default function updateExtensions(cme: Extension[], widget: IWidget) {
     conf.wordCount() && cme.push(wordCountExt());
     conf.lineNumbers() && cme.push(lineNumbers());
 
+    cme.push(openLinkOnDblClick);
     conf.clickable() && cme.push(linkExt, tidExt, imgExt);
     conf.highlightNewLine() && cme.push(highlightNewLine);
     cme.push(rainbowBracketsWithText());
