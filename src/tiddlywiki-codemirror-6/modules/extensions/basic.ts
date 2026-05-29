@@ -29,6 +29,7 @@ import { indentUnit } from '@codemirror/language';
 import { Prec } from '@codemirror/state';
 import cm6 from '@/cm6/config';
 import rainbowBrackets from './rainbowBrackets';
+import typingSound from './typingSound';
 
 export function cme(self: any): Extension[] {
   let extensions = [
@@ -151,6 +152,7 @@ export function cme(self: any): Extension[] {
     crosshairCursor(),
     highlightSelectionMatches(),
     rainbowBrackets(),
+    typingSound,
     EditorView.contentAttributes.of({
       tabindex: self.widget.editTabIndex ? self.widget.editTabIndex : ''
     }),

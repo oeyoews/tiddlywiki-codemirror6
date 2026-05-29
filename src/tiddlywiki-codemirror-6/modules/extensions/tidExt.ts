@@ -7,7 +7,6 @@ import {
 } from '@codemirror/view';
 import cm6 from '@/cm6/config';
 import createViewPlugin from '@/cm6/utils/createViewPlugin';
-import { useSound } from '@/cm6/utils/capitalize';
 
 // add clickable icon
 class CustomLink extends WidgetType {
@@ -32,7 +31,6 @@ class CustomLink extends WidgetType {
     wrapper.ondblclick = (e: MouseEvent) => {
       e.preventDefault();
       // if (e.ctrlKey) {
-      useSound();
       new $tw.Story().navigateTiddler(title);
       // }
     };

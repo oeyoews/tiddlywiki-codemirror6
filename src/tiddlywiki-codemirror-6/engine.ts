@@ -26,6 +26,7 @@ import { type TW_Element } from 'tiddlywiki';
 import type { IWidget } from '@/cm6/types/IWidget';
 import inlineSuggestionExt from '@/cm6/modules//extensions/inlinesuggest';
 import { cme } from '@/cm6/modules/extensions/basic';
+import { warmUpAudio } from '@/cm6/utils/sound';
 
 class CodeMirrorEngine {
   domNode: TW_Element;
@@ -104,6 +105,14 @@ class CodeMirrorEngine {
 
     // 存储实例在 DOM 元素上
     this.domNode.cm6 = this.editor;
+
+    const unlockAudio = () => warmUpAudio();
+    this.editor.contentDOM.addEventListener('pointerdown', unlockAudio, {
+      once: true
+    });
+    this.editor.contentDOM.addEventListener('keydown', unlockAudio, {
+      once: true
+    });
 
     // @see https://github.com/replit/codemirror-vim/issues/6
     if (cm6.keymap() === 'vim' && cm6.insertModeFirst() && !options.value) {

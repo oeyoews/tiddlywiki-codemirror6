@@ -1,6 +1,5 @@
 import { Completion, startCompletion } from '@codemirror/autocomplete';
 import { IWidget } from '@/cm6/types/IWidget';
-import { useSound } from '@/cm6/utils/capitalize';
 
 const section = 'fields';
 const type = 'cm-field';

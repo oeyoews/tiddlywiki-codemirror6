@@ -1,7 +1,7 @@
 title: $:/language/codemirror6/zh/
 
 useSound/caption: 🔊 开启音效
-useSound/description: 由插件 [[oeyoews/neotw-play-sound|https://neotw.vercel.app/#%24%3A%2Fplugins%2Foeyoews%2Fneotw-play-sound]] 提供声音支持, 默认关闭
+useSound/description: 打字时播放短促提示音（Web Audio 振荡器），默认关闭
 foldGutter/caption: 📂 折叠按钮图标
 foldGutter/description: 在编辑器行号右侧显示折叠按钮图标
 foldByIndent/caption: 📝 按缩进折叠

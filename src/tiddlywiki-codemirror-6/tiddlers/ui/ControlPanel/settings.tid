@@ -9,10 +9,6 @@ tags: $:/tags/ControlPanel/SettingsTab
 [get[settings-group]!is[blank]else[!general]] [get[id]!is[blank]else[99]] +[join[]]
 \end
 
-\define useSound()
-<$action-sendmessage $message="neotw-play-sound" audioTiddler="$:/plugins/oeyoews/neotw-play-sound/sounds/bite.mp3" />
-\end
-
 <!-- TODO: toggle i18n -->
 Your codemirror6 config tiddlers: <$count filter="[prefix[$:/config/codemirror-6]] "/>/<$count filter="[all[tiddlers+shadows]prefix[$:/config/codemirror-6]]"/> (<small><$text text= {{{ [[$:/plugins/oeyoews/tiddlywiki-codemirror-6]get[version]] }}} /></small>) Language: <$select tiddler="$:/config/codemirror6/language" tooltip='change codemirror6 config language'>
 <option value=en>En</option>
@@ -77,11 +73,7 @@ Your codemirror6 config tiddlers: <$count filter="[prefix[$:/config/codemirror-6
 
 <!-- input-switch -->
 <% if [<currentTiddler>get[settings-template]split[/]last[]match[input-switch]] %>
-<% if [[$:/config/codemirror-6/useSound]get[text]match[yes]] %>
-<$checkbox field="text" checked="yes" unchecked="no" class="btcui-form-switch" actions=<<useSound>>/>
-<% else %>
 <$checkbox field="text" checked="yes" unchecked="no" class="btcui-form-switch"/>
-<% endif %>
 <% endif %>
 
 <!-- select -->

@@ -1,7 +1,7 @@
 title: $:/language/codemirror6/
 
 useSound/caption: 🔊 Use Sound
-useSound/description: Use Sound
+useSound/description: Play a short synthesized tone while typing. Off by default.
 foldGutter/caption: 📂 Fold Gutter Icon
 foldGutter/description: Show fold gutter icon
 foldByIndent/caption: 📝 Fold By Indent

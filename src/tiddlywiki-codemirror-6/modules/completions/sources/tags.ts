@@ -1,7 +1,5 @@
 import { Completion } from '@codemirror/autocomplete';
 import { IWidget } from '@/cm6/types/IWidget';
-import { useSound } from '@/cm6/utils/capitalize';
-
 const section = 'tags';
 const type = 'cm-tag';
 const delimiter = '#';
@@ -45,7 +43,6 @@ function snippets(widget: IWidget) {
 <$action-sendmessage $message="tm-add-tag" $param="${tag}"/>
 </$fieldmangler>`;
 
-          useSound();
           $tw.rootWidget.invokeActionString(
             actionString(widget.editTitle, item.title)
           );

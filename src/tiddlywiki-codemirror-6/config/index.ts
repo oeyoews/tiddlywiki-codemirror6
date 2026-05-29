@@ -61,8 +61,8 @@ export const tiddlers = defineConfig({
     text: 'no',
     icon: '🔊',
     description: {
-      zh: '由插件 [[oeyoews/neotw-play-sound|https://neotw.vercel.app/#%24%3A%2Fplugins%2Foeyoews%2Fneotw-play-sound]] 提供声音支持, 默认关闭',
-      en: 'Use Sound'
+      zh: '打字时播放短促提示音（Web Audio 振荡器），默认关闭',
+      en: 'Play a short synthesized tone while typing. Off by default.'
     }
   },
   // EditorHeight: {
